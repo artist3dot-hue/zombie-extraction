@@ -1,0 +1,133 @@
+{
+ "key": "spr_pc_blaster_x",
+ "image": "pc_blaster_x.png",
+ "frameWidth": 48,
+ "frameHeight": 56,
+ "originPx": [
+  24,
+  55
+ ],
+ "soleRow": 54,
+ "coords": "和 sprites/player.json 同一套帧坐标（帧左上角 = 0,0，原点 24,55）；armLayer=true 的帧在 points.shoulder 画武器手臂层（同 spr_player）",
+ "frames": [
+  {
+   "frame": 0,
+   "anim": "pc_blaster_plant",
+   "armLayer": false,
+   "ms": 90,
+   "points": {
+    "shoulder": [
+     29,
+     28
+    ],
+    "shoulderBack": [
+     27,
+     32
+    ]
+   }
+  },
+  {
+   "frame": 1,
+   "anim": "pc_blaster_plant",
+   "armLayer": false,
+   "ms": 90,
+   "points": {
+    "shoulder": [
+     31,
+     31
+    ],
+    "shoulderBack": [
+     29,
+     35
+    ]
+   }
+  },
+  {
+   "frame": 2,
+   "anim": "pc_blaster_plant",
+   "armLayer": false,
+   "ms": 90,
+   "points": {
+    "shoulder": [
+     28,
+     26
+    ],
+    "shoulderBack": [
+     26,
+     30
+    ]
+   }
+  },
+  {
+   "frame": 3,
+   "anim": "pc_blaster_detonate",
+   "armLayer": false,
+   "ms": 80,
+   "points": {
+    "shoulder": [
+     26,
+     24
+    ],
+    "shoulderBack": [
+     24,
+     28
+    ]
+   }
+  },
+  {
+   "frame": 4,
+   "anim": "pc_blaster_detonate",
+   "armLayer": false,
+   "ms": 120,
+   "points": {
+    "shoulder": [
+     27,
+     24
+    ],
+    "shoulderBack": [
+     25,
+     28
+    ]
+   }
+  }
+ ],
+ "anims": {
+  "pc_blaster_plant": {
+   "frames": [
+    0,
+    1,
+    2
+   ],
+   "durationsMs": [
+    90,
+    90,
+    90
+   ],
+   "armLayer": [
+    false,
+    false,
+    false
+   ],
+   "totalMs": 270,
+   "loop": false,
+   "usage": "按 G 放炸药：帧 1（手贴地）时在脚前生成 fx_pc_blaster_tnt。armLayer=false。"
+  },
+  "pc_blaster_detonate": {
+   "frames": [
+    3,
+    4
+   ],
+   "durationsMs": [
+    80,
+    120
+   ],
+   "armLayer": [
+    false,
+    false
+   ],
+   "totalMs": 200,
+   "loop": false,
+   "usage": "再按 G 引爆：帧 1（按钮亮）时引爆场上所有炸药包。armLayer=false。"
+  }
+ }
+}

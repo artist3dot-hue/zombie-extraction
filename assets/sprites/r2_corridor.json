@@ -1,0 +1,9 @@
+{
+ "key": "spr_r2_corridor",
+ "anchor": "左上 (0,1) = chunk (192,176)",
+ "brokenWindowX": [
+  64,
+  512
+ ],
+ "note": "spr_r2_spawn_window_broken（P1）叠在这两处"
+}

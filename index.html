@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- §45 启动面包屑 + 安全模式：必须是页面里第一个脚本（ES5 写法、内联，主程序加载失败 / 语法不支持 / 网页被杀掉也能记下来）。
+         记录：localStorage 'zi_diag_v1'；上次没到标题 / 启动报错 → 左上角一行小字 + 下一次自动降一级安全模式；?diag 显示完整面包屑；
+         ?safe=0|1|2 手动指定（0 = 清掉降级）；?nosw 注销 Service Worker 并清缓存。说明见报告 §45。 -->
+    <script>
+      (function () {
+        var KEY = 'zi_diag_v1';
+        var BUILD = '260928-1839';
+        var T0 = Date.now();
+        var q = location.search || '';
+        function qp(n) {
+          var m = new RegExp('[?&]' + n + '(?:=([^&#]*))?(?:&|#|$)').exec(q);
+          return m ? (m[1] === undefined ? '' : decodeURIComponent(m[1])) : null;
+        }
+        var ua = navigator.userAgent || '';
+        var mtp = navigator.maxTouchPoints || 0;
+        // iPadOS 13+ Safari 默认“桌面网站”：UA 自称 Macintosh，但有多点触控
+        var ios = /iPhone|iPad|iPod/.test(ua) || (/Macintosh/.test(ua) && mtp > 1);
+        var ls = null;
+        try {
+          ls = window.localStorage;
+          ls.setItem(KEY + '_t', '1');
+          ls.removeItem(KEY + '_t');
+        } catch (e) {
+          ls = null;
+        }
+        var saved = {};
+        try {
+          saved = JSON.parse((ls && ls.getItem(KEY)) || '{}') || {};
+        } catch (e) {
+          saved = {};
+        }
+        var prev = saved.cur || null;
+        // 降级只对同一个构建累计：部署了新版本就从 0 级重新开始
+        var level = saved.build === BUILD ? saved.level | 0 : 0;
+        var bad = '';
+        if (prev) {
+          if (prev.early) bad = '启动时报错';
+          // 没到标题：网页被杀（没有 pagehide）、或者等了 20 秒以上才关掉 / 刷新；很快就关掉的不算
+          else if (!prev.title && (!prev.hid || prev.hid > 20000)) bad = '没进到标题';
+          // 标题后后台加载资源时网页没了（没有 pagehide）：只在 iOS 上算（WebKit 内存超限杀网页；桌面多半是关了浏览器）
+          else if (!prev.bg && !prev.hid && prev.ios) bad = '标题后加载资源时中断';
+        }
+        if (bad && prev.b === BUILD) level = Math.min(2, level + 1);
+        var force = qp('safe');
+        if (force !== null && /^[0-2]$/.test(force)) level = +force;
+        var cur = { b: BUILD, t: T0, lv: level, ios: ios ? 1 : 0, st: [], errs: [], early: 0, title: 0, bg: 0, hid: 0 };
+        function save() {
+          if (!ls) return;
+          try {
+            ls.setItem(KEY, JSON.stringify({ build: BUILD, level: level, last: prev, cur: cur }));
+          } catch (e) {
+            /* 存储满 / 隐私模式 */
+          }
+        }
+        function ms() {
+          return Date.now() - T0;
+        }
+        function mark(s) {
+          cur.st.push([ms(), String(s).slice(0, 80)]);
+          if (cur.st.length > 80) cur.st.splice(10, cur.st.length - 80);
+          save();
+        }
+        /** 同一个 k 的进度只留最新一条（下载 / 解码 n/N） */
+        function prog(k, s) {
+          var st = cur.st;
+          for (var i = st.length - 1; i >= 0 && i >= st.length - 12; i--) {
+            if (st[i][2] === k) {
+              st[i][0] = ms();
+              st[i][1] = String(s).slice(0, 80);
+              save();
+              return;
+            }
+          }
+          st.push([ms(), String(s).slice(0, 80), k]);
+          save();
+        }
+        function short(u) {
+          u = String(u || '');
+          var i = u.lastIndexOf('/');
+          return i >= 0 ? u.slice(i + 1, i + 60) : u.slice(0, 60);
+        }
+        function err(msg, fatal) {
+          cur.errs.push(ms() + 'ms ' + String(msg).slice(0, 200));
+          if (cur.errs.length > 8) cur.errs.splice(4, 1);
+          // 进标题之前的脚本错误 / 主程序加载失败 → 算“启动失败”（下次降级）；之后的只显示
+          if (fatal && !cur.title) cur.early = 1;
+          save();
+        }
+        window.addEventListener(
+          'error',
+          function (e) {
+            var t = e && e.target;
+            if (t && t !== window && t.tagName) {
+              if (t.tagName === 'SCRIPT' || t.tagName === 'LINK') err('资源加载失败 ' + short(t.src || t.href), true);
+              return;
+            }
+            err((e.message || 'error') + (e.filename ? ' @' + short(e.filename) + ':' + e.lineno + ':' + (e.colno || 0) : ''), true);
+          },
+          true,
+        );
+        window.addEventListener('unhandledrejection', function (e) {
+          var r = e && e.reason;
+          err('Promise: ' + ((r && (r.message || r.name)) || String(r)), false);
+        });
+        function hidden() {
+          if (!cur.hid) cur.hid = Math.max(1, ms());
+          save();
+        }
+        window.addEventListener('pagehide', hidden);
+        document.addEventListener('visibilitychange', function () {
+          if (document.visibilityState === 'hidden') hidden();
+        });
+
+        // Service Worker：iOS / iPadOS 和安全模式下不用（已装的注销 + 清缓存，本页刷新一次让它彻底脱离）；?nosw 同样
+        var noSW = level >= 1 || qp('nosw') !== null;
+        if (noSW && 'serviceWorker' in navigator) {
+          try {
+            navigator.serviceWorker.getRegistrations().then(function (rs) {
+              if (!rs.length) return;
+              var n = 0;
+              for (var i = 0; i < rs.length; i++)
+                rs[i].unregister().then(function () {
+                  if (++n < rs.length) return;
+                  if (window.caches)
+                    caches.keys().then(function (ks) {
+                      for (var j = 0; j < ks.length; j++) if (/^zi-/.test(ks[j])) caches['delete'](ks[j]);
+                    });
+                  var ss = null;
+                  try {
+                    ss = window.sessionStorage;
+                  } catch (e) {}
+                  if (navigator.serviceWorker.controller && ss && !ss.getItem('zi_sw_off')) {
+                    ss.setItem('zi_sw_off', '1');
+                    mark('sw:unregistered→reload');
+                    location.reload();
+                  } else mark('sw:unregistered');
+                });
+            });
+          } catch (e) {
+            /* 老 Safari */
+          }
+        }
+
+        // 左上角一行小字（上次失败 / 本次卡住 / ?diag 完整面包屑）
+        var diag = qp('diag') !== null;
+        var box = null;
+        function lastStep(r) {
+          var s = r && r.st && r.st.length ? r.st[r.st.length - 1] : null;
+          return s ? s[1] + '（' + (s[0] / 1000).toFixed(1) + 's）' : '（页面脚本没跑起来）';
+        }
+        function dumpRun(name, r) {
+          if (!r) return name + '：无\n';
+          var out = name + '：构建 ' + r.b + ' 安全模式 ' + r.lv + (r.title ? ' 到了标题' : ' 没到标题') + (r.bg ? ' 资源加载完' : '') + (r.hid ? ' 切走过' : '') + '\n';
+          for (var i = 0; i < r.st.length; i++) out += '  ' + (r.st[i][0] / 1000).toFixed(2) + 's ' + r.st[i][1] + '\n';
+          for (var j = 0; j < r.errs.length; j++) out += '  错误 ' + r.errs[j] + '\n';
+          return out;
+        }
+        var prevLine = '';
+        if (prev && (bad || (prev.errs && prev.errs.length)))
+          prevLine =
+            '上次加载停在：' + lastStep(prev) + (prev.errs && prev.errs.length ? ' / 错误：' + prev.errs[0] : '') + (bad ? ' / ' + bad : '') + ' ｜ 本次安全模式 ' + level + ' ｜ ' + BUILD;
+        function render() {
+          var txt = '';
+          if (diag) {
+            var m = navigator.deviceMemory ? ' 内存' + navigator.deviceMemory + 'GB' : '';
+            txt =
+              '构建 ' + BUILD + ' 安全模式 ' + level + (ios ? ' iOS' : '') + ' 触点' + mtp + ' DPR' + (window.devicePixelRatio || 1) + ' ' + screen.width + '×' + screen.height + m +
+              ' SW' + (navigator.serviceWorker && navigator.serviceWorker.controller ? '开' : '关') + '\n' + ua + '\n' + dumpRun('本次', cur) + dumpRun('上次', prev);
+          } else {
+            if (prevLine && ms() < 30000 + (cur.title ? 0 : 1e9)) txt = prevLine;
+            if (!cur.title && ms() > 12000) txt += (txt ? '\n' : '') + '加载中 ' + Math.round(ms() / 1000) + 's：' + lastStep(cur) + (cur.errs.length ? ' / 错误：' + cur.errs[0] : '');
+          }
+          if (!txt) {
+            if (box) box.style.display = 'none';
+            return;
+          }
+          if (!box) {
+            if (!document.body) return;
+            box = document.createElement('div');
+            box.id = 'zi-diag';
+            box.style.cssText =
+              'position:fixed;left:calc(env(safe-area-inset-left,0px) + 2px);top:calc(env(safe-area-inset-top,0px) + 2px);z-index:2147483647;max-width:96vw;max-height:96vh;overflow:auto;' +
+              'font:11px/1.35 monospace;color:#ff5;background:rgba(0,0,0,.72);padding:2px 5px;white-space:pre-wrap;word-break:break-all;' +
+              (diag ? 'pointer-events:auto;-webkit-user-select:text;user-select:text;' : 'pointer-events:none;');
+            document.body.appendChild(box);
+          }
+          box.style.display = 'block';
+          box.textContent = txt;
+        }
+        setInterval(render, diag ? 500 : 1000);
+        document.addEventListener('DOMContentLoaded', render);
+        try {
+          document.documentElement.setAttribute('data-zi-safe', String(level));
+        } catch (e) {}
+
+        window.__ZI_DIAG = {
+          build: BUILD,
+          level: level,
+          ios: ios,
+          mark: mark,
+          prog: prog,
+          err: err,
+          title: function () {
+            if (cur.title) return;
+            cur.title = 1;
+            mark('title:ready');
+          },
+          bgDone: function () {
+            if (cur.bg) return;
+            cur.bg = 1;
+            mark('bg:done');
+          },
+          dump: function () {
+            return { level: level, bad: bad, cur: cur, last: prev };
+          },
+          reset: function () {
+            try {
+              ls && ls.removeItem(KEY);
+            } catch (e) {}
+          },
+        };
+        mark('html' + (ios ? ' ios' : '') + ' L' + level);
+      })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+    <!-- §32 手机端：加到主屏幕后全屏、横屏（app.webmanifest）；iOS Safari 用 apple-mobile-web-app-capable -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="theme-color" content="#000000" />
+    <link rel="manifest" href="./app.webmanifest" />
+    <title>尸城撤离 v0.1</title>
+    <style>html,body{background:#000;height:100%;margin:0;overflow:hidden}</style>
+    <script type="module" crossorigin src="./assets/app/index-C9DydWr9.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/app/index-DjHlQmfW.css">
+  </head>
+  <body>
+    <div id="game-root"></div>
+    <div id="ui"></div>
+  </body>
+</html>

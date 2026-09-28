@@ -1,0 +1,2016 @@
+{
+ "_doc": "v02-fx-icons 光照表（C 路线 v2）。每个特效播放时，把 stamps 里的 cookie（fx_light_*，灰阶 = 光强）用 ADD 印进光照 RT：tint = color，alpha 按特效当前帧取 alpha[frame]；target: set = 场景图 lmSet，actor = 角色图 lmActor，both = 两张都印。cropAtGround = 印的时候 setCrop 到 groundY 以上（墙面光停在墙脚，C v2 #4）；shadow = 闪光帧按 C v2 做遮挡投影（ERASE 以枪口为中心放大 1.36/1.62 的遮挡物剪影）；at: ground = 原点对准光源正下方的地面线 groundY（光池中心自动落在路面下 5px），光源离地超过 groundRange 就不印，之内 alpha ×(1 − 离地高度/groundRange)；rotate: aim = 随瞄准角旋转（原点枪口）；scale = 印章缩放。枪口火光的 alpha 只取前 flashFrames 个（引擎 WEAPON_FX.flashFrames，每帧 17ms）。连射武器按 C 3.3 #5 压到 .55 档。引擎实际播放的枪口火光键是别名（fx_muzzle_star_9 等），表里别名和新键都列了，aliasOf 指向新键。数值是起始值，要在实机里调。",
+ "levels": {
+  "lv3": [
+   85,
+   170,
+   255
+  ],
+  "hot": [
+   56,
+   140,
+   255
+  ],
+  "wall4": [
+   26,
+   61,
+   140,
+   255
+  ],
+  "pool4": [
+   46,
+   94,
+   140,
+   255
+  ],
+  "lobe": [
+   76,
+   140,
+   204
+  ]
+ },
+ "drawRules": {
+  "_doc": "C 路线的绘制层：lit = 放进 setRoot/actorRoot，被光照图相乘（血、尸块、烟、贴花、弹壳）；unlit = 整张就是光源，画在 fxRoot、不乘光照；litWithEmit = 本体按 lit 画，再在 fxRoot 同帧画 *_emit（只含火 / 白热 / 火星 / 发光酸液像素），这样夜里烟和血不会自己发光",
+  "unlit": [
+   "fx_breakthrough",
+   "fx_crit",
+   "fx_hit_steel",
+   "fx_hitstar",
+   "fx_levelup",
+   "fx_levelup_front",
+   "fx_muzzle_crossbow",
+   "fx_muzzle_flamer",
+   "fx_muzzle_grenade",
+   "fx_muzzle_pistol",
+   "fx_muzzle_revolver",
+   "fx_muzzle_rifle",
+   "fx_muzzle_shotgun",
+   "fx_muzzle_smg",
+   "fx_muzzle_smg_b"
+  ],
+  "litWithEmit": {
+   "fx_hit_flesh": "fx_hit_flesh_emit",
+   "fx_acid_glob": "fx_acid_glob_emit",
+   "fx_acid_splash": "fx_acid_splash_emit",
+   "fx_acid_mist": "fx_acid_mist_emit",
+   "fx_fireball_8": "fx_fireball_8_emit",
+   "fx_fireball_12": "fx_fireball_12_emit",
+   "fx_fireball_16": "fx_fireball_16_emit",
+   "fx_fireball_22": "fx_fireball_22_emit",
+   "fx_fireball_28": "fx_fireball_28_emit",
+   "fx_fireball_36": "fx_fireball_36_emit",
+   "fx_fireball_44": "fx_fireball_44_emit",
+   "fx_explosion_m": "fx_explosion_m_emit",
+   "fx_explosion_l": "fx_explosion_l_emit",
+   "fx_flame": "fx_flame_emit"
+  }
+ },
+ "fx": {
+  "fx_muzzle_pistol": {
+   "color": "#ffd86a",
+   "stamps": [
+    {
+     "cookie": "fx_light_wall_84",
+     "target": "set",
+     "alpha": [
+      1.0,
+      0.55,
+      0.0
+     ],
+     "cropAtGround": true,
+     "shadow": true
+    },
+    {
+     "cookie": "fx_light_ring_24",
+     "target": "set",
+     "alpha": [
+      0.35,
+      0.19,
+      0.0
+     ],
+     "cropAtGround": true
+    },
+    {
+     "cookie": "fx_light_ground_92",
+     "target": "set",
+     "at": "ground",
+     "alpha": [
+      1.0,
+      0.55,
+      0.0
+     ],
+     "groundRange": 56
+    },
+    {
+     "cookie": "fx_light_hot_92",
+     "target": "actor",
+     "alpha": [
+      1.0,
+      0.55,
+      0.0
+     ]
+    },
+    {
+     "cookie": "fx_light_lobe",
+     "target": "actor",
+     "rotate": "aim",
+     "scale": 1.0,
+     "alpha": [
+      0.8,
+      0.44,
+      0.0
+     ]
+    }
+   ]
+  },
+  "fx_muzzle_star_9": {
+   "color": "#ffd86a",
+   "stamps": [
+    {
+     "cookie": "fx_light_wall_84",
+     "target": "set",
+     "alpha": [
+      1.0,
+      0.55,
+      0.0
+     ],
+     "cropAtGround": true,
+     "shadow": true
+    },
+    {
+     "cookie": "fx_light_ring_24",
+     "target": "set",
+     "alpha": [
+      0.35,
+      0.19,
+      0.0
+     ],
+     "cropAtGround": true
+    },
+    {
+     "cookie": "fx_light_ground_92",
+     "target": "set",
+     "at": "ground",
+     "alpha": [
+      1.0,
+      0.55,
+      0.0
+     ],
+     "groundRange": 56
+    },
+    {
+     "cookie": "fx_light_hot_92",
+     "target": "actor",
+     "alpha": [
+      1.0,
+      0.55,
+      0.0
+     ]
+    },
+    {
+     "cookie": "fx_light_lobe",
+     "target": "actor",
+     "rotate": "aim",
+     "scale": 1.0,
+     "alpha": [
+      0.8,
+      0.44,
+      0.0
+     ]
+    }
+   ],
+   "aliasOf": "fx_muzzle_pistol"
+  },
+  "fx_muzzle_smg": {
+   "color": "#ffd86a",
+   "stamps": [
+    {
+     "cookie": "fx_light_wall_64",
+     "target": "set",
+     "alpha": [
+      0.55,
+      0.22,
+      0.0
+     ],
+     "cropAtGround": true,
+     "shadow": true
+    },
+    {
+     "cookie": "fx_light_ring_24",
+     "target": "set",
+     "alpha": [
+      0.19,
+      0.08,
+      0.0
+     ],
+     "cropAtGround": true
+    },
+    {
+     "cookie": "fx_light_ground_64",
+     "target": "set",
+     "at": "ground",
+     "alpha": [
+      0.55,
+      0.22,
+      0.0
+     ],
+     "groundRange": 56
+    },
+    {
+     "cookie": "fx_light_hot_64",
+     "target": "actor",
+     "alpha": [
+      0.55,
+      0.22,
+      0.0
+     ]
+    },
+    {
+     "cookie": "fx_light_lobe",
+     "target": "actor",
+     "rotate": "aim",
+     "scale": 0.7,
+     "alpha": [
+      0.44,
+      0.18,
+      0.0
+     ]
+    }
+   ]
+  },
+  "fx_muzzle_star_8": {
+   "color": "#ffd86a",
+   "stamps": [
+    {
+     "cookie": "fx_light_wall_64",
+     "target": "set",
+     "alpha": [
+      0.55,
+      0.22,
+      0.0
+     ],
+     "cropAtGround": true,
+     "shadow": true
+    },
+    {
+     "cookie": "fx_light_ring_24",
+     "target": "set",
+     "alpha": [
+      0.19,
+      0.08,
+      0.0
+     ],
+     "cropAtGround": true
+    },
+    {
+     "cookie": "fx_light_ground_64",
+     "target": "set",
+     "at": "ground",
+     "alpha": [
+      0.55,
+      0.22,
+      0.0
+     ],
+     "groundRange": 56
+    },
+    {
+     "cookie": "fx_light_hot_64",
+     "target": "actor",
+     "alpha": [
+      0.55,
+      0.22,
+      0.0
+     ]
+    },
+    {
+     "cookie": "fx_light_lobe",
+     "target": "actor",
+     "rotate": "aim",
+     "scale": 0.7,
+     "alpha": [
+      0.44,
+      0.18,
+      0.0
+     ]
+    }
+   ],
+   "aliasOf": "fx_muzzle_smg"
+  },
+  "fx_muzzle_smg_b": {
+   "color": "#ffd86a",
+   "stamps": [
+    {
+     "cookie": "fx_light_wall_64",
+     "target": "set",
+     "alpha": [
+      0.55,
+      0.22,
+      0.0
+     ],
+     "cropAtGround": true,
+     "shadow": true
+    },
+    {
+     "cookie": "fx_light_ring_24",
+     "target": "set",
+     "alpha": [
+      0.19,
+      0.08,
+      0.0
+     ],
+     "cropAtGround": true
+    },
+    {
+     "cookie": "fx_light_ground_64",
+     "target": "set",
+     "at": "ground",
+     "alpha": [
+      0.55,
+      0.22,
+      0.0
+     ],
+     "groundRange": 56
+    },
+    {
+     "cookie": "fx_light_hot_64",
+     "target": "actor",
+     "alpha": [
+      0.55,
+      0.22,
+      0.0
+     ]
+    },
+    {
+     "cookie": "fx_light_lobe",
+     "target": "actor",
+     "rotate": "aim",
+     "scale": 0.7,
+     "alpha": [
+      0.44,
+      0.18,
+      0.0
+     ]
+    }
+   ]
+  },
+  "fx_muzzle_star_8_1": {
+   "color": "#ffd86a",
+   "stamps": [
+    {
+     "cookie": "fx_light_wall_64",
+     "target": "set",
+     "alpha": [
+      0.55,
+      0.22,
+      0.0
+     ],
+     "cropAtGround": true,
+     "shadow": true
+    },
+    {
+     "cookie": "fx_light_ring_24",
+     "target": "set",
+     "alpha": [
+      0.19,
+      0.08,
+      0.0
+     ],
+     "cropAtGround": true
+    },
+    {
+     "cookie": "fx_light_ground_64",
+     "target": "set",
+     "at": "ground",
+     "alpha": [
+      0.55,
+      0.22,
+      0.0
+     ],
+     "groundRange": 56
+    },
+    {
+     "cookie": "fx_light_hot_64",
+     "target": "actor",
+     "alpha": [
+      0.55,
+      0.22,
+      0.0
+     ]
+    },
+    {
+     "cookie": "fx_light_lobe",
+     "target": "actor",
+     "rotate": "aim",
+     "scale": 0.7,
+     "alpha": [
+      0.44,
+      0.18,
+      0.0
+     ]
+    }
+   ],
+   "aliasOf": "fx_muzzle_smg_b"
+  },
+  "fx_muzzle_shotgun": {
+   "color": "#ffd86a",
+   "stamps": [
+    {
+     "cookie": "fx_light_wall_110",
+     "target": "set",
+     "alpha": [
+      1.0,
+      0.55,
+      0.22
+     ],
+     "cropAtGround": true,
+     "shadow": true
+    },
+    {
+     "cookie": "fx_light_ring_24",
+     "target": "set",
+     "alpha": [
+      0.35,
+      0.19,
+      0.08
+     ],
+     "cropAtGround": true
+    },
+    {
+     "cookie": "fx_light_ground_92",
+     "target": "set",
+     "at": "ground",
+     "alpha": [
+      1.0,
+      0.55,
+      0.22
+     ],
+     "groundRange": 56
+    },
+    {
+     "cookie": "fx_light_hot_92",
+     "target": "actor",
+     "alpha": [
+      1.0,
+      0.55,
+      0.22
+     ]
+    },
+    {
+     "cookie": "fx_light_lobe",
+     "target": "actor",
+     "rotate": "aim",
+     "scale": 1.0,
+     "alpha": [
+      0.8,
+      0.44,
+      0.18
+     ]
+    }
+   ]
+  },
+  "fx_muzzle_burst_18": {
+   "color": "#ffd86a",
+   "stamps": [
+    {
+     "cookie": "fx_light_wall_110",
+     "target": "set",
+     "alpha": [
+      1.0,
+      0.55,
+      0.22
+     ],
+     "cropAtGround": true,
+     "shadow": true
+    },
+    {
+     "cookie": "fx_light_ring_24",
+     "target": "set",
+     "alpha": [
+      0.35,
+      0.19,
+      0.08
+     ],
+     "cropAtGround": true
+    },
+    {
+     "cookie": "fx_light_ground_92",
+     "target": "set",
+     "at": "ground",
+     "alpha": [
+      1.0,
+      0.55,
+      0.22
+     ],
+     "groundRange": 56
+    },
+    {
+     "cookie": "fx_light_hot_92",
+     "target": "actor",
+     "alpha": [
+      1.0,
+      0.55,
+      0.22
+     ]
+    },
+    {
+     "cookie": "fx_light_lobe",
+     "target": "actor",
+     "rotate": "aim",
+     "scale": 1.0,
+     "alpha": [
+      0.8,
+      0.44,
+      0.18
+     ]
+    }
+   ],
+   "aliasOf": "fx_muzzle_shotgun"
+  },
+  "fx_muzzle_revolver": {
+   "color": "#ffd86a",
+   "stamps": [
+    {
+     "cookie": "fx_light_wall_110",
+     "target": "set",
+     "alpha": [
+      1.0,
+      0.55,
+      0.0
+     ],
+     "cropAtGround": true,
+     "shadow": true
+    },
+    {
+     "cookie": "fx_light_ring_24",
+     "target": "set",
+     "alpha": [
+      0.35,
+      0.19,
+      0.0
+     ],
+     "cropAtGround": true
+    },
+    {
+     "cookie": "fx_light_ground_92",
+     "target": "set",
+     "at": "ground",
+     "alpha": [
+      1.0,
+      0.55,
+      0.0
+     ],
+     "groundRange": 56
+    },
+    {
+     "cookie": "fx_light_hot_92",
+     "target": "actor",
+     "alpha": [
+      1.0,
+      0.55,
+      0.0
+     ]
+    },
+    {
+     "cookie": "fx_light_lobe",
+     "target": "actor",
+     "rotate": "aim",
+     "scale": 1.0,
+     "alpha": [
+      0.8,
+      0.44,
+      0.0
+     ]
+    }
+   ]
+  },
+  "fx_muzzle_star_14": {
+   "color": "#ffd86a",
+   "stamps": [
+    {
+     "cookie": "fx_light_wall_110",
+     "target": "set",
+     "alpha": [
+      1.0,
+      0.55,
+      0.0
+     ],
+     "cropAtGround": true,
+     "shadow": true
+    },
+    {
+     "cookie": "fx_light_ring_24",
+     "target": "set",
+     "alpha": [
+      0.35,
+      0.19,
+      0.0
+     ],
+     "cropAtGround": true
+    },
+    {
+     "cookie": "fx_light_ground_92",
+     "target": "set",
+     "at": "ground",
+     "alpha": [
+      1.0,
+      0.55,
+      0.0
+     ],
+     "groundRange": 56
+    },
+    {
+     "cookie": "fx_light_hot_92",
+     "target": "actor",
+     "alpha": [
+      1.0,
+      0.55,
+      0.0
+     ]
+    },
+    {
+     "cookie": "fx_light_lobe",
+     "target": "actor",
+     "rotate": "aim",
+     "scale": 1.0,
+     "alpha": [
+      0.8,
+      0.44,
+      0.0
+     ]
+    }
+   ],
+   "aliasOf": "fx_muzzle_revolver"
+  },
+  "fx_muzzle_rifle": {
+   "color": "#ffd86a",
+   "stamps": [
+    {
+     "cookie": "fx_light_wall_84",
+     "target": "set",
+     "alpha": [
+      1.0,
+      0.55,
+      0.0
+     ],
+     "cropAtGround": true,
+     "shadow": true
+    },
+    {
+     "cookie": "fx_light_ring_24",
+     "target": "set",
+     "alpha": [
+      0.35,
+      0.19,
+      0.0
+     ],
+     "cropAtGround": true
+    },
+    {
+     "cookie": "fx_light_ground_92",
+     "target": "set",
+     "at": "ground",
+     "alpha": [
+      1.0,
+      0.55,
+      0.0
+     ],
+     "groundRange": 56
+    },
+    {
+     "cookie": "fx_light_hot_92",
+     "target": "actor",
+     "alpha": [
+      1.0,
+      0.55,
+      0.0
+     ]
+    },
+    {
+     "cookie": "fx_light_lobe",
+     "target": "actor",
+     "rotate": "aim",
+     "scale": 1.0,
+     "alpha": [
+      0.8,
+      0.44,
+      0.0
+     ]
+    }
+   ]
+  },
+  "fx_muzzle_star_12": {
+   "color": "#ffd86a",
+   "stamps": [
+    {
+     "cookie": "fx_light_wall_84",
+     "target": "set",
+     "alpha": [
+      1.0,
+      0.55,
+      0.0
+     ],
+     "cropAtGround": true,
+     "shadow": true
+    },
+    {
+     "cookie": "fx_light_ring_24",
+     "target": "set",
+     "alpha": [
+      0.35,
+      0.19,
+      0.0
+     ],
+     "cropAtGround": true
+    },
+    {
+     "cookie": "fx_light_ground_92",
+     "target": "set",
+     "at": "ground",
+     "alpha": [
+      1.0,
+      0.55,
+      0.0
+     ],
+     "groundRange": 56
+    },
+    {
+     "cookie": "fx_light_hot_92",
+     "target": "actor",
+     "alpha": [
+      1.0,
+      0.55,
+      0.0
+     ]
+    },
+    {
+     "cookie": "fx_light_lobe",
+     "target": "actor",
+     "rotate": "aim",
+     "scale": 1.0,
+     "alpha": [
+      0.8,
+      0.44,
+      0.0
+     ]
+    }
+   ],
+   "aliasOf": "fx_muzzle_rifle"
+  },
+  "fx_muzzle_grenade": {
+   "color": "#f59a2f",
+   "stamps": [
+    {
+     "cookie": "fx_light_wall_64",
+     "target": "set",
+     "alpha": [
+      0.55,
+      0.22,
+      0.0
+     ],
+     "cropAtGround": true,
+     "shadow": true
+    },
+    {
+     "cookie": "fx_light_ring_24",
+     "target": "set",
+     "alpha": [
+      0.19,
+      0.08,
+      0.0
+     ],
+     "cropAtGround": true
+    },
+    {
+     "cookie": "fx_light_ground_64",
+     "target": "set",
+     "at": "ground",
+     "alpha": [
+      0.55,
+      0.22,
+      0.0
+     ],
+     "groundRange": 56
+    },
+    {
+     "cookie": "fx_light_hot_48",
+     "target": "actor",
+     "alpha": [
+      0.55,
+      0.22,
+      0.0
+     ]
+    }
+   ]
+  },
+  "fx_muzzle_puff_12": {
+   "color": "#f59a2f",
+   "stamps": [
+    {
+     "cookie": "fx_light_wall_64",
+     "target": "set",
+     "alpha": [
+      0.55,
+      0.22,
+      0.0
+     ],
+     "cropAtGround": true,
+     "shadow": true
+    },
+    {
+     "cookie": "fx_light_ring_24",
+     "target": "set",
+     "alpha": [
+      0.19,
+      0.08,
+      0.0
+     ],
+     "cropAtGround": true
+    },
+    {
+     "cookie": "fx_light_ground_64",
+     "target": "set",
+     "at": "ground",
+     "alpha": [
+      0.55,
+      0.22,
+      0.0
+     ],
+     "groundRange": 56
+    },
+    {
+     "cookie": "fx_light_hot_48",
+     "target": "actor",
+     "alpha": [
+      0.55,
+      0.22,
+      0.0
+     ]
+    }
+   ],
+   "aliasOf": "fx_muzzle_grenade"
+  },
+  "fx_muzzle_flamer": {
+   "color": "#f59a2f",
+   "stamps": [
+    {
+     "cookie": "fx_light_wall_84",
+     "target": "set",
+     "alpha": [
+      0.55,
+      0.55,
+      0.55
+     ],
+     "cropAtGround": true,
+     "shadow": true
+    },
+    {
+     "cookie": "fx_light_ring_24",
+     "target": "set",
+     "alpha": [
+      0.19,
+      0.19,
+      0.19
+     ],
+     "cropAtGround": true
+    },
+    {
+     "cookie": "fx_light_ground_92",
+     "target": "set",
+     "at": "ground",
+     "alpha": [
+      0.55,
+      0.55,
+      0.55
+     ],
+     "groundRange": 56
+    },
+    {
+     "cookie": "fx_light_hot_64",
+     "target": "actor",
+     "alpha": [
+      0.55,
+      0.55,
+      0.55
+     ]
+    },
+    {
+     "cookie": "fx_light_lobe",
+     "target": "actor",
+     "rotate": "aim",
+     "scale": 0.7,
+     "alpha": [
+      0.44,
+      0.44,
+      0.44
+     ]
+    }
+   ]
+  },
+  "fx_muzzle_jet_6": {
+   "color": "#f59a2f",
+   "stamps": [
+    {
+     "cookie": "fx_light_wall_84",
+     "target": "set",
+     "alpha": [
+      0.55,
+      0.55,
+      0.55
+     ],
+     "cropAtGround": true,
+     "shadow": true
+    },
+    {
+     "cookie": "fx_light_ring_24",
+     "target": "set",
+     "alpha": [
+      0.19,
+      0.19,
+      0.19
+     ],
+     "cropAtGround": true
+    },
+    {
+     "cookie": "fx_light_ground_92",
+     "target": "set",
+     "at": "ground",
+     "alpha": [
+      0.55,
+      0.55,
+      0.55
+     ],
+     "groundRange": 56
+    },
+    {
+     "cookie": "fx_light_hot_64",
+     "target": "actor",
+     "alpha": [
+      0.55,
+      0.55,
+      0.55
+     ]
+    },
+    {
+     "cookie": "fx_light_lobe",
+     "target": "actor",
+     "rotate": "aim",
+     "scale": 0.7,
+     "alpha": [
+      0.44,
+      0.44,
+      0.44
+     ]
+    }
+   ],
+   "aliasOf": "fx_muzzle_flamer"
+  },
+  "fx_hitstar": {
+   "color": "#fff6d8",
+   "stamps": [
+    {
+     "cookie": "fx_light_ring_18",
+     "target": "both",
+     "alpha": [
+      1.0,
+      0.55,
+      0.0
+     ]
+    }
+   ]
+  },
+  "fx_crit": {
+   "color": "#fff6d8",
+   "stamps": [
+    {
+     "cookie": "fx_light_ring_24",
+     "target": "both",
+     "alpha": [
+      1.0
+     ]
+    }
+   ]
+  },
+  "fx_hit_flesh": {
+   "color": "#fff6d8",
+   "stamps": [
+    {
+     "cookie": "fx_light_ring_12",
+     "target": "both",
+     "alpha": [
+      0.55,
+      0.0
+     ]
+    }
+   ]
+  },
+  "fx_hit_steel": {
+   "color": "#fff6d8",
+   "stamps": [
+    {
+     "cookie": "fx_light_ring_18",
+     "target": "both",
+     "alpha": [
+      1.0,
+      0.55,
+      0.0
+     ]
+    }
+   ]
+  },
+  "fx_acid_glob": {
+   "color": "#d6f25a",
+   "stamps": [
+    {
+     "cookie": "fx_light_ring_12",
+     "target": "set",
+     "alpha": [
+      0.22
+     ]
+    }
+   ]
+  },
+  "fx_acid_splash": {
+   "color": "#d6f25a",
+   "stamps": [
+    {
+     "cookie": "fx_light_ring_18",
+     "target": "set",
+     "alpha": [
+      0.55,
+      0.55,
+      0.22,
+      0.22,
+      0.0,
+      0.0
+     ]
+    }
+   ]
+  },
+  "fx_fireball_8": {
+   "color": "#ffd86a",
+   "stamps": [
+    {
+     "cookie": "fx_light_wall_48",
+     "target": "set",
+     "alpha": [
+      1.0,
+      1.0,
+      0.55,
+      0.22,
+      0.0
+     ],
+     "cropAtGround": true
+    },
+    {
+     "cookie": "fx_light_ground_24",
+     "target": "set",
+     "at": "ground",
+     "alpha": [
+      1.0,
+      1.0,
+      0.55,
+      0.22,
+      0.0
+     ],
+     "groundRange": 80
+    },
+    {
+     "cookie": "fx_light_hot_24",
+     "target": "actor",
+     "alpha": [
+      1.0,
+      1.0,
+      0.55,
+      0.22,
+      0.0
+     ]
+    }
+   ]
+  },
+  "fx_fireball_12": {
+   "color": "#ffd86a",
+   "stamps": [
+    {
+     "cookie": "fx_light_wall_48",
+     "target": "set",
+     "alpha": [
+      1.0,
+      1.0,
+      0.55,
+      0.22,
+      0.0
+     ],
+     "cropAtGround": true
+    },
+    {
+     "cookie": "fx_light_ground_24",
+     "target": "set",
+     "at": "ground",
+     "alpha": [
+      1.0,
+      1.0,
+      0.55,
+      0.22,
+      0.0
+     ],
+     "groundRange": 80
+    },
+    {
+     "cookie": "fx_light_hot_24",
+     "target": "actor",
+     "alpha": [
+      1.0,
+      1.0,
+      0.55,
+      0.22,
+      0.0
+     ]
+    }
+   ]
+  },
+  "fx_fireball_16": {
+   "color": "#ffd86a",
+   "stamps": [
+    {
+     "cookie": "fx_light_wall_48",
+     "target": "set",
+     "alpha": [
+      1.0,
+      1.0,
+      0.55,
+      0.22,
+      0.0
+     ],
+     "cropAtGround": true
+    },
+    {
+     "cookie": "fx_light_ground_24",
+     "target": "set",
+     "at": "ground",
+     "alpha": [
+      1.0,
+      1.0,
+      0.55,
+      0.22,
+      0.0
+     ],
+     "groundRange": 80
+    },
+    {
+     "cookie": "fx_light_hot_48",
+     "target": "actor",
+     "alpha": [
+      1.0,
+      1.0,
+      0.55,
+      0.22,
+      0.0
+     ]
+    }
+   ]
+  },
+  "fx_fireball_22": {
+   "color": "#ffd86a",
+   "stamps": [
+    {
+     "cookie": "fx_light_wall_64",
+     "target": "set",
+     "alpha": [
+      1.0,
+      1.0,
+      0.55,
+      0.22,
+      0.0
+     ],
+     "cropAtGround": true
+    },
+    {
+     "cookie": "fx_light_ground_48",
+     "target": "set",
+     "at": "ground",
+     "alpha": [
+      1.0,
+      1.0,
+      0.55,
+      0.22,
+      0.0
+     ],
+     "groundRange": 80
+    },
+    {
+     "cookie": "fx_light_hot_48",
+     "target": "actor",
+     "alpha": [
+      1.0,
+      1.0,
+      0.55,
+      0.22,
+      0.0
+     ]
+    }
+   ]
+  },
+  "fx_fireball_28": {
+   "color": "#ffd86a",
+   "stamps": [
+    {
+     "cookie": "fx_light_wall_64",
+     "target": "set",
+     "alpha": [
+      1.0,
+      1.0,
+      0.55,
+      0.22,
+      0.0
+     ],
+     "cropAtGround": true
+    },
+    {
+     "cookie": "fx_light_ground_64",
+     "target": "set",
+     "at": "ground",
+     "alpha": [
+      1.0,
+      1.0,
+      0.55,
+      0.22,
+      0.0
+     ],
+     "groundRange": 80
+    },
+    {
+     "cookie": "fx_light_hot_64",
+     "target": "actor",
+     "alpha": [
+      1.0,
+      1.0,
+      0.55,
+      0.22,
+      0.0
+     ]
+    }
+   ]
+  },
+  "fx_fireball_36": {
+   "color": "#ffd86a",
+   "stamps": [
+    {
+     "cookie": "fx_light_wall_84",
+     "target": "set",
+     "alpha": [
+      1.0,
+      1.0,
+      0.55,
+      0.22,
+      0.0
+     ],
+     "cropAtGround": true
+    },
+    {
+     "cookie": "fx_light_ground_92",
+     "target": "set",
+     "at": "ground",
+     "alpha": [
+      1.0,
+      1.0,
+      0.55,
+      0.22,
+      0.0
+     ],
+     "groundRange": 80
+    },
+    {
+     "cookie": "fx_light_hot_92",
+     "target": "actor",
+     "alpha": [
+      1.0,
+      1.0,
+      0.55,
+      0.22,
+      0.0
+     ]
+    }
+   ]
+  },
+  "fx_fireball_44": {
+   "color": "#ffd86a",
+   "stamps": [
+    {
+     "cookie": "fx_light_wall_110",
+     "target": "set",
+     "alpha": [
+      1.0,
+      1.0,
+      0.55,
+      0.22,
+      0.0
+     ],
+     "cropAtGround": true
+    },
+    {
+     "cookie": "fx_light_ground_92",
+     "target": "set",
+     "at": "ground",
+     "alpha": [
+      1.0,
+      1.0,
+      0.55,
+      0.22,
+      0.0
+     ],
+     "groundRange": 80
+    },
+    {
+     "cookie": "fx_light_hot_92",
+     "target": "actor",
+     "alpha": [
+      1.0,
+      1.0,
+      0.55,
+      0.22,
+      0.0
+     ]
+    }
+   ]
+  },
+  "fx_explosion_m": {
+   "color": "#ffd86a",
+   "stamps": [
+    {
+     "cookie": "fx_light_wall_110",
+     "target": "set",
+     "alpha": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      0.55,
+      0.55,
+      0.22,
+      0.22,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+     ],
+     "scale": 1.0,
+     "cropAtGround": true
+    },
+    {
+     "cookie": "fx_light_ground_92",
+     "target": "set",
+     "at": "ground",
+     "alpha": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      0.55,
+      0.55,
+      0.22,
+      0.22,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+     ],
+     "scale": 1.0
+    },
+    {
+     "cookie": "fx_light_hot_92",
+     "target": "actor",
+     "alpha": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      0.55,
+      0.55,
+      0.22,
+      0.22,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+     ],
+     "scale": 1.0
+    }
+   ]
+  },
+  "fx_explosion_l": {
+   "color": "#ffd86a",
+   "stamps": [
+    {
+     "cookie": "fx_light_wall_110",
+     "target": "set",
+     "alpha": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      0.55,
+      0.55,
+      1.0,
+      1.0,
+      0.55,
+      0.22,
+      0.22,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+     ],
+     "scale": 1.5,
+     "cropAtGround": true
+    },
+    {
+     "cookie": "fx_light_ground_92",
+     "target": "set",
+     "at": "ground",
+     "alpha": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      0.55,
+      0.55,
+      1.0,
+      1.0,
+      0.55,
+      0.22,
+      0.22,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+     ],
+     "scale": 1.5
+    },
+    {
+     "cookie": "fx_light_hot_92",
+     "target": "actor",
+     "alpha": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      0.55,
+      0.55,
+      1.0,
+      1.0,
+      0.55,
+      0.22,
+      0.22,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+     ],
+     "scale": 1.5
+    }
+   ]
+  },
+  "fx_levelup": {
+   "color": "#ffd86a",
+   "stamps": [
+    {
+     "cookie": "fx_light_ring_48",
+     "target": "both",
+     "offsetY": -26,
+     "alpha": [
+      0.22,
+      0.22,
+      0.55,
+      1.0,
+      1.0,
+      1.0,
+      0.55,
+      0.55,
+      0.22,
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    {
+     "cookie": "fx_light_ground_48",
+     "target": "set",
+     "at": "ground",
+     "alpha": [
+      0.22,
+      0.22,
+      0.55,
+      1.0,
+      1.0,
+      1.0,
+      0.55,
+      0.55,
+      0.22,
+      0.0,
+      0.0,
+      0.0
+     ]
+    }
+   ]
+  },
+  "fx_breakthrough": {
+   "color": "#ffd86a",
+   "stamps": [
+    {
+     "cookie": "fx_light_ring_64",
+     "target": "set",
+     "alpha": [
+      0.22,
+      0.22,
+      0.55,
+      0.55,
+      1.0,
+      1.0,
+      0.55,
+      0.55,
+      0.22,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+     ]
+    }
+   ]
+  }
+ },
+ "cookiesForBgLightKinds": {
+  "_doc": "建议：art/production/v02-bg-emissive 的 bg/r1_lights.json 里每种 kind 用哪些 cookie 印光（rect 用 9-slice 拉到灯框大小）",
+  "lightbox": [
+   "fx_light_rect"
+  ],
+  "neon_letters": [
+   "fx_light_rect"
+  ],
+  "neon": [
+   "fx_light_rect"
+  ],
+  "window_warm": [
+   "fx_light_rect",
+   "fx_light_spill"
+  ],
+  "window_cold": [
+   "fx_light_rect",
+   "fx_light_spill"
+  ],
+  "shop_window": [
+   "fx_light_rect",
+   "fx_light_spill"
+  ],
+  "streetlamp": [
+   "fx_light_cone",
+   "fx_light_ground_48",
+   "fx_light_ring_12"
+  ],
+  "floodlight": [
+   "fx_light_beam",
+   "fx_light_ground_64"
+  ],
+  "bulb": [
+   "fx_light_ring_24"
+  ],
+  "bulkhead": [
+   "fx_light_ring_24",
+   "fx_light_spill"
+  ],
+  "tube": [
+   "fx_light_rect"
+  ],
+  "lane_signal": [
+   "fx_light_ring_12"
+  ],
+  "led": [
+   "fx_light_rect"
+  ],
+  "far_light": [
+   "fx_light_ring_12"
+  ],
+  "fire": [
+   "fx_light_hot_24"
+  ]
+ },
+ "cookies": {
+  "fx_light_ring_12": {
+   "file": "sprites/fx/light/light_ring_12.png",
+   "size": [
+    27,
+    27
+   ],
+   "origin": [
+    0.5,
+    0.5
+   ],
+   "levels": [
+    85,
+    170,
+    255
+   ]
+  },
+  "fx_light_ring_18": {
+   "file": "sprites/fx/light/light_ring_18.png",
+   "size": [
+    39,
+    39
+   ],
+   "origin": [
+    0.5,
+    0.5
+   ],
+   "levels": [
+    85,
+    170,
+    255
+   ]
+  },
+  "fx_light_ring_24": {
+   "file": "sprites/fx/light/light_ring_24.png",
+   "size": [
+    51,
+    51
+   ],
+   "origin": [
+    0.5,
+    0.5
+   ],
+   "levels": [
+    85,
+    170,
+    255
+   ]
+  },
+  "fx_light_ring_32": {
+   "file": "sprites/fx/light/light_ring_32.png",
+   "size": [
+    67,
+    67
+   ],
+   "origin": [
+    0.5,
+    0.5
+   ],
+   "levels": [
+    85,
+    170,
+    255
+   ]
+  },
+  "fx_light_ring_48": {
+   "file": "sprites/fx/light/light_ring_48.png",
+   "size": [
+    99,
+    99
+   ],
+   "origin": [
+    0.5,
+    0.5
+   ],
+   "levels": [
+    85,
+    170,
+    255
+   ]
+  },
+  "fx_light_ring_64": {
+   "file": "sprites/fx/light/light_ring_64.png",
+   "size": [
+    131,
+    131
+   ],
+   "origin": [
+    0.5,
+    0.5
+   ],
+   "levels": [
+    85,
+    170,
+    255
+   ]
+  },
+  "fx_light_ring_92": {
+   "file": "sprites/fx/light/light_ring_92.png",
+   "size": [
+    187,
+    187
+   ],
+   "origin": [
+    0.5,
+    0.5
+   ],
+   "levels": [
+    85,
+    170,
+    255
+   ]
+  },
+  "fx_light_ring_128": {
+   "file": "sprites/fx/light/light_ring_128.png",
+   "size": [
+    259,
+    259
+   ],
+   "origin": [
+    0.5,
+    0.5
+   ],
+   "levels": [
+    85,
+    170,
+    255
+   ]
+  },
+  "fx_light_hot_24": {
+   "file": "sprites/fx/light/light_hot_24.png",
+   "size": [
+    51,
+    51
+   ],
+   "origin": [
+    0.5,
+    0.5
+   ],
+   "levels": [
+    56,
+    140,
+    255
+   ]
+  },
+  "fx_light_hot_48": {
+   "file": "sprites/fx/light/light_hot_48.png",
+   "size": [
+    99,
+    99
+   ],
+   "origin": [
+    0.5,
+    0.5
+   ],
+   "levels": [
+    56,
+    140,
+    255
+   ]
+  },
+  "fx_light_hot_64": {
+   "file": "sprites/fx/light/light_hot_64.png",
+   "size": [
+    131,
+    131
+   ],
+   "origin": [
+    0.5,
+    0.5
+   ],
+   "levels": [
+    56,
+    140,
+    255
+   ]
+  },
+  "fx_light_hot_92": {
+   "file": "sprites/fx/light/light_hot_92.png",
+   "size": [
+    187,
+    187
+   ],
+   "origin": [
+    0.5,
+    0.5
+   ],
+   "levels": [
+    56,
+    140,
+    255
+   ]
+  },
+  "fx_light_wall_48": {
+   "file": "sprites/fx/light/light_wall_48.png",
+   "size": [
+    99,
+    99
+   ],
+   "origin": [
+    0.5,
+    0.5
+   ],
+   "levels": [
+    26,
+    61,
+    140,
+    255
+   ]
+  },
+  "fx_light_wall_64": {
+   "file": "sprites/fx/light/light_wall_64.png",
+   "size": [
+    131,
+    131
+   ],
+   "origin": [
+    0.5,
+    0.5
+   ],
+   "levels": [
+    26,
+    61,
+    140,
+    255
+   ]
+  },
+  "fx_light_wall_84": {
+   "file": "sprites/fx/light/light_wall_84.png",
+   "size": [
+    171,
+    171
+   ],
+   "origin": [
+    0.5,
+    0.5
+   ],
+   "levels": [
+    26,
+    61,
+    140,
+    255
+   ]
+  },
+  "fx_light_wall_110": {
+   "file": "sprites/fx/light/light_wall_110.png",
+   "size": [
+    223,
+    223
+   ],
+   "origin": [
+    0.5,
+    0.5
+   ],
+   "levels": [
+    26,
+    61,
+    140,
+    255
+   ]
+  },
+  "fx_light_ground_24": {
+   "file": "sprites/fx/light/light_ground_24.png",
+   "size": [
+    51,
+    13
+   ],
+   "origin": [
+    0.5,
+    0.1154
+   ],
+   "levels": [
+    46,
+    94,
+    140,
+    255
+   ]
+  },
+  "fx_light_ground_48": {
+   "file": "sprites/fx/light/light_ground_48.png",
+   "size": [
+    99,
+    21
+   ],
+   "origin": [
+    0.5,
+    0.2619
+   ],
+   "levels": [
+    46,
+    94,
+    140,
+    255
+   ]
+  },
+  "fx_light_ground_64": {
+   "file": "sprites/fx/light/light_ground_64.png",
+   "size": [
+    131,
+    27
+   ],
+   "origin": [
+    0.5,
+    0.3148
+   ],
+   "levels": [
+    46,
+    94,
+    140,
+    255
+   ]
+  },
+  "fx_light_ground_92": {
+   "file": "sprites/fx/light/light_ground_92.png",
+   "size": [
+    187,
+    37
+   ],
+   "origin": [
+    0.5,
+    0.3649
+   ],
+   "levels": [
+    46,
+    94,
+    140,
+    255
+   ]
+  },
+  "fx_light_cone": {
+   "file": "sprites/fx/light/light_cone.png",
+   "size": [
+    103,
+    114
+   ],
+   "origin": [
+    0.5,
+    0.013157894736842105
+   ],
+   "levels": [
+    85,
+    170,
+    255
+   ]
+  },
+  "fx_light_beam": {
+   "file": "sprites/fx/light/light_beam.png",
+   "size": [
+    212,
+    85
+   ],
+   "origin": [
+    0.007075471698113208,
+    0.5
+   ],
+   "levels": [
+    85,
+    170,
+    255
+   ]
+  },
+  "fx_light_lobe": {
+   "file": "sprites/fx/light/light_lobe.png",
+   "size": [
+    272,
+    245
+   ],
+   "origin": [
+    0.0055147058823529415,
+    0.5
+   ],
+   "levels": [
+    76,
+    140,
+    204
+   ]
+  },
+  "fx_light_rect": {
+   "file": "sprites/fx/light/light_rect.png",
+   "size": [
+    17,
+    17
+   ],
+   "origin": [
+    0.5,
+    0.5
+   ],
+   "levels": [
+    128,
+    255
+   ],
+   "slice": 7
+  },
+  "fx_light_spill": {
+   "file": "sprites/fx/light/light_spill.png",
+   "size": [
+    46,
+    20
+   ],
+   "origin": [
+    0.5,
+    0.0
+   ],
+   "levels": [
+    85,
+    170,
+    255
+   ]
+  }
+ }
+}

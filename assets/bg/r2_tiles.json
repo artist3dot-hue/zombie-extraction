@@ -1,0 +1,139 @@
+{
+ "key": "bg_r2_tiles",
+ "tile": 16,
+ "cols": 16,
+ "rows": 4,
+ "groundY": 320,
+ "usage": "one TOP row at y=320, FILL rows below; frame = row*16+col；rows 2–3 空（H 贴片复用 bg_r1_tiles）",
+ "use": {
+  "concrete": "厂区水泥路：C01 / C03 / C05 / C06 / C07 / SH；oil 油污斑、joint 伸缩缝、crack 裂缝随机混用",
+  "asphalt": "停车场沥青（C02）：line = 褪色停车线",
+  "grating": "格栅盖板（检修口两侧、C07 管廊下）",
+  "gravel": "防火堤区碎石（C05 罐区通道）",
+  "epoxy": "化工厂绿灰环氧地坪（C08–C10）",
+  "ditch": "排洪渠（C04）：渠沿 + 黑水",
+  "tankpad": "储罐区混凝土（Boss 3 号储罐区）"
+ },
+ "tiles": {
+  "concrete_top_a": {
+   "col": 0,
+   "row": 0,
+   "frame": 0
+  },
+  "concrete_top_oil": {
+   "col": 1,
+   "row": 0,
+   "frame": 1
+  },
+  "concrete_top_joint": {
+   "col": 2,
+   "row": 0,
+   "frame": 2
+  },
+  "concrete_top_crack": {
+   "col": 3,
+   "row": 0,
+   "frame": 3
+  },
+  "asphalt_top_a": {
+   "col": 4,
+   "row": 0,
+   "frame": 4
+  },
+  "asphalt_top_line": {
+   "col": 5,
+   "row": 0,
+   "frame": 5
+  },
+  "grating_top_a": {
+   "col": 6,
+   "row": 0,
+   "frame": 6
+  },
+  "grating_top_b": {
+   "col": 7,
+   "row": 0,
+   "frame": 7
+  },
+  "gravel_top": {
+   "col": 8,
+   "row": 0,
+   "frame": 8
+  },
+  "epoxy_top_a": {
+   "col": 9,
+   "row": 0,
+   "frame": 9
+  },
+  "epoxy_top_b": {
+   "col": 10,
+   "row": 0,
+   "frame": 10
+  },
+  "epoxy_top_drain": {
+   "col": 11,
+   "row": 0,
+   "frame": 11
+  },
+  "ditch_top": {
+   "col": 12,
+   "row": 0,
+   "frame": 12
+  },
+  "tankpad_top": {
+   "col": 13,
+   "row": 0,
+   "frame": 13
+  },
+  "asphalt_top_oil": {
+   "col": 14,
+   "row": 0,
+   "frame": 14
+  },
+  "concrete_fill_a": {
+   "col": 0,
+   "row": 1,
+   "frame": 16
+  },
+  "concrete_fill_b": {
+   "col": 1,
+   "row": 1,
+   "frame": 17
+  },
+  "concrete_fill_c": {
+   "col": 2,
+   "row": 1,
+   "frame": 18
+  },
+  "asphalt_fill": {
+   "col": 3,
+   "row": 1,
+   "frame": 19
+  },
+  "gravel_fill": {
+   "col": 4,
+   "row": 1,
+   "frame": 20
+  },
+  "epoxy_fill_a": {
+   "col": 5,
+   "row": 1,
+   "frame": 21
+  },
+  "epoxy_fill_b": {
+   "col": 6,
+   "row": 1,
+   "frame": 22
+  },
+  "ditch_fill": {
+   "col": 7,
+   "row": 1,
+   "frame": 23
+  },
+  "tankpad_fill": {
+   "col": 8,
+   "row": 1,
+   "frame": 24
+  }
+ }
+}

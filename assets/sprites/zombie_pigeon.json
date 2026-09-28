@@ -1,0 +1,321 @@
+{
+ "key": "spr_zombie_pigeon",
+ "file": "sprites/zombie_pigeon.png",
+ "frameW": 32,
+ "frameH": 32,
+ "frames": 51,
+ "originPx": [
+  16,
+  16
+ ],
+ "origin": [
+  0.5,
+  0.5
+ ],
+ "facing": "right",
+ "anims": {
+  "idle": {
+   "key": "zombie_pigeon_idle",
+   "frames": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "frameMs": [
+    300,
+    120,
+    240,
+    200
+   ],
+   "repeat": -1,
+   "note": "栖息（电线/招牌），脚尖第 25 行；点头 + 僵尸扭头"
+  },
+  "takeoff": {
+   "key": "zombie_pigeon_takeoff",
+   "frames": [
+    4,
+    5,
+    6
+   ],
+   "frameMs": [
+    90,
+    60,
+    60
+   ],
+   "repeat": 0,
+   "note": "起飞：蹲 → 蹬起翅上举 → 第一次下扑，接 fly"
+  },
+  "fly": {
+   "key": "zombie_pigeon_fly",
+   "frames": [
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+   ],
+   "frameMs": [
+    80,
+    50,
+    40,
+    60,
+    70,
+    70
+   ],
+   "repeat": -1,
+   "note": "振翅 6 帧：上举慢、下扑快（80/50/40/60/70/70），身体随下扑上提 1px"
+  },
+  "hover": {
+   "key": "zombie_pigeon_hover",
+   "frames": [
+    13,
+    14,
+    15,
+    16
+   ],
+   "frameMs": [
+    60,
+    50,
+    60,
+    50
+   ],
+   "repeat": -1,
+   "note": "锁定预警（450ms）：抬身、低头盯目标、短促刹车扑翅、张嘴“咕”；白闪由引擎 setTintFill"
+  },
+  "tuck": {
+   "key": "zombie_pigeon_tuck",
+   "frames": [
+    17
+   ],
+   "frameMs": [
+    50
+   ],
+   "repeat": 0,
+   "note": "收翅，俯冲前 1 帧"
+  },
+  "dive": {
+   "key": "zombie_pigeon_dive",
+   "frames": [
+    18,
+    19
+   ],
+   "frameMs": [
+    60,
+    60
+   ],
+   "repeat": -1,
+   "note": "俯冲 50°（默认）"
+  },
+  "dive_shallow": {
+   "key": "zombie_pigeon_dive_shallow",
+   "frames": [
+    20,
+    21
+   ],
+   "frameMs": [
+    60,
+    60
+   ],
+   "repeat": -1,
+   "note": "俯冲 28°"
+  },
+  "dive_steep": {
+   "key": "zombie_pigeon_dive_steep",
+   "frames": [
+    22,
+    23
+   ],
+   "frameMs": [
+    60,
+    60
+   ],
+   "repeat": -1,
+   "note": "俯冲 76°"
+  },
+  "peck": {
+   "key": "zombie_pigeon_peck",
+   "frames": [
+    24,
+    25,
+    26,
+    27,
+    28
+   ],
+   "frameMs": [
+    100,
+    90,
+    40,
+    70,
+    110
+   ],
+   "repeat": 0,
+   "note": "啄击：张翅刹车(预备) → 缩头 → 啄 → 停 → 收"
+  },
+  "attack": {
+   "key": "zombie_pigeon_attack",
+   "frames": [
+    24,
+    25,
+    26,
+    27,
+    28
+   ],
+   "frameMs": [
+    100,
+    90,
+    40,
+    70,
+    110
+   ],
+   "repeat": 0,
+   "note": "= peck（CONTRACT 通用攻击键）"
+  },
+  "attack2": {
+   "key": "zombie_pigeon_attack2",
+   "frames": [
+    29,
+    30,
+    31,
+    32
+   ],
+   "frameMs": [
+    110,
+    50,
+    70,
+    110
+   ],
+   "repeat": 0,
+   "note": "爪抓：翅上举 → 甩爪前伸 → 下耙 → 收"
+  },
+  "crash": {
+   "key": "zombie_pigeon_crash",
+   "frames": [
+    33,
+    34,
+    35
+   ],
+   "frameMs": [
+    100,
+    150,
+    150
+   ],
+   "repeat": 0,
+   "note": "扑空撞地硬直 400ms（脚/身体底在第 25 行）"
+  },
+  "hurt": {
+   "key": "zombie_pigeon_hurt",
+   "frames": [
+    36,
+    37
+   ],
+   "frameMs": [
+    60,
+    90
+   ],
+   "repeat": 0,
+   "note": "受击 2 帧：炸毛掉 1 根羽毛"
+  },
+  "death": {
+   "key": "zombie_pigeon_death",
+   "frames": [
+    38,
+    39,
+    40,
+    41,
+    42
+   ],
+   "frameMs": [
+    50,
+    60,
+    70,
+    90,
+    120
+   ],
+   "repeat": 0,
+   "note": "被打死：一顿 → 炸成一团羽毛 + 血点 → 尸体翻滚；播完接 fall + 重力"
+  },
+  "death_blast": {
+   "key": "zombie_pigeon_death_blast",
+   "frames": [
+    43,
+    44,
+    45,
+    46,
+    47
+   ],
+   "frameMs": [
+    40,
+    50,
+    60,
+    80,
+    110
+   ],
+   "repeat": 0,
+   "note": "炸碎：只剩一只翅膀和满天羽毛，无尸体"
+  },
+  "fall": {
+   "key": "zombie_pigeon_fall",
+   "frames": [
+    48,
+    49
+   ],
+   "frameMs": [
+    80,
+    80
+   ],
+   "repeat": -1,
+   "note": "死尸下坠翻滚（程序加重力）"
+  },
+  "corpse": {
+   "key": "zombie_pigeon_corpse",
+   "frames": [
+    50
+   ],
+   "frameMs": [
+    1000
+   ],
+   "repeat": 0,
+   "note": "落地尸体（肚皮朝上，底在第 25 行）"
+  }
+ },
+ "lighting": {
+  "rim": {
+   "key": "spr_zombie_pigeon_rim",
+   "file": "sprites/zombie_pigeon_rim.png",
+   "rows": [
+    "L",
+    "R",
+    "T"
+   ],
+   "frameIndex": "rim frame = row * frames + frame (row 0 = L, 1 = R, 2 = T)",
+   "use": "route C selective outline: draw ADD over the sprite, x direct light (light map minus ambient) at that pixel, stepped weight per side; flipX swaps L/R"
+  },
+  "emit": {
+   "key": "spr_zombie_pigeon_emit",
+   "file": "sprites/zombie_pigeon_emit.png",
+   "use": "emissive mask (milky eyes, #d8d0c0): ADD glow from the red-night / blood-moon tiers (bible 9.2 T3 glowing eyes); off in calm tiers"
+  },
+  "baked": "only the neutral top-front form light (5-step ramps) + the lit-side top outline (A); no rim light, no coloured environment light is painted into the sprite"
+ },
+ "anchors": {
+  "centre": [
+   16,
+   16
+  ],
+  "groundRow": 26,
+  "groundNote": "站立 / 躺地帧（idle 栖息、takeoff 第 0 帧、crash、corpse）最低不透明行 = groundRow（墨线）；放在表面 surfaceY（表面第一行实心像素）上：sprite.y = surfaceY - (groundRow + 1 - 16)",
+  "diveDeg": {
+   "dive": 50,
+   "dive_shallow": 28,
+   "dive_steep": 76
+  },
+  "diveNote": "俯冲不旋转精灵，按路径角取最近的一套（<39° shallow，39–63° dive，>63° steep）；向左俯冲 flipX"
+ },
+ "size": {
+  "bodyLen": 19,
+  "wingSpanUp": 26
+ },
+ "brief": "腐鸽：半边毛掉光、浑白瞎眼、胸口撕开露肋骨、翅膀挂烂肉、近翼缺一根初级飞羽。成群由程序生成。"
+}

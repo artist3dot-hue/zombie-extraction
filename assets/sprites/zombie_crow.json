@@ -1,0 +1,155 @@
+{
+ "key": "spr_zombie_crow",
+ "file": "sprites/zombie_crow.png",
+ "frameWidth": 32,
+ "frameHeight": 32,
+ "frames": 15,
+ "originPx": [
+  16,
+  16
+ ],
+ "origin": [
+  0.5,
+  0.5
+ ],
+ "soleRow": null,
+ "facing": "right",
+ "anims": {
+  "zombie_crow_fly": {
+   "frames": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "frameMs": [
+    100,
+    100,
+    100,
+    100
+   ],
+   "repeat": -1,
+   "note": "振翅"
+  },
+  "zombie_crow_hover": {
+   "frames": [
+    4,
+    5,
+    6
+   ],
+   "frameMs": [
+    150,
+    150,
+    150
+   ],
+   "repeat": 0,
+   "note": "俯冲前摇 450ms：悬停急扇、低头张嘴叫；第 2 帧引擎白闪"
+  },
+  "zombie_crow_dive": {
+   "frames": [
+    7,
+    8
+   ],
+   "frameMs": [
+    80,
+    80
+   ],
+   "repeat": -1,
+   "note": "收翅俯冲（精灵不随路径转，引擎可按角度旋转或只用这一套）"
+  },
+  "zombie_crow_peck": {
+   "frames": [
+    9,
+    10,
+    11
+   ],
+   "frameMs": [
+    150,
+    150,
+    150
+   ],
+   "repeat": -1,
+   "note": "落地啄尸体（groundRow 26 = 脚底墨线）"
+  },
+  "zombie_crow_death": {
+   "frames": [
+    12,
+    13,
+    14
+   ],
+   "frameMs": [
+    100,
+    100,
+    100
+   ],
+   "repeat": 0,
+   "note": "中枪翻滚掉落"
+  }
+ },
+ "coords": "headBoxPx / points 是帧内像素坐标；headBox 是相对原点：x 朝前为正（flipX 时取反），y = 离地高度（px）",
+ "frameData": [
+  {
+   "frame": 0,
+   "anim": "zombie_crow_fly"
+  },
+  {
+   "frame": 1,
+   "anim": "zombie_crow_fly"
+  },
+  {
+   "frame": 2,
+   "anim": "zombie_crow_fly"
+  },
+  {
+   "frame": 3,
+   "anim": "zombie_crow_fly"
+  },
+  {
+   "frame": 4,
+   "anim": "zombie_crow_hover"
+  },
+  {
+   "frame": 5,
+   "anim": "zombie_crow_hover"
+  },
+  {
+   "frame": 6,
+   "anim": "zombie_crow_hover"
+  },
+  {
+   "frame": 7,
+   "anim": "zombie_crow_dive"
+  },
+  {
+   "frame": 8,
+   "anim": "zombie_crow_dive"
+  },
+  {
+   "frame": 9,
+   "anim": "zombie_crow_peck"
+  },
+  {
+   "frame": 10,
+   "anim": "zombie_crow_peck"
+  },
+  {
+   "frame": 11,
+   "anim": "zombie_crow_peck"
+  },
+  {
+   "frame": 12,
+   "anim": "zombie_crow_death"
+  },
+  {
+   "frame": 13,
+   "anim": "zombie_crow_death"
+  },
+  {
+   "frame": 14,
+   "anim": "zombie_crow_death"
+  }
+ ],
+ "brief": "乌鸦：黑羽 + 冷蓝油光，楔形尾；帧按区域 1 腐鸽同规格 32×32 中心原点（清单草案写的 24×20 放不下翻滚）。",
+ "groundRow": 26,
+ "groundNote": "peck 帧最低不透明行 = 26（脚底墨线），放在表面 surfaceY 上：sprite.y = surfaceY - (26 + 1 - 16)"
+}

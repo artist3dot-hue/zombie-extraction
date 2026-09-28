@@ -1,0 +1,63 @@
+{
+ "key": "bg_r1_l4_streetlamp",
+ "frame": [
+  24,
+  120
+ ],
+ "originPx": [
+  12,
+  119
+ ],
+ "head": {
+  "px": [
+   18.0,
+   17.0
+  ],
+  "fromOrigin": [
+   6.0,
+   -102.0
+  ],
+  "lensRect": [
+   14,
+   16,
+   8,
+   2
+  ],
+  "color": "#d8d0c0",
+  "rim": "#c3cfa8"
+ },
+ "cone": {
+  "apexPx": [
+   18.0,
+   18
+  ],
+  "apexFromOrigin": [
+   6.0,
+   -101
+  ],
+  "dirDeg": 90,
+  "halfAngleDeg": 26,
+  "lengthPx": 101,
+  "levels": [
+   0.22,
+   0.55,
+   1.0
+  ],
+  "color": "#c3cfa8",
+  "note": "straight down (dirDeg 90 = +y); the head overhangs the post by 6px, so the cone is centred 6px right of the post on an unflipped lamp; mirror x when the sprite is flipped"
+ },
+ "pool": {
+  "centerPx": [
+   18.0,
+   119
+  ],
+  "centerFromOrigin": [
+   6.0,
+   0
+  ],
+  "rx": 49.3,
+  "ry": 6,
+  "color": "#c3cfa8"
+ },
+ "space": "L4 (scroll 0.75): the pool lands on L4 ground; for light on the play layer (L5) project the cone from the lamp's screen position each frame"
+}

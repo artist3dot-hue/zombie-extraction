@@ -1,0 +1,562 @@
+{
+ "key": "spr_zombie_leaper",
+ "frameWidth": 56,
+ "frameHeight": 48,
+ "frames": 50,
+ "originPx": [
+  28,
+  47
+ ],
+ "soleRow": 46,
+ "anims": {
+  "zombie_leaper_idle": {
+   "frames": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "frameMs": [
+    300,
+    260,
+    110,
+    220
+   ],
+   "repeat": -1
+  },
+  "zombie_leaper_walk": {
+   "frames": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "frameMs": [
+    90,
+    90,
+    90,
+    90,
+    90,
+    90,
+    90,
+    90
+   ],
+   "repeat": -1
+  },
+  "zombie_leaper_crouch": {
+   "frames": [
+    12,
+    13,
+    14
+   ],
+   "frameMs": [
+    150,
+    150,
+    200
+   ],
+   "repeat": 0
+  },
+  "zombie_leaper_pounce": {
+   "frames": [
+    12,
+    13,
+    14,
+    15,
+    16
+   ],
+   "frameMs": [
+    150,
+    150,
+    200,
+    60,
+    80
+   ],
+   "repeat": 0
+  },
+  "zombie_leaper_leap": {
+   "frames": [
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+   ],
+   "frameMs": [
+    150,
+    150,
+    200,
+    60,
+    80,
+    80,
+    80,
+    200,
+    500
+   ],
+   "repeat": 0
+  },
+  "zombie_leaper_air": {
+   "frames": [
+    16,
+    17
+   ],
+   "frameMs": [
+    80,
+    80
+   ],
+   "repeat": -1
+  },
+  "zombie_leaper_land": {
+   "frames": [
+    19,
+    20
+   ],
+   "frameMs": [
+    200,
+    500
+   ],
+   "repeat": 0
+  },
+  "zombie_leaper_pin": {
+   "frames": [
+    21,
+    22,
+    23
+   ],
+   "frameMs": [
+    100,
+    80,
+    100
+   ],
+   "repeat": -1
+  },
+  "zombie_leaper_attack": {
+   "frames": [
+    24,
+    25,
+    26,
+    27,
+    28,
+    29
+   ],
+   "frameMs": [
+    160,
+    140,
+    60,
+    70,
+    160,
+    140
+   ],
+   "repeat": 0
+  },
+  "zombie_leaper_attack2": {
+   "frames": [
+    12,
+    13,
+    14,
+    15,
+    16
+   ],
+   "frameMs": [
+    150,
+    150,
+    200,
+    60,
+    80
+   ],
+   "repeat": 0
+  },
+  "zombie_leaper_hurt": {
+   "frames": [
+    30,
+    31
+   ],
+   "frameMs": [
+    70,
+    140
+   ],
+   "repeat": 0
+  },
+  "zombie_leaper_hurt_head": {
+   "frames": [
+    32,
+    33
+   ],
+   "frameMs": [
+    70,
+    160
+   ],
+   "repeat": 0
+  },
+  "zombie_leaper_death": {
+   "frames": [
+    34,
+    35,
+    36,
+    37,
+    38,
+    39
+   ],
+   "frameMs": [
+    70,
+    90,
+    120,
+    120,
+    160,
+    400
+   ],
+   "repeat": 0
+  },
+  "zombie_leaper_die": {
+   "frames": [
+    34,
+    35,
+    36,
+    37,
+    38,
+    39
+   ],
+   "frameMs": [
+    70,
+    90,
+    120,
+    120,
+    160,
+    400
+   ],
+   "repeat": 0
+  },
+  "zombie_leaper_death_head": {
+   "frames": [
+    40,
+    41,
+    42,
+    43,
+    44
+   ],
+   "frameMs": [
+    60,
+    90,
+    120,
+    160,
+    400
+   ],
+   "repeat": 0
+  },
+  "zombie_leaper_death_blast": {
+   "frames": [
+    45,
+    46,
+    47,
+    48,
+    49
+   ],
+   "frameMs": [
+    70,
+    90,
+    120,
+    150,
+    400
+   ],
+   "repeat": 0
+  }
+ },
+ "airborne": {
+  "45": 3,
+  "46": 2
+ },
+ "airborneNote": "这些帧故意离地（px），其余帧最低不透明行 = soleRow",
+ "points": [
+  {
+   "frame": 0,
+   "eye": [
+    39.0,
+    30.0
+   ]
+  },
+  {
+   "frame": 1,
+   "eye": [
+    39.0,
+    30.0
+   ]
+  },
+  {
+   "frame": 2,
+   "eye": [
+    39.0,
+    29.0
+   ]
+  },
+  {
+   "frame": 3,
+   "eye": [
+    38.0,
+    30.0
+   ]
+  },
+  {
+   "frame": 4,
+   "eye": [
+    39.0,
+    30.0
+   ]
+  },
+  {
+   "frame": 5,
+   "eye": [
+    39.0,
+    30.0
+   ]
+  },
+  {
+   "frame": 6,
+   "eye": [
+    39.0,
+    29.0
+   ]
+  },
+  {
+   "frame": 7,
+   "eye": [
+    39.0,
+    29.0
+   ]
+  },
+  {
+   "frame": 8,
+   "eye": [
+    39.0,
+    30.0
+   ]
+  },
+  {
+   "frame": 9,
+   "eye": [
+    39.0,
+    30.0
+   ]
+  },
+  {
+   "frame": 10,
+   "eye": [
+    39.0,
+    29.0
+   ]
+  },
+  {
+   "frame": 11,
+   "eye": [
+    39.0,
+    29.0
+   ]
+  },
+  {
+   "frame": 12,
+   "eye": [
+    37.0,
+    32.0
+   ]
+  },
+  {
+   "frame": 13,
+   "eye": [
+    37.0,
+    33.0
+   ]
+  },
+  {
+   "frame": 14,
+   "eye": [
+    37.0,
+    32.0
+   ]
+  },
+  {
+   "frame": 15
+  },
+  {
+   "frame": 16
+  },
+  {
+   "frame": 17
+  },
+  {
+   "frame": 18
+  },
+  {
+   "frame": 19,
+   "eye": [
+    39.0,
+    34.0
+   ]
+  },
+  {
+   "frame": 20,
+   "eye": [
+    39.0,
+    30.0
+   ]
+  },
+  {
+   "frame": 21,
+   "eye": [
+    38.0,
+    34.0
+   ]
+  },
+  {
+   "frame": 22,
+   "eye": [
+    39.0,
+    35.0
+   ]
+  },
+  {
+   "frame": 23,
+   "eye": [
+    38.0,
+    34.0
+   ]
+  },
+  {
+   "frame": 24,
+   "eye": [
+    32.0,
+    22.0
+   ]
+  },
+  {
+   "frame": 25,
+   "eye": [
+    31.0,
+    22.0
+   ]
+  },
+  {
+   "frame": 26
+  },
+  {
+   "frame": 27
+  },
+  {
+   "frame": 28,
+   "eye": [
+    39.0,
+    30.0
+   ]
+  },
+  {
+   "frame": 29,
+   "eye": [
+    39.0,
+    30.0
+   ]
+  },
+  {
+   "frame": 30
+  },
+  {
+   "frame": 31,
+   "eye": [
+    37.0,
+    32.0
+   ]
+  },
+  {
+   "frame": 32
+  },
+  {
+   "frame": 33
+  },
+  {
+   "frame": 34,
+   "eye": [
+    37.0,
+    22.0
+   ]
+  },
+  {
+   "frame": 35
+  },
+  {
+   "frame": 36
+  },
+  {
+   "frame": 37
+  },
+  {
+   "frame": 38
+  },
+  {
+   "frame": 39
+  },
+  {
+   "frame": 40
+  },
+  {
+   "frame": 41
+  },
+  {
+   "frame": 42
+  },
+  {
+   "frame": 43
+  },
+  {
+   "frame": 44
+  },
+  {
+   "frame": 45
+  },
+  {
+   "frame": 46
+  },
+  {
+   "frame": 47
+  },
+  {
+   "frame": 48
+  },
+  {
+   "frame": 49
+  }
+ ],
+ "pointsNote": "eye = 眼睛像素（#d8d0c0 / 红眼帧 #e8372c）质心；glow = 发光像素质心 + 像素数（喷吐者喉囊亮度随蓄力涨，可直接驱动一个跟随的小光源）；mouth = 喷吐者嘴部（弹道出生点）",
+ "light": {
+  "rim": {
+   "file": "sprites/zombie_leaper_rim.png",
+   "key": "spr_zombie_leaper_rim",
+   "rows": [
+    "L",
+    "R",
+    "T"
+   ],
+   "frameIndex": "row * frames + frame",
+   "note": "外描边里朝左 / 右 / 上暴露的墨线像素，颜色 = 紧贴其内侧的体色（路线 C v2 选择性描边）。引擎：按光源方位取对应行，ADD 或 NORMAL 画在精灵上，tint = 光色，alpha = 分阶强度，放进 actor 光照图相乘；精灵本身不烘焙任何边缘光"
+  },
+  "emit": {
+   "file": "sprites/zombie_leaper_emit.png",
+   "key": "spr_zombie_leaper_emit",
+   "rows": [
+    "glow",
+    "eyes"
+   ],
+   "frameIndex": "row * frames + frame",
+   "glowColors": [],
+   "eyeColors": [
+    "#d8d0c0",
+    "#e8372c"
+   ],
+   "note": "row glow 始终自发光（不乘光照图，画在光照之后），可再叠一圈分阶 bloom；row eyes 只在后期热度档 / 红眼预警帧点亮"
+  },
+  "paintedLight": "精灵只画顶部偏前的中性主光（圣经 6.1），没有烘焙彩色环境光、边缘光或投影"
+ }
+}

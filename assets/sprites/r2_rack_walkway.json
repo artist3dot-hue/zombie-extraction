@@ -1,0 +1,9 @@
+{
+ "key": "spr_r2_rack_walkway",
+ "anchor": "左上 (0,1) = chunk (240,176)",
+ "hatchX": [
+  48,
+  592
+ ],
+ "hatchNote": "检修口盖板中心（走道内 x）；r1_spawn_hatch 叠在这里"
+}

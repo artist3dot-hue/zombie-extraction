@@ -1,0 +1,41 @@
+{
+ "doc": "armour overlays for the melee swing sheets; same grid / frame numbers / origin as the body sheet they belong to (see player_armor.json for the rules).  Keys: spr_<sheet>_armor_shoulder / _helmet (+ _rim, registered at runtime as <key>__rim).",
+ "sheets": {
+  "spr_player_melee": {
+   "shoulder": "spr_player_melee_armor_shoulder",
+   "helmet": "spr_player_melee_armor_helmet",
+   "frames": 53,
+   "columns": 27
+  },
+  "spr_player_melee_machete": {
+   "shoulder": "spr_player_melee_machete_armor_shoulder",
+   "helmet": "spr_player_melee_machete_armor_helmet",
+   "frames": 26,
+   "columns": 26
+  },
+  "spr_player_melee_nailbat": {
+   "shoulder": "spr_player_melee_nailbat_armor_shoulder",
+   "helmet": "spr_player_melee_nailbat_armor_helmet",
+   "frames": 27,
+   "columns": 27
+  },
+  "spr_player_melee_fireaxe": {
+   "shoulder": "spr_player_melee_fireaxe_armor_shoulder",
+   "helmet": "spr_player_melee_fireaxe_armor_helmet",
+   "frames": 26,
+   "columns": 26
+  },
+  "spr_player_melee_sledge": {
+   "shoulder": "spr_player_melee_sledge_armor_shoulder",
+   "helmet": "spr_player_melee_sledge_armor_helmet",
+   "frames": 27,
+   "columns": 27
+  },
+  "spr_player_melee_chainsaw": {
+   "shoulder": "spr_player_melee_chainsaw_armor_shoulder",
+   "helmet": "spr_player_melee_chainsaw_armor_helmet",
+   "frames": 26,
+   "columns": 26
+  }
+ }
+}

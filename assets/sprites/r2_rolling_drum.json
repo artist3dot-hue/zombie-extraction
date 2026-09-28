@@ -1,0 +1,93 @@
+{
+ "key": "spr_r2_rolling_drum",
+ "file": "sprites/r2_rolling_drum.png",
+ "frameWidth": 20,
+ "frameHeight": 20,
+ "frames": 9,
+ "originPx": [
+  10,
+  19
+ ],
+ "origin": [
+  0.5,
+  0.95
+ ],
+ "soleRow": 18,
+ "facing": "right",
+ "anims": {
+  "r2_rolling_drum_roll": {
+   "frames": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "frameMs": [
+    60,
+    60,
+    60,
+    60,
+    60,
+    60,
+    60,
+    60
+   ],
+   "repeat": -1,
+   "note": "一圈 8 帧；桶往右滚 = 顺时针转"
+  },
+  "r2_rolling_drum_crack": {
+   "frames": [
+    8
+   ],
+   "frameMs": [
+    100
+   ],
+   "repeat": 0,
+   "note": "被打中：裂口喷油 → 引擎接 fx_explosion"
+  }
+ },
+ "coords": "headBoxPx / points 是帧内像素坐标；headBox 是相对原点：x 朝前为正（flipX 时取反），y = 离地高度（px）",
+ "frameData": [
+  {
+   "frame": 0,
+   "anim": "r2_rolling_drum_roll"
+  },
+  {
+   "frame": 1,
+   "anim": "r2_rolling_drum_roll"
+  },
+  {
+   "frame": 2,
+   "anim": "r2_rolling_drum_roll"
+  },
+  {
+   "frame": 3,
+   "anim": "r2_rolling_drum_roll"
+  },
+  {
+   "frame": 4,
+   "anim": "r2_rolling_drum_roll"
+  },
+  {
+   "frame": 5,
+   "anim": "r2_rolling_drum_roll"
+  },
+  {
+   "frame": 6,
+   "anim": "r2_rolling_drum_roll"
+  },
+  {
+   "frame": 7,
+   "anim": "r2_rolling_drum_roll"
+  },
+  {
+   "frame": 8,
+   "anim": "r2_rolling_drum_crack"
+  }
+ ],
+ "brief": "滚动油桶（桶盖视角），高 17px ≤ 判定 18px；roll 一圈 8 帧、crack 被打中。"
+}

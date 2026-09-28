@@ -1,0 +1,1524 @@
+{
+ "key": "spr_player",
+ "image": "player.png",
+ "frameWidth": 48,
+ "frameHeight": 56,
+ "originPx": [
+  24,
+  55
+ ],
+ "soleRow": 54,
+ "coords": "frame pixel coords (top-left of the frame = 0,0). The arm sheet's pivot pixel (32,32) goes on points.shoulder: arm.x = body.x + facing*(shoulder[0]-24), arm.y = body.y + (shoulder[1]-55); arm origin (0.5,0.5); flipX both when facing left. shoulderBack = judge back-hand pivot (draw spr_player_arm_judge_back BEHIND the body). armLayer=false: hide the arm layer (hurt / hurt_heavy / death / switch-middle frames have empty-handed arms baked in). points.lamp = goggle lens glint on the forehead (route C head-lamp anchor; absent when the face is hidden). ms = designed frame time (the manifest anims expand it into repeated frames).",
+ "lighting": {
+  "rimSheet": "spr_player_rim",
+  "rimFile": "player_rim.png",
+  "rimSheetAutoaim": "spr_player_autoaim_rim",
+  "rimFileAutoaim": "player_autoaim_rim.png",
+  "rimRows": {
+   "L": 0,
+   "R": 1,
+   "T": 2
+  },
+  "rimFrameIndex": "row * 55 + frame",
+  "rimDoc": "route C selective outline: outline pixels facing L / R / T, coloured with the body colour just inside; ADD under the actor light multiply, weighted by the direct light from that side; swap L/R when flipped.",
+  "emitSheet": "spr_player_emit",
+  "emitFile": "player_emit.png",
+  "emitDoc": "goggle lens + glint (route C head-lamp); ADD tinted #dfe8f0 while the head-lamp is on; beam origin = points.lamp (absent on frames where the face is hidden / lying).",
+  "normalMap": "player_n.png",
+  "normalConvention": "RGB = (n+1)/2, x right, y UP, z to viewer (OpenGL); flipX -> negate R; same as player_arm_<id>_n.png. Derived from the part layout (bevel per part: pack panel broad / flat, limbs and scarf round); not in the manifest (engine loads it by name if it lights with normals). Serves spr_player_autoaim too (identical geometry).",
+  "shading": "top-front key light only, 4-5 value steps per material with hue shift; no environment light, no rim light and no coloured ambient baked into the colour sheet."
+ },
+ "anims": {
+  "player_idle": {
+   "frames": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "durationsMs": [
+    300,
+    240,
+    300,
+    240
+   ],
+   "totalMs": 1080,
+   "loop": true,
+   "armLayer": [
+    true,
+    true,
+    true,
+    true
+   ],
+   "tags": [
+    "in",
+    "out",
+    "out_hold",
+    "in_rise"
+   ],
+   "usage": "loop; arm layer on (keeps aiming). Breathing: chest -1px on the out-breath, pack / bedroll / mug settle 1-2 frames late."
+  },
+  "player_run": {
+   "frames": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "durationsMs": [
+    75,
+    75,
+    75,
+    75,
+    75,
+    75,
+    75,
+    75
+   ],
+   "totalMs": 600,
+   "loop": true,
+   "armLayer": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   "tags": [
+    "contact",
+    "down",
+    "pass",
+    "up",
+    "contact",
+    "down",
+    "pass",
+    "up"
+   ],
+   "usage": "loop at 110 px/s (75 ms/frame). Route A 8-phase hand-drawn legs, 2px lean, pack lags 1 frame, bedroll 2, scarf 4-phase wave, mug swings."
+  },
+  "player_run_back": {
+   "frames": [
+    11,
+    10,
+    9,
+    8,
+    7,
+    6,
+    5,
+    4
+   ],
+   "durationsMs": [
+    94,
+    94,
+    94,
+    94,
+    94,
+    94,
+    94,
+    94
+   ],
+   "totalMs": 752,
+   "loop": true,
+   "armLayer": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   "tags": [
+    "reverse",
+    "reverse",
+    "reverse",
+    "reverse",
+    "reverse",
+    "reverse",
+    "reverse",
+    "reverse"
+   ],
+   "usage": "manifest-only: player_run frames reversed at 0.8x speed (art bible 8.2) for backpedalling (PLAYER_ANIMS.runBack)."
+  },
+  "player_jump": {
+   "frames": [
+    12,
+    13
+   ],
+   "durationsMs": [
+    60,
+    100
+   ],
+   "totalMs": 160,
+   "loop": false,
+   "armLayer": [
+    true,
+    true
+   ],
+   "tags": [
+    "crouch",
+    "rise"
+   ],
+   "usage": "once: take-off crouch 60 ms (grounded) -> rise 100 ms (holds while vy < 0)."
+  },
+  "player_fall": {
+   "frames": [
+    14,
+    25
+   ],
+   "durationsMs": [
+    120,
+    120
+   ],
+   "totalMs": 240,
+   "loop": true,
+   "armLayer": [
+    true,
+    true
+   ],
+   "tags": [
+    "fall_a",
+    "fall_b"
+   ],
+   "usage": "loop while falling: legs reach, pack / scarf / mug float up (2-frame flutter)."
+  },
+  "player_land": {
+   "frames": [
+    15,
+    16,
+    26
+   ],
+   "durationsMs": [
+    40,
+    40,
+    40
+   ],
+   "totalMs": 120,
+   "loop": false,
+   "armLayer": [
+    true,
+    true,
+    true
+   ],
+   "tags": [
+    "squash",
+    "recover",
+    "settle"
+   ],
+   "usage": "once, 120 ms = landT: squash -> half -> settle."
+  },
+  "player_hurt": {
+   "frames": [
+    17,
+    27
+   ],
+   "durationsMs": [
+    80,
+    120
+   ],
+   "totalMs": 200,
+   "loop": false,
+   "armLayer": [
+    false,
+    false
+   ],
+   "tags": [
+    "snap",
+    "recoil"
+   ],
+   "usage": "once, 200 ms = hurtT; arm layer OFF (empty hands baked in, as v0.1)."
+  },
+  "player_death": {
+   "frames": [
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24
+   ],
+   "durationsMs": [
+    90,
+    80,
+    70,
+    110,
+    130,
+    180,
+    400
+   ],
+   "totalMs": 1060,
+   "loop": false,
+   "armLayer": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "tags": [
+    "buckle",
+    "sit",
+    "fall45",
+    "impact",
+    "settle",
+    "last_breath",
+    "still"
+   ],
+   "usage": "once, 1060 ms, holds the last frame; arm layer OFF. buckle -> sit -> 45deg (pack corner hits) -> lying impact -> settle -> last breath -> head lolls."
+  },
+  "player_idle_look": {
+   "frames": [
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34
+   ],
+   "durationsMs": [
+    200,
+    80,
+    120,
+    420,
+    100,
+    80,
+    240
+   ],
+   "totalMs": 1240,
+   "loop": false,
+   "armLayer": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   "tags": [
+    "neutral",
+    "turn",
+    "look_back",
+    "hold",
+    "blink",
+    "turn_back",
+    "settle"
+   ],
+   "usage": "play once after ~4-6 s of idle, then back to player_idle. Glances over the far shoulder and back; arm layer stays on (the gun keeps aiming). points.lamp absent on the two back-of-head frames."
+  },
+  "player_dash": {
+   "frames": [
+    35,
+    36,
+    37,
+    38,
+    39
+   ],
+   "durationsMs": [
+    40,
+    40,
+    40,
+    40,
+    40
+   ],
+   "totalMs": 200,
+   "loop": false,
+   "armLayer": [
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   "tags": [
+    "push",
+    "stretch",
+    "glide",
+    "skid",
+    "recover"
+   ],
+   "usage": "once, 200 ms = PLAYER_DASH.ms, when dashDir == facing. Arm layer ON (canFire while dashing). push -> stretch (smear) -> glide (smear) -> skid -> recover."
+  },
+  "player_hurt_heavy": {
+   "frames": [
+    40,
+    41,
+    42,
+    43
+   ],
+   "durationsMs": [
+    70,
+    110,
+    140,
+    160
+   ],
+   "totalMs": 480,
+   "loop": false,
+   "armLayer": [
+    false,
+    false,
+    false,
+    false
+   ],
+   "tags": [
+    "impact",
+    "stagger",
+    "clutch",
+    "recover"
+   ],
+   "usage": "once, 480 ms, for heavy hits (brute / boss / knockback); arm layer OFF. impact (front foot off the ground) -> stagger -> clutch -> recover. Lock input or let it be interrupted by death."
+  },
+  "player_switch": {
+   "frames": [
+    44,
+    45,
+    46,
+    47,
+    48,
+    49
+   ],
+   "durationsMs": [
+    40,
+    50,
+    60,
+    50,
+    50,
+    50
+   ],
+   "totalMs": 300,
+   "loop": false,
+   "armLayer": [
+    true,
+    false,
+    false,
+    false,
+    false,
+    true
+   ],
+   "tags": [
+    "dip",
+    "stow",
+    "reach",
+    "pull",
+    "present",
+    "set"
+   ],
+   "usage": "once, 300 ms nominal; scale to the weapon's switchMs (duration = switchMs) if needed. Frames 0 and 5 keep the arm layer (dip / set); 1-4 hide it and show the empty hand going hip -> pack side -> chest -> forward. Swap the weapon texture on frame 4 (present)."
+  },
+  "player_dash_back": {
+   "frames": [
+    50,
+    51,
+    52,
+    53,
+    54
+   ],
+   "durationsMs": [
+    40,
+    40,
+    40,
+    40,
+    40
+   ],
+   "totalMs": 200,
+   "loop": false,
+   "armLayer": [
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   "tags": [
+    "shove",
+    "hop",
+    "glide",
+    "catch",
+    "recover"
+   ],
+   "usage": "once, 200 ms, when dashDir != facing (kiting back while aiming at the horde). Arm layer ON. shove -> hop (smear off the front edge) -> glide -> catch -> recover."
+  }
+ },
+ "frames": [
+  {
+   "frame": 0,
+   "anim": "player_idle",
+   "armLayer": true,
+   "ms": 300,
+   "points": {
+    "shoulder": [
+     27,
+     24
+    ],
+    "shoulderBack": [
+     25,
+     28
+    ],
+    "lamp": [
+     32,
+     12
+    ]
+   }
+  },
+  {
+   "frame": 1,
+   "anim": "player_idle",
+   "armLayer": true,
+   "ms": 240,
+   "points": {
+    "shoulder": [
+     27,
+     25
+    ],
+    "shoulderBack": [
+     25,
+     29
+    ],
+    "lamp": [
+     32,
+     13
+    ]
+   }
+  },
+  {
+   "frame": 2,
+   "anim": "player_idle",
+   "armLayer": true,
+   "ms": 300,
+   "points": {
+    "shoulder": [
+     27,
+     25
+    ],
+    "shoulderBack": [
+     25,
+     29
+    ],
+    "lamp": [
+     32,
+     13
+    ]
+   }
+  },
+  {
+   "frame": 3,
+   "anim": "player_idle",
+   "armLayer": true,
+   "ms": 240,
+   "points": {
+    "shoulder": [
+     27,
+     24
+    ],
+    "shoulderBack": [
+     25,
+     28
+    ],
+    "lamp": [
+     32,
+     12
+    ]
+   }
+  },
+  {
+   "frame": 4,
+   "anim": "player_run",
+   "armLayer": true,
+   "ms": 75,
+   "points": {
+    "shoulder": [
+     29,
+     24
+    ],
+    "shoulderBack": [
+     27,
+     28
+    ],
+    "lamp": [
+     34,
+     12
+    ]
+   }
+  },
+  {
+   "frame": 5,
+   "anim": "player_run",
+   "armLayer": true,
+   "ms": 75,
+   "points": {
+    "shoulder": [
+     29,
+     25
+    ],
+    "shoulderBack": [
+     27,
+     29
+    ],
+    "lamp": [
+     34,
+     13
+    ]
+   }
+  },
+  {
+   "frame": 6,
+   "anim": "player_run",
+   "armLayer": true,
+   "ms": 75,
+   "points": {
+    "shoulder": [
+     29,
+     24
+    ],
+    "shoulderBack": [
+     27,
+     28
+    ],
+    "lamp": [
+     34,
+     12
+    ]
+   }
+  },
+  {
+   "frame": 7,
+   "anim": "player_run",
+   "armLayer": true,
+   "ms": 75,
+   "points": {
+    "shoulder": [
+     29,
+     23
+    ],
+    "shoulderBack": [
+     27,
+     27
+    ],
+    "lamp": [
+     34,
+     11
+    ]
+   }
+  },
+  {
+   "frame": 8,
+   "anim": "player_run",
+   "armLayer": true,
+   "ms": 75,
+   "points": {
+    "shoulder": [
+     29,
+     24
+    ],
+    "shoulderBack": [
+     27,
+     28
+    ],
+    "lamp": [
+     34,
+     12
+    ]
+   }
+  },
+  {
+   "frame": 9,
+   "anim": "player_run",
+   "armLayer": true,
+   "ms": 75,
+   "points": {
+    "shoulder": [
+     29,
+     25
+    ],
+    "shoulderBack": [
+     27,
+     29
+    ],
+    "lamp": [
+     34,
+     13
+    ]
+   }
+  },
+  {
+   "frame": 10,
+   "anim": "player_run",
+   "armLayer": true,
+   "ms": 75,
+   "points": {
+    "shoulder": [
+     29,
+     24
+    ],
+    "shoulderBack": [
+     27,
+     28
+    ],
+    "lamp": [
+     34,
+     12
+    ]
+   }
+  },
+  {
+   "frame": 11,
+   "anim": "player_run",
+   "armLayer": true,
+   "ms": 75,
+   "points": {
+    "shoulder": [
+     29,
+     23
+    ],
+    "shoulderBack": [
+     27,
+     27
+    ],
+    "lamp": [
+     34,
+     11
+    ]
+   }
+  },
+  {
+   "frame": 12,
+   "anim": "player_jump",
+   "armLayer": true,
+   "ms": 60,
+   "points": {
+    "shoulder": [
+     28,
+     28
+    ],
+    "shoulderBack": [
+     26,
+     32
+    ],
+    "lamp": [
+     34,
+     16
+    ]
+   }
+  },
+  {
+   "frame": 13,
+   "anim": "player_jump",
+   "armLayer": true,
+   "ms": 100,
+   "points": {
+    "shoulder": [
+     27,
+     24
+    ],
+    "shoulderBack": [
+     25,
+     28
+    ],
+    "lamp": [
+     32,
+     12
+    ]
+   }
+  },
+  {
+   "frame": 14,
+   "anim": "player_fall",
+   "armLayer": true,
+   "ms": 120,
+   "points": {
+    "shoulder": [
+     27,
+     24
+    ],
+    "shoulderBack": [
+     25,
+     28
+    ],
+    "lamp": [
+     32,
+     12
+    ]
+   }
+  },
+  {
+   "frame": 15,
+   "anim": "player_land",
+   "armLayer": true,
+   "ms": 40,
+   "points": {
+    "shoulder": [
+     28,
+     28
+    ],
+    "shoulderBack": [
+     26,
+     32
+    ],
+    "lamp": [
+     34,
+     16
+    ]
+   }
+  },
+  {
+   "frame": 16,
+   "anim": "player_land",
+   "armLayer": true,
+   "ms": 40,
+   "points": {
+    "shoulder": [
+     28,
+     26
+    ],
+    "shoulderBack": [
+     26,
+     30
+    ],
+    "lamp": [
+     33,
+     14
+    ]
+   }
+  },
+  {
+   "frame": 17,
+   "anim": "player_hurt",
+   "armLayer": false,
+   "ms": 80,
+   "points": {
+    "shoulder": [
+     24,
+     25
+    ],
+    "shoulderBack": [
+     22,
+     29
+    ],
+    "lamp": [
+     27,
+     12
+    ]
+   }
+  },
+  {
+   "frame": 18,
+   "anim": "player_death",
+   "armLayer": false,
+   "ms": 90,
+   "points": {
+    "shoulder": [
+     24,
+     28
+    ],
+    "shoulderBack": [
+     22,
+     32
+    ],
+    "lamp": [
+     27,
+     15
+    ]
+   }
+  },
+  {
+   "frame": 19,
+   "anim": "player_death",
+   "armLayer": false,
+   "ms": 80,
+   "points": {
+    "shoulder": [
+     24,
+     33
+    ],
+    "shoulderBack": [
+     22,
+     37
+    ],
+    "lamp": [
+     28,
+     22
+    ]
+   }
+  },
+  {
+   "frame": 20,
+   "anim": "player_death",
+   "armLayer": false,
+   "ms": 70,
+   "points": {
+    "shoulder": [
+     24,
+     26
+    ],
+    "shoulderBack": [
+     22,
+     30
+    ]
+   }
+  },
+  {
+   "frame": 21,
+   "anim": "player_death",
+   "armLayer": false,
+   "ms": 110,
+   "points": {
+    "shoulder": [
+     24,
+     26
+    ],
+    "shoulderBack": [
+     22,
+     30
+    ]
+   }
+  },
+  {
+   "frame": 22,
+   "anim": "player_death",
+   "armLayer": false,
+   "ms": 130,
+   "points": {
+    "shoulder": [
+     24,
+     26
+    ],
+    "shoulderBack": [
+     22,
+     30
+    ]
+   }
+  },
+  {
+   "frame": 23,
+   "anim": "player_death",
+   "armLayer": false,
+   "ms": 180,
+   "points": {
+    "shoulder": [
+     24,
+     26
+    ],
+    "shoulderBack": [
+     22,
+     30
+    ]
+   }
+  },
+  {
+   "frame": 24,
+   "anim": "player_death",
+   "armLayer": false,
+   "ms": 400,
+   "points": {
+    "shoulder": [
+     24,
+     26
+    ],
+    "shoulderBack": [
+     22,
+     30
+    ]
+   }
+  },
+  {
+   "frame": 25,
+   "anim": "player_fall",
+   "armLayer": true,
+   "ms": 120,
+   "points": {
+    "shoulder": [
+     27,
+     24
+    ],
+    "shoulderBack": [
+     25,
+     28
+    ],
+    "lamp": [
+     32,
+     12
+    ]
+   }
+  },
+  {
+   "frame": 26,
+   "anim": "player_land",
+   "armLayer": true,
+   "ms": 40,
+   "points": {
+    "shoulder": [
+     27,
+     25
+    ],
+    "shoulderBack": [
+     25,
+     29
+    ],
+    "lamp": [
+     32,
+     13
+    ]
+   }
+  },
+  {
+   "frame": 27,
+   "anim": "player_hurt",
+   "armLayer": false,
+   "ms": 120,
+   "points": {
+    "shoulder": [
+     24,
+     25
+    ],
+    "shoulderBack": [
+     22,
+     29
+    ],
+    "lamp": [
+     29,
+     13
+    ]
+   }
+  },
+  {
+   "frame": 28,
+   "anim": "player_idle_look",
+   "armLayer": true,
+   "ms": 200,
+   "points": {
+    "shoulder": [
+     27,
+     24
+    ],
+    "shoulderBack": [
+     25,
+     28
+    ],
+    "lamp": [
+     32,
+     12
+    ]
+   }
+  },
+  {
+   "frame": 29,
+   "anim": "player_idle_look",
+   "armLayer": true,
+   "ms": 80,
+   "points": {
+    "shoulder": [
+     27,
+     24
+    ],
+    "shoulderBack": [
+     25,
+     28
+    ]
+   }
+  },
+  {
+   "frame": 30,
+   "anim": "player_idle_look",
+   "armLayer": true,
+   "ms": 120,
+   "points": {
+    "shoulder": [
+     27,
+     24
+    ],
+    "shoulderBack": [
+     25,
+     28
+    ],
+    "lamp": [
+     19,
+     11
+    ]
+   }
+  },
+  {
+   "frame": 31,
+   "anim": "player_idle_look",
+   "armLayer": true,
+   "ms": 420,
+   "points": {
+    "shoulder": [
+     27,
+     24
+    ],
+    "shoulderBack": [
+     25,
+     28
+    ],
+    "lamp": [
+     19,
+     12
+    ]
+   }
+  },
+  {
+   "frame": 32,
+   "anim": "player_idle_look",
+   "armLayer": true,
+   "ms": 100,
+   "points": {
+    "shoulder": [
+     27,
+     24
+    ],
+    "shoulderBack": [
+     25,
+     28
+    ],
+    "lamp": [
+     19,
+     12
+    ]
+   }
+  },
+  {
+   "frame": 33,
+   "anim": "player_idle_look",
+   "armLayer": true,
+   "ms": 80,
+   "points": {
+    "shoulder": [
+     27,
+     24
+    ],
+    "shoulderBack": [
+     25,
+     28
+    ]
+   }
+  },
+  {
+   "frame": 34,
+   "anim": "player_idle_look",
+   "armLayer": true,
+   "ms": 240,
+   "points": {
+    "shoulder": [
+     27,
+     25
+    ],
+    "shoulderBack": [
+     25,
+     29
+    ],
+    "lamp": [
+     32,
+     13
+    ]
+   }
+  },
+  {
+   "frame": 35,
+   "anim": "player_dash",
+   "armLayer": true,
+   "ms": 40,
+   "points": {
+    "shoulder": [
+     30,
+     27
+    ],
+    "shoulderBack": [
+     28,
+     31
+    ],
+    "lamp": [
+     36,
+     15
+    ]
+   }
+  },
+  {
+   "frame": 36,
+   "anim": "player_dash",
+   "armLayer": true,
+   "ms": 40,
+   "points": {
+    "shoulder": [
+     31,
+     28
+    ],
+    "shoulderBack": [
+     29,
+     32
+    ],
+    "lamp": [
+     38,
+     16
+    ]
+   }
+  },
+  {
+   "frame": 37,
+   "anim": "player_dash",
+   "armLayer": true,
+   "ms": 40,
+   "points": {
+    "shoulder": [
+     31,
+     28
+    ],
+    "shoulderBack": [
+     29,
+     32
+    ],
+    "lamp": [
+     38,
+     16
+    ]
+   }
+  },
+  {
+   "frame": 38,
+   "anim": "player_dash",
+   "armLayer": true,
+   "ms": 40,
+   "points": {
+    "shoulder": [
+     29,
+     28
+    ],
+    "shoulderBack": [
+     27,
+     32
+    ],
+    "lamp": [
+     35,
+     16
+    ]
+   }
+  },
+  {
+   "frame": 39,
+   "anim": "player_dash",
+   "armLayer": true,
+   "ms": 40,
+   "points": {
+    "shoulder": [
+     28,
+     25
+    ],
+    "shoulderBack": [
+     26,
+     29
+    ],
+    "lamp": [
+     33,
+     13
+    ]
+   }
+  },
+  {
+   "frame": 40,
+   "anim": "player_hurt_heavy",
+   "armLayer": false,
+   "ms": 70,
+   "points": {
+    "shoulder": [
+     22,
+     24
+    ],
+    "shoulderBack": [
+     20,
+     28
+    ],
+    "lamp": [
+     25,
+     11
+    ]
+   }
+  },
+  {
+   "frame": 41,
+   "anim": "player_hurt_heavy",
+   "armLayer": false,
+   "ms": 110,
+   "points": {
+    "shoulder": [
+     23,
+     25
+    ],
+    "shoulderBack": [
+     21,
+     29
+    ],
+    "lamp": [
+     26,
+     13
+    ]
+   }
+  },
+  {
+   "frame": 42,
+   "anim": "player_hurt_heavy",
+   "armLayer": false,
+   "ms": 140,
+   "points": {
+    "shoulder": [
+     29,
+     26
+    ],
+    "shoulderBack": [
+     27,
+     30
+    ],
+    "lamp": [
+     35,
+     15
+    ]
+   }
+  },
+  {
+   "frame": 43,
+   "anim": "player_hurt_heavy",
+   "armLayer": false,
+   "ms": 160,
+   "points": {
+    "shoulder": [
+     27,
+     25
+    ],
+    "shoulderBack": [
+     25,
+     29
+    ],
+    "lamp": [
+     32,
+     13
+    ]
+   }
+  },
+  {
+   "frame": 44,
+   "anim": "player_switch",
+   "armLayer": true,
+   "ms": 40,
+   "points": {
+    "shoulder": [
+     27,
+     25
+    ],
+    "shoulderBack": [
+     25,
+     29
+    ],
+    "lamp": [
+     32,
+     13
+    ]
+   }
+  },
+  {
+   "frame": 45,
+   "anim": "player_switch",
+   "armLayer": false,
+   "ms": 50,
+   "points": {
+    "shoulder": [
+     26,
+     25
+    ],
+    "shoulderBack": [
+     24,
+     29
+    ],
+    "lamp": [
+     31,
+     14
+    ]
+   }
+  },
+  {
+   "frame": 46,
+   "anim": "player_switch",
+   "armLayer": false,
+   "ms": 60,
+   "points": {
+    "shoulder": [
+     26,
+     25
+    ],
+    "shoulderBack": [
+     24,
+     29
+    ]
+   }
+  },
+  {
+   "frame": 47,
+   "anim": "player_switch",
+   "armLayer": false,
+   "ms": 50,
+   "points": {
+    "shoulder": [
+     28,
+     24
+    ],
+    "shoulderBack": [
+     26,
+     28
+    ],
+    "lamp": [
+     33,
+     12
+    ]
+   }
+  },
+  {
+   "frame": 48,
+   "anim": "player_switch",
+   "armLayer": false,
+   "ms": 50,
+   "points": {
+    "shoulder": [
+     27,
+     24
+    ],
+    "shoulderBack": [
+     25,
+     28
+    ],
+    "lamp": [
+     32,
+     12
+    ]
+   }
+  },
+  {
+   "frame": 49,
+   "anim": "player_switch",
+   "armLayer": true,
+   "ms": 50,
+   "points": {
+    "shoulder": [
+     27,
+     24
+    ],
+    "shoulderBack": [
+     25,
+     28
+    ],
+    "lamp": [
+     32,
+     12
+    ]
+   }
+  },
+  {
+   "frame": 50,
+   "anim": "player_dash_back",
+   "armLayer": true,
+   "ms": 40,
+   "points": {
+    "shoulder": [
+     25,
+     27
+    ],
+    "shoulderBack": [
+     23,
+     31
+    ],
+    "lamp": [
+     30,
+     15
+    ]
+   }
+  },
+  {
+   "frame": 51,
+   "anim": "player_dash_back",
+   "armLayer": true,
+   "ms": 40,
+   "points": {
+    "shoulder": [
+     25,
+     28
+    ],
+    "shoulderBack": [
+     23,
+     32
+    ],
+    "lamp": [
+     29,
+     16
+    ]
+   }
+  },
+  {
+   "frame": 52,
+   "anim": "player_dash_back",
+   "armLayer": true,
+   "ms": 40,
+   "points": {
+    "shoulder": [
+     25,
+     28
+    ],
+    "shoulderBack": [
+     23,
+     32
+    ],
+    "lamp": [
+     29,
+     16
+    ]
+   }
+  },
+  {
+   "frame": 53,
+   "anim": "player_dash_back",
+   "armLayer": true,
+   "ms": 40,
+   "points": {
+    "shoulder": [
+     26,
+     27
+    ],
+    "shoulderBack": [
+     24,
+     31
+    ],
+    "lamp": [
+     31,
+     15
+    ]
+   }
+  },
+  {
+   "frame": 54,
+   "anim": "player_dash_back",
+   "armLayer": true,
+   "ms": 40,
+   "points": {
+    "shoulder": [
+     27,
+     25
+    ],
+    "shoulderBack": [
+     25,
+     29
+    ],
+    "lamp": [
+     32,
+     13
+    ]
+   }
+  }
+ ]
+}

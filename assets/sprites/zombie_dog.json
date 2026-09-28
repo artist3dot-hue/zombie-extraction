@@ -1,0 +1,526 @@
+{
+ "key": "spr_zombie_dog",
+ "frameWidth": 40,
+ "frameHeight": 32,
+ "frames": 49,
+ "originPx": [
+  20,
+  31
+ ],
+ "soleRow": 30,
+ "anims": {
+  "zombie_dog_idle": {
+   "frames": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "frameMs": [
+    300,
+    260,
+    200,
+    260
+   ],
+   "repeat": -1
+  },
+  "zombie_dog_walk": {
+   "frames": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ],
+   "frameMs": [
+    90,
+    90,
+    90,
+    130,
+    90,
+    90
+   ],
+   "repeat": -1
+  },
+  "zombie_dog_run": {
+   "frames": [
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+   ],
+   "frameMs": [
+    70,
+    70,
+    70,
+    70,
+    70,
+    70
+   ],
+   "repeat": -1
+  },
+  "zombie_dog_attack": {
+   "frames": [
+    16,
+    17,
+    18,
+    19,
+    20,
+    21
+   ],
+   "frameMs": [
+    200,
+    250,
+    80,
+    100,
+    150,
+    150
+   ],
+   "repeat": 0
+  },
+  "zombie_dog_bite": {
+   "frames": [
+    16,
+    17,
+    18,
+    19,
+    20,
+    21
+   ],
+   "frameMs": [
+    200,
+    250,
+    80,
+    100,
+    150,
+    150
+   ],
+   "repeat": 0
+  },
+  "zombie_dog_leap": {
+   "frames": [
+    22,
+    23,
+    24,
+    25,
+    26
+   ],
+   "frameMs": [
+    200,
+    80,
+    120,
+    100,
+    150
+   ],
+   "repeat": 0
+  },
+  "zombie_dog_attack2": {
+   "frames": [
+    16,
+    17,
+    23,
+    27,
+    28
+   ],
+   "frameMs": [
+    200,
+    250,
+    80,
+    200,
+    200
+   ],
+   "repeat": 0
+  },
+  "zombie_dog_hurt": {
+   "frames": [
+    29,
+    30
+   ],
+   "frameMs": [
+    80,
+    140
+   ],
+   "repeat": 0
+  },
+  "zombie_dog_hurt_head": {
+   "frames": [
+    31,
+    32
+   ],
+   "frameMs": [
+    80,
+    160
+   ],
+   "repeat": 0
+  },
+  "zombie_dog_death": {
+   "frames": [
+    33,
+    34,
+    35,
+    36,
+    37,
+    38
+   ],
+   "frameMs": [
+    80,
+    100,
+    120,
+    120,
+    160,
+    400
+   ],
+   "repeat": 0
+  },
+  "zombie_dog_die": {
+   "frames": [
+    33,
+    34,
+    35,
+    36,
+    37,
+    38
+   ],
+   "frameMs": [
+    80,
+    100,
+    120,
+    120,
+    160,
+    400
+   ],
+   "repeat": 0
+  },
+  "zombie_dog_death_head": {
+   "frames": [
+    39,
+    40,
+    41,
+    42,
+    43
+   ],
+   "frameMs": [
+    60,
+    90,
+    120,
+    160,
+    400
+   ],
+   "repeat": 0
+  },
+  "zombie_dog_death_blast": {
+   "frames": [
+    44,
+    45,
+    46,
+    47,
+    48
+   ],
+   "frameMs": [
+    70,
+    90,
+    120,
+    150,
+    400
+   ],
+   "repeat": 0
+  }
+ },
+ "airborne": {
+  "10": 1,
+  "13": 2,
+  "44": 3,
+  "45": 2
+ },
+ "airborneNote": "这些帧故意离地（px），其余帧最低不透明行 = soleRow",
+ "points": [
+  {
+   "frame": 0,
+   "eye": [
+    28.0,
+    16.0
+   ]
+  },
+  {
+   "frame": 1,
+   "eye": [
+    28.0,
+    16.0
+   ]
+  },
+  {
+   "frame": 2,
+   "eye": [
+    28.0,
+    16.0
+   ]
+  },
+  {
+   "frame": 3,
+   "eye": [
+    28.0,
+    16.0
+   ]
+  },
+  {
+   "frame": 4,
+   "eye": [
+    28.0,
+    16.0
+   ]
+  },
+  {
+   "frame": 5,
+   "eye": [
+    28.0,
+    15.0
+   ]
+  },
+  {
+   "frame": 6,
+   "eye": [
+    28.0,
+    16.0
+   ]
+  },
+  {
+   "frame": 7,
+   "eye": [
+    28.0,
+    18.0
+   ]
+  },
+  {
+   "frame": 8,
+   "eye": [
+    28.0,
+    16.0
+   ]
+  },
+  {
+   "frame": 9,
+   "eye": [
+    28.0,
+    16.0
+   ]
+  },
+  {
+   "frame": 10,
+   "eye": [
+    27.0,
+    17.0
+   ]
+  },
+  {
+   "frame": 11,
+   "eye": [
+    28.0,
+    16.0
+   ]
+  },
+  {
+   "frame": 12,
+   "eye": [
+    29.0,
+    15.0
+   ]
+  },
+  {
+   "frame": 13,
+   "eye": [
+    29.0,
+    14.0
+   ]
+  },
+  {
+   "frame": 14,
+   "eye": [
+    29.0,
+    17.0
+   ]
+  },
+  {
+   "frame": 15,
+   "eye": [
+    28.0,
+    17.0
+   ]
+  },
+  {
+   "frame": 16,
+   "eye": [
+    28.0,
+    18.0
+   ]
+  },
+  {
+   "frame": 17,
+   "eye": [
+    26.0,
+    20.0
+   ]
+  },
+  {
+   "frame": 18,
+   "eye": [
+    32.0,
+    16.0
+   ]
+  },
+  {
+   "frame": 19
+  },
+  {
+   "frame": 20
+  },
+  {
+   "frame": 21,
+   "eye": [
+    29.0,
+    16.0
+   ]
+  },
+  {
+   "frame": 22,
+   "eye": [
+    26.0,
+    19.0
+   ]
+  },
+  {
+   "frame": 23,
+   "eye": [
+    29.0,
+    11.0
+   ]
+  },
+  {
+   "frame": 24,
+   "eye": [
+    29.0,
+    17.0
+   ]
+  },
+  {
+   "frame": 25,
+   "eye": [
+    29.0,
+    18.0
+   ]
+  },
+  {
+   "frame": 26,
+   "eye": [
+    28.0,
+    19.0
+   ]
+  },
+  {
+   "frame": 27,
+   "eye": [
+    29.0,
+    17.0
+   ]
+  },
+  {
+   "frame": 28
+  },
+  {
+   "frame": 29
+  },
+  {
+   "frame": 30,
+   "eye": [
+    28.0,
+    17.0
+   ]
+  },
+  {
+   "frame": 31
+  },
+  {
+   "frame": 32
+  },
+  {
+   "frame": 33
+  },
+  {
+   "frame": 34
+  },
+  {
+   "frame": 35
+  },
+  {
+   "frame": 36
+  },
+  {
+   "frame": 37
+  },
+  {
+   "frame": 38
+  },
+  {
+   "frame": 39
+  },
+  {
+   "frame": 40
+  },
+  {
+   "frame": 41
+  },
+  {
+   "frame": 42
+  },
+  {
+   "frame": 43
+  },
+  {
+   "frame": 44
+  },
+  {
+   "frame": 45
+  },
+  {
+   "frame": 46
+  },
+  {
+   "frame": 47
+  },
+  {
+   "frame": 48
+  }
+ ],
+ "pointsNote": "eye = 眼睛像素（#d8d0c0 / 红眼帧 #e8372c）质心；glow = 发光像素质心 + 像素数（喷吐者喉囊亮度随蓄力涨，可直接驱动一个跟随的小光源）；mouth = 喷吐者嘴部（弹道出生点）",
+ "light": {
+  "rim": {
+   "file": "sprites/zombie_dog_rim.png",
+   "key": "spr_zombie_dog_rim",
+   "rows": [
+    "L",
+    "R",
+    "T"
+   ],
+   "frameIndex": "row * frames + frame",
+   "note": "外描边里朝左 / 右 / 上暴露的墨线像素，颜色 = 紧贴其内侧的体色（路线 C v2 选择性描边）。引擎：按光源方位取对应行，ADD 或 NORMAL 画在精灵上，tint = 光色，alpha = 分阶强度，放进 actor 光照图相乘；精灵本身不烘焙任何边缘光"
+  },
+  "emit": {
+   "file": "sprites/zombie_dog_emit.png",
+   "key": "spr_zombie_dog_emit",
+   "rows": [
+    "glow",
+    "eyes"
+   ],
+   "frameIndex": "row * frames + frame",
+   "glowColors": [],
+   "eyeColors": [
+    "#d8d0c0",
+    "#e8372c"
+   ],
+   "note": "row glow 始终自发光（不乘光照图，画在光照之后），可再叠一圈分阶 bloom；row eyes 只在后期热度档 / 红眼预警帧点亮"
+  },
+  "paintedLight": "精灵只画顶部偏前的中性主光（圣经 6.1），没有烘焙彩色环境光、边缘光或投影"
+ }
+}

@@ -1,0 +1,2508 @@
+{
+ "key": "spr_boss_tank_giant_p3",
+ "image": "boss_tank_giant_p3.png",
+ "frameWidth": 176,
+ "frameHeight": 160,
+ "columns": 12,
+ "frames": 86,
+ "originPx": [
+  88,
+  159
+ ],
+ "soleRow": 158,
+ "coords": "帧像素（左上 (0,0)），Boss 面朝右；flipX 时 x' = 175 - x。第 i 帧 = 行 i // 12、列 i % 12",
+ "points_doc": {
+  "headBox": "头（含描边）[x0,y0,x1,y1]：爆头判定",
+  "tankBox": "背罐（含描边）：罐损判定（引擎只认命中点落在框里的）",
+  "valveBox": "罐顶泄压阀：临界过压起手期间打它取消大招",
+  "nozzle": "喷嘴尖 [x,y]：喷火 / 横扫的起点"
+ },
+ "frameTable": [
+  {
+   "frame": 0,
+   "anim": "boss_tank_giant_p3_idle",
+   "air": 0,
+   "points": {
+    "headBox": [
+     88,
+     37,
+     106,
+     55
+    ],
+    "tankBox": [
+     41,
+     34,
+     80,
+     114
+    ],
+    "valveBox": [
+     55,
+     26,
+     70,
+     35
+    ],
+    "nozzle": [
+     152.7,
+     101.4
+    ]
+   }
+  },
+  {
+   "frame": 1,
+   "anim": "boss_tank_giant_p3_idle",
+   "air": 0,
+   "points": {
+    "headBox": [
+     88,
+     38,
+     106,
+     56
+    ],
+    "tankBox": [
+     40,
+     35,
+     81,
+     115
+    ],
+    "valveBox": [
+     56,
+     27,
+     71,
+     36
+    ],
+    "nozzle": [
+     152.7,
+     102.6
+    ]
+   }
+  },
+  {
+   "frame": 2,
+   "anim": "boss_tank_giant_p3_idle",
+   "air": 0,
+   "points": {
+    "headBox": [
+     88,
+     38,
+     106,
+     56
+    ],
+    "tankBox": [
+     41,
+     35,
+     82,
+     115
+    ],
+    "valveBox": [
+     57,
+     27,
+     72,
+     36
+    ],
+    "nozzle": [
+     152.7,
+     102.7
+    ]
+   }
+  },
+  {
+   "frame": 3,
+   "anim": "boss_tank_giant_p3_idle",
+   "air": 0,
+   "points": {
+    "headBox": [
+     88,
+     37,
+     106,
+     55
+    ],
+    "tankBox": [
+     41,
+     34,
+     80,
+     114
+    ],
+    "valveBox": [
+     56,
+     26,
+     71,
+     35
+    ],
+    "nozzle": [
+     152.7,
+     101.5
+    ]
+   }
+  },
+  {
+   "frame": 4,
+   "anim": "boss_tank_giant_p3_walk",
+   "air": 0,
+   "points": {
+    "headBox": [
+     94,
+     39,
+     111,
+     57
+    ],
+    "tankBox": [
+     42,
+     32,
+     85,
+     113
+    ],
+    "valveBox": [
+     61,
+     26,
+     76,
+     35
+    ],
+    "nozzle": [
+     155.7,
+     104.3
+    ]
+   }
+  },
+  {
+   "frame": 5,
+   "anim": "boss_tank_giant_p3_walk",
+   "air": 0,
+   "points": {
+    "headBox": [
+     94,
+     38,
+     111,
+     56
+    ],
+    "tankBox": [
+     41,
+     31,
+     86,
+     113
+    ],
+    "valveBox": [
+     63,
+     25,
+     78,
+     34
+    ],
+    "nozzle": [
+     154.1,
+     102.6
+    ]
+   }
+  },
+  {
+   "frame": 6,
+   "anim": "boss_tank_giant_p3_walk",
+   "air": 0,
+   "points": {
+    "headBox": [
+     94,
+     38,
+     111,
+     56
+    ],
+    "tankBox": [
+     41,
+     31,
+     86,
+     113
+    ],
+    "valveBox": [
+     63,
+     25,
+     78,
+     34
+    ],
+    "nozzle": [
+     154.1,
+     102.6
+    ]
+   }
+  },
+  {
+   "frame": 7,
+   "anim": "boss_tank_giant_p3_walk",
+   "air": 0,
+   "points": {
+    "headBox": [
+     94,
+     39,
+     111,
+     57
+    ],
+    "tankBox": [
+     42,
+     32,
+     85,
+     113
+    ],
+    "valveBox": [
+     61,
+     26,
+     76,
+     35
+    ],
+    "nozzle": [
+     155.7,
+     104.3
+    ]
+   }
+  },
+  {
+   "frame": 8,
+   "anim": "boss_tank_giant_p3_walk",
+   "air": 0,
+   "points": {
+    "headBox": [
+     94,
+     38,
+     111,
+     56
+    ],
+    "tankBox": [
+     41,
+     33,
+     83,
+     113
+    ],
+    "valveBox": [
+     59,
+     25,
+     74,
+     34
+    ],
+    "nozzle": [
+     157.2,
+     103.9
+    ]
+   }
+  },
+  {
+   "frame": 9,
+   "anim": "boss_tank_giant_p3_walk",
+   "air": 0,
+   "points": {
+    "headBox": [
+     94,
+     38,
+     111,
+     56
+    ],
+    "tankBox": [
+     41,
+     33,
+     83,
+     113
+    ],
+    "valveBox": [
+     59,
+     25,
+     74,
+     34
+    ],
+    "nozzle": [
+     157.2,
+     103.9
+    ]
+   }
+  },
+  {
+   "frame": 10,
+   "anim": "boss_tank_giant_p3_flame_windup",
+   "air": 0,
+   "points": {
+    "headBox": [
+     88,
+     37,
+     106,
+     55
+    ],
+    "tankBox": [
+     41,
+     34,
+     80,
+     114
+    ],
+    "valveBox": [
+     55,
+     26,
+     70,
+     35
+    ],
+    "nozzle": [
+     152.9,
+     100.6
+    ]
+   }
+  },
+  {
+   "frame": 11,
+   "anim": "boss_tank_giant_p3_flame_windup",
+   "air": 0,
+   "points": {
+    "headBox": [
+     85,
+     37,
+     103,
+     55
+    ],
+    "tankBox": [
+     38,
+     35,
+     79,
+     115
+    ],
+    "valveBox": [
+     51,
+     27,
+     66,
+     36
+    ],
+    "nozzle": [
+     152.4,
+     96.7
+    ]
+   }
+  },
+  {
+   "frame": 12,
+   "anim": "boss_tank_giant_p3_flame_windup",
+   "air": 0,
+   "points": {
+    "headBox": [
+     82,
+     36,
+     99,
+     54
+    ],
+    "tankBox": [
+     35,
+     36,
+     78,
+     117
+    ],
+    "valveBox": [
+     48,
+     28,
+     63,
+     37
+    ],
+    "nozzle": [
+     152.6,
+     92.7
+    ]
+   }
+  },
+  {
+   "frame": 13,
+   "anim": "boss_tank_giant_p3_flame_windup",
+   "air": 0,
+   "points": {
+    "headBox": [
+     79,
+     36,
+     96,
+     54
+    ],
+    "tankBox": [
+     32,
+     36,
+     77,
+     118
+    ],
+    "valveBox": [
+     44,
+     29,
+     59,
+     38
+    ],
+    "nozzle": [
+     151.6,
+     88.6
+    ]
+   }
+  },
+  {
+   "frame": 14,
+   "anim": "boss_tank_giant_p3_flame_loop",
+   "air": 0,
+   "points": {
+    "headBox": [
+     78,
+     36,
+     96,
+     54
+    ],
+    "tankBox": [
+     30,
+     36,
+     77,
+     118
+    ],
+    "valveBox": [
+     43,
+     29,
+     58,
+     38
+    ],
+    "nozzle": [
+     151.5,
+     86.7
+    ]
+   }
+  },
+  {
+   "frame": 15,
+   "anim": "boss_tank_giant_p3_flame_loop",
+   "air": 0,
+   "points": {
+    "headBox": [
+     77,
+     36,
+     95,
+     54
+    ],
+    "tankBox": [
+     29,
+     36,
+     77,
+     118
+    ],
+    "valveBox": [
+     41,
+     28,
+     56,
+     38
+    ],
+    "nozzle": [
+     150.5,
+     87.1
+    ]
+   }
+  },
+  {
+   "frame": 16,
+   "anim": "boss_tank_giant_p3_ram_windup",
+   "air": 0,
+   "points": {
+    "headBox": [
+     105,
+     44,
+     122,
+     62
+    ],
+    "tankBox": [
+     44,
+     29,
+     100,
+     111
+    ],
+    "valveBox": [
+     80,
+     23,
+     94,
+     33
+    ],
+    "nozzle": [
+     170.3,
+     107.0
+    ]
+   }
+  },
+  {
+   "frame": 17,
+   "anim": "boss_tank_giant_p3_ram_windup",
+   "air": 0,
+   "points": {
+    "headBox": [
+     111,
+     56,
+     128,
+     74
+    ],
+    "tankBox": [
+     41,
+     30,
+     112,
+     110
+    ],
+    "valveBox": [
+     98,
+     28,
+     111,
+     41
+    ],
+    "nozzle": [
+     170.8,
+     120.0
+    ]
+   }
+  },
+  {
+   "frame": 18,
+   "anim": "boss_tank_giant_p3_ram_windup",
+   "air": 0,
+   "points": {
+    "headBox": [
+     118,
+     69,
+     135,
+     88
+    ],
+    "tankBox": [
+     46,
+     36,
+     125,
+     110
+    ],
+    "valveBox": [
+     115,
+     38,
+     127,
+     52
+    ],
+    "nozzle": [
+     171.3,
+     131.8
+    ]
+   }
+  },
+  {
+   "frame": 19,
+   "anim": "boss_tank_giant_p3_ram_windup",
+   "air": 0,
+   "points": {
+    "headBox": [
+     122,
+     77,
+     139,
+     96
+    ],
+    "tankBox": [
+     51,
+     40,
+     132,
+     109
+    ],
+    "valveBox": [
+     124,
+     46,
+     136,
+     59
+    ],
+    "nozzle": [
+     171.8,
+     137.8
+    ]
+   }
+  },
+  {
+   "frame": 20,
+   "anim": "boss_tank_giant_p3_ram",
+   "air": 0,
+   "points": {
+    "headBox": [
+     119,
+     79,
+     136,
+     98
+    ],
+    "tankBox": [
+     50,
+     42,
+     131,
+     108
+    ],
+    "valveBox": [
+     124,
+     48,
+     136,
+     61
+    ],
+    "nozzle": [
+     171.3,
+     128.4
+    ]
+   }
+  },
+  {
+   "frame": 21,
+   "anim": "boss_tank_giant_p3_ram",
+   "air": 0,
+   "points": {
+    "headBox": [
+     119,
+     79,
+     136,
+     98
+    ],
+    "tankBox": [
+     50,
+     42,
+     131,
+     108
+    ],
+    "valveBox": [
+     124,
+     48,
+     136,
+     61
+    ],
+    "nozzle": [
+     171.3,
+     128.4
+    ]
+   }
+  },
+  {
+   "frame": 22,
+   "anim": "boss_tank_giant_p3_ram",
+   "air": 0,
+   "points": {
+    "headBox": [
+     119,
+     79,
+     136,
+     98
+    ],
+    "tankBox": [
+     50,
+     42,
+     131,
+     108
+    ],
+    "valveBox": [
+     124,
+     48,
+     136,
+     61
+    ],
+    "nozzle": [
+     171.3,
+     128.4
+    ]
+   }
+  },
+  {
+   "frame": 23,
+   "anim": "boss_tank_giant_p3_ram",
+   "air": 0,
+   "points": {
+    "headBox": [
+     119,
+     79,
+     136,
+     98
+    ],
+    "tankBox": [
+     50,
+     42,
+     131,
+     108
+    ],
+    "valveBox": [
+     124,
+     48,
+     136,
+     61
+    ],
+    "nozzle": [
+     171.3,
+     128.4
+    ]
+   }
+  },
+  {
+   "frame": 24,
+   "anim": "boss_tank_giant_p3_stun",
+   "air": 0,
+   "points": {
+    "headBox": [
+     106,
+     47,
+     123,
+     66
+    ],
+    "tankBox": [
+     43,
+     34,
+     98,
+     116
+    ],
+    "valveBox": [
+     76,
+     28,
+     90,
+     38
+    ],
+    "nozzle": [
+     142.6,
+     137.2
+    ]
+   }
+  },
+  {
+   "frame": 25,
+   "anim": "boss_tank_giant_p3_stun",
+   "air": 0,
+   "points": {
+    "headBox": [
+     101,
+     46,
+     119,
+     64
+    ],
+    "tankBox": [
+     43,
+     34,
+     94,
+     116
+    ],
+    "valveBox": [
+     73,
+     27,
+     87,
+     37
+    ],
+    "nozzle": [
+     142.6,
+     137.2
+    ]
+   }
+  },
+  {
+   "frame": 26,
+   "anim": "boss_tank_giant_p3_lob_windup",
+   "air": 0,
+   "points": {
+    "headBox": [
+     82,
+     36,
+     99,
+     54
+    ],
+    "tankBox": [
+     32,
+     36,
+     80,
+     118
+    ],
+    "valveBox": [
+     44,
+     28,
+     59,
+     38
+    ],
+    "nozzle": [
+     149.4,
+     103.8
+    ]
+   }
+  },
+  {
+   "frame": 27,
+   "anim": "boss_tank_giant_p3_lob_windup",
+   "air": 0,
+   "points": {
+    "headBox": [
+     75,
+     37,
+     93,
+     55
+    ],
+    "tankBox": [
+     24,
+     40,
+     80,
+     122
+    ],
+    "valveBox": [
+     34,
+     33,
+     48,
+     44
+    ],
+    "nozzle": [
+     144.5,
+     104.4
+    ]
+   }
+  },
+  {
+   "frame": 28,
+   "anim": "boss_tank_giant_p3_lob_windup",
+   "air": 0,
+   "points": {
+    "headBox": [
+     68,
+     39,
+     87,
+     57
+    ],
+    "tankBox": [
+     16,
+     45,
+     79,
+     127
+    ],
+    "valveBox": [
+     24,
+     39,
+     38,
+     51
+    ],
+    "nozzle": [
+     139.3,
+     105.2
+    ]
+   }
+  },
+  {
+   "frame": 29,
+   "anim": "boss_tank_giant_p3_lob",
+   "air": 0,
+   "points": {
+    "headBox": [
+     82,
+     35,
+     100,
+     53
+    ],
+    "tankBox": [
+     40,
+     34,
+     79,
+     114
+    ],
+    "valveBox": [
+     54,
+     26,
+     69,
+     35
+    ],
+    "nozzle": [
+     150.3,
+     100.4
+    ]
+   }
+  },
+  {
+   "frame": 30,
+   "anim": "boss_tank_giant_p3_lob",
+   "air": 0,
+   "points": {
+    "headBox": [
+     86,
+     37,
+     104,
+     55
+    ],
+    "tankBox": [
+     41,
+     34,
+     82,
+     114
+    ],
+    "valveBox": [
+     57,
+     26,
+     72,
+     35
+    ],
+    "nozzle": [
+     153.4,
+     103.1
+    ]
+   }
+  },
+  {
+   "frame": 31,
+   "anim": "boss_tank_giant_p3_spill_windup",
+   "air": 0,
+   "points": {
+    "headBox": [
+     78,
+     36,
+     96,
+     54
+    ],
+    "tankBox": [
+     33,
+     36,
+     78,
+     118
+    ],
+    "valveBox": [
+     45,
+     29,
+     60,
+     38
+    ],
+    "nozzle": [
+     145.6,
+     104.3
+    ]
+   }
+  },
+  {
+   "frame": 32,
+   "anim": "boss_tank_giant_p3_spill_windup",
+   "air": 0,
+   "points": {
+    "headBox": [
+     78,
+     36,
+     96,
+     54
+    ],
+    "tankBox": [
+     33,
+     36,
+     78,
+     118
+    ],
+    "valveBox": [
+     45,
+     29,
+     60,
+     38
+    ],
+    "nozzle": [
+     145.6,
+     104.3
+    ]
+   }
+  },
+  {
+   "frame": 33,
+   "anim": "boss_tank_giant_p3_spill_windup",
+   "air": 0,
+   "points": {
+    "headBox": [
+     78,
+     36,
+     96,
+     54
+    ],
+    "tankBox": [
+     33,
+     36,
+     78,
+     118
+    ],
+    "valveBox": [
+     45,
+     29,
+     60,
+     38
+    ],
+    "nozzle": [
+     145.6,
+     104.3
+    ]
+   }
+  },
+  {
+   "frame": 34,
+   "anim": "boss_tank_giant_p3_spill_windup",
+   "air": 0,
+   "points": {
+    "headBox": [
+     78,
+     36,
+     96,
+     54
+    ],
+    "tankBox": [
+     33,
+     36,
+     78,
+     118
+    ],
+    "valveBox": [
+     45,
+     29,
+     60,
+     38
+    ],
+    "nozzle": [
+     145.6,
+     104.3
+    ]
+   }
+  },
+  {
+   "frame": 35,
+   "anim": "boss_tank_giant_p3_spill_ignite",
+   "air": 0,
+   "points": {
+    "headBox": [
+     85,
+     37,
+     102,
+     55
+    ],
+    "tankBox": [
+     39,
+     35,
+     80,
+     115
+    ],
+    "valveBox": [
+     52,
+     27,
+     67,
+     36
+    ],
+    "nozzle": [
+     132.9,
+     124.7
+    ]
+   }
+  },
+  {
+   "frame": 36,
+   "anim": "boss_tank_giant_p3_spill_ignite",
+   "air": 0,
+   "points": {
+    "headBox": [
+     85,
+     37,
+     102,
+     55
+    ],
+    "tankBox": [
+     39,
+     35,
+     80,
+     115
+    ],
+    "valveBox": [
+     52,
+     27,
+     67,
+     36
+    ],
+    "nozzle": [
+     134.9,
+     123.9
+    ]
+   }
+  },
+  {
+   "frame": 37,
+   "anim": "boss_tank_giant_p3_spill_ignite",
+   "air": 0,
+   "points": {
+    "headBox": [
+     85,
+     37,
+     102,
+     55
+    ],
+    "tankBox": [
+     39,
+     35,
+     80,
+     115
+    ],
+    "valveBox": [
+     52,
+     27,
+     67,
+     36
+    ],
+    "nozzle": [
+     136.7,
+     122.9
+    ]
+   }
+  },
+  {
+   "frame": 38,
+   "anim": "boss_tank_giant_p3_slam_pipe",
+   "air": 0,
+   "points": {
+    "headBox": [
+     79,
+     37,
+     98,
+     55
+    ],
+    "tankBox": [
+     36,
+     36,
+     79,
+     117
+    ],
+    "valveBox": [
+     49,
+     28,
+     64,
+     37
+    ],
+    "nozzle": [
+     127.9,
+     11.6
+    ]
+   }
+  },
+  {
+   "frame": 39,
+   "anim": "boss_tank_giant_p3_slam_pipe",
+   "air": 0,
+   "points": {
+    "headBox": [
+     79,
+     36,
+     98,
+     54
+    ],
+    "tankBox": [
+     36,
+     35,
+     79,
+     116
+    ],
+    "valveBox": [
+     49,
+     27,
+     64,
+     36
+    ],
+    "nozzle": [
+     118.2,
+     8.0
+    ]
+   }
+  },
+  {
+   "frame": 40,
+   "anim": "boss_tank_giant_p3_slam_pipe",
+   "air": 0,
+   "points": {
+    "headBox": [
+     79,
+     37,
+     98,
+     55
+    ],
+    "tankBox": [
+     36,
+     36,
+     79,
+     117
+    ],
+    "valveBox": [
+     49,
+     28,
+     64,
+     37
+    ],
+    "nozzle": [
+     127.9,
+     11.6
+    ]
+   }
+  },
+  {
+   "frame": 41,
+   "anim": "boss_tank_giant_p3_slam_pipe",
+   "air": 0,
+   "points": {
+    "headBox": [
+     79,
+     36,
+     98,
+     54
+    ],
+    "tankBox": [
+     36,
+     35,
+     79,
+     116
+    ],
+    "valveBox": [
+     49,
+     27,
+     64,
+     36
+    ],
+    "nozzle": [
+     118.2,
+     8.0
+    ]
+   }
+  },
+  {
+   "frame": 42,
+   "anim": "boss_tank_giant_p3_jet_crouch",
+   "air": 0,
+   "points": {
+    "headBox": [
+     98,
+     45,
+     116,
+     63
+    ],
+    "tankBox": [
+     42,
+     35,
+     92,
+     117
+    ],
+    "valveBox": [
+     71,
+     28,
+     85,
+     38
+    ],
+    "nozzle": [
+     120.9,
+     140.3
+    ]
+   }
+  },
+  {
+   "frame": 43,
+   "anim": "boss_tank_giant_p3_jet_crouch",
+   "air": 0,
+   "points": {
+    "headBox": [
+     101,
+     51,
+     119,
+     69
+    ],
+    "tankBox": [
+     44,
+     39,
+     95,
+     121
+    ],
+    "valveBox": [
+     73,
+     32,
+     87,
+     42
+    ],
+    "nozzle": [
+     121.2,
+     146.7
+    ]
+   }
+  },
+  {
+   "frame": 44,
+   "anim": "boss_tank_giant_p3_jet_crouch",
+   "air": 0,
+   "points": {
+    "headBox": [
+     106,
+     58,
+     123,
+     76
+    ],
+    "tankBox": [
+     44,
+     43,
+     97,
+     125
+    ],
+    "valveBox": [
+     75,
+     37,
+     89,
+     47
+    ],
+    "nozzle": [
+     121.4,
+     153.0
+    ]
+   }
+  },
+  {
+   "frame": 45,
+   "anim": "boss_tank_giant_p3_jet_up",
+   "air": 10,
+   "points": {
+    "headBox": [
+     95,
+     33,
+     113,
+     51
+    ],
+    "tankBox": [
+     41,
+     25,
+     89,
+     107
+    ],
+    "valveBox": [
+     66,
+     17,
+     81,
+     27
+    ],
+    "nozzle": [
+     110.0,
+     126.7
+    ]
+   }
+  },
+  {
+   "frame": 46,
+   "anim": "boss_tank_giant_p3_jet_up",
+   "air": 11,
+   "points": {
+    "headBox": [
+     95,
+     32,
+     113,
+     50
+    ],
+    "tankBox": [
+     42,
+     24,
+     87,
+     106
+    ],
+    "valveBox": [
+     64,
+     16,
+     79,
+     26
+    ],
+    "nozzle": [
+     110.0,
+     125.7
+    ]
+   }
+  },
+  {
+   "frame": 47,
+   "anim": "boss_tank_giant_p3_land",
+   "air": 0,
+   "points": {
+    "headBox": [
+     106,
+     56,
+     123,
+     75
+    ],
+    "tankBox": [
+     43,
+     42,
+     101,
+     124
+    ],
+    "valveBox": [
+     82,
+     36,
+     96,
+     46
+    ],
+    "nozzle": [
+     153.1,
+     140.8
+    ]
+   }
+  },
+  {
+   "frame": 48,
+   "anim": "boss_tank_giant_p3_land",
+   "air": 0,
+   "points": {
+    "headBox": [
+     102,
+     50,
+     119,
+     68
+    ],
+    "tankBox": [
+     42,
+     38,
+     95,
+     120
+    ],
+    "valveBox": [
+     73,
+     32,
+     87,
+     42
+    ],
+    "nozzle": [
+     150.4,
+     134.4
+    ]
+   }
+  },
+  {
+   "frame": 49,
+   "anim": "boss_tank_giant_p3_land",
+   "air": 0,
+   "points": {
+    "headBox": [
+     100,
+     46,
+     117,
+     64
+    ],
+    "tankBox": [
+     42,
+     36,
+     91,
+     118
+    ],
+    "valveBox": [
+     69,
+     29,
+     83,
+     39
+    ],
+    "nozzle": [
+     149.1,
+     130.2
+    ]
+   }
+  },
+  {
+   "frame": 50,
+   "anim": "boss_tank_giant_p3_recover",
+   "air": 0,
+   "points": {
+    "headBox": [
+     105,
+     46,
+     122,
+     65
+    ],
+    "tankBox": [
+     43,
+     33,
+     98,
+     115
+    ],
+    "valveBox": [
+     76,
+     27,
+     90,
+     37
+    ],
+    "nozzle": [
+     152.7,
+     130.7
+    ]
+   }
+  },
+  {
+   "frame": 51,
+   "anim": "boss_tank_giant_p3_recover",
+   "air": 0,
+   "points": {
+    "headBox": [
+     105,
+     47,
+     122,
+     66
+    ],
+    "tankBox": [
+     43,
+     34,
+     96,
+     116
+    ],
+    "valveBox": [
+     75,
+     28,
+     89,
+     38
+    ],
+    "nozzle": [
+     152.7,
+     131.7
+    ]
+   }
+  },
+  {
+   "frame": 52,
+   "anim": "boss_tank_giant_p3_sweep_windup",
+   "air": 0,
+   "points": {
+    "headBox": [
+     78,
+     36,
+     96,
+     54
+    ],
+    "tankBox": [
+     33,
+     36,
+     78,
+     118
+    ],
+    "valveBox": [
+     45,
+     29,
+     60,
+     38
+    ],
+    "nozzle": [
+     150.3,
+     29.8
+    ]
+   }
+  },
+  {
+   "frame": 53,
+   "anim": "boss_tank_giant_p3_sweep_windup",
+   "air": 0,
+   "points": {
+    "headBox": [
+     78,
+     36,
+     96,
+     54
+    ],
+    "tankBox": [
+     33,
+     36,
+     78,
+     118
+    ],
+    "valveBox": [
+     45,
+     29,
+     60,
+     38
+    ],
+    "nozzle": [
+     146.8,
+     25.9
+    ]
+   }
+  },
+  {
+   "frame": 54,
+   "anim": "boss_tank_giant_p3_sweep_windup",
+   "air": 0,
+   "points": {
+    "headBox": [
+     78,
+     36,
+     96,
+     54
+    ],
+    "tankBox": [
+     33,
+     36,
+     78,
+     118
+    ],
+    "valveBox": [
+     45,
+     29,
+     60,
+     38
+    ],
+    "nozzle": [
+     143.0,
+     22.4
+    ]
+   }
+  },
+  {
+   "frame": 55,
+   "anim": "boss_tank_giant_p3_sweep",
+   "air": 0,
+   "points": {
+    "headBox": [
+     82,
+     36,
+     100,
+     54
+    ],
+    "tankBox": [
+     36,
+     36,
+     79,
+     117
+    ],
+    "valveBox": [
+     49,
+     28,
+     64,
+     37
+    ],
+    "nozzle": [
+     154.3,
+     32.0
+    ]
+   }
+  },
+  {
+   "frame": 56,
+   "anim": "boss_tank_giant_p3_sweep",
+   "air": 0,
+   "points": {
+    "headBox": [
+     86,
+     37,
+     103,
+     55
+    ],
+    "tankBox": [
+     39,
+     34,
+     80,
+     114
+    ],
+    "valveBox": [
+     54,
+     26,
+     69,
+     35
+    ],
+    "nozzle": [
+     166.6,
+     49.9
+    ]
+   }
+  },
+  {
+   "frame": 57,
+   "anim": "boss_tank_giant_p3_sweep",
+   "air": 0,
+   "points": {
+    "headBox": [
+     90,
+     37,
+     108,
+     55
+    ],
+    "tankBox": [
+     41,
+     33,
+     82,
+     113
+    ],
+    "valveBox": [
+     58,
+     25,
+     73,
+     34
+    ],
+    "nozzle": [
+     171.9,
+     70.4
+    ]
+   }
+  },
+  {
+   "frame": 58,
+   "anim": "boss_tank_giant_p3_sweep",
+   "air": 0,
+   "points": {
+    "headBox": [
+     94,
+     38,
+     112,
+     56
+    ],
+    "tankBox": [
+     42,
+     31,
+     87,
+     113
+    ],
+    "valveBox": [
+     62,
+     24,
+     77,
+     33
+    ],
+    "nozzle": [
+     169.7,
+     90.4
+    ]
+   }
+  },
+  {
+   "frame": 59,
+   "anim": "boss_tank_giant_p3_overpressure",
+   "air": 0,
+   "points": {
+    "headBox": [
+     81,
+     36,
+     99,
+     54
+    ],
+    "tankBox": [
+     36,
+     36,
+     79,
+     117
+    ],
+    "valveBox": [
+     49,
+     28,
+     64,
+     37
+    ],
+    "nozzle": [
+     146.3,
+     114.0
+    ]
+   }
+  },
+  {
+   "frame": 60,
+   "anim": "boss_tank_giant_p3_overpressure",
+   "air": 0,
+   "points": {
+    "headBox": [
+     79,
+     37,
+     97,
+     55
+    ],
+    "tankBox": [
+     34,
+     35,
+     81,
+     117
+    ],
+    "valveBox": [
+     48,
+     28,
+     63,
+     37
+    ],
+    "nozzle": [
+     147.1,
+     112.2
+    ]
+   }
+  },
+  {
+   "frame": 61,
+   "anim": "boss_tank_giant_p3_overpressure",
+   "air": 0,
+   "points": {
+    "headBox": [
+     77,
+     37,
+     96,
+     55
+    ],
+    "tankBox": [
+     33,
+     36,
+     80,
+     118
+    ],
+    "valveBox": [
+     46,
+     29,
+     61,
+     38
+    ],
+    "nozzle": [
+     147.6,
+     110.2
+    ]
+   }
+  },
+  {
+   "frame": 62,
+   "anim": "boss_tank_giant_p3_overpressure",
+   "air": 0,
+   "points": {
+    "headBox": [
+     75,
+     37,
+     93,
+     55
+    ],
+    "tankBox": [
+     30,
+     36,
+     82,
+     118
+    ],
+    "valveBox": [
+     44,
+     28,
+     59,
+     38
+    ],
+    "nozzle": [
+     148.0,
+     108.1
+    ]
+   }
+  },
+  {
+   "frame": 63,
+   "anim": "boss_tank_giant_p3_overpressure",
+   "air": 0,
+   "points": {
+    "headBox": [
+     74,
+     37,
+     92,
+     55
+    ],
+    "tankBox": [
+     30,
+     36,
+     81,
+     118
+    ],
+    "valveBox": [
+     45,
+     29,
+     60,
+     38
+    ],
+    "nozzle": [
+     148.2,
+     105.9
+    ]
+   }
+  },
+  {
+   "frame": 64,
+   "anim": "boss_tank_giant_p3_overpressure",
+   "air": 0,
+   "points": {
+    "headBox": [
+     72,
+     38,
+     90,
+     56
+    ],
+    "tankBox": [
+     28,
+     37,
+     82,
+     119
+    ],
+    "valveBox": [
+     41,
+     30,
+     55,
+     41
+    ],
+    "nozzle": [
+     148.2,
+     103.7
+    ]
+   }
+  },
+  {
+   "frame": 65,
+   "anim": "boss_tank_giant_p3_vent",
+   "air": 0,
+   "points": {
+    "headBox": [
+     112,
+     52,
+     130,
+     71
+    ],
+    "tankBox": [
+     45,
+     34,
+     100,
+     116
+    ],
+    "valveBox": [
+     78,
+     28,
+     92,
+     38
+    ],
+    "nozzle": [
+     146.3,
+     142.0
+    ]
+   }
+  },
+  {
+   "frame": 66,
+   "anim": "boss_tank_giant_p3_vent",
+   "air": 0,
+   "points": {
+    "headBox": [
+     112,
+     52,
+     130,
+     71
+    ],
+    "tankBox": [
+     45,
+     34,
+     100,
+     116
+    ],
+    "valveBox": [
+     79,
+     28,
+     93,
+     38
+    ],
+    "nozzle": [
+     146.3,
+     142.0
+    ]
+   }
+  },
+  {
+   "frame": 67,
+   "anim": "boss_tank_giant_p3_vent",
+   "air": 0,
+   "points": {
+    "headBox": [
+     112,
+     52,
+     130,
+     71
+    ],
+    "tankBox": [
+     45,
+     34,
+     101,
+     116
+    ],
+    "valveBox": [
+     81,
+     28,
+     95,
+     38
+    ],
+    "nozzle": [
+     146.3,
+     142.0
+    ]
+   }
+  },
+  {
+   "frame": 68,
+   "anim": "boss_tank_giant_p3_rupture",
+   "air": 0,
+   "points": {
+    "headBox": [
+     68,
+     37,
+     87,
+     55
+    ],
+    "tankBox": [
+     20,
+     40,
+     78,
+     122
+    ],
+    "valveBox": [
+     29,
+     34,
+     43,
+     45
+    ],
+    "nozzle": [
+     142.5,
+     107.2
+    ]
+   }
+  },
+  {
+   "frame": 69,
+   "anim": "boss_tank_giant_p3_rupture",
+   "air": 0,
+   "points": {
+    "headBox": [
+     95,
+     39,
+     112,
+     57
+    ],
+    "tankBox": [
+     40,
+     31,
+     88,
+     113
+    ],
+    "valveBox": [
+     65,
+     24,
+     80,
+     34
+    ],
+    "nozzle": [
+     156.3,
+     113.6
+    ]
+   }
+  },
+  {
+   "frame": 70,
+   "anim": "boss_tank_giant_p3_rupture",
+   "air": 0,
+   "points": {
+    "headBox": [
+     108,
+     44,
+     125,
+     63
+    ],
+    "tankBox": [
+     43,
+     29,
+     103,
+     111
+    ],
+    "valveBox": [
+     84,
+     23,
+     98,
+     35
+    ],
+    "nozzle": [
+     164.1,
+     119.3
+    ]
+   }
+  },
+  {
+   "frame": 71,
+   "anim": "boss_tank_giant_p3_rupture",
+   "air": 0,
+   "points": {
+    "headBox": [
+     103,
+     41,
+     120,
+     60
+    ],
+    "tankBox": [
+     43,
+     29,
+     96,
+     111
+    ],
+    "valveBox": [
+     75,
+     23,
+     89,
+     33
+    ],
+    "nozzle": [
+     161.5,
+     116.9
+    ]
+   }
+  },
+  {
+   "frame": 72,
+   "anim": "boss_tank_giant_p3_roar",
+   "air": 0,
+   "points": {
+    "headBox": [
+     74,
+     37,
+     92,
+     55
+    ],
+    "tankBox": [
+     32,
+     37,
+     80,
+     119
+    ],
+    "valveBox": [
+     44,
+     29,
+     59,
+     39
+    ],
+    "nozzle": [
+     149.9,
+     103.9
+    ]
+   }
+  },
+  {
+   "frame": 73,
+   "anim": "boss_tank_giant_p3_roar",
+   "air": 0,
+   "points": {
+    "headBox": [
+     73,
+     36,
+     91,
+     54
+    ],
+    "tankBox": [
+     30,
+     36,
+     79,
+     118
+    ],
+    "valveBox": [
+     42,
+     28,
+     56,
+     38
+    ],
+    "nozzle": [
+     151.1,
+     100.4
+    ]
+   }
+  },
+  {
+   "frame": 74,
+   "anim": "boss_tank_giant_p3_roar",
+   "air": 0,
+   "points": {
+    "headBox": [
+     74,
+     37,
+     92,
+     55
+    ],
+    "tankBox": [
+     32,
+     37,
+     80,
+     119
+    ],
+    "valveBox": [
+     44,
+     29,
+     59,
+     39
+    ],
+    "nozzle": [
+     149.9,
+     103.9
+    ]
+   }
+  },
+  {
+   "frame": 75,
+   "anim": "boss_tank_giant_p3_roar",
+   "air": 0,
+   "points": {
+    "headBox": [
+     73,
+     36,
+     91,
+     54
+    ],
+    "tankBox": [
+     30,
+     36,
+     79,
+     118
+    ],
+    "valveBox": [
+     42,
+     28,
+     56,
+     38
+    ],
+    "nozzle": [
+     151.1,
+     100.4
+    ]
+   }
+  },
+  {
+   "frame": 76,
+   "anim": "boss_tank_giant_p3_death",
+   "air": 0,
+   "points": {
+    "headBox": [
+     67,
+     37,
+     85,
+     55
+    ],
+    "tankBox": [
+     25,
+     39,
+     77,
+     121
+    ],
+    "valveBox": [
+     36,
+     31,
+     50,
+     42
+    ],
+    "nozzle": [
+     142.8,
+     107.0
+    ]
+   }
+  },
+  {
+   "frame": 77,
+   "anim": "boss_tank_giant_p3_death",
+   "air": 0,
+   "points": {
+    "headBox": [
+     73,
+     38,
+     91,
+     56
+    ],
+    "tankBox": [
+     32,
+     36,
+     77,
+     118
+    ],
+    "valveBox": [
+     44,
+     29,
+     59,
+     38
+    ],
+    "nozzle": [
+     133.8,
+     119.7
+    ]
+   }
+  },
+  {
+   "frame": 78,
+   "anim": "boss_tank_giant_p3_death",
+   "air": 0,
+   "points": {
+    "headBox": [
+     100,
+     49,
+     117,
+     68
+    ],
+    "tankBox": [
+     41,
+     39,
+     91,
+     121
+    ],
+    "valveBox": [
+     67,
+     32,
+     82,
+     42
+    ],
+    "nozzle": [
+     133.0,
+     140.7
+    ]
+   }
+  },
+  {
+   "frame": 79,
+   "anim": "boss_tank_giant_p3_death",
+   "air": 0,
+   "points": {
+    "headBox": [
+     110,
+     57,
+     128,
+     76
+    ],
+    "tankBox": [
+     42,
+     40,
+     102,
+     122
+    ],
+    "valveBox": [
+     80,
+     34,
+     94,
+     44
+    ],
+    "nozzle": [
+     130.0,
+     150.6
+    ]
+   }
+  },
+  {
+   "frame": 80,
+   "anim": "boss_tank_giant_p3_death",
+   "air": 0,
+   "points": {
+    "headBox": [
+     112,
+     59,
+     130,
+     78
+    ],
+    "tankBox": [
+     42,
+     40,
+     104,
+     123
+    ],
+    "valveBox": [
+     83,
+     35,
+     97,
+     45
+    ],
+    "nozzle": [
+     131.2,
+     151.9
+    ]
+   }
+  },
+  {
+   "frame": 81,
+   "anim": "boss_tank_giant_p3_death",
+   "air": 0,
+   "points": {
+    "headBox": [
+     118,
+     73,
+     133,
+     90
+    ],
+    "tankBox": [
+     47,
+     46,
+     110,
+     128
+    ],
+    "valveBox": [
+     93,
+     42,
+     106,
+     54
+    ],
+    "nozzle": [
+     159.0,
+     154.2
+    ]
+   }
+  },
+  {
+   "frame": 82,
+   "anim": "boss_tank_giant_p3_death",
+   "air": 0,
+   "points": {
+    "headBox": [
+     122,
+     73,
+     135,
+     89
+    ],
+    "tankBox": [
+     46,
+     25,
+     127,
+     93
+    ],
+    "valveBox": [
+     120,
+     30,
+     132,
+     44
+    ],
+    "nozzle": [
+     130.1,
+     156.3
+    ]
+   }
+  },
+  {
+   "frame": 83,
+   "anim": "boss_tank_giant_p3_death",
+   "air": 0,
+   "points": {
+    "headBox": [
+     115,
+     84,
+     130,
+     99
+    ],
+    "tankBox": [
+     56,
+     31,
+     137,
+     72
+    ],
+    "valveBox": [
+     136,
+     44,
+     146,
+     59
+    ],
+    "nozzle": [
+     96.5,
+     156.0
+    ]
+   }
+  },
+  {
+   "frame": 84,
+   "anim": "boss_tank_giant_p3_death",
+   "air": 0,
+   "points": {
+    "headBox": [
+     108,
+     129,
+     125,
+     143
+    ],
+    "tankBox": [
+     56,
+     70,
+     138,
+     116
+    ],
+    "valveBox": [
+     135,
+     94,
+     145,
+     108
+    ]
+   }
+  },
+  {
+   "frame": 85,
+   "anim": "boss_tank_giant_p3_death",
+   "air": 0,
+   "points": {
+    "headBox": [
+     107,
+     132,
+     124,
+     147
+    ],
+    "tankBox": [
+     56,
+     70,
+     138,
+     118
+    ],
+    "valveBox": [
+     136,
+     96,
+     146,
+     110
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,1336 @@
+[
+ {
+  "frame": 0,
+  "angleDeg": -90.0,
+  "muzzle": [
+   29,
+   4
+  ],
+  "shellPort": [
+   29,
+   17
+  ]
+ },
+ {
+  "frame": 1,
+  "angleDeg": -82.5,
+  "muzzle": [
+   33,
+   4
+  ],
+  "shellPort": [
+   31,
+   17
+  ]
+ },
+ {
+  "frame": 2,
+  "angleDeg": -75.0,
+  "muzzle": [
+   36,
+   4
+  ],
+  "shellPort": [
+   33,
+   17
+  ]
+ },
+ {
+  "frame": 3,
+  "angleDeg": -67.5,
+  "muzzle": [
+   40,
+   5
+  ],
+  "shellPort": [
+   35,
+   17
+  ]
+ },
+ {
+  "frame": 4,
+  "angleDeg": -60.0,
+  "muzzle": [
+   43,
+   6
+  ],
+  "shellPort": [
+   37,
+   18
+  ]
+ },
+ {
+  "frame": 5,
+  "angleDeg": -52.5,
+  "muzzle": [
+   47,
+   8
+  ],
+  "shellPort": [
+   39,
+   18
+  ]
+ },
+ {
+  "frame": 6,
+  "angleDeg": -45.0,
+  "muzzle": [
+   50,
+   10
+  ],
+  "shellPort": [
+   40,
+   19
+  ]
+ },
+ {
+  "frame": 7,
+  "angleDeg": -37.5,
+  "muzzle": [
+   52,
+   13
+  ],
+  "shellPort": [
+   42,
+   20
+  ]
+ },
+ {
+  "frame": 8,
+  "angleDeg": -30.0,
+  "muzzle": [
+   55,
+   15
+  ],
+  "shellPort": [
+   43,
+   22
+  ]
+ },
+ {
+  "frame": 9,
+  "angleDeg": -22.5,
+  "muzzle": [
+   57,
+   19
+  ],
+  "shellPort": [
+   45,
+   23
+  ]
+ },
+ {
+  "frame": 10,
+  "angleDeg": -15.0,
+  "muzzle": [
+   58,
+   22
+  ],
+  "shellPort": [
+   46,
+   25
+  ]
+ },
+ {
+  "frame": 11,
+  "angleDeg": -7.5,
+  "muzzle": [
+   59,
+   25
+  ],
+  "shellPort": [
+   46,
+   27
+  ]
+ },
+ {
+  "frame": 12,
+  "angleDeg": 0.0,
+  "muzzle": [
+   60,
+   29
+  ],
+  "shellPort": [
+   47,
+   29
+  ]
+ },
+ {
+  "frame": 13,
+  "angleDeg": 7.5,
+  "muzzle": [
+   60,
+   33
+  ],
+  "shellPort": [
+   47,
+   31
+  ]
+ },
+ {
+  "frame": 14,
+  "angleDeg": 15.0,
+  "muzzle": [
+   60,
+   36
+  ],
+  "shellPort": [
+   47,
+   33
+  ]
+ },
+ {
+  "frame": 15,
+  "angleDeg": 22.5,
+  "muzzle": [
+   59,
+   40
+  ],
+  "shellPort": [
+   47,
+   35
+  ]
+ },
+ {
+  "frame": 16,
+  "angleDeg": 30.0,
+  "muzzle": [
+   58,
+   43
+  ],
+  "shellPort": [
+   46,
+   37
+  ]
+ },
+ {
+  "frame": 17,
+  "angleDeg": 37.5,
+  "muzzle": [
+   56,
+   47
+  ],
+  "shellPort": [
+   46,
+   39
+  ]
+ },
+ {
+  "frame": 18,
+  "angleDeg": 45.0,
+  "muzzle": [
+   54,
+   50
+  ],
+  "shellPort": [
+   45,
+   40
+  ]
+ },
+ {
+  "frame": 19,
+  "angleDeg": 52.5,
+  "muzzle": [
+   51,
+   52
+  ],
+  "shellPort": [
+   44,
+   42
+  ]
+ },
+ {
+  "frame": 20,
+  "angleDeg": 60.0,
+  "muzzle": [
+   49,
+   55
+  ],
+  "shellPort": [
+   42,
+   43
+  ]
+ },
+ {
+  "frame": 21,
+  "angleDeg": 67.5,
+  "muzzle": [
+   45,
+   57
+  ],
+  "shellPort": [
+   41,
+   45
+  ]
+ },
+ {
+  "frame": 22,
+  "angleDeg": 75.0,
+  "muzzle": [
+   42,
+   58
+  ],
+  "shellPort": [
+   39,
+   46
+  ]
+ },
+ {
+  "frame": 23,
+  "angleDeg": 82.5,
+  "muzzle": [
+   39,
+   59
+  ],
+  "shellPort": [
+   37,
+   46
+  ]
+ },
+ {
+  "frame": 24,
+  "angleDeg": 90.0,
+  "muzzle": [
+   35,
+   60
+  ],
+  "shellPort": [
+   35,
+   47
+  ]
+ },
+ {
+  "frame": 25,
+  "anim": "player_arm_grenade_fire",
+  "phase": 0,
+  "aimFrame": 0,
+  "aimDeg": -90.0,
+  "durationMs": 50,
+  "muzzle": [
+   26,
+   7
+  ],
+  "shellPort": [
+   28,
+   20
+  ]
+ },
+ {
+  "frame": 26,
+  "anim": "player_arm_grenade_fire",
+  "phase": 0,
+  "aimFrame": 1,
+  "aimDeg": -82.5,
+  "durationMs": 50,
+  "muzzle": [
+   29,
+   6
+  ],
+  "shellPort": [
+   30,
+   19
+  ]
+ },
+ {
+  "frame": 27,
+  "anim": "player_arm_grenade_fire",
+  "phase": 0,
+  "aimFrame": 2,
+  "aimDeg": -75.0,
+  "durationMs": 50,
+  "muzzle": [
+   32,
+   7
+  ],
+  "shellPort": [
+   31,
+   20
+  ]
+ },
+ {
+  "frame": 28,
+  "anim": "player_arm_grenade_fire",
+  "phase": 0,
+  "aimFrame": 3,
+  "aimDeg": -67.5,
+  "durationMs": 50,
+  "muzzle": [
+   35,
+   7
+  ],
+  "shellPort": [
+   33,
+   19
+  ]
+ },
+ {
+  "frame": 29,
+  "anim": "player_arm_grenade_fire",
+  "phase": 0,
+  "aimFrame": 4,
+  "aimDeg": -60.0,
+  "durationMs": 50,
+  "muzzle": [
+   38,
+   8
+  ],
+  "shellPort": [
+   34,
+   20
+  ]
+ },
+ {
+  "frame": 30,
+  "anim": "player_arm_grenade_fire",
+  "phase": 0,
+  "aimFrame": 5,
+  "aimDeg": -52.5,
+  "durationMs": 50,
+  "muzzle": [
+   42,
+   8
+  ],
+  "shellPort": [
+   36,
+   20
+  ]
+ },
+ {
+  "frame": 31,
+  "anim": "player_arm_grenade_fire",
+  "phase": 0,
+  "aimFrame": 6,
+  "aimDeg": -45.0,
+  "durationMs": 50,
+  "muzzle": [
+   45,
+   10
+  ],
+  "shellPort": [
+   38,
+   20
+  ]
+ },
+ {
+  "frame": 32,
+  "anim": "player_arm_grenade_fire",
+  "phase": 0,
+  "aimFrame": 7,
+  "aimDeg": -37.5,
+  "durationMs": 50,
+  "muzzle": [
+   47,
+   11
+  ],
+  "shellPort": [
+   39,
+   21
+  ]
+ },
+ {
+  "frame": 33,
+  "anim": "player_arm_grenade_fire",
+  "phase": 0,
+  "aimFrame": 8,
+  "aimDeg": -30.0,
+  "durationMs": 50,
+  "muzzle": [
+   50,
+   14
+  ],
+  "shellPort": [
+   40,
+   22
+  ]
+ },
+ {
+  "frame": 34,
+  "anim": "player_arm_grenade_fire",
+  "phase": 0,
+  "aimFrame": 9,
+  "aimDeg": -22.5,
+  "durationMs": 50,
+  "muzzle": [
+   52,
+   16
+  ],
+  "shellPort": [
+   41,
+   23
+  ]
+ },
+ {
+  "frame": 35,
+  "anim": "player_arm_grenade_fire",
+  "phase": 0,
+  "aimFrame": 10,
+  "aimDeg": -15.0,
+  "durationMs": 50,
+  "muzzle": [
+   54,
+   19
+  ],
+  "shellPort": [
+   43,
+   25
+  ]
+ },
+ {
+  "frame": 36,
+  "anim": "player_arm_grenade_fire",
+  "phase": 0,
+  "aimFrame": 11,
+  "aimDeg": -7.5,
+  "durationMs": 50,
+  "muzzle": [
+   56,
+   23
+  ],
+  "shellPort": [
+   43,
+   27
+  ]
+ },
+ {
+  "frame": 37,
+  "anim": "player_arm_grenade_fire",
+  "phase": 0,
+  "aimFrame": 12,
+  "aimDeg": 0.0,
+  "durationMs": 50,
+  "muzzle": [
+   57,
+   26
+  ],
+  "shellPort": [
+   44,
+   28
+  ]
+ },
+ {
+  "frame": 38,
+  "anim": "player_arm_grenade_fire",
+  "phase": 0,
+  "aimFrame": 13,
+  "aimDeg": 7.5,
+  "durationMs": 50,
+  "muzzle": [
+   58,
+   29
+  ],
+  "shellPort": [
+   45,
+   30
+  ]
+ },
+ {
+  "frame": 39,
+  "anim": "player_arm_grenade_fire",
+  "phase": 0,
+  "aimFrame": 14,
+  "aimDeg": 15.0,
+  "durationMs": 50,
+  "muzzle": [
+   57,
+   32
+  ],
+  "shellPort": [
+   44,
+   31
+  ]
+ },
+ {
+  "frame": 40,
+  "anim": "player_arm_grenade_fire",
+  "phase": 0,
+  "aimFrame": 15,
+  "aimDeg": 22.5,
+  "durationMs": 50,
+  "muzzle": [
+   57,
+   35
+  ],
+  "shellPort": [
+   45,
+   33
+  ]
+ },
+ {
+  "frame": 41,
+  "anim": "player_arm_grenade_fire",
+  "phase": 0,
+  "aimFrame": 16,
+  "aimDeg": 30.0,
+  "durationMs": 50,
+  "muzzle": [
+   56,
+   38
+  ],
+  "shellPort": [
+   44,
+   34
+  ]
+ },
+ {
+  "frame": 42,
+  "anim": "player_arm_grenade_fire",
+  "phase": 0,
+  "aimFrame": 17,
+  "aimDeg": 37.5,
+  "durationMs": 50,
+  "muzzle": [
+   56,
+   42
+  ],
+  "shellPort": [
+   44,
+   36
+  ]
+ },
+ {
+  "frame": 43,
+  "anim": "player_arm_grenade_fire",
+  "phase": 0,
+  "aimFrame": 18,
+  "aimDeg": 45.0,
+  "durationMs": 50,
+  "muzzle": [
+   54,
+   45
+  ],
+  "shellPort": [
+   44,
+   38
+  ]
+ },
+ {
+  "frame": 44,
+  "anim": "player_arm_grenade_fire",
+  "phase": 0,
+  "aimFrame": 19,
+  "aimDeg": 52.5,
+  "durationMs": 50,
+  "muzzle": [
+   53,
+   47
+  ],
+  "shellPort": [
+   43,
+   39
+  ]
+ },
+ {
+  "frame": 45,
+  "anim": "player_arm_grenade_fire",
+  "phase": 0,
+  "aimFrame": 20,
+  "aimDeg": 60.0,
+  "durationMs": 50,
+  "muzzle": [
+   50,
+   50
+  ],
+  "shellPort": [
+   42,
+   40
+  ]
+ },
+ {
+  "frame": 46,
+  "anim": "player_arm_grenade_fire",
+  "phase": 0,
+  "aimFrame": 21,
+  "aimDeg": 67.5,
+  "durationMs": 50,
+  "muzzle": [
+   48,
+   52
+  ],
+  "shellPort": [
+   41,
+   41
+  ]
+ },
+ {
+  "frame": 47,
+  "anim": "player_arm_grenade_fire",
+  "phase": 0,
+  "aimFrame": 22,
+  "aimDeg": 75.0,
+  "durationMs": 50,
+  "muzzle": [
+   45,
+   54
+  ],
+  "shellPort": [
+   39,
+   43
+  ]
+ },
+ {
+  "frame": 48,
+  "anim": "player_arm_grenade_fire",
+  "phase": 0,
+  "aimFrame": 23,
+  "aimDeg": 82.5,
+  "durationMs": 50,
+  "muzzle": [
+   41,
+   56
+  ],
+  "shellPort": [
+   37,
+   43
+  ]
+ },
+ {
+  "frame": 49,
+  "anim": "player_arm_grenade_fire",
+  "phase": 0,
+  "aimFrame": 24,
+  "aimDeg": 90.0,
+  "durationMs": 50,
+  "muzzle": [
+   38,
+   57
+  ],
+  "shellPort": [
+   36,
+   44
+  ]
+ },
+ {
+  "frame": 50,
+  "anim": "player_arm_grenade_fire",
+  "phase": 1,
+  "aimFrame": 0,
+  "aimDeg": -90.0,
+  "durationMs": 80,
+  "muzzle": [
+   28,
+   5
+  ],
+  "shellPort": [
+   29,
+   18
+  ]
+ },
+ {
+  "frame": 51,
+  "anim": "player_arm_grenade_fire",
+  "phase": 1,
+  "aimFrame": 1,
+  "aimDeg": -82.5,
+  "durationMs": 80,
+  "muzzle": [
+   31,
+   5
+  ],
+  "shellPort": [
+   30,
+   18
+  ]
+ },
+ {
+  "frame": 52,
+  "anim": "player_arm_grenade_fire",
+  "phase": 1,
+  "aimFrame": 2,
+  "aimDeg": -75.0,
+  "durationMs": 80,
+  "muzzle": [
+   34,
+   6
+  ],
+  "shellPort": [
+   32,
+   18
+  ]
+ },
+ {
+  "frame": 53,
+  "anim": "player_arm_grenade_fire",
+  "phase": 1,
+  "aimFrame": 3,
+  "aimDeg": -67.5,
+  "durationMs": 80,
+  "muzzle": [
+   38,
+   6
+  ],
+  "shellPort": [
+   34,
+   18
+  ]
+ },
+ {
+  "frame": 54,
+  "anim": "player_arm_grenade_fire",
+  "phase": 1,
+  "aimFrame": 4,
+  "aimDeg": -60.0,
+  "durationMs": 80,
+  "muzzle": [
+   42,
+   7
+  ],
+  "shellPort": [
+   36,
+   19
+  ]
+ },
+ {
+  "frame": 55,
+  "anim": "player_arm_grenade_fire",
+  "phase": 1,
+  "aimFrame": 5,
+  "aimDeg": -52.5,
+  "durationMs": 80,
+  "muzzle": [
+   45,
+   9
+  ],
+  "shellPort": [
+   38,
+   19
+  ]
+ },
+ {
+  "frame": 56,
+  "anim": "player_arm_grenade_fire",
+  "phase": 1,
+  "aimFrame": 6,
+  "aimDeg": -45.0,
+  "durationMs": 80,
+  "muzzle": [
+   48,
+   10
+  ],
+  "shellPort": [
+   40,
+   20
+  ]
+ },
+ {
+  "frame": 57,
+  "anim": "player_arm_grenade_fire",
+  "phase": 1,
+  "aimFrame": 7,
+  "aimDeg": -37.5,
+  "durationMs": 80,
+  "muzzle": [
+   50,
+   13
+  ],
+  "shellPort": [
+   40,
+   21
+  ]
+ },
+ {
+  "frame": 58,
+  "anim": "player_arm_grenade_fire",
+  "phase": 1,
+  "aimFrame": 8,
+  "aimDeg": -30.0,
+  "durationMs": 80,
+  "muzzle": [
+   53,
+   15
+  ],
+  "shellPort": [
+   42,
+   22
+  ]
+ },
+ {
+  "frame": 59,
+  "anim": "player_arm_grenade_fire",
+  "phase": 1,
+  "aimFrame": 9,
+  "aimDeg": -22.5,
+  "durationMs": 80,
+  "muzzle": [
+   54,
+   18
+  ],
+  "shellPort": [
+   43,
+   24
+  ]
+ },
+ {
+  "frame": 60,
+  "anim": "player_arm_grenade_fire",
+  "phase": 1,
+  "aimFrame": 10,
+  "aimDeg": -15.0,
+  "durationMs": 80,
+  "muzzle": [
+   57,
+   20
+  ],
+  "shellPort": [
+   44,
+   25
+  ]
+ },
+ {
+  "frame": 61,
+  "anim": "player_arm_grenade_fire",
+  "phase": 1,
+  "aimFrame": 11,
+  "aimDeg": -7.5,
+  "durationMs": 80,
+  "muzzle": [
+   58,
+   24
+  ],
+  "shellPort": [
+   45,
+   27
+  ]
+ },
+ {
+  "frame": 62,
+  "anim": "player_arm_grenade_fire",
+  "phase": 1,
+  "aimFrame": 12,
+  "aimDeg": 0.0,
+  "durationMs": 80,
+  "muzzle": [
+   59,
+   28
+  ],
+  "shellPort": [
+   46,
+   29
+  ]
+ },
+ {
+  "frame": 63,
+  "anim": "player_arm_grenade_fire",
+  "phase": 1,
+  "aimFrame": 13,
+  "aimDeg": 7.5,
+  "durationMs": 80,
+  "muzzle": [
+   59,
+   31
+  ],
+  "shellPort": [
+   46,
+   30
+  ]
+ },
+ {
+  "frame": 64,
+  "anim": "player_arm_grenade_fire",
+  "phase": 1,
+  "aimFrame": 14,
+  "aimDeg": 15.0,
+  "durationMs": 80,
+  "muzzle": [
+   58,
+   34
+  ],
+  "shellPort": [
+   46,
+   32
+  ]
+ },
+ {
+  "frame": 65,
+  "anim": "player_arm_grenade_fire",
+  "phase": 1,
+  "aimFrame": 15,
+  "aimDeg": 22.5,
+  "durationMs": 80,
+  "muzzle": [
+   58,
+   38
+  ],
+  "shellPort": [
+   46,
+   34
+  ]
+ },
+ {
+  "frame": 66,
+  "anim": "player_arm_grenade_fire",
+  "phase": 1,
+  "aimFrame": 16,
+  "aimDeg": 30.0,
+  "durationMs": 80,
+  "muzzle": [
+   57,
+   42
+  ],
+  "shellPort": [
+   45,
+   36
+  ]
+ },
+ {
+  "frame": 67,
+  "anim": "player_arm_grenade_fire",
+  "phase": 1,
+  "aimFrame": 17,
+  "aimDeg": 37.5,
+  "durationMs": 80,
+  "muzzle": [
+   55,
+   45
+  ],
+  "shellPort": [
+   45,
+   38
+  ]
+ },
+ {
+  "frame": 68,
+  "anim": "player_arm_grenade_fire",
+  "phase": 1,
+  "aimFrame": 18,
+  "aimDeg": 45.0,
+  "durationMs": 80,
+  "muzzle": [
+   54,
+   48
+  ],
+  "shellPort": [
+   44,
+   40
+  ]
+ },
+ {
+  "frame": 69,
+  "anim": "player_arm_grenade_fire",
+  "phase": 1,
+  "aimFrame": 19,
+  "aimDeg": 52.5,
+  "durationMs": 80,
+  "muzzle": [
+   51,
+   50
+  ],
+  "shellPort": [
+   43,
+   40
+  ]
+ },
+ {
+  "frame": 70,
+  "anim": "player_arm_grenade_fire",
+  "phase": 1,
+  "aimFrame": 20,
+  "aimDeg": 60.0,
+  "durationMs": 80,
+  "muzzle": [
+   49,
+   53
+  ],
+  "shellPort": [
+   42,
+   42
+  ]
+ },
+ {
+  "frame": 71,
+  "anim": "player_arm_grenade_fire",
+  "phase": 1,
+  "aimFrame": 21,
+  "aimDeg": 67.5,
+  "durationMs": 80,
+  "muzzle": [
+   46,
+   54
+  ],
+  "shellPort": [
+   40,
+   43
+  ]
+ },
+ {
+  "frame": 72,
+  "anim": "player_arm_grenade_fire",
+  "phase": 1,
+  "aimFrame": 22,
+  "aimDeg": 75.0,
+  "durationMs": 80,
+  "muzzle": [
+   44,
+   57
+  ],
+  "shellPort": [
+   39,
+   44
+  ]
+ },
+ {
+  "frame": 73,
+  "anim": "player_arm_grenade_fire",
+  "phase": 1,
+  "aimFrame": 23,
+  "aimDeg": 82.5,
+  "durationMs": 80,
+  "muzzle": [
+   40,
+   58
+  ],
+  "shellPort": [
+   37,
+   45
+  ]
+ },
+ {
+  "frame": 74,
+  "anim": "player_arm_grenade_fire",
+  "phase": 1,
+  "aimFrame": 24,
+  "aimDeg": 90.0,
+  "durationMs": 80,
+  "muzzle": [
+   36,
+   59
+  ],
+  "shellPort": [
+   35,
+   46
+  ]
+ },
+ {
+  "frame": 75,
+  "anim": "player_arm_grenade_reload",
+  "step": 0,
+  "key": "latch",
+  "durationMs": 300,
+  "muzzle": [
+   58,
+   24
+  ],
+  "shellPort": [
+   45,
+   27
+  ]
+ },
+ {
+  "frame": 76,
+  "anim": "player_arm_grenade_reload",
+  "step": 1,
+  "key": "break",
+  "durationMs": 250,
+  "muzzle": [
+   60,
+   28
+  ],
+  "shellPort": [
+   47,
+   29
+  ]
+ },
+ {
+  "frame": 77,
+  "anim": "player_arm_grenade_reload",
+  "step": 2,
+  "key": "extract",
+  "durationMs": 200,
+  "muzzle": [
+   60,
+   28
+  ],
+  "shellPort": [
+   47,
+   29
+  ]
+ },
+ {
+  "frame": 78,
+  "anim": "player_arm_grenade_reload",
+  "step": 3,
+  "key": "fetch",
+  "durationMs": 400,
+  "muzzle": [
+   60,
+   28
+  ],
+  "shellPort": [
+   47,
+   29
+  ]
+ },
+ {
+  "frame": 79,
+  "anim": "player_arm_grenade_reload",
+  "step": 4,
+  "key": "to_breech",
+  "durationMs": 400,
+  "muzzle": [
+   60,
+   28
+  ],
+  "shellPort": [
+   47,
+   29
+  ]
+ },
+ {
+  "frame": 80,
+  "anim": "player_arm_grenade_reload",
+  "step": 5,
+  "key": "push",
+  "durationMs": 220,
+  "muzzle": [
+   60,
+   28
+  ],
+  "shellPort": [
+   47,
+   29
+  ]
+ },
+ {
+  "frame": 81,
+  "anim": "player_arm_grenade_reload",
+  "step": 6,
+  "key": "snap_shut",
+  "durationMs": 80,
+  "muzzle": [
+   58,
+   26
+  ],
+  "shellPort": [
+   45,
+   27
+  ]
+ },
+ {
+  "frame": 82,
+  "anim": "player_arm_grenade_reload",
+  "step": 7,
+  "key": "settle",
+  "durationMs": 550,
+  "muzzle": [
+   60,
+   28
+  ],
+  "shellPort": [
+   47,
+   29
+  ]
+ },
+ {
+  "anims": {
+   "player_arm_grenade_aim": {
+    "frames": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     10,
+     11,
+     12,
+     13,
+     14,
+     15,
+     16,
+     17,
+     18,
+     19,
+     20,
+     21,
+     22,
+     23,
+     24
+    ],
+    "note": "pick by aim angle, not played"
+   },
+   "player_arm_grenade_fire": {
+    "frames": [
+     37,
+     62
+    ],
+    "durationsMs": [
+     50,
+     80
+    ],
+    "loop": false,
+    "perAim": true,
+    "perAimRule": "frame = 25*(phase+1) + aimFrame; after the last phase return to aimFrame",
+    "framesAt0Deg": [
+     37,
+     62
+    ]
+   },
+   "player_arm_grenade_reload": {
+    "frames": [
+     75,
+     76,
+     77,
+     78,
+     79,
+     80,
+     81,
+     82
+    ],
+    "durationsMs": [
+     300,
+     250,
+     200,
+     400,
+     400,
+     220,
+     80,
+     550
+    ],
+    "totalMs": 2400,
+    "keys": [
+     "latch",
+     "break",
+     "extract",
+     "fetch",
+     "to_breech",
+     "push",
+     "snap_shut",
+     "settle"
+    ],
+    "loop": false,
+    "perAim": false
+   }
+  },
+  "layout": {
+   "columns": 25,
+   "frameWidth": 64,
+   "frameHeight": 64,
+   "pivot": [
+    32,
+    32
+   ],
+   "rows": [
+    "aim 0..24 (-90..+90 step 7.5)",
+    "fire phase 0 (recoil peak) 25..49",
+    "fire phase 1 (recover) 50..74",
+    "reload keys 75.."
+   ]
+  },
+  "light": {
+   "normalMap": "player_arm_grenade_n.png",
+   "normalConvention": "RGB = (n+1)/2, x right, y UP, z to viewer (OpenGL); flipX -> negate R",
+   "bakedLight": "form light only: one top-front world light (screen x 0.30 / y 0.78 up / z 0.55), lit AFTER rotating each piece, so the highlight stays on the upper / front edge at every aim angle; per-object tonal spread normalised; no rim, glow or environment colour painted in; outline pure ink",
+   "emissive": null,
+   "rim": {
+    "file": "player_arm_grenade_rim.png",
+    "layout": "3 blocks L / R / T, each the full sheet grid",
+    "frameIndex": "side * 100 + frame (side 0 = L, 1 = R, 2 = T); swap L/R when flipX",
+    "cells": 100
+   }
+  },
+  "reloadTiming": "durationsMs are nominal; scale the reload anim so totalMs == weapon reloadMs"
+ }
+]

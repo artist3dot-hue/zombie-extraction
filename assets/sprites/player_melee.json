@@ -1,0 +1,3163 @@
+{
+ "key": "spr_player_melee",
+ "image": "player_melee.png",
+ "version": 2,
+ "frameWidth": 96,
+ "frameHeight": 80,
+ "columns": 27,
+ "originPx": [
+  48,
+  79
+ ],
+ "soleRow": 78,
+ "coords": "frame pixel coords (top-left of the frame = 0,0), facing right; flipX the sprite and mirror x (x' = 95 - x) when facing left.  The body column matches spr_player: the melee canvas is 96x80 (the 64x56 body box centred, soles on the bottom row; 2026-09-27: 64x56 clipped the overhead frames) and the origin is the same body point (the feet), so swapping spr_player (48x56) -> spr_player_melee at the same x/y does not move the body (same parts as spr_player v02).  The sheet is a grid of `columns` frames per row (row-major frame numbers).  Hide the arm layer while a melee anim plays.  Outline is pure ink like spr_player; weapons are drawn into the frames.  Idle / run / jump with a melee weapon = spr_player + spr_player_arm_pipe / spr_player_arm_cleaver (aim-angle arm layer, same rig as the gun arms).",
+ "points": {
+  "grip": "near-hand fist centre on the weapon",
+  "gripBack": "far-hand fist (two-handed frames only)",
+  "tip": "weapon tip (pipe head / cleaver point)",
+  "butt": "pipe butt end",
+  "shoulder": "near shoulder",
+  "lamp": "goggle lens glint (route C head-lamp anchor; same meaning as points.lamp in player.json; absent when an arm / the weapon covers the lens)",
+  "weaponBox": "weapon bbox incl. outline [x0,y0,x1,y1] on that frame",
+  "feet": "[x0,x1] opaque columns of the 3 rows above the sole ring - contact shadow width"
+ },
+ "anims_doc": "per anim: frames (sheet indices), ms (per frame), phases (windup/active/hit/recover), hitFrame/hitMs = the contact frame (apply damage + hit-stop here), activeMs = damage window (strike frame start .. contact frame end), cancelMs = earliest time the next combo swing may start.  hitbox = [x0,y0,x1,y1] frame coords: the union of the weapon over the whole active window (strike frame -> contact frame, the weapon line interpolated in between), padded 2px, at least 16px tall - use it for the whole activeMs.  hitboxSwept = the same union unpadded; hitboxContactFrame = the weapon box of the contact frame alone (reference); hitArc = the swept area as an annular sector around the contact-frame shoulder (pivotPx, rIn, rOut, fromDeg, toDeg; screen degrees, +y down, facing right) for arc-based checks.  connect = the key to switch to at hitMs when the swing lands (weapon feedback: pipe rebound / cleaver sticks); a whiff keeps playing the follow-through.  fx = slash effect to spawn at atMs: key, pivotPx (this sheet's frame coords; the fx origin goes there), anchor (arc = fx origin is the arc centre, lead = fx origin is the smear's lead point, placed on the contact frame's weapon tip, origin = fx shares the player origin), flipY (rising swings).  light = the impact light, see lighting.fxLight.",
+ "lighting": {
+  "format": "same set as spr_player v02: rim (manifest) + emit (manifest) + _n normal map (by name)",
+  "rimSheet": "spr_player_melee_rim",
+  "rimFile": "player_melee_rim.png",
+  "rimRows": {
+   "L": 0,
+   "R": 1,
+   "T": 2
+  },
+  "rimFrameIndex": "block * 54 + frame (3 blocks L / R / T stacked, each the same 27-column grid)",
+  "rimDoc": "route C selective outline: outline pixels facing L / R / T.  v2 colour rule: the colour just inside, stepped UP its material ramp until luma >= 100 (hair / boots #181410 -> #907060, denim #1c2338 -> #607898, jacket #2f3a2c -> #5a7830; lit tops stay).  Draw the row(s) facing each light over the actor with alpha = the stepped direct-light level: near-white lights ADD with setTint(light); saturated lights (neon red, acid) setTintFill(light) so the hue is the light's (a coloured multiply goes dark).  flipX swaps L and R.  No light -> nothing (the base sheet keeps its ink outline).",
+  "emitSheet": "spr_player_melee_emit",
+  "emitFile": "player_melee_emit.png",
+  "emitDoc": "goggle lens + glint (route C head-lamp): ADD tinted #dfe8f0 while the head-lamp is on; beam origin = points.lamp (absent on frames where an arm / the weapon covers the lens).",
+  "normalMap": "player_melee_n.png",
+  "normalConvention": "RGB = (n+1)/2, x right, y UP, z to viewer (OpenGL); flipX -> negate R; same rule and convention as player_n.png / player_arm_<id>_n.png (per-part bevel, 1/8 steps). Not in the manifest: load it by name if the actor light uses normals.",
+  "shading": "top-front key light only, painted in 4-5 steps per material; no environment light, no rim light, no cast colour baked in, so the engine light maps (LitComposite) can multiply it.",
+  "fxLight": {
+   "doc": "impact lights for the route C light RTs (C NOTES 3.1).  Stamp `cookie` (shared v02-fx-icons light cookie, grey = intensity) with ADD, tint = color, alpha = alpha[tick] (one tick = tickMs from startMs = the contact frame) at atPx (player frame coords -> world).  Into the SET map clip the disc at the wall foot (rows above floorY only: a light on a wall stops where the wall meets the pavement) and stamp `ground` - the flat floor ellipse - centred under atPx on floorY with groundAlpha; into the ACTOR map stamp the disc unclipped.  when = 'connect' -> only when the swing lands (use the connect anim as the trigger), 'always' -> every swing (the smash always hits the kerb).  Respect reduceFlashing.",
+   "levels": {
+    "ring": [
+     85,
+     170,
+     255
+    ],
+    "hot": [
+     56,
+     140,
+     255
+    ]
+   },
+   "seam": {
+    "pattern": "bayer4x4",
+    "band": 0.12,
+    "topStepDithered": false,
+    "doc": "a narrow ordered-dither seam straddles every step edge of the cookie (and its outer rim); the top plateau is never dithered - baked into the fx_light_* PNGs, nothing to do at runtime; if the engine generates the cookies itself use these values"
+   },
+   "ground": {
+    "shape": "ellipse",
+    "ryOverRx": 0.2,
+    "levels": [
+     85,
+     170,
+     255
+    ],
+    "cookies": [
+     "fx_light_ground_24",
+     "fx_light_ground_48"
+    ],
+    "doc": "flat floor pool (C v2 item 4): centred at (atPx.x, floorY), never on the wall"
+   },
+   "perAnim": "anims.<key>.light",
+   "slashFx": "the slash fx sprites themselves are not lights (no glow on a whiff); only the contact / kerb impact lights, per anims.<key>.light"
+  }
+ },
+ "frames": [
+  {
+   "frame": 0,
+   "name": "ready",
+   "anims": [
+    "player_melee_swing1",
+    "player_melee_swing2",
+    "player_melee_swing3",
+    "player_melee_quick",
+    "player_melee_ready",
+    "player_melee_swing1_connect",
+    "player_melee_swing2_connect",
+    "player_melee_quick_connect"
+   ],
+   "phase": "recover",
+   "weapon": "pipe",
+   "points": {
+    "grip": [
+     61,
+     55
+    ],
+    "tip": [
+     72,
+     45
+    ],
+    "shoulder": [
+     51,
+     48
+    ],
+    "lamp": [
+     56,
+     36
+    ]
+   },
+   "weaponBox": [
+    57,
+    42,
+    74,
+    59
+   ],
+   "feet": [
+    35,
+    58
+   ]
+  },
+  {
+   "frame": 1,
+   "name": "s1_wind",
+   "anims": [
+    "player_melee_swing1"
+   ],
+   "phase": "windup",
+   "weapon": "pipe",
+   "points": {
+    "grip": [
+     38,
+     46
+    ],
+    "tip": [
+     23,
+     47
+    ],
+    "shoulder": [
+     49,
+     48
+    ],
+    "lamp": [
+     54,
+     36
+    ]
+   },
+   "weaponBox": [
+    21,
+    44,
+    42,
+    48
+   ],
+   "feet": [
+    35,
+    59
+   ]
+  },
+  {
+   "frame": 2,
+   "name": "s1_cock",
+   "anims": [
+    "player_melee_swing1"
+   ],
+   "phase": "windup",
+   "weapon": "pipe",
+   "points": {
+    "grip": [
+     35,
+     45
+    ],
+    "tip": [
+     21,
+     41
+    ],
+    "shoulder": [
+     49,
+     49
+    ],
+    "lamp": [
+     54,
+     37
+    ]
+   },
+   "weaponBox": [
+    19,
+    38,
+    39,
+    48
+   ],
+   "feet": [
+    35,
+    61
+   ]
+  },
+  {
+   "frame": 3,
+   "name": "s1_strike",
+   "anims": [
+    "player_melee_swing1"
+   ],
+   "phase": "active",
+   "weapon": "pipe",
+   "points": {
+    "grip": [
+     57,
+     47
+    ],
+    "tip": [
+     65,
+     47
+    ],
+    "shoulder": [
+     52,
+     48
+    ],
+    "lamp": [
+     57,
+     36
+    ]
+   },
+   "weaponBox": [
+    54,
+    45,
+    65,
+    49
+   ],
+   "feet": [
+    35,
+    59
+   ]
+  },
+  {
+   "frame": 4,
+   "name": "s1_hit",
+   "anims": [
+    "player_melee_swing1",
+    "player_melee_swing1_connect"
+   ],
+   "phase": "hit",
+   "weapon": "pipe",
+   "points": {
+    "grip": [
+     64,
+     48
+    ],
+    "tip": [
+     80,
+     43
+    ],
+    "shoulder": [
+     55,
+     49
+    ],
+    "lamp": [
+     60,
+     37
+    ]
+   },
+   "weaponBox": [
+    60,
+    41,
+    81,
+    50
+   ],
+   "feet": [
+    36,
+    65
+   ]
+  },
+  {
+   "frame": 5,
+   "name": "s1_follow",
+   "anims": [
+    "player_melee_swing1"
+   ],
+   "phase": "recover",
+   "weapon": "pipe",
+   "points": {
+    "grip": [
+     58,
+     51
+    ],
+    "tip": [
+     43,
+     52
+    ],
+    "shoulder": [
+     55,
+     50
+    ],
+    "lamp": [
+     60,
+     38
+    ]
+   },
+   "weaponBox": [
+    41,
+    49,
+    62,
+    53
+   ],
+   "feet": [
+    36,
+    65
+   ]
+  },
+  {
+   "frame": 6,
+   "name": "s1_rebound",
+   "anims": [
+    "player_melee_swing1_connect"
+   ],
+   "phase": "recover",
+   "weapon": "pipe",
+   "points": {
+    "grip": [
+     61,
+     44
+    ],
+    "tip": [
+     75,
+     37
+    ],
+    "shoulder": [
+     53,
+     49
+    ],
+    "lamp": [
+     58,
+     37
+    ]
+   },
+   "weaponBox": [
+    57,
+    35,
+    77,
+    46
+   ],
+   "feet": [
+    36,
+    65
+   ]
+  },
+  {
+   "frame": 7,
+   "name": "s1_draw",
+   "anims": [
+    "player_melee_swing1",
+    "player_melee_swing1_connect"
+   ],
+   "phase": "recover",
+   "weapon": "pipe",
+   "points": {
+    "grip": [
+     59,
+     53
+    ],
+    "tip": [
+     67,
+     39
+    ],
+    "shoulder": [
+     52,
+     49
+    ],
+    "lamp": [
+     57,
+     37
+    ]
+   },
+   "weaponBox": [
+    56,
+    37,
+    68,
+    56
+   ],
+   "feet": [
+    35,
+    61
+   ]
+  },
+  {
+   "frame": 8,
+   "name": "s2_cock",
+   "anims": [
+    "player_melee_swing2"
+   ],
+   "phase": "windup",
+   "weapon": "pipe",
+   "points": {
+    "grip": [
+     47,
+     58
+    ],
+    "tip": [
+     33,
+     66
+    ],
+    "shoulder": [
+     51,
+     49
+    ],
+    "lamp": [
+     56,
+     38
+    ]
+   },
+   "weaponBox": [
+    31,
+    55,
+    50,
+    67
+   ],
+   "feet": [
+    35,
+    61
+   ]
+  },
+  {
+   "frame": 9,
+   "name": "s2_strike",
+   "anims": [
+    "player_melee_swing2"
+   ],
+   "phase": "active",
+   "weapon": "pipe",
+   "points": {
+    "grip": [
+     58,
+     54
+    ],
+    "tip": [
+     74,
+     60
+    ],
+    "shoulder": [
+     53,
+     48
+    ],
+    "lamp": [
+     58,
+     36
+    ]
+   },
+   "weaponBox": [
+    54,
+    52,
+    75,
+    61
+   ],
+   "feet": [
+    35,
+    59
+   ]
+  },
+  {
+   "frame": 10,
+   "name": "s2_hit",
+   "anims": [
+    "player_melee_swing2",
+    "player_melee_swing2_connect"
+   ],
+   "phase": "hit",
+   "weapon": "pipe",
+   "points": {
+    "grip": [
+     61,
+     38
+    ],
+    "tip": [
+     69,
+     24
+    ],
+    "shoulder": [
+     55,
+     48
+    ]
+   },
+   "weaponBox": [
+    58,
+    22,
+    70,
+    41
+   ],
+   "feet": [
+    36,
+    65
+   ]
+  },
+  {
+   "frame": 11,
+   "name": "s2_follow",
+   "anims": [
+    "player_melee_swing2"
+   ],
+   "phase": "recover",
+   "weapon": "pipe",
+   "points": {
+    "grip": [
+     56,
+     36
+    ],
+    "tip": [
+     42,
+     29
+    ],
+    "shoulder": [
+     53,
+     48
+    ]
+   },
+   "weaponBox": [
+    40,
+    27,
+    59,
+    39
+   ],
+   "feet": [
+    36,
+    65
+   ]
+  },
+  {
+   "frame": 12,
+   "name": "s2_rebound",
+   "anims": [
+    "player_melee_swing2_connect"
+   ],
+   "phase": "recover",
+   "weapon": "pipe",
+   "points": {
+    "grip": [
+     61,
+     42
+    ],
+    "tip": [
+     73,
+     31
+    ],
+    "shoulder": [
+     53,
+     49
+    ],
+    "lamp": [
+     58,
+     37
+    ]
+   },
+   "weaponBox": [
+    58,
+    28,
+    75,
+    45
+   ],
+   "feet": [
+    36,
+    65
+   ]
+  },
+  {
+   "frame": 13,
+   "name": "s2_draw",
+   "anims": [
+    "player_melee_swing2",
+    "player_melee_swing2_connect"
+   ],
+   "phase": "recover",
+   "weapon": "pipe",
+   "points": {
+    "grip": [
+     55,
+     45
+    ],
+    "tip": [
+     42,
+     38
+    ],
+    "shoulder": [
+     52,
+     49
+    ],
+    "lamp": [
+     57,
+     37
+    ]
+   },
+   "weaponBox": [
+    39,
+    36,
+    59,
+    47
+   ],
+   "feet": [
+    35,
+    61
+   ]
+  },
+  {
+   "frame": 14,
+   "name": "s3_gather",
+   "anims": [
+    "player_melee_swing3"
+   ],
+   "phase": "windup",
+   "weapon": "pipe",
+   "points": {
+    "grip": [
+     52,
+     39
+    ],
+    "gripBack": [
+     50,
+     41
+    ],
+    "tip": [
+     45,
+     25
+    ],
+    "shoulder": [
+     49,
+     48
+    ],
+    "lamp": [
+     54,
+     36
+    ]
+   },
+   "weaponBox": [
+    43,
+    23,
+    55,
+    42
+   ],
+   "feet": [
+    35,
+    59
+   ]
+  },
+  {
+   "frame": 15,
+   "name": "s3_wind",
+   "anims": [
+    "player_melee_swing3"
+   ],
+   "phase": "windup",
+   "weapon": "pipe",
+   "points": {
+    "grip": [
+     45,
+     37
+    ],
+    "gripBack": [
+     43,
+     39
+    ],
+    "tip": [
+     34,
+     26
+    ],
+    "shoulder": [
+     47,
+     49
+    ],
+    "lamp": [
+     51,
+     38
+    ]
+   },
+   "weaponBox": [
+    31,
+    23,
+    48,
+    40
+   ],
+   "feet": [
+    35,
+    45
+   ]
+  },
+  {
+   "frame": 16,
+   "name": "s3_strike",
+   "anims": [
+    "player_melee_swing3"
+   ],
+   "phase": "active",
+   "weapon": "pipe",
+   "points": {
+    "grip": [
+     61,
+     39
+    ],
+    "gripBack": [
+     59,
+     41
+    ],
+    "tip": [
+     73,
+     28
+    ],
+    "shoulder": [
+     55,
+     49
+    ],
+    "lamp": [
+     60,
+     37
+    ]
+   },
+   "weaponBox": [
+    58,
+    25,
+    75,
+    42
+   ],
+   "feet": [
+    36,
+    63
+   ]
+  },
+  {
+   "frame": 17,
+   "name": "s3_impact",
+   "anims": [
+    "player_melee_swing3"
+   ],
+   "phase": "hit",
+   "weapon": "pipe",
+   "points": {
+    "grip": [
+     64,
+     61
+    ],
+    "gripBack": [
+     63,
+     59
+    ],
+    "tip": [
+     72,
+     76
+    ],
+    "shoulder": [
+     57,
+     51
+    ],
+    "lamp": [
+     62,
+     39
+    ]
+   },
+   "weaponBox": [
+    61,
+    58,
+    73,
+    77
+   ],
+   "feet": [
+    35,
+    72
+   ]
+  },
+  {
+   "frame": 18,
+   "name": "s3_bounce",
+   "anims": [
+    "player_melee_swing3"
+   ],
+   "phase": "recover",
+   "weapon": "pipe",
+   "points": {
+    "grip": [
+     63,
+     58
+    ],
+    "gripBack": [
+     61,
+     55
+    ],
+    "tip": [
+     75,
+     70
+    ],
+    "shoulder": [
+     55,
+     49
+    ],
+    "lamp": [
+     60,
+     37
+    ]
+   },
+   "weaponBox": [
+    60,
+    55,
+    77,
+    72
+   ],
+   "feet": [
+    35,
+    66
+   ]
+  },
+  {
+   "frame": 19,
+   "name": "s3_settle",
+   "anims": [
+    "player_melee_swing3"
+   ],
+   "phase": "recover",
+   "weapon": "pipe",
+   "points": {
+    "grip": [
+     64,
+     62
+    ],
+    "gripBack": [
+     63,
+     59
+    ],
+    "tip": [
+     72,
+     77
+    ],
+    "shoulder": [
+     57,
+     52
+    ],
+    "lamp": [
+     62,
+     40
+    ]
+   },
+   "weaponBox": [
+    61,
+    59,
+    73,
+    78
+   ],
+   "feet": [
+    35,
+    72
+   ]
+  },
+  {
+   "frame": 20,
+   "name": "s3_pull",
+   "anims": [
+    "player_melee_swing3"
+   ],
+   "phase": "recover",
+   "weapon": "pipe",
+   "points": {
+    "grip": [
+     61,
+     57
+    ],
+    "tip": [
+     76,
+     65
+    ],
+    "shoulder": [
+     55,
+     50
+    ],
+    "lamp": [
+     60,
+     38
+    ]
+   },
+   "weaponBox": [
+    58,
+    54,
+    77,
+    66
+   ],
+   "feet": [
+    35,
+    65
+   ]
+  },
+  {
+   "frame": 21,
+   "name": "s3_draw",
+   "anims": [
+    "player_melee_swing3"
+   ],
+   "phase": "recover",
+   "weapon": "pipe",
+   "points": {
+    "grip": [
+     59,
+     54
+    ],
+    "tip": [
+     71,
+     43
+    ],
+    "shoulder": [
+     52,
+     49
+    ],
+    "lamp": [
+     57,
+     37
+    ]
+   },
+   "weaponBox": [
+    57,
+    41,
+    73,
+    57
+   ],
+   "feet": [
+    35,
+    61
+   ]
+  },
+  {
+   "frame": 22,
+   "name": "q_cock",
+   "anims": [
+    "player_melee_quick"
+   ],
+   "phase": "windup",
+   "weapon": "pipe",
+   "points": {
+    "grip": [
+     53,
+     50
+    ],
+    "tip": [
+     69,
+     51
+    ],
+    "shoulder": [
+     49,
+     48
+    ],
+    "lamp": [
+     54,
+     36
+    ]
+   },
+   "weaponBox": [
+    49,
+    48,
+    70,
+    52
+   ],
+   "feet": [
+    35,
+    59
+   ]
+  },
+  {
+   "frame": 23,
+   "name": "q_strike",
+   "anims": [
+    "player_melee_quick"
+   ],
+   "phase": "active",
+   "weapon": "pipe",
+   "points": {
+    "grip": [
+     59,
+     49
+    ],
+    "tip": [
+     75,
+     49
+    ],
+    "shoulder": [
+     52,
+     48
+    ],
+    "lamp": [
+     57,
+     36
+    ]
+   },
+   "weaponBox": [
+    55,
+    47,
+    76,
+    51
+   ],
+   "feet": [
+    35,
+    59
+   ]
+  },
+  {
+   "frame": 24,
+   "name": "q_hit",
+   "anims": [
+    "player_melee_quick",
+    "player_melee_quick_connect"
+   ],
+   "phase": "hit",
+   "weapon": "pipe",
+   "points": {
+    "grip": [
+     63,
+     48
+    ],
+    "tip": [
+     79,
+     49
+    ],
+    "shoulder": [
+     54,
+     49
+    ],
+    "lamp": [
+     59,
+     37
+    ]
+   },
+   "weaponBox": [
+    59,
+    46,
+    80,
+    50
+   ],
+   "feet": [
+    36,
+    63
+   ]
+  },
+  {
+   "frame": 25,
+   "name": "q_rebound",
+   "anims": [
+    "player_melee_quick_connect"
+   ],
+   "phase": "recover",
+   "weapon": "pipe",
+   "points": {
+    "grip": [
+     61,
+     48
+    ],
+    "tip": [
+     77,
+     43
+    ],
+    "shoulder": [
+     52,
+     49
+    ],
+    "lamp": [
+     57,
+     37
+    ]
+   },
+   "weaponBox": [
+    57,
+    41,
+    78,
+    50
+   ],
+   "feet": [
+    36,
+    63
+   ]
+  },
+  {
+   "frame": 26,
+   "name": "q_draw",
+   "anims": [
+    "player_melee_quick",
+    "player_melee_quick_connect"
+   ],
+   "phase": "recover",
+   "weapon": "pipe",
+   "points": {
+    "grip": [
+     60,
+     53
+    ],
+    "tip": [
+     72,
+     42
+    ],
+    "shoulder": [
+     51,
+     48
+    ],
+    "lamp": [
+     56,
+     36
+    ]
+   },
+   "weaponBox": [
+    57,
+    39,
+    74,
+    56
+   ],
+   "feet": [
+    35,
+    59
+   ]
+  },
+  {
+   "frame": 27,
+   "name": "cready",
+   "anims": [
+    "player_melee_cleaver1",
+    "player_melee_cleaver2",
+    "player_melee_cleaver3",
+    "player_melee_cleaver_ready",
+    "player_melee_cleaver_quick",
+    "player_melee_cleaver1_connect",
+    "player_melee_cleaver2_connect",
+    "player_melee_cleaver3_connect",
+    "player_melee_cleaver_quick_connect"
+   ],
+   "phase": "recover",
+   "weapon": "cleaver",
+   "points": {
+    "grip": [
+     61,
+     55
+    ],
+    "tip": [
+     71,
+     46
+    ],
+    "shoulder": [
+     51,
+     48
+    ],
+    "lamp": [
+     56,
+     36
+    ]
+   },
+   "weaponBox": [
+    58,
+    44,
+    75,
+    58
+   ],
+   "feet": [
+    35,
+    58
+   ]
+  },
+  {
+   "frame": 28,
+   "name": "cs1_cock",
+   "anims": [
+    "player_melee_cleaver1"
+   ],
+   "phase": "windup",
+   "weapon": "cleaver",
+   "points": {
+    "grip": [
+     35,
+     45
+    ],
+    "tip": [
+     22,
+     46
+    ],
+    "shoulder": [
+     49,
+     49
+    ],
+    "lamp": [
+     54,
+     37
+    ]
+   },
+   "weaponBox": [
+    20,
+    44,
+    38,
+    51
+   ],
+   "feet": [
+    35,
+    61
+   ]
+  },
+  {
+   "frame": 29,
+   "name": "cs1_strike",
+   "anims": [
+    "player_melee_cleaver1"
+   ],
+   "phase": "active",
+   "weapon": "cleaver",
+   "points": {
+    "grip": [
+     57,
+     47
+    ],
+    "tip": [
+     71,
+     47
+    ],
+    "shoulder": [
+     52,
+     48
+    ],
+    "lamp": [
+     57,
+     36
+    ]
+   },
+   "weaponBox": [
+    54,
+    45,
+    72,
+    52
+   ],
+   "feet": [
+    35,
+    59
+   ]
+  },
+  {
+   "frame": 30,
+   "name": "cs1_hit",
+   "anims": [
+    "player_melee_cleaver1",
+    "player_melee_cleaver1_connect"
+   ],
+   "phase": "hit",
+   "weapon": "cleaver",
+   "points": {
+    "grip": [
+     64,
+     48
+    ],
+    "tip": [
+     79,
+     49
+    ],
+    "shoulder": [
+     55,
+     49
+    ],
+    "lamp": [
+     60,
+     37
+    ]
+   },
+   "weaponBox": [
+    61,
+    46,
+    79,
+    53
+   ],
+   "feet": [
+    36,
+    65
+   ]
+  },
+  {
+   "frame": 31,
+   "name": "cs1_follow",
+   "anims": [
+    "player_melee_cleaver1"
+   ],
+   "phase": "recover",
+   "weapon": "cleaver",
+   "points": {
+    "grip": [
+     58,
+     51
+    ],
+    "tip": [
+     45,
+     51
+    ],
+    "shoulder": [
+     55,
+     50
+    ],
+    "lamp": [
+     60,
+     38
+    ]
+   },
+   "weaponBox": [
+    43,
+    46,
+    61,
+    53
+   ],
+   "feet": [
+    36,
+    65
+   ]
+  },
+  {
+   "frame": 32,
+   "name": "cs1_stick",
+   "anims": [
+    "player_melee_cleaver1_connect"
+   ],
+   "phase": "recover",
+   "weapon": "cleaver",
+   "points": {
+    "grip": [
+     62,
+     46
+    ],
+    "tip": [
+     77,
+     47
+    ],
+    "shoulder": [
+     56,
+     50
+    ],
+    "lamp": [
+     61,
+     38
+    ]
+   },
+   "weaponBox": [
+    59,
+    44,
+    77,
+    51
+   ],
+   "feet": [
+    36,
+    65
+   ]
+  },
+  {
+   "frame": 33,
+   "name": "cs1_yank",
+   "anims": [
+    "player_melee_cleaver1_connect"
+   ],
+   "phase": "recover",
+   "weapon": "cleaver",
+   "points": {
+    "grip": [
+     58,
+     48
+    ],
+    "tip": [
+     68,
+     39
+    ],
+    "shoulder": [
+     53,
+     49
+    ],
+    "lamp": [
+     58,
+     37
+    ]
+   },
+   "weaponBox": [
+    56,
+    36,
+    73,
+    50
+   ],
+   "feet": [
+    36,
+    65
+   ]
+  },
+  {
+   "frame": 34,
+   "name": "cs1_draw",
+   "anims": [
+    "player_melee_cleaver1",
+    "player_melee_cleaver1_connect"
+   ],
+   "phase": "recover",
+   "weapon": "cleaver",
+   "points": {
+    "grip": [
+     59,
+     53
+    ],
+    "tip": [
+     69,
+     44
+    ],
+    "shoulder": [
+     52,
+     49
+    ],
+    "lamp": [
+     57,
+     37
+    ]
+   },
+   "weaponBox": [
+    57,
+    41,
+    74,
+    55
+   ],
+   "feet": [
+    35,
+    61
+   ]
+  },
+  {
+   "frame": 35,
+   "name": "cs2_cock",
+   "anims": [
+    "player_melee_cleaver2"
+   ],
+   "phase": "windup",
+   "weapon": "cleaver",
+   "points": {
+    "grip": [
+     47,
+     58
+    ],
+    "tip": [
+     38,
+     68
+    ],
+    "shoulder": [
+     51,
+     49
+    ],
+    "lamp": [
+     56,
+     38
+    ]
+   },
+   "weaponBox": [
+    35,
+    56,
+    49,
+    73
+   ],
+   "feet": [
+    35,
+    61
+   ]
+  },
+  {
+   "frame": 36,
+   "name": "cs2_strike",
+   "anims": [
+    "player_melee_cleaver2"
+   ],
+   "phase": "active",
+   "weapon": "cleaver",
+   "points": {
+    "grip": [
+     58,
+     54
+    ],
+    "tip": [
+     73,
+     55
+    ],
+    "shoulder": [
+     53,
+     48
+    ],
+    "lamp": [
+     58,
+     36
+    ]
+   },
+   "weaponBox": [
+    55,
+    49,
+    73,
+    56
+   ],
+   "feet": [
+    35,
+    59
+   ]
+  },
+  {
+   "frame": 37,
+   "name": "cs2_hit",
+   "anims": [
+    "player_melee_cleaver2",
+    "player_melee_cleaver2_connect"
+   ],
+   "phase": "hit",
+   "weapon": "cleaver",
+   "points": {
+    "grip": [
+     61,
+     38
+    ],
+    "tip": [
+     61,
+     25
+    ],
+    "shoulder": [
+     55,
+     48
+    ]
+   },
+   "weaponBox": [
+    59,
+    23,
+    67,
+    41
+   ],
+   "feet": [
+    36,
+    65
+   ]
+  },
+  {
+   "frame": 38,
+   "name": "cs2_follow",
+   "anims": [
+    "player_melee_cleaver2"
+   ],
+   "phase": "recover",
+   "weapon": "cleaver",
+   "points": {
+    "grip": [
+     56,
+     36
+    ],
+    "tip": [
+     47,
+     27
+    ],
+    "shoulder": [
+     53,
+     48
+    ]
+   },
+   "weaponBox": [
+    44,
+    21,
+    58,
+    38
+   ],
+   "feet": [
+    36,
+    65
+   ]
+  },
+  {
+   "frame": 39,
+   "name": "cs2_stick",
+   "anims": [
+    "player_melee_cleaver2_connect"
+   ],
+   "phase": "recover",
+   "weapon": "cleaver",
+   "points": {
+    "grip": [
+     61,
+     41
+    ],
+    "tip": [
+     61,
+     27
+    ],
+    "shoulder": [
+     55,
+     49
+    ],
+    "lamp": [
+     60,
+     37
+    ]
+   },
+   "weaponBox": [
+    59,
+    26,
+    67,
+    44
+   ],
+   "feet": [
+    36,
+    65
+   ]
+  },
+  {
+   "frame": 40,
+   "name": "cs2_draw",
+   "anims": [
+    "player_melee_cleaver2",
+    "player_melee_cleaver2_connect"
+   ],
+   "phase": "recover",
+   "weapon": "cleaver",
+   "points": {
+    "grip": [
+     55,
+     45
+    ],
+    "tip": [
+     46,
+     36
+    ],
+    "shoulder": [
+     52,
+     49
+    ],
+    "lamp": [
+     57,
+     37
+    ]
+   },
+   "weaponBox": [
+    44,
+    31,
+    58,
+    47
+   ],
+   "feet": [
+    35,
+    61
+   ]
+  },
+  {
+   "frame": 41,
+   "name": "cs3_gather",
+   "anims": [
+    "player_melee_cleaver3"
+   ],
+   "phase": "windup",
+   "weapon": "cleaver",
+   "points": {
+    "grip": [
+     52,
+     39
+    ],
+    "tip": [
+     53,
+     25
+    ],
+    "shoulder": [
+     49,
+     48
+    ]
+   },
+   "weaponBox": [
+    50,
+    24,
+    58,
+    42
+   ],
+   "feet": [
+    35,
+    59
+   ]
+  },
+  {
+   "frame": 42,
+   "name": "cs3_wind",
+   "anims": [
+    "player_melee_cleaver3"
+   ],
+   "phase": "windup",
+   "weapon": "cleaver",
+   "points": {
+    "grip": [
+     45,
+     37
+    ],
+    "tip": [
+     36,
+     28
+    ],
+    "shoulder": [
+     47,
+     49
+    ],
+    "lamp": [
+     51,
+     38
+    ]
+   },
+   "weaponBox": [
+    33,
+    22,
+    47,
+    39
+   ],
+   "feet": [
+    35,
+    45
+   ]
+  },
+  {
+   "frame": 43,
+   "name": "cs3_strike",
+   "anims": [
+    "player_melee_cleaver3"
+   ],
+   "phase": "active",
+   "weapon": "cleaver",
+   "points": {
+    "grip": [
+     61,
+     39
+    ],
+    "tip": [
+     71,
+     30
+    ],
+    "shoulder": [
+     55,
+     49
+    ],
+    "lamp": [
+     60,
+     37
+    ]
+   },
+   "weaponBox": [
+    59,
+    27,
+    76,
+    41
+   ],
+   "feet": [
+    36,
+    63
+   ]
+  },
+  {
+   "frame": 44,
+   "name": "cs3_impact",
+   "anims": [
+    "player_melee_cleaver3",
+    "player_melee_cleaver3_connect"
+   ],
+   "phase": "hit",
+   "weapon": "cleaver",
+   "points": {
+    "grip": [
+     64,
+     61
+    ],
+    "tip": [
+     79,
+     57
+    ],
+    "shoulder": [
+     57,
+     51
+    ],
+    "lamp": [
+     62,
+     39
+    ]
+   },
+   "weaponBox": [
+    61,
+    55,
+    79,
+    62
+   ],
+   "feet": [
+    35,
+    66
+   ]
+  },
+  {
+   "frame": 45,
+   "name": "cs3_stick",
+   "anims": [
+    "player_melee_cleaver3_connect"
+   ],
+   "phase": "recover",
+   "weapon": "cleaver",
+   "points": {
+    "grip": [
+     63,
+     57
+    ],
+    "tip": [
+     77,
+     57
+    ],
+    "shoulder": [
+     57,
+     52
+    ],
+    "lamp": [
+     62,
+     40
+    ]
+   },
+   "weaponBox": [
+    60,
+    55,
+    78,
+    62
+   ],
+   "feet": [
+    35,
+    66
+   ]
+  },
+  {
+   "frame": 46,
+   "name": "cs3_pull",
+   "anims": [
+    "player_melee_cleaver3",
+    "player_melee_cleaver3_connect"
+   ],
+   "phase": "recover",
+   "weapon": "cleaver",
+   "points": {
+    "grip": [
+     61,
+     57
+    ],
+    "tip": [
+     71,
+     67
+    ],
+    "shoulder": [
+     55,
+     50
+    ],
+    "lamp": [
+     60,
+     38
+    ]
+   },
+   "weaponBox": [
+    59,
+    55,
+    73,
+    72
+   ],
+   "feet": [
+    35,
+    65
+   ]
+  },
+  {
+   "frame": 47,
+   "name": "cs3_draw",
+   "anims": [
+    "player_melee_cleaver3",
+    "player_melee_cleaver3_connect"
+   ],
+   "phase": "recover",
+   "weapon": "cleaver",
+   "points": {
+    "grip": [
+     59,
+     54
+    ],
+    "tip": [
+     70,
+     45
+    ],
+    "shoulder": [
+     52,
+     49
+    ],
+    "lamp": [
+     57,
+     37
+    ]
+   },
+   "weaponBox": [
+    57,
+    43,
+    74,
+    56
+   ],
+   "feet": [
+    35,
+    61
+   ]
+  },
+  {
+   "frame": 48,
+   "name": "cq_cock",
+   "anims": [
+    "player_melee_cleaver_quick"
+   ],
+   "phase": "windup",
+   "weapon": "cleaver",
+   "points": {
+    "grip": [
+     53,
+     50
+    ],
+    "tip": [
+     39,
+     51
+    ],
+    "shoulder": [
+     49,
+     48
+    ],
+    "lamp": [
+     54,
+     36
+    ]
+   },
+   "weaponBox": [
+    38,
+    45,
+    56,
+    52
+   ],
+   "feet": [
+    35,
+    59
+   ]
+  },
+  {
+   "frame": 49,
+   "name": "cq_strike",
+   "anims": [
+    "player_melee_cleaver_quick"
+   ],
+   "phase": "active",
+   "weapon": "cleaver",
+   "points": {
+    "grip": [
+     59,
+     49
+    ],
+    "tip": [
+     73,
+     49
+    ],
+    "shoulder": [
+     52,
+     48
+    ],
+    "lamp": [
+     57,
+     36
+    ]
+   },
+   "weaponBox": [
+    56,
+    47,
+    74,
+    54
+   ],
+   "feet": [
+    35,
+    59
+   ]
+  },
+  {
+   "frame": 50,
+   "name": "cq_hit",
+   "anims": [
+    "player_melee_cleaver_quick",
+    "player_melee_cleaver_quick_connect"
+   ],
+   "phase": "hit",
+   "weapon": "cleaver",
+   "points": {
+    "grip": [
+     63,
+     48
+    ],
+    "tip": [
+     77,
+     49
+    ],
+    "shoulder": [
+     54,
+     49
+    ],
+    "lamp": [
+     59,
+     37
+    ]
+   },
+   "weaponBox": [
+    60,
+    46,
+    78,
+    53
+   ],
+   "feet": [
+    36,
+    63
+   ]
+  },
+  {
+   "frame": 51,
+   "name": "cq_stick",
+   "anims": [
+    "player_melee_cleaver_quick_connect"
+   ],
+   "phase": "recover",
+   "weapon": "cleaver",
+   "points": {
+    "grip": [
+     62,
+     49
+    ],
+    "tip": [
+     77,
+     49
+    ],
+    "shoulder": [
+     54,
+     49
+    ],
+    "lamp": [
+     59,
+     37
+    ]
+   },
+   "weaponBox": [
+    59,
+    47,
+    77,
+    54
+   ],
+   "feet": [
+    36,
+    63
+   ]
+  },
+  {
+   "frame": 52,
+   "name": "cq_draw",
+   "anims": [
+    "player_melee_cleaver_quick",
+    "player_melee_cleaver_quick_connect"
+   ],
+   "phase": "recover",
+   "weapon": "cleaver",
+   "points": {
+    "grip": [
+     60,
+     53
+    ],
+    "tip": [
+     70,
+     44
+    ],
+    "shoulder": [
+     51,
+     48
+    ],
+    "lamp": [
+     56,
+     36
+    ]
+   },
+   "weaponBox": [
+    58,
+    41,
+    75,
+    55
+   ],
+   "feet": [
+    35,
+    59
+   ]
+  }
+ ],
+ "anims": {
+  "player_melee_swing1": {
+   "frames": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    7,
+    0
+   ],
+   "ms": [
+    60,
+    120,
+    40,
+    60,
+    80,
+    80,
+    80
+   ],
+   "phases": [
+    "windup",
+    "windup",
+    "active",
+    "hit",
+    "recover",
+    "recover",
+    "recover"
+   ],
+   "totalMs": 520,
+   "hitIndex": 3,
+   "hitFrame": 4,
+   "hitMs": 220,
+   "activeMs": [
+    180,
+    280
+   ],
+   "cancelMs": 280,
+   "hitLightPx": [
+    80,
+    43
+   ],
+   "hitbox": [
+    52,
+    38,
+    83,
+    53
+   ],
+   "hitboxSwept": [
+    54,
+    41,
+    81,
+    50
+   ],
+   "hitboxContactFrame": [
+    60,
+    41,
+    81,
+    50
+   ],
+   "hitArc": {
+    "pivotPx": [
+     55,
+     49
+    ],
+    "rIn": 2,
+    "rOut": 28,
+    "fromDeg": -109,
+    "toDeg": 12
+   },
+   "connect": "player_melee_swing1_connect",
+   "fx": {
+    "key": "fx_melee_slash_h",
+    "flipY": false,
+    "atIndex": 2,
+    "atMs": 180,
+    "pivotPx": [
+     80,
+     43
+    ],
+    "anchor": "lead"
+   },
+   "light": {
+    "cookie": "fx_light_ring_18",
+    "ground": "fx_light_ground_24",
+    "when": "connect",
+    "alpha": [
+     1.0,
+     0.55,
+     0.22,
+     0.0
+    ],
+    "groundAlpha": [
+     0.55,
+     0.22,
+     0.0
+    ],
+    "color": "#fff6d8",
+    "atPx": [
+     80,
+     43
+    ],
+    "startMs": 220,
+    "tickMs": 20,
+    "targets": "both",
+    "floorY": 77
+   }
+  },
+  "player_melee_swing2": {
+   "frames": [
+    8,
+    9,
+    10,
+    11,
+    13,
+    0
+   ],
+   "ms": [
+    100,
+    40,
+    60,
+    80,
+    100,
+    80
+   ],
+   "phases": [
+    "windup",
+    "active",
+    "hit",
+    "recover",
+    "recover",
+    "recover"
+   ],
+   "totalMs": 460,
+   "hitIndex": 2,
+   "hitFrame": 10,
+   "hitMs": 140,
+   "activeMs": [
+    100,
+    200
+   ],
+   "cancelMs": 200,
+   "hitLightPx": [
+    69,
+    24
+   ],
+   "hitbox": [
+    52,
+    20,
+    78,
+    63
+   ],
+   "hitboxSwept": [
+    54,
+    22,
+    76,
+    61
+   ],
+   "hitboxContactFrame": [
+    58,
+    22,
+    70,
+    41
+   ],
+   "hitArc": {
+    "pivotPx": [
+     55,
+     48
+    ],
+    "rIn": 7,
+    "rOut": 30,
+    "fromDeg": -68,
+    "toDeg": 95
+   },
+   "connect": "player_melee_swing2_connect",
+   "fx": {
+    "key": "fx_melee_slash",
+    "flipY": true,
+    "atIndex": 1,
+    "atMs": 100,
+    "pivotPx": [
+     58,
+     43
+    ],
+    "anchor": "arc"
+   },
+   "light": {
+    "cookie": "fx_light_ring_18",
+    "ground": "fx_light_ground_24",
+    "when": "connect",
+    "alpha": [
+     1.0,
+     0.55,
+     0.22,
+     0.0
+    ],
+    "groundAlpha": [
+     0.22,
+     0.0
+    ],
+    "color": "#fff6d8",
+    "atPx": [
+     69,
+     24
+    ],
+    "startMs": 140,
+    "tickMs": 20,
+    "targets": "both",
+    "floorY": 77
+   }
+  },
+  "player_melee_swing3": {
+   "frames": [
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    0
+   ],
+   "ms": [
+    100,
+    240,
+    40,
+    60,
+    60,
+    120,
+    100,
+    80,
+    60
+   ],
+   "phases": [
+    "windup",
+    "windup",
+    "active",
+    "hit",
+    "recover",
+    "recover",
+    "recover",
+    "recover",
+    "recover"
+   ],
+   "totalMs": 860,
+   "hitIndex": 3,
+   "hitFrame": 17,
+   "hitMs": 380,
+   "activeMs": [
+    340,
+    440
+   ],
+   "cancelMs": 440,
+   "hitLightPx": [
+    72,
+    76
+   ],
+   "hitbox": [
+    56,
+    23,
+    81,
+    79
+   ],
+   "hitboxSwept": [
+    58,
+    25,
+    79,
+    77
+   ],
+   "hitboxContactFrame": [
+    61,
+    58,
+    73,
+    77
+   ],
+   "hitArc": {
+    "pivotPx": [
+     57,
+     51
+    ],
+    "rIn": 10,
+    "rOut": 31,
+    "fromDeg": -82,
+    "toDeg": 65
+   },
+   "fx": {
+    "key": "fx_melee_slash_heavy",
+    "flipY": false,
+    "atIndex": 2,
+    "atMs": 340,
+    "pivotPx": [
+     48,
+     79
+    ],
+    "anchor": "origin"
+   },
+   "light": {
+    "cookie": "fx_light_hot_48",
+    "ground": "fx_light_ground_48",
+    "when": "always",
+    "alpha": [
+     1.0,
+     1.0,
+     0.55,
+     0.55,
+     0.22,
+     0.0
+    ],
+    "groundAlpha": [
+     1.0,
+     1.0,
+     0.55,
+     0.22,
+     0.0
+    ],
+    "color": "#fff6d8",
+    "atPx": [
+     72,
+     76
+    ],
+    "startMs": 380,
+    "tickMs": 20,
+    "targets": "both",
+    "floorY": 77
+   }
+  },
+  "player_melee_cleaver1": {
+   "frames": [
+    28,
+    29,
+    30,
+    31,
+    34,
+    27
+   ],
+   "ms": [
+    80,
+    40,
+    40,
+    60,
+    60,
+    60
+   ],
+   "phases": [
+    "windup",
+    "active",
+    "hit",
+    "recover",
+    "recover",
+    "recover"
+   ],
+   "totalMs": 340,
+   "hitIndex": 2,
+   "hitFrame": 30,
+   "hitMs": 120,
+   "activeMs": [
+    80,
+    160
+   ],
+   "cancelMs": 160,
+   "hitLightPx": [
+    79,
+    49
+   ],
+   "hitbox": [
+    52,
+    40,
+    81,
+    55
+   ],
+   "hitboxSwept": [
+    54,
+    43,
+    79,
+    53
+   ],
+   "hitboxContactFrame": [
+    61,
+    46,
+    79,
+    53
+   ],
+   "hitArc": {
+    "pivotPx": [
+     55,
+     49
+    ],
+    "rIn": 3,
+    "rOut": 25,
+    "fromDeg": -109,
+    "toDeg": 26
+   },
+   "connect": "player_melee_cleaver1_connect",
+   "fx": {
+    "key": "fx_melee_slash_h_cleaver",
+    "flipY": false,
+    "atIndex": 1,
+    "atMs": 80,
+    "pivotPx": [
+     79,
+     49
+    ],
+    "anchor": "lead"
+   },
+   "light": {
+    "cookie": "fx_light_ring_12",
+    "ground": null,
+    "when": "connect",
+    "alpha": [
+     1.0,
+     0.55,
+     0.0
+    ],
+    "groundAlpha": null,
+    "color": "#fff6d8",
+    "atPx": [
+     79,
+     49
+    ],
+    "startMs": 120,
+    "tickMs": 20,
+    "targets": "both",
+    "floorY": 77
+   }
+  },
+  "player_melee_cleaver2": {
+   "frames": [
+    35,
+    36,
+    37,
+    38,
+    40,
+    27
+   ],
+   "ms": [
+    80,
+    40,
+    40,
+    60,
+    60,
+    60
+   ],
+   "phases": [
+    "windup",
+    "active",
+    "hit",
+    "recover",
+    "recover",
+    "recover"
+   ],
+   "totalMs": 340,
+   "hitIndex": 2,
+   "hitFrame": 37,
+   "hitMs": 120,
+   "activeMs": [
+    80,
+    160
+   ],
+   "cancelMs": 160,
+   "hitLightPx": [
+    61,
+    25
+   ],
+   "hitbox": [
+    53,
+    21,
+    75,
+    60
+   ],
+   "hitboxSwept": [
+    55,
+    23,
+    73,
+    58
+   ],
+   "hitboxContactFrame": [
+    59,
+    23,
+    67,
+    41
+   ],
+   "hitArc": {
+    "pivotPx": [
+     55,
+     48
+    ],
+    "rIn": 7,
+    "rOut": 28,
+    "fromDeg": -84,
+    "toDeg": 87
+   },
+   "connect": "player_melee_cleaver2_connect",
+   "fx": {
+    "key": "fx_melee_slash_cleaver",
+    "flipY": true,
+    "atIndex": 1,
+    "atMs": 80,
+    "pivotPx": [
+     57,
+     40
+    ],
+    "anchor": "arc"
+   },
+   "light": {
+    "cookie": "fx_light_ring_12",
+    "ground": null,
+    "when": "connect",
+    "alpha": [
+     1.0,
+     0.55,
+     0.0
+    ],
+    "groundAlpha": null,
+    "color": "#fff6d8",
+    "atPx": [
+     61,
+     25
+    ],
+    "startMs": 120,
+    "tickMs": 20,
+    "targets": "both",
+    "floorY": 77
+   }
+  },
+  "player_melee_cleaver3": {
+   "frames": [
+    41,
+    42,
+    43,
+    44,
+    46,
+    47,
+    27
+   ],
+   "ms": [
+    80,
+    120,
+    40,
+    60,
+    100,
+    60,
+    60
+   ],
+   "phases": [
+    "windup",
+    "windup",
+    "active",
+    "hit",
+    "recover",
+    "recover",
+    "recover"
+   ],
+   "totalMs": 520,
+   "hitIndex": 3,
+   "hitFrame": 44,
+   "hitMs": 240,
+   "activeMs": [
+    200,
+    300
+   ],
+   "cancelMs": 300,
+   "hitLightPx": [
+    79,
+    57
+   ],
+   "hitbox": [
+    57,
+    24,
+    81,
+    64
+   ],
+   "hitboxSwept": [
+    59,
+    26,
+    79,
+    62
+   ],
+   "hitboxContactFrame": [
+    61,
+    55,
+    79,
+    62
+   ],
+   "hitArc": {
+    "pivotPx": [
+     57,
+     51
+    ],
+    "rIn": 10,
+    "rOut": 28,
+    "fromDeg": -78,
+    "toDeg": 56
+   },
+   "connect": "player_melee_cleaver3_connect",
+   "fx": {
+    "key": "fx_melee_slash_cleaver",
+    "flipY": false,
+    "atIndex": 2,
+    "atMs": 200,
+    "pivotPx": [
+     65,
+     53
+    ],
+    "anchor": "arc"
+   },
+   "light": {
+    "cookie": "fx_light_ring_18",
+    "ground": "fx_light_ground_24",
+    "when": "connect",
+    "alpha": [
+     1.0,
+     0.55,
+     0.22,
+     0.0
+    ],
+    "groundAlpha": [
+     0.55,
+     0.22,
+     0.0
+    ],
+    "color": "#fff6d8",
+    "atPx": [
+     79,
+     57
+    ],
+    "startMs": 240,
+    "tickMs": 20,
+    "targets": "both",
+    "floorY": 77
+   }
+  },
+  "player_melee_quick": {
+   "frames": [
+    22,
+    23,
+    24,
+    26,
+    0
+   ],
+   "ms": [
+    60,
+    40,
+    60,
+    60,
+    40
+   ],
+   "phases": [
+    "windup",
+    "active",
+    "hit",
+    "recover",
+    "recover"
+   ],
+   "totalMs": 260,
+   "hitIndex": 2,
+   "hitFrame": 24,
+   "hitMs": 100,
+   "activeMs": [
+    60,
+    160
+   ],
+   "cancelMs": 160,
+   "hitLightPx": [
+    79,
+    49
+   ],
+   "hitbox": [
+    53,
+    41,
+    82,
+    56
+   ],
+   "hitboxSwept": [
+    55,
+    46,
+    80,
+    51
+   ],
+   "hitboxContactFrame": [
+    59,
+    46,
+    80,
+    50
+   ],
+   "hitArc": {
+    "pivotPx": [
+     54,
+     49
+    ],
+    "rIn": 3,
+    "rOut": 27,
+    "fromDeg": -31,
+    "toDeg": 31
+   },
+   "connect": "player_melee_quick_connect",
+   "fx": {
+    "key": "fx_melee_thrust",
+    "flipY": false,
+    "atIndex": 1,
+    "atMs": 60,
+    "pivotPx": [
+     79,
+     49
+    ],
+    "anchor": "lead"
+   },
+   "light": {
+    "cookie": "fx_light_ring_12",
+    "ground": null,
+    "when": "connect",
+    "alpha": [
+     1.0,
+     0.55,
+     0.0
+    ],
+    "groundAlpha": null,
+    "color": "#fff6d8",
+    "atPx": [
+     79,
+     49
+    ],
+    "startMs": 100,
+    "tickMs": 20,
+    "targets": "both",
+    "floorY": 77
+   }
+  },
+  "player_melee_ready": {
+   "frames": [
+    0
+   ],
+   "ms": [
+    400
+   ],
+   "phases": [
+    "hold"
+   ],
+   "totalMs": 400
+  },
+  "player_melee_cleaver_ready": {
+   "frames": [
+    27
+   ],
+   "ms": [
+    400
+   ],
+   "phases": [
+    "hold"
+   ],
+   "totalMs": 400
+  },
+  "player_melee_cleaver_quick": {
+   "frames": [
+    48,
+    49,
+    50,
+    52,
+    27
+   ],
+   "ms": [
+    60,
+    40,
+    40,
+    60,
+    40
+   ],
+   "phases": [
+    "windup",
+    "active",
+    "hit",
+    "recover",
+    "recover"
+   ],
+   "totalMs": 240,
+   "hitIndex": 2,
+   "hitFrame": 50,
+   "hitMs": 100,
+   "activeMs": [
+    60,
+    140
+   ],
+   "cancelMs": 140,
+   "hitLightPx": [
+    77,
+    49
+   ],
+   "hitbox": [
+    54,
+    41,
+    80,
+    56
+   ],
+   "hitboxSwept": [
+    56,
+    44,
+    78,
+    54
+   ],
+   "hitboxContactFrame": [
+    60,
+    46,
+    78,
+    53
+   ],
+   "hitArc": {
+    "pivotPx": [
+     54,
+     49
+    ],
+    "rIn": 5,
+    "rOut": 25,
+    "fromDeg": -24,
+    "toDeg": 28
+   },
+   "connect": "player_melee_cleaver_quick_connect",
+   "fx": {
+    "key": "fx_melee_slash_h_cleaver",
+    "flipY": false,
+    "atIndex": 1,
+    "atMs": 60,
+    "pivotPx": [
+     77,
+     49
+    ],
+    "anchor": "lead"
+   },
+   "light": {
+    "cookie": "fx_light_ring_12",
+    "ground": null,
+    "when": "connect",
+    "alpha": [
+     0.55,
+     0.22,
+     0.0
+    ],
+    "groundAlpha": null,
+    "color": "#fff6d8",
+    "atPx": [
+     77,
+     49
+    ],
+    "startMs": 100,
+    "tickMs": 20,
+    "targets": "both",
+    "floorY": 77
+   }
+  },
+  "player_melee_swing1_connect": {
+   "frames": [
+    4,
+    6,
+    7,
+    0
+   ],
+   "ms": [
+    60,
+    80,
+    80,
+    80
+   ],
+   "phases": [
+    "hit",
+    "recover",
+    "recover",
+    "recover"
+   ],
+   "totalMs": 300,
+   "hitIndex": 0,
+   "hitFrame": 4,
+   "hitMs": 0,
+   "activeMs": [
+    0,
+    60
+   ],
+   "cancelMs": 60,
+   "hitLightPx": [
+    80,
+    43
+   ]
+  },
+  "player_melee_swing2_connect": {
+   "frames": [
+    10,
+    12,
+    13,
+    0
+   ],
+   "ms": [
+    60,
+    80,
+    100,
+    80
+   ],
+   "phases": [
+    "hit",
+    "recover",
+    "recover",
+    "recover"
+   ],
+   "totalMs": 320,
+   "hitIndex": 0,
+   "hitFrame": 10,
+   "hitMs": 0,
+   "activeMs": [
+    0,
+    60
+   ],
+   "cancelMs": 60,
+   "hitLightPx": [
+    69,
+    24
+   ]
+  },
+  "player_melee_cleaver1_connect": {
+   "frames": [
+    30,
+    32,
+    33,
+    34,
+    27
+   ],
+   "ms": [
+    40,
+    100,
+    60,
+    60,
+    60
+   ],
+   "phases": [
+    "hit",
+    "recover",
+    "recover",
+    "recover",
+    "recover"
+   ],
+   "totalMs": 320,
+   "hitIndex": 0,
+   "hitFrame": 30,
+   "hitMs": 0,
+   "activeMs": [
+    0,
+    40
+   ],
+   "cancelMs": 40,
+   "hitLightPx": [
+    79,
+    49
+   ]
+  },
+  "player_melee_cleaver2_connect": {
+   "frames": [
+    37,
+    39,
+    40,
+    27
+   ],
+   "ms": [
+    40,
+    100,
+    60,
+    60
+   ],
+   "phases": [
+    "hit",
+    "recover",
+    "recover",
+    "recover"
+   ],
+   "totalMs": 260,
+   "hitIndex": 0,
+   "hitFrame": 37,
+   "hitMs": 0,
+   "activeMs": [
+    0,
+    40
+   ],
+   "cancelMs": 40,
+   "hitLightPx": [
+    61,
+    25
+   ]
+  },
+  "player_melee_cleaver3_connect": {
+   "frames": [
+    44,
+    45,
+    46,
+    47,
+    27
+   ],
+   "ms": [
+    60,
+    140,
+    80,
+    60,
+    60
+   ],
+   "phases": [
+    "hit",
+    "recover",
+    "recover",
+    "recover",
+    "recover"
+   ],
+   "totalMs": 400,
+   "hitIndex": 0,
+   "hitFrame": 44,
+   "hitMs": 0,
+   "activeMs": [
+    0,
+    60
+   ],
+   "cancelMs": 60,
+   "hitLightPx": [
+    79,
+    57
+   ]
+  },
+  "player_melee_quick_connect": {
+   "frames": [
+    24,
+    25,
+    26,
+    0
+   ],
+   "ms": [
+    60,
+    60,
+    60,
+    40
+   ],
+   "phases": [
+    "hit",
+    "recover",
+    "recover",
+    "recover"
+   ],
+   "totalMs": 220,
+   "hitIndex": 0,
+   "hitFrame": 24,
+   "hitMs": 0,
+   "activeMs": [
+    0,
+    60
+   ],
+   "cancelMs": 60,
+   "hitLightPx": [
+    79,
+    49
+   ]
+  },
+  "player_melee_cleaver_quick_connect": {
+   "frames": [
+    50,
+    51,
+    52,
+    27
+   ],
+   "ms": [
+    40,
+    80,
+    60,
+    40
+   ],
+   "phases": [
+    "hit",
+    "recover",
+    "recover",
+    "recover"
+   ],
+   "totalMs": 220,
+   "hitIndex": 0,
+   "hitFrame": 50,
+   "hitMs": 0,
+   "activeMs": [
+    0,
+    40
+   ],
+   "cancelMs": 40,
+   "hitLightPx": [
+    77,
+    49
+   ]
+  }
+ }
+}

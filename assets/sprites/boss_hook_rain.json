@@ -1,0 +1,73 @@
+{
+ "key": "spr_boss_hook_rain",
+ "image": "boss_hook_rain.png",
+ "frameWidth": 32,
+ "frameHeight": 48,
+ "originPx": [
+  16,
+  47
+ ],
+ "soleRow": 46,
+ "points": {
+  "eye": [
+   16,
+   8
+  ],
+  "tip": [
+   26,
+   29
+  ],
+  "bowlBottom": [
+   21,
+   45
+  ]
+ },
+ "points_doc": "eye = shackle eye centre on the rest frame (the chain from the rail ends here; in sway frames it moves <= 2px); tip = hook point; bowlBottom = contact with the floor",
+ "anims": {
+  "boss_hook_rain_fall": {
+   "frames": [
+    0,
+    1
+   ],
+   "ms": [
+    60,
+    60
+   ],
+   "repeat": -1
+  },
+  "boss_hook_rain_land": {
+   "frames": [
+    2,
+    3,
+    4
+   ],
+   "ms": [
+    60,
+    80,
+    120
+   ],
+   "repeat": 0
+  },
+  "boss_hook_rain_hang": {
+   "frames": [
+    5,
+    6,
+    7,
+    8
+   ],
+   "ms": [
+    180,
+    140,
+    180,
+    140
+   ],
+   "repeat": -1
+  }
+ },
+ "use": "fall (loop) while dropping in its lane -> land once when it bites the floor (frame 2 = white spark, the only #ffffff px) -> hang (loop) for the 2 s it stays as an obstacle; draw the chain from the rail down to 'eye' with fx_boss_chain frame 1 (vertical tile)",
+ "lighting": {
+  "rim": "boss_hook_rain_rim.png (3 rows L/R/T)",
+  "emit": "boss_hook_rain_emit.png",
+  "normal": "boss_hook_rain_n.png (not in manifest)"
+ }
+}

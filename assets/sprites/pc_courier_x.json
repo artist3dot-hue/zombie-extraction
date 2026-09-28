@@ -1,0 +1,153 @@
+{
+ "key": "spr_pc_courier_x",
+ "image": "pc_courier_x.png",
+ "frameWidth": 48,
+ "frameHeight": 56,
+ "originPx": [
+  24,
+  55
+ ],
+ "soleRow": 54,
+ "coords": "和 sprites/player.json 同一套帧坐标（帧左上角 = 0,0，原点 24,55）；armLayer=true 的帧在 points.shoulder 画武器手臂层（同 spr_player）",
+ "frames": [
+  {
+   "frame": 0,
+   "anim": "pc_courier_slide",
+   "armLayer": true,
+   "ms": 60,
+   "points": {
+    "shoulder": [
+     30,
+     27
+    ],
+    "shoulderBack": [
+     28,
+     31
+    ]
+   }
+  },
+  {
+   "frame": 1,
+   "anim": "pc_courier_slide",
+   "armLayer": true,
+   "ms": 80,
+   "points": {
+    "shoulder": [
+     17,
+     36
+    ],
+    "shoulderBack": [
+     15,
+     40
+    ]
+   }
+  },
+  {
+   "frame": 2,
+   "anim": "pc_courier_slide",
+   "armLayer": true,
+   "ms": 80,
+   "points": {
+    "shoulder": [
+     17,
+     36
+    ],
+    "shoulderBack": [
+     15,
+     40
+    ]
+   }
+  },
+  {
+   "frame": 3,
+   "anim": "pc_courier_flip",
+   "armLayer": true,
+   "ms": 60,
+   "points": {
+    "shoulder": [
+     29,
+     21
+    ],
+    "shoulderBack": [
+     27,
+     25
+    ]
+   }
+  },
+  {
+   "frame": 4,
+   "anim": "pc_courier_flip",
+   "armLayer": true,
+   "ms": 60,
+   "points": {
+    "shoulder": [
+     33,
+     26
+    ],
+    "shoulderBack": [
+     31,
+     30
+    ]
+   }
+  },
+  {
+   "frame": 5,
+   "anim": "pc_courier_flip",
+   "armLayer": true,
+   "ms": 80,
+   "points": {
+    "shoulder": [
+     27,
+     23
+    ],
+    "shoulderBack": [
+     25,
+     27
+    ]
+   }
+  }
+ ],
+ "anims": {
+  "pc_courier_slide": {
+   "frames": [
+    0,
+    1,
+    2
+   ],
+   "durationsMs": [
+    60,
+    80,
+    80
+   ],
+   "armLayer": [
+    true,
+    true,
+    true
+   ],
+   "totalMs": 220,
+   "loop": false,
+   "usage": "跑步中按下蹲：进入 60ms + 滑行 2 帧交替补满 400ms（= 0.4s 滑铲）。armLayer=true：滑行中能开枪，手臂层画在 points.shoulder（上半身后仰 52°，肩点已经跟着旋转）。",
+   "playback": "进入帧 60ms，然后滑行 2 帧（各 80ms）交替，总长 400ms（清单动画已展开好）"
+  },
+  "pc_courier_flip": {
+   "frames": [
+    3,
+    4,
+    5
+   ],
+   "durationsMs": [
+    60,
+    60,
+    80
+   ],
+   "armLayer": [
+    true,
+    true,
+    true
+   ],
+   "totalMs": 200,
+   "loop": false,
+   "usage": "空中再按跳：团身 -> 半翻 -> 展开，播完回到 fall。三帧都是空中帧（脚底在 54 行以上）。armLayer=true。"
+  }
+ }
+}

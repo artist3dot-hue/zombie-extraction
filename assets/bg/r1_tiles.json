@@ -1,0 +1,255 @@
+{
+ "key": "bg_r1_tiles",
+ "tile": 16,
+ "cols": 16,
+ "rows": 4,
+ "groundY": 320,
+ "usage": "one TOP row at y=320, FILL rows below; frame = row*16+col",
+ "tiles": {
+  "asphalt_top_a": {
+   "col": 0,
+   "row": 0,
+   "frame": 0
+  },
+  "asphalt_top_lane": {
+   "col": 1,
+   "row": 0,
+   "frame": 1
+  },
+  "asphalt_top_crack": {
+   "col": 2,
+   "row": 0,
+   "frame": 2
+  },
+  "asphalt_top_oil": {
+   "col": 3,
+   "row": 0,
+   "frame": 3
+  },
+  "manhole": {
+   "col": 4,
+   "row": 0,
+   "frame": 4
+  },
+  "puddle_l": {
+   "col": 5,
+   "row": 0,
+   "frame": 5
+  },
+  "puddle_r": {
+   "col": 6,
+   "row": 0,
+   "frame": 6
+  },
+  "curb_a": {
+   "col": 7,
+   "row": 0,
+   "frame": 7
+  },
+  "curb_b": {
+   "col": 8,
+   "row": 0,
+   "frame": 8
+  },
+  "concrete_top_a": {
+   "col": 9,
+   "row": 0,
+   "frame": 9
+  },
+  "concrete_top_b": {
+   "col": 10,
+   "row": 0,
+   "frame": 10
+  },
+  "concrete_top_c": {
+   "col": 11,
+   "row": 0,
+   "frame": 11
+  },
+  "dirt_top": {
+   "col": 12,
+   "row": 0,
+   "frame": 12
+  },
+  "slaughter_top": {
+   "col": 13,
+   "row": 0,
+   "frame": 13
+  },
+  "slaughter_drain": {
+   "col": 14,
+   "row": 0,
+   "frame": 14
+  },
+  "asph_to_concrete_top": {
+   "col": 15,
+   "row": 0,
+   "frame": 15
+  },
+  "asphalt_fill_a": {
+   "col": 0,
+   "row": 1,
+   "frame": 16
+  },
+  "asphalt_fill_b": {
+   "col": 1,
+   "row": 1,
+   "frame": 17
+  },
+  "asphalt_fill_c": {
+   "col": 2,
+   "row": 1,
+   "frame": 18
+  },
+  "asphalt_fill_d": {
+   "col": 3,
+   "row": 1,
+   "frame": 19
+  },
+  "concrete_fill_a": {
+   "col": 4,
+   "row": 1,
+   "frame": 20
+  },
+  "concrete_fill_b": {
+   "col": 5,
+   "row": 1,
+   "frame": 21
+  },
+  "dirt_fill_a": {
+   "col": 6,
+   "row": 1,
+   "frame": 22
+  },
+  "dirt_fill_b": {
+   "col": 7,
+   "row": 1,
+   "frame": 23
+  },
+  "slaughter_fill": {
+   "col": 8,
+   "row": 1,
+   "frame": 24
+  },
+  "asph_to_concrete_fill": {
+   "col": 9,
+   "row": 1,
+   "frame": 25
+  },
+  "concrete_to_asph_fill": {
+   "col": 10,
+   "row": 1,
+   "frame": 26
+  },
+  "asph_to_dirt_fill": {
+   "col": 11,
+   "row": 1,
+   "frame": 27
+  },
+  "dirt_to_asph_fill": {
+   "col": 12,
+   "row": 1,
+   "frame": 28
+  },
+  "asph_to_slaughter_fill": {
+   "col": 13,
+   "row": 1,
+   "frame": 29
+  },
+  "slaughter_to_asph_fill": {
+   "col": 14,
+   "row": 1,
+   "frame": 30
+  },
+  "dirt_fill_wet": {
+   "col": 15,
+   "row": 1,
+   "frame": 31
+  },
+  "h_decal_1": {
+   "col": 0,
+   "row": 2,
+   "frame": 32
+  },
+  "h_decal_2": {
+   "col": 1,
+   "row": 2,
+   "frame": 33
+  },
+  "h_decal_3": {
+   "col": 2,
+   "row": 2,
+   "frame": 34
+  },
+  "h_decal_4": {
+   "col": 3,
+   "row": 2,
+   "frame": 35
+  },
+  "h_decal_5": {
+   "col": 4,
+   "row": 2,
+   "frame": 36
+  },
+  "h_decal_6": {
+   "col": 5,
+   "row": 2,
+   "frame": 37
+  },
+  "concrete_to_asph_top": {
+   "col": 6,
+   "row": 2,
+   "frame": 38
+  },
+  "asph_to_dirt_top": {
+   "col": 7,
+   "row": 2,
+   "frame": 39
+  },
+  "dirt_to_asph_top": {
+   "col": 8,
+   "row": 2,
+   "frame": 40
+  },
+  "asph_to_slaughter_top": {
+   "col": 9,
+   "row": 2,
+   "frame": 41
+  },
+  "slaughter_to_asph_top": {
+   "col": 10,
+   "row": 2,
+   "frame": 42
+  },
+  "h_decal_fill_1": {
+   "col": 0,
+   "row": 3,
+   "frame": 48
+  },
+  "h_decal_fill_2": {
+   "col": 1,
+   "row": 3,
+   "frame": 49
+  },
+  "h_decal_fill_3": {
+   "col": 2,
+   "row": 3,
+   "frame": 50
+  },
+  "h_decal_fill_4": {
+   "col": 3,
+   "row": 3,
+   "frame": 51
+  },
+  "h_decal_fill_5": {
+   "col": 4,
+   "row": 3,
+   "frame": 52
+  },
+  "h_decal_fill_6": {
+   "col": 5,
+   "row": 3,
+   "frame": 53
+  }
+ }
+}

@@ -1,0 +1,367 @@
+{
+ "key": "spr_zombie_climber",
+ "file": "sprites/zombie_climber.png",
+ "frameW": 64,
+ "frameH": 64,
+ "frames": 64,
+ "originPx": [
+  32,
+  63
+ ],
+ "origin": [
+  0.5,
+  0.9844
+ ],
+ "facing": "right",
+ "anims": {
+  "idle": {
+   "key": "zombie_climber_idle",
+   "frames": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "frameMs": [
+    300,
+    260,
+    140,
+    260
+   ],
+   "repeat": -1,
+   "note": "潜伏蹲姿：呼吸、爪子张合、下巴抽一下，安全绳慢摆"
+  },
+  "walk": {
+   "key": "zombie_climber_walk",
+   "frames": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "frameMs": [
+    110,
+    90,
+    90,
+    110,
+    110,
+    90,
+    90,
+    110
+   ],
+   "repeat": -1,
+   "note": "长腿潜行 8 帧（着地帧 110、过渡帧 90，平均 100ms）；着地脚每帧后移 6px ≈ 60px/s"
+  },
+  "climb": {
+   "key": "zombie_climber_climb",
+   "frames": [
+    12,
+    13,
+    14,
+    15,
+    16,
+    17
+   ],
+   "frameMs": [
+    83,
+    83,
+    83,
+    83,
+    83,
+    83
+   ],
+   "repeat": -1,
+   "note": "爬杆 6x83ms：抓杆的手/脚每帧下移 5px = 60px/s；杆轴 = 原点 x"
+  },
+  "mantle": {
+   "key": "zombie_climber_mantle",
+   "frames": [
+    18,
+    19,
+    20,
+    21
+   ],
+   "frameMs": [
+    110,
+    130,
+    130,
+    130
+   ],
+   "repeat": 0,
+   "note": "翻上顶棚边缘：程序按 mantleDy 逐帧上移精灵"
+  },
+  "hang": {
+   "key": "zombie_climber_hang",
+   "frames": [
+    22,
+    23,
+    24,
+    25
+   ],
+   "frameMs": [
+    180,
+    160,
+    200,
+    160
+   ],
+   "repeat": -1,
+   "note": "倒挂顶棚下沿：趾钩扣在第 1 行，身体钟摆 + 手臂滞后"
+  },
+  "drop": {
+   "key": "zombie_climber_drop",
+   "frames": [
+    26,
+    27,
+    28
+   ],
+   "frameMs": [
+    90,
+    60,
+    120
+   ],
+   "repeat": 0,
+   "note": "松手落下：松脚 → 空中翻身 → 爪朝下（末帧下落中保持）"
+  },
+  "fall": {
+   "key": "zombie_climber_fall",
+   "frames": [
+    29,
+    30
+   ],
+   "frameMs": [
+    90,
+    90
+   ],
+   "repeat": -1,
+   "note": "被打下杆/坠落乱抓（循环，程序加重力）"
+  },
+  "land": {
+   "key": "zombie_climber_land",
+   "frames": [
+    31,
+    32
+   ],
+   "frameMs": [
+    120,
+    160
+   ],
+   "repeat": 0,
+   "note": "落地：深蹲撑地扬尘 → 起身"
+  },
+  "pounce": {
+   "key": "zombie_climber_pounce",
+   "frames": [
+    33,
+    34,
+    35,
+    36,
+    37,
+    38
+   ],
+   "frameMs": [
+    250,
+    250,
+    60,
+    160,
+    100,
+    150
+   ],
+   "repeat": 0,
+   "note": "下扑：缩身 2 帧共 500ms（预警）→ 蹬地 → 空中伸展（可停帧）→ 落地 → 收"
+  },
+  "pounce_windup": {
+   "key": "zombie_climber_pounce_windup",
+   "frames": [
+    33,
+    34
+   ],
+   "frameMs": [
+    250,
+    250
+   ],
+   "repeat": 0,
+   "note": "= pounce 0–1：缩身预警 500ms（R1：缩身 500ms）"
+  },
+  "pounce_air": {
+   "key": "zombie_climber_pounce_air",
+   "frames": [
+    35,
+    36
+   ],
+   "frameMs": [
+    60,
+    160
+   ],
+   "repeat": 0,
+   "note": "= pounce 2–3：蹬地 + 空中，播完停在空中帧直到落地"
+  },
+  "pounce_land": {
+   "key": "zombie_climber_pounce_land",
+   "frames": [
+    37,
+    38
+   ],
+   "frameMs": [
+    100,
+    150
+   ],
+   "repeat": 0,
+   "note": "= pounce 4–5：落地扬尘 + 收"
+  },
+  "attack": {
+   "key": "zombie_climber_attack",
+   "frames": [
+    39,
+    40,
+    41,
+    42,
+    43
+   ],
+   "frameMs": [
+    150,
+    150,
+    50,
+    80,
+    150
+   ],
+   "repeat": 0,
+   "note": "单爪挥砍：举爪 2 帧 → 斜劈 50ms → 随势 → 收"
+  },
+  "attack2": {
+   "key": "zombie_climber_attack2",
+   "frames": [
+    44,
+    45,
+    46,
+    47,
+    48
+   ],
+   "frameMs": [
+    160,
+    140,
+    50,
+    100,
+    160
+   ],
+   "repeat": 0,
+   "note": "双爪下劈：人立举双爪 → 砸地 → 爪插地 → 收"
+  },
+  "hurt": {
+   "key": "zombie_climber_hurt",
+   "frames": [
+    49,
+    50
+   ],
+   "frameMs": [
+    60,
+    100
+   ],
+   "repeat": 0,
+   "note": "受击后仰 2 帧"
+  },
+  "hurt_head": {
+   "key": "zombie_climber_hurt_head",
+   "frames": [
+    51,
+    52
+   ],
+   "frameMs": [
+    60,
+    110
+   ],
+   "repeat": 0,
+   "note": "爆头未死：头猛甩后仰"
+  },
+  "death": {
+   "key": "zombie_climber_death",
+   "frames": [
+    53,
+    54,
+    55,
+    56,
+    57,
+    58
+   ],
+   "frameMs": [
+    60,
+    80,
+    100,
+    100,
+    150,
+    400
+   ],
+   "repeat": 0,
+   "note": "中弹后仰倒地，长手长脚摊开"
+  },
+  "death_head": {
+   "key": "zombie_climber_death_head",
+   "frames": [
+    59,
+    60,
+    61,
+    62,
+    63
+   ],
+   "frameMs": [
+    50,
+    70,
+    100,
+    120,
+    400
+   ],
+   "repeat": 0,
+   "note": "爆头：头盖掀开 → 跪倒 → 脸朝下扑地"
+  }
+ },
+ "lighting": {
+  "rim": {
+   "key": "spr_zombie_climber_rim",
+   "file": "sprites/zombie_climber_rim.png",
+   "rows": [
+    "L",
+    "R",
+    "T"
+   ],
+   "frameIndex": "rim frame = row * frames + frame (row 0 = L, 1 = R, 2 = T)",
+   "use": "route C selective outline: draw ADD over the sprite, x direct light (light map minus ambient) at that pixel, stepped weight per side; flipX swaps L/R"
+  },
+  "emit": {
+   "key": "spr_zombie_climber_emit",
+   "file": "sprites/zombie_climber_emit.png",
+   "use": "emissive mask (milky eyes, #d8d0c0): ADD glow from the red-night / blood-moon tiers (bible 9.2 T3 glowing eyes); off in calm tiers"
+  },
+  "baked": "only the neutral top-front form light (5-step ramps) + the lit-side top outline (A); no rim light, no coloured environment light is painted into the sprite"
+ },
+ "anchors": {
+  "soleRow": 62,
+  "poleX": 32,
+  "poleNote": "climb / mantle 帧的杆轴 = 原点列 x=32：sprite.x = pole.x（flipX 不变）；抓杆的手脚每帧下移 5px，frameRate 12 时 = 60px/s，爬速不同按 speed/60 调 anims.timeScale",
+  "hangRow": 1,
+  "hangNote": "hang / drop 第 0 帧：趾钩顶端在第 hangRow 行，扣在顶棚下沿 ceilY：sprite.y = ceilY + (63 - hangRow)",
+  "mantleDy": [
+   0,
+   -16,
+   -36,
+   -52
+  ],
+  "mantleNote": "翻上顶棚：第 i 帧精灵相对起始位置上移 mantleDy[i]（px），末帧脚底 = 顶棚面",
+  "pounceAirFrame": 36,
+  "pounceNote": "pounce 0–1 = 缩身预警 500ms，2 = 蹬地，3 = 空中（程序可停在这帧直到落地），4–5 = 落地/收",
+  "dropHoldFrame": 28,
+  "headBox": [
+   42,
+   13,
+   53,
+   26
+  ],
+  "headBoxNote": "爆头判定（idle / walk / 收招的潜行姿态）：头部帧坐标 x 42–53、y 13–26，即相对原点 x +10…+21、y −50…−37（朝右；flipX 时 x 取反）"
+ },
+ "size": {
+  "standingHeight": "潜行弓背约 48px，直立约 54px"
+ },
+ "brief": "攀爬者：四肢细长、黑钩指甲的空调安装工，红色防坠安全带 + 背后半截安全绳，藏青工裤小腿以下撕掉，灰色破背心，肋骨上一道口子。"
+}

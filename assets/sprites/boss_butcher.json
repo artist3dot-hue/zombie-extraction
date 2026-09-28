@@ -1,0 +1,2880 @@
+{
+ "key": "spr_boss_butcher",
+ "image": "boss_butcher.png",
+ "frameWidth": 160,
+ "frameHeight": 144,
+ "columns": 12,
+ "frames": 74,
+ "originPx": [
+  80,
+  143
+ ],
+ "soleRow": 142,
+ "look": "normal",
+ "coords": "frame pixel coords (0,0 = top-left of the frame), boss faces RIGHT; when flipX mirror x (x' = 159 - x). Frame i of the grid = row i // 12, column i % 12.",
+ "points_doc": {
+  "gripN": "near (cleaver) fist",
+  "gripF": "far (hook) fist",
+  "chainHand": "= gripF: start of the chain the engine draws (fx_boss_chain) when the hook is off the hand (chainhook throw/hold/yank, hookrain)",
+  "hook": "hook position while it hangs from the hand",
+  "cleaverTip": "blade tip (use the hit frame's tip for the slash hitbox / spark)",
+  "chainEnd": "end of the chain stub drawn in the sprite",
+  "headBox": "head part bbox [x0,y0,x1,y1] incl. outline - weak point / headshot box"
+ },
+ "lighting": {
+  "paintedLight": "精灵只画顶部偏前的中性主光（圣经 6.1）：没有烘焙环境色、边缘光、投影；外轮廓全部是墨色 #0c0a08",
+  "rim": {
+   "key": "spr_boss_butcher_rim",
+   "file": "boss_butcher_rim.png",
+   "sides": [
+    "L",
+    "R",
+    "T"
+   ],
+   "frameIndex": "side * frames + i  (frames = 74; same 12-column grid)",
+   "use": "route C v2 front rim: ADD under the actor light multiply x the direct light from that side; swap L/R when flipX (same format as v02-zombies-a)"
+  },
+  "emit": {
+   "key": "spr_boss_butcher_emit",
+   "file": "boss_butcher_emit.png",
+   "content": "eye whites + tell glints (#e8372c eye tell, #ffffff blade glint, hook flash)",
+   "use": "ADD (glow pass) - night / blood moon / p3 always"
+  },
+  "normal": {
+   "file": "boss_butcher_n.png",
+   "inManifest": false,
+   "encoding": "RGB = normal * 0.5 + 0.5, x right, y UP, z toward the camera; 8 azimuths x 3 tilts (0/30/55 deg) so N.L gives stepped bands; negate R when flipX",
+   "origin": "height = each rig part's own designed height (bevel radius per part + hand-placed rolls / creases), posed with the part - not estimated from the colours",
+   "use": "optional: Phaser Light2D normalMap, or N.L of the muzzle-flash light in the actor light map (load on demand for the boss arena)"
+  },
+  "lights": "boss_butcher_lights.json"
+ },
+ "anims": {
+  "boss_butcher_cleave": {
+   "frames": [
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61
+   ],
+   "ms": [
+    200,
+    200,
+    200,
+    60,
+    60,
+    120,
+    340,
+    340
+   ],
+   "repeat": 0,
+   "doc": "M1 横劈：0-2 起手 600ms（第 2 帧刃口白闪 = tell）/ 3 挥砍拖影 / 4 砍进地面（hit）/ 5 碎石 / 6-7 卡刀（惩罚窗口，接 _stuck 循环补足 700ms）"
+  },
+  "boss_butcher_cleave_stuck": {
+   "frames": [
+    60,
+    61
+   ],
+   "ms": [
+    340,
+    340
+   ],
+   "repeat": -1,
+   "doc": "刀卡在地里：惩罚窗口循环"
+  },
+  "boss_butcher_chainhook_windup": {
+   "frames": [
+    62,
+    63,
+    64,
+    65
+   ],
+   "ms": [
+    100,
+    100,
+    100,
+    100
+   ],
+   "repeat": -1,
+   "doc": "M6 起手：锁链钩在头侧水平抡圈（循环 700ms），引擎同时画红线"
+  },
+  "boss_butcher_chainhook": {
+   "frames": [
+    66,
+    67,
+    68,
+    69,
+    70,
+    71,
+    72,
+    73
+   ],
+   "ms": [
+    60,
+    80,
+    160,
+    160,
+    100,
+    140,
+    100,
+    200
+   ],
+   "repeat": 0,
+   "doc": "M6 甩出→拉回整段：0-1 甩出（钩子离手，引擎从 chainHand 画 fx_boss_chain + spr_boss_hook）/ 2-3 攥链等待 / 4-5 猛拽 / 6-7 接钩回位"
+  },
+  "boss_butcher_chainhook_throw": {
+   "frames": [
+    66,
+    67
+   ],
+   "ms": [
+    60,
+    80
+   ],
+   "repeat": 0,
+   "doc": "甩出 2 帧"
+  },
+  "boss_butcher_chainhook_hold": {
+   "frames": [
+    68,
+    69
+   ],
+   "ms": [
+    160,
+    160
+   ],
+   "repeat": -1,
+   "doc": "钩子在飞 / 钉住：攥链循环"
+  },
+  "boss_butcher_chainhook_yank": {
+   "frames": [
+    70,
+    71
+   ],
+   "ms": [
+    100,
+    140
+   ],
+   "repeat": -1,
+   "doc": "往回拽（没中 = 钉墙 800ms 时循环）"
+  },
+  "boss_butcher_chainhook_catch": {
+   "frames": [
+    72,
+    73
+   ],
+   "ms": [
+    100,
+    200
+   ],
+   "repeat": 0,
+   "doc": "钩子飞回手里，回待机"
+  },
+  "boss_butcher_idle": {
+   "frames": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "ms": [
+    200,
+    200,
+    200,
+    200
+   ],
+   "repeat": -1,
+   "doc": "v0.1 招式（姿势 / 帧号 / 时长不变，按路线 A 精修）"
+  },
+  "boss_butcher_walk": {
+   "frames": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ],
+   "ms": [
+    150,
+    150,
+    150,
+    150,
+    150,
+    150
+   ],
+   "repeat": -1,
+   "doc": "v0.1 招式（姿势 / 帧号 / 时长不变，按路线 A 精修）"
+  },
+  "boss_butcher_cleaver_windup": {
+   "frames": [
+    10,
+    11,
+    12,
+    13
+   ],
+   "ms": [
+    200,
+    200,
+    200,
+    200
+   ],
+   "repeat": 0,
+   "doc": "v0.1 招式（姿势 / 帧号 / 时长不变，按路线 A 精修）"
+  },
+  "boss_butcher_charge": {
+   "frames": [
+    14,
+    15,
+    16,
+    17
+   ],
+   "ms": [
+    60,
+    60,
+    60,
+    60
+   ],
+   "repeat": -1,
+   "doc": "v0.1 招式（姿势 / 帧号 / 时长不变，按路线 A 精修）"
+  },
+  "boss_butcher_stun": {
+   "frames": [
+    18,
+    19
+   ],
+   "ms": [
+    200,
+    200
+   ],
+   "repeat": -1,
+   "doc": "v0.1 招式（姿势 / 帧号 / 时长不变，按路线 A 精修）"
+  },
+  "boss_butcher_hook_windup": {
+   "frames": [
+    20,
+    21,
+    22
+   ],
+   "ms": [
+    200,
+    200,
+    200
+   ],
+   "repeat": 0,
+   "doc": "v0.1 招式（姿势 / 帧号 / 时长不变，按路线 A 精修）"
+  },
+  "boss_butcher_hook_throw": {
+   "frames": [
+    23,
+    24
+   ],
+   "ms": [
+    100,
+    100
+   ],
+   "repeat": 0,
+   "doc": "v0.1 招式（姿势 / 帧号 / 时长不变，按路线 A 精修）"
+  },
+  "boss_butcher_belly_windup": {
+   "frames": [
+    25,
+    26,
+    27,
+    28
+   ],
+   "ms": [
+    200,
+    200,
+    200,
+    200
+   ],
+   "repeat": 0,
+   "doc": "v0.1 招式（姿势 / 帧号 / 时长不变，按路线 A 精修）"
+  },
+  "boss_butcher_belly_spit": {
+   "frames": [
+    29,
+    30,
+    31
+   ],
+   "ms": [
+    100,
+    100,
+    100
+   ],
+   "repeat": 0,
+   "doc": "v0.1 招式（姿势 / 帧号 / 时长不变，按路线 A 精修）"
+  },
+  "boss_butcher_roar": {
+   "frames": [
+    32,
+    33,
+    34,
+    35
+   ],
+   "ms": [
+    150,
+    150,
+    150,
+    150
+   ],
+   "repeat": -1,
+   "doc": "v0.1 招式（姿势 / 帧号 / 时长不变，按路线 A 精修）"
+  },
+  "boss_butcher_leap_crouch": {
+   "frames": [
+    36,
+    37,
+    38
+   ],
+   "ms": [
+    300,
+    300,
+    300
+   ],
+   "repeat": 0,
+   "doc": "v0.1 招式（姿势 / 帧号 / 时长不变，按路线 A 精修）"
+  },
+  "boss_butcher_leap_up": {
+   "frames": [
+    39,
+    40
+   ],
+   "ms": [
+    100,
+    100
+   ],
+   "repeat": 0,
+   "doc": "v0.1 招式（姿势 / 帧号 / 时长不变，按路线 A 精修）"
+  },
+  "boss_butcher_land": {
+   "frames": [
+    41,
+    42,
+    43
+   ],
+   "ms": [
+    100,
+    100,
+    200
+   ],
+   "repeat": 0,
+   "doc": "v0.1 招式（姿势 / 帧号 / 时长不变，按路线 A 精修）"
+  },
+  "boss_butcher_recover": {
+   "frames": [
+    44,
+    45
+   ],
+   "ms": [
+    250,
+    250
+   ],
+   "repeat": -1,
+   "doc": "v0.1 招式（姿势 / 帧号 / 时长不变，按路线 A 精修）"
+  },
+  "boss_butcher_death": {
+   "frames": [
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53
+   ],
+   "ms": [
+    100,
+    100,
+    100,
+    150,
+    150,
+    200,
+    300,
+    600
+   ],
+   "repeat": 0,
+   "doc": "v0.1 招式（姿势 / 帧号 / 时长不变，按路线 A 精修）"
+  }
+ },
+ "frameTable": [
+  {
+   "frame": 0,
+   "anim": "idle",
+   "i": 0,
+   "ms": 200,
+   "points": {
+    "gripN": [
+     89.7,
+     106.7
+    ],
+    "cleaverTip": [
+     124.6,
+     130.9
+    ],
+    "gripF": [
+     34.0,
+     108.1
+    ],
+    "hook": [
+     34.0,
+     116.1
+    ],
+    "headBox": [
+     76,
+     15,
+     102,
+     48
+    ],
+    "chainHand": [
+     34.0,
+     108.1
+    ]
+   }
+  },
+  {
+   "frame": 1,
+   "anim": "idle",
+   "i": 1,
+   "ms": 200,
+   "points": {
+    "gripN": [
+     89.2,
+     107.0
+    ],
+    "cleaverTip": [
+     124.1,
+     131.1
+    ],
+    "gripF": [
+     34.0,
+     108.1
+    ],
+    "hook": [
+     34.0,
+     116.1
+    ],
+    "headBox": [
+     76,
+     14,
+     102,
+     47
+    ],
+    "chainHand": [
+     34.0,
+     108.1
+    ]
+   }
+  },
+  {
+   "frame": 2,
+   "anim": "idle",
+   "i": 2,
+   "ms": 200,
+   "points": {
+    "gripN": [
+     88.7,
+     107.3
+    ],
+    "cleaverTip": [
+     123.6,
+     131.4
+    ],
+    "gripF": [
+     33.6,
+     107.9
+    ],
+    "hook": [
+     33.6,
+     115.9
+    ],
+    "headBox": [
+     76,
+     15,
+     102,
+     48
+    ],
+    "chainHand": [
+     33.6,
+     107.9
+    ]
+   }
+  },
+  {
+   "frame": 3,
+   "anim": "idle",
+   "i": 3,
+   "ms": 200,
+   "points": {
+    "gripN": [
+     89.2,
+     107.0
+    ],
+    "cleaverTip": [
+     124.1,
+     131.1
+    ],
+    "gripF": [
+     33.6,
+     107.9
+    ],
+    "hook": [
+     33.6,
+     115.9
+    ],
+    "headBox": [
+     76,
+     15,
+     102,
+     48
+    ],
+    "chainHand": [
+     33.6,
+     107.9
+    ]
+   }
+  },
+  {
+   "frame": 4,
+   "anim": "walk",
+   "i": 0,
+   "ms": 150,
+   "points": {
+    "gripN": [
+     85.1,
+     109.0
+    ],
+    "cleaverTip": [
+     120.0,
+     133.2
+    ],
+    "gripF": [
+     28.4,
+     104.4
+    ],
+    "hook": [
+     28.4,
+     112.4
+    ],
+    "headBox": [
+     78,
+     16,
+     104,
+     49
+    ],
+    "chainHand": [
+     28.4,
+     104.4
+    ]
+   }
+  },
+  {
+   "frame": 5,
+   "anim": "walk",
+   "i": 1,
+   "ms": 150,
+   "points": {
+    "gripN": [
+     87.3,
+     108.8
+    ],
+    "cleaverTip": [
+     122.2,
+     132.9
+    ],
+    "gripF": [
+     33.0,
+     108.0
+    ],
+    "hook": [
+     33.0,
+     116.0
+    ],
+    "headBox": [
+     77,
+     16,
+     103,
+     49
+    ],
+    "chainHand": [
+     33.0,
+     108.0
+    ]
+   }
+  },
+  {
+   "frame": 6,
+   "anim": "walk",
+   "i": 2,
+   "ms": 150,
+   "points": {
+    "gripN": [
+     90.2,
+     106.1
+    ],
+    "cleaverTip": [
+     125.1,
+     130.3
+    ],
+    "gripF": [
+     38.8,
+     108.6
+    ],
+    "hook": [
+     38.8,
+     116.6
+    ],
+    "headBox": [
+     77,
+     15,
+     103,
+     48
+    ],
+    "chainHand": [
+     38.8,
+     108.6
+    ]
+   }
+  },
+  {
+   "frame": 7,
+   "anim": "walk",
+   "i": 3,
+   "ms": 150,
+   "points": {
+    "gripN": [
+     97.5,
+     104.3
+    ],
+    "cleaverTip": [
+     132.4,
+     128.4
+    ],
+    "gripF": [
+     45.7,
+     110.1
+    ],
+    "hook": [
+     45.7,
+     118.1
+    ],
+    "headBox": [
+     78,
+     17,
+     104,
+     50
+    ],
+    "chainHand": [
+     45.7,
+     110.1
+    ]
+   }
+  },
+  {
+   "frame": 8,
+   "anim": "walk",
+   "i": 4,
+   "ms": 150,
+   "points": {
+    "gripN": [
+     94.8,
+     105.7
+    ],
+    "cleaverTip": [
+     129.7,
+     129.9
+    ],
+    "gripF": [
+     40.8,
+     110.0
+    ],
+    "hook": [
+     40.8,
+     118.0
+    ],
+    "headBox": [
+     77,
+     16,
+     103,
+     49
+    ],
+    "chainHand": [
+     40.8,
+     110.0
+    ]
+   }
+  },
+  {
+   "frame": 9,
+   "anim": "walk",
+   "i": 5,
+   "ms": 150,
+   "points": {
+    "gripN": [
+     91.0,
+     107.1
+    ],
+    "cleaverTip": [
+     125.9,
+     131.2
+    ],
+    "gripF": [
+     33.0,
+     107.0
+    ],
+    "hook": [
+     33.0,
+     115.0
+    ],
+    "headBox": [
+     77,
+     15,
+     103,
+     48
+    ],
+    "chainHand": [
+     33.0,
+     107.0
+    ]
+   }
+  },
+  {
+   "frame": 10,
+   "anim": "cleaver_windup",
+   "i": 0,
+   "ms": 200,
+   "points": {
+    "gripN": [
+     104.0,
+     40.0
+    ],
+    "cleaverTip": [
+     144.2,
+     26.6
+    ],
+    "gripF": [
+     20.7,
+     104.6
+    ],
+    "hook": [
+     20.7,
+     112.6
+    ],
+    "headBox": [
+     71,
+     14,
+     98,
+     47
+    ],
+    "chainHand": [
+     20.7,
+     104.6
+    ]
+   }
+  },
+  {
+   "frame": 11,
+   "anim": "cleaver_windup",
+   "i": 1,
+   "ms": 200,
+   "points": {
+    "gripN": [
+     56.0,
+     22.0
+    ],
+    "cleaverTip": [
+     21.1,
+     46.1
+    ],
+    "gripF": [
+     12.9,
+     103.1
+    ],
+    "hook": [
+     12.9,
+     111.1
+    ],
+    "headBox": [
+     66,
+     13,
+     94,
+     46
+    ],
+    "chainHand": [
+     12.9,
+     103.1
+    ]
+   }
+  },
+  {
+   "frame": 12,
+   "anim": "cleaver_windup",
+   "i": 2,
+   "ms": 200,
+   "points": {
+    "gripN": [
+     59.9,
+     25.6
+    ],
+    "cleaverTip": [
+     25.0,
+     49.7
+    ],
+    "gripF": [
+     25.3,
+     103.5
+    ],
+    "hook": [
+     25.3,
+     111.5
+    ],
+    "headBox": [
+     80,
+     19,
+     106,
+     52
+    ],
+    "chainHand": [
+     25.3,
+     103.5
+    ]
+   }
+  },
+  {
+   "frame": 13,
+   "anim": "cleaver_windup",
+   "i": 3,
+   "ms": 200,
+   "points": {
+    "gripN": [
+     106.0,
+     97.0
+    ],
+    "cleaverTip": [
+     148.0,
+     103.0
+    ],
+    "gripF": [
+     32.0,
+     91.0
+    ],
+    "hook": [
+     28.1,
+     95.6
+    ],
+    "headBox": [
+     97,
+     35,
+     124,
+     69
+    ],
+    "chainHand": [
+     32.0,
+     91.0
+    ]
+   }
+  },
+  {
+   "frame": 14,
+   "anim": "charge",
+   "i": 0,
+   "ms": 60,
+   "points": {
+    "gripN": [
+     114.0,
+     116.0
+    ],
+    "cleaverTip": [
+     148.9,
+     140.1
+    ],
+    "gripF": [
+     66.4,
+     109.0
+    ],
+    "hook": [
+     61.8,
+     112.9
+    ],
+    "headBox": [
+     110,
+     86,
+     141,
+     119
+    ],
+    "chainHand": [
+     66.4,
+     109.0
+    ]
+   }
+  },
+  {
+   "frame": 15,
+   "anim": "charge",
+   "i": 1,
+   "ms": 60,
+   "points": {
+    "gripN": [
+     114.0,
+     116.0
+    ],
+    "cleaverTip": [
+     148.9,
+     140.1
+    ],
+    "gripF": [
+     66.4,
+     109.0
+    ],
+    "hook": [
+     61.2,
+     112.0
+    ],
+    "headBox": [
+     110,
+     86,
+     141,
+     119
+    ],
+    "chainHand": [
+     66.4,
+     109.0
+    ]
+   }
+  },
+  {
+   "frame": 16,
+   "anim": "charge",
+   "i": 2,
+   "ms": 60,
+   "points": {
+    "gripN": [
+     114.0,
+     116.0
+    ],
+    "cleaverTip": [
+     148.9,
+     140.1
+    ],
+    "gripF": [
+     66.4,
+     109.0
+    ],
+    "hook": [
+     61.8,
+     112.9
+    ],
+    "headBox": [
+     110,
+     86,
+     141,
+     119
+    ],
+    "chainHand": [
+     66.4,
+     109.0
+    ]
+   }
+  },
+  {
+   "frame": 17,
+   "anim": "charge",
+   "i": 3,
+   "ms": 60,
+   "points": {
+    "gripN": [
+     114.0,
+     116.0
+    ],
+    "cleaverTip": [
+     148.9,
+     140.1
+    ],
+    "gripF": [
+     66.4,
+     109.0
+    ],
+    "hook": [
+     61.2,
+     112.0
+    ],
+    "headBox": [
+     110,
+     86,
+     141,
+     119
+    ],
+    "chainHand": [
+     66.4,
+     109.0
+    ]
+   }
+  },
+  {
+   "frame": 18,
+   "anim": "stun",
+   "i": 0,
+   "ms": 200,
+   "points": {
+    "gripN": [
+     103.7,
+     76.6
+    ],
+    "cleaverTip": [
+     138.5,
+     100.8
+    ],
+    "gripF": [
+     40.0,
+     91.0
+    ],
+    "hook": [
+     40.0,
+     99.0
+    ],
+    "headBox": [
+     46,
+     13,
+     74,
+     47
+    ],
+    "chainHand": [
+     40.0,
+     91.0
+    ]
+   }
+  },
+  {
+   "frame": 19,
+   "anim": "stun",
+   "i": 1,
+   "ms": 200,
+   "points": {
+    "gripN": [
+     112.0,
+     80.0
+    ],
+    "cleaverTip": [
+     146.9,
+     104.1
+    ],
+    "gripF": [
+     34.0,
+     96.0
+    ],
+    "hook": [
+     34.0,
+     104.0
+    ],
+    "headBox": [
+     71,
+     18,
+     98,
+     51
+    ],
+    "chainHand": [
+     34.0,
+     96.0
+    ]
+   }
+  },
+  {
+   "frame": 20,
+   "anim": "hook_windup",
+   "i": 0,
+   "ms": 200,
+   "points": {
+    "gripN": [
+     103.0,
+     98.9
+    ],
+    "cleaverTip": [
+     137.9,
+     123.1
+    ],
+    "gripF": [
+     26.0,
+     74.0
+    ],
+    "hook": [
+     19.6,
+     81.7
+    ],
+    "headBox": [
+     72,
+     14,
+     99,
+     47
+    ],
+    "chainHand": [
+     26.0,
+     74.0
+    ]
+   }
+  },
+  {
+   "frame": 21,
+   "anim": "hook_windup",
+   "i": 1,
+   "ms": 200,
+   "points": {
+    "gripN": [
+     105.1,
+     95.5
+    ],
+    "cleaverTip": [
+     140.0,
+     119.6
+    ],
+    "gripF": [
+     23.2,
+     42.2
+    ],
+    "hook": [
+     15.5,
+     35.7
+    ],
+    "headBox": [
+     68,
+     13,
+     95,
+     46
+    ],
+    "chainHand": [
+     23.2,
+     42.2
+    ]
+   }
+  },
+  {
+   "frame": 22,
+   "anim": "hook_windup",
+   "i": 2,
+   "ms": 200,
+   "points": {
+    "gripN": [
+     105.8,
+     91.8
+    ],
+    "cleaverTip": [
+     140.6,
+     116.0
+    ],
+    "gripF": [
+     22.3,
+     27.0
+    ],
+    "hook": [
+     21.4,
+     17.1
+    ],
+    "headBox": [
+     62,
+     12,
+     89,
+     45
+    ],
+    "chainHand": [
+     22.3,
+     27.0
+    ]
+   }
+  },
+  {
+   "frame": 23,
+   "anim": "hook_throw",
+   "i": 0,
+   "ms": 100,
+   "points": {
+    "gripN": [
+     70.0,
+     107.9
+    ],
+    "cleaverTip": [
+     44.6,
+     141.9
+    ],
+    "gripF": [
+     107.6,
+     26.1
+    ],
+    "chainEnd": [
+     119.1,
+     18.1
+    ],
+    "headBox": [
+     84,
+     14,
+     110,
+     47
+    ],
+    "chainHand": [
+     107.6,
+     26.1
+    ]
+   }
+  },
+  {
+   "frame": 24,
+   "anim": "hook_throw",
+   "i": 1,
+   "ms": 100,
+   "points": {
+    "gripN": [
+     74.0,
+     108.0
+    ],
+    "cleaverTip": [
+     48.5,
+     141.9
+    ],
+    "gripF": [
+     105.6,
+     86.5
+    ],
+    "chainEnd": [
+     117.6,
+     85.5
+    ],
+    "headBox": [
+     93,
+     19,
+     120,
+     53
+    ],
+    "chainHand": [
+     105.6,
+     86.5
+    ]
+   }
+  },
+  {
+   "frame": 25,
+   "anim": "belly_windup",
+   "i": 0,
+   "ms": 200,
+   "points": {
+    "gripN": [
+     62.0,
+     98.0
+    ],
+    "cleaverTip": [
+     48.6,
+     138.2
+    ],
+    "gripF": [
+     32.0,
+     92.0
+    ],
+    "hook": [
+     32.0,
+     100.0
+    ],
+    "headBox": [
+     73,
+     13,
+     99,
+     46
+    ],
+    "chainHand": [
+     32.0,
+     92.0
+    ]
+   }
+  },
+  {
+   "frame": 26,
+   "anim": "belly_windup",
+   "i": 1,
+   "ms": 200,
+   "points": {
+    "gripN": [
+     61.0,
+     99.0
+    ],
+    "cleaverTip": [
+     47.6,
+     139.2
+    ],
+    "gripF": [
+     31.0,
+     92.0
+    ],
+    "hook": [
+     31.0,
+     100.0
+    ],
+    "headBox": [
+     71,
+     13,
+     98,
+     46
+    ],
+    "chainHand": [
+     31.0,
+     92.0
+    ]
+   }
+  },
+  {
+   "frame": 27,
+   "anim": "belly_windup",
+   "i": 2,
+   "ms": 200,
+   "points": {
+    "gripN": [
+     60.0,
+     100.0
+    ],
+    "cleaverTip": [
+     46.6,
+     140.2
+    ],
+    "gripF": [
+     30.0,
+     92.0
+    ],
+    "hook": [
+     30.0,
+     100.0
+    ],
+    "headBox": [
+     69,
+     12,
+     97,
+     45
+    ],
+    "chainHand": [
+     30.0,
+     92.0
+    ]
+   }
+  },
+  {
+   "frame": 28,
+   "anim": "belly_windup",
+   "i": 3,
+   "ms": 200,
+   "points": {
+    "gripN": [
+     59.0,
+     101.0
+    ],
+    "cleaverTip": [
+     45.6,
+     141.2
+    ],
+    "gripF": [
+     29.0,
+     92.0
+    ],
+    "hook": [
+     29.0,
+     100.0
+    ],
+    "headBox": [
+     68,
+     12,
+     95,
+     45
+    ],
+    "chainHand": [
+     29.0,
+     92.0
+    ]
+   }
+  },
+  {
+   "frame": 29,
+   "anim": "belly_spit",
+   "i": 0,
+   "ms": 100,
+   "points": {
+    "gripN": [
+     58.0,
+     100.0
+    ],
+    "cleaverTip": [
+     44.6,
+     140.2
+    ],
+    "gripF": [
+     28.0,
+     90.0
+    ],
+    "hook": [
+     28.0,
+     98.0
+    ],
+    "headBox": [
+     63,
+     11,
+     92,
+     45
+    ],
+    "chainHand": [
+     28.0,
+     90.0
+    ]
+   }
+  },
+  {
+   "frame": 30,
+   "anim": "belly_spit",
+   "i": 1,
+   "ms": 100,
+   "points": {
+    "gripN": [
+     64.0,
+     102.0
+    ],
+    "cleaverTip": [
+     50.6,
+     142.2
+    ],
+    "gripF": [
+     34.0,
+     94.0
+    ],
+    "hook": [
+     34.0,
+     102.0
+    ],
+    "headBox": [
+     81,
+     15,
+     108,
+     48
+    ],
+    "chainHand": [
+     34.0,
+     94.0
+    ]
+   }
+  },
+  {
+   "frame": 31,
+   "anim": "belly_spit",
+   "i": 2,
+   "ms": 100,
+   "points": {
+    "gripN": [
+     90.0,
+     105.0
+    ],
+    "cleaverTip": [
+     124.9,
+     129.1
+    ],
+    "gripF": [
+     34.0,
+     108.1
+    ],
+    "hook": [
+     34.0,
+     116.1
+    ],
+    "headBox": [
+     76,
+     15,
+     102,
+     48
+    ],
+    "chainHand": [
+     34.0,
+     108.1
+    ]
+   }
+  },
+  {
+   "frame": 32,
+   "anim": "roar",
+   "i": 0,
+   "ms": 150,
+   "points": {
+    "gripN": [
+     112.0,
+     49.0
+    ],
+    "cleaverTip": [
+     152.2,
+     35.6
+    ],
+    "gripF": [
+     28.7,
+     51.5
+    ],
+    "hook": [
+     28.7,
+     59.5
+    ],
+    "headBox": [
+     61,
+     10,
+     90,
+     44
+    ],
+    "chainHand": [
+     28.7,
+     51.5
+    ]
+   }
+  },
+  {
+   "frame": 33,
+   "anim": "roar",
+   "i": 1,
+   "ms": 150,
+   "points": {
+    "gripN": [
+     114.5,
+     32.0
+    ],
+    "cleaverTip": [
+     154.7,
+     18.5
+    ],
+    "gripF": [
+     22.3,
+     30.0
+    ],
+    "hook": [
+     22.3,
+     38.0
+    ],
+    "headBox": [
+     52,
+     12,
+     83,
+     43
+    ],
+    "chainHand": [
+     22.3,
+     30.0
+    ]
+   }
+  },
+  {
+   "frame": 34,
+   "anim": "roar",
+   "i": 2,
+   "ms": 150,
+   "points": {
+    "gripN": [
+     115.5,
+     32.0
+    ],
+    "cleaverTip": [
+     155.7,
+     18.5
+    ],
+    "gripF": [
+     21.3,
+     29.0
+    ],
+    "hook": [
+     21.3,
+     37.0
+    ],
+    "headBox": [
+     53,
+     12,
+     84,
+     43
+    ],
+    "chainHand": [
+     21.3,
+     29.0
+    ]
+   }
+  },
+  {
+   "frame": 35,
+   "anim": "roar",
+   "i": 3,
+   "ms": 150,
+   "points": {
+    "gripN": [
+     114.6,
+     31.3
+    ],
+    "cleaverTip": [
+     154.8,
+     17.9
+    ],
+    "gripF": [
+     23.4,
+     29.0
+    ],
+    "hook": [
+     23.4,
+     37.0
+    ],
+    "headBox": [
+     53,
+     11,
+     84,
+     41
+    ],
+    "chainHand": [
+     23.4,
+     29.0
+    ]
+   }
+  },
+  {
+   "frame": 36,
+   "anim": "leap_crouch",
+   "i": 0,
+   "ms": 300,
+   "points": {
+    "gripN": [
+     74.0,
+     109.0
+    ],
+    "cleaverTip": [
+     48.5,
+     142.9
+    ],
+    "gripF": [
+     36.0,
+     103.0
+    ],
+    "hook": [
+     33.3,
+     110.5
+    ],
+    "headBox": [
+     83,
+     22,
+     111,
+     55
+    ],
+    "chainHand": [
+     36.0,
+     103.0
+    ]
+   }
+  },
+  {
+   "frame": 37,
+   "anim": "leap_crouch",
+   "i": 1,
+   "ms": 300,
+   "points": {
+    "gripN": [
+     66.0,
+     115.0
+    ],
+    "cleaverTip": [
+     40.5,
+     148.9
+    ],
+    "gripF": [
+     32.6,
+     107.6
+    ],
+    "hook": [
+     29.9,
+     115.1
+    ],
+    "headBox": [
+     87,
+     28,
+     115,
+     61
+    ],
+    "chainHand": [
+     32.6,
+     107.6
+    ]
+   }
+  },
+  {
+   "frame": 38,
+   "anim": "leap_crouch",
+   "i": 2,
+   "ms": 300,
+   "points": {
+    "gripN": [
+     60.2,
+     118.4
+    ],
+    "cleaverTip": [
+     34.8,
+     152.3
+    ],
+    "gripF": [
+     30.9,
+     107.9
+    ],
+    "hook": [
+     28.1,
+     115.4
+    ],
+    "headBox": [
+     90,
+     34,
+     118,
+     67
+    ],
+    "chainHand": [
+     30.9,
+     107.9
+    ]
+   }
+  },
+  {
+   "frame": 39,
+   "anim": "leap_up",
+   "i": 0,
+   "ms": 100,
+   "points": {
+    "gripN": [
+     112.0,
+     19.0
+    ],
+    "cleaverTip": [
+     146.9,
+     43.1
+    ],
+    "gripF": [
+     32.7,
+     15.1
+    ],
+    "hook": [
+     32.7,
+     23.1
+    ],
+    "headBox": [
+     70,
+     8,
+     97,
+     38
+    ],
+    "chainHand": [
+     32.7,
+     15.1
+    ]
+   }
+  },
+  {
+   "frame": 40,
+   "anim": "leap_up",
+   "i": 1,
+   "ms": 100,
+   "points": {
+    "gripN": [
+     112.0,
+     40.0
+    ],
+    "cleaverTip": [
+     146.9,
+     64.1
+    ],
+    "gripF": [
+     33.0,
+     38.3
+    ],
+    "hook": [
+     31.6,
+     46.1
+    ],
+    "headBox": [
+     78,
+     12,
+     104,
+     45
+    ],
+    "chainHand": [
+     33.0,
+     38.3
+    ]
+   }
+  },
+  {
+   "frame": 41,
+   "anim": "land",
+   "i": 0,
+   "ms": 100,
+   "points": {
+    "gripN": [
+     114.0,
+     85.0
+    ],
+    "cleaverTip": [
+     148.9,
+     109.1
+    ],
+    "gripF": [
+     28.0,
+     83.0
+    ],
+    "hook": [
+     24.0,
+     89.9
+    ],
+    "headBox": [
+     92,
+     33,
+     118,
+     67
+    ],
+    "chainHand": [
+     28.0,
+     83.0
+    ]
+   }
+  },
+  {
+   "frame": 42,
+   "anim": "land",
+   "i": 1,
+   "ms": 100,
+   "points": {
+    "gripN": [
+     110.0,
+     95.0
+    ],
+    "cleaverTip": [
+     144.9,
+     119.1
+    ],
+    "gripF": [
+     34.0,
+     91.0
+    ],
+    "hook": [
+     34.0,
+     99.0
+    ],
+    "headBox": [
+     85,
+     24,
+     112,
+     57
+    ],
+    "chainHand": [
+     34.0,
+     91.0
+    ]
+   }
+  },
+  {
+   "frame": 43,
+   "anim": "land",
+   "i": 2,
+   "ms": 200,
+   "points": {
+    "gripN": [
+     92.4,
+     107.6
+    ],
+    "cleaverTip": [
+     127.3,
+     131.7
+    ],
+    "gripF": [
+     36.8,
+     107.8
+    ],
+    "hook": [
+     36.8,
+     115.8
+    ],
+    "headBox": [
+     79,
+     17,
+     105,
+     50
+    ],
+    "chainHand": [
+     36.8,
+     107.8
+    ]
+   }
+  },
+  {
+   "frame": 44,
+   "anim": "recover",
+   "i": 0,
+   "ms": 250,
+   "points": {
+    "gripN": [
+     110.0,
+     103.0
+    ],
+    "cleaverTip": [
+     123.4,
+     143.2
+    ],
+    "gripF": [
+     62.7,
+     109.7
+    ],
+    "hook": [
+     62.7,
+     117.7
+    ],
+    "headBox": [
+     101,
+     34,
+     129,
+     69
+    ],
+    "chainHand": [
+     62.7,
+     109.7
+    ]
+   }
+  },
+  {
+   "frame": 45,
+   "anim": "recover",
+   "i": 1,
+   "ms": 250,
+   "points": {
+    "gripN": [
+     110.0,
+     103.0
+    ],
+    "cleaverTip": [
+     123.4,
+     143.2
+    ],
+    "gripF": [
+     63.3,
+     110.4
+    ],
+    "hook": [
+     63.3,
+     118.4
+    ],
+    "headBox": [
+     102,
+     37,
+     131,
+     72
+    ],
+    "chainHand": [
+     63.3,
+     110.4
+    ]
+   }
+  },
+  {
+   "frame": 46,
+   "anim": "death",
+   "i": 0,
+   "ms": 100,
+   "points": {
+    "gripN": [
+     52.0,
+     86.0
+    ],
+    "cleaverTip": [
+     17.1,
+     110.1
+    ],
+    "gripF": [
+     25.1,
+     48.2
+    ],
+    "hook": [
+     20.0,
+     54.3
+    ],
+    "headBox": [
+     59,
+     11,
+     88,
+     45
+    ],
+    "chainHand": [
+     25.1,
+     48.2
+    ]
+   }
+  },
+  {
+   "frame": 47,
+   "anim": "death",
+   "i": 1,
+   "ms": 100,
+   "points": {
+    "gripN": [
+     96.0,
+     60.0
+    ],
+    "gripF": [
+     30.0,
+     80.0
+    ],
+    "hook": [
+     30.0,
+     88.0
+    ],
+    "headBox": [
+     65,
+     15,
+     93,
+     48
+    ],
+    "chainHand": [
+     30.0,
+     80.0
+    ]
+   }
+  },
+  {
+   "frame": 48,
+   "anim": "death",
+   "i": 2,
+   "ms": 100,
+   "points": {
+    "gripN": [
+     96.0,
+     109.0
+    ],
+    "gripF": [
+     44.0,
+     111.0
+    ],
+    "hook": [
+     44.0,
+     119.0
+    ],
+    "headBox": [
+     77,
+     25,
+     103,
+     58
+    ],
+    "chainHand": [
+     44.0,
+     111.0
+    ]
+   }
+  },
+  {
+   "frame": 49,
+   "anim": "death",
+   "i": 3,
+   "ms": 150,
+   "points": {
+    "gripN": [
+     100.0,
+     123.0
+    ],
+    "gripF": [
+     50.0,
+     123.0
+    ],
+    "hook": [
+     50.0,
+     131.0
+    ],
+    "headBox": [
+     84,
+     38,
+     110,
+     72
+    ],
+    "chainHand": [
+     50.0,
+     123.0
+    ]
+   }
+  },
+  {
+   "frame": 50,
+   "anim": "death",
+   "i": 4,
+   "ms": 150,
+   "points": {
+    "gripN": [
+     104.0,
+     127.0
+    ],
+    "gripF": [
+     56.0,
+     125.0
+    ],
+    "headBox": [
+     98,
+     52,
+     124,
+     81
+    ],
+    "chainHand": [
+     56.0,
+     125.0
+    ]
+   }
+  },
+  {
+   "frame": 51,
+   "anim": "death",
+   "i": 5,
+   "ms": 200,
+   "points": {
+    "gripN": [
+     136.0,
+     123.0
+    ],
+    "gripF": [
+     110.0,
+     119.0
+    ],
+    "headBox": [
+     119,
+     88,
+     146,
+     116
+    ],
+    "chainHand": [
+     110.0,
+     119.0
+    ]
+   }
+  },
+  {
+   "frame": 52,
+   "anim": "death",
+   "i": 6,
+   "ms": 300,
+   "points": {
+    "gripN": [
+     72.0,
+     135.0
+    ],
+    "gripF": [
+     137.1,
+     129.3
+    ],
+    "headBox": [
+     114,
+     103,
+     141,
+     129
+    ],
+    "chainHand": [
+     137.1,
+     129.3
+    ]
+   }
+  },
+  {
+   "frame": 53,
+   "anim": "death",
+   "i": 7,
+   "ms": 600,
+   "points": {
+    "gripN": [
+     72.0,
+     135.0
+    ],
+    "gripF": [
+     137.5,
+     129.6
+    ],
+    "headBox": [
+     114,
+     105,
+     141,
+     131
+    ],
+    "chainHand": [
+     137.5,
+     129.6
+    ]
+   }
+  },
+  {
+   "frame": 54,
+   "anim": "cleave",
+   "i": 0,
+   "ms": 200,
+   "points": {
+    "gripN": [
+     48.0,
+     65.0
+    ],
+    "cleaverTip": [
+     6.0,
+     71.0
+    ],
+    "gripF": [
+     34.0,
+     95.0
+    ],
+    "hook": [
+     31.3,
+     102.5
+    ],
+    "headBox": [
+     65,
+     13,
+     92,
+     46
+    ],
+    "chainHand": [
+     34.0,
+     95.0
+    ]
+   }
+  },
+  {
+   "frame": 55,
+   "anim": "cleave",
+   "i": 1,
+   "ms": 200,
+   "points": {
+    "gripN": [
+     44.0,
+     57.0
+    ],
+    "cleaverTip": [
+     3.8,
+     43.6
+    ],
+    "gripF": [
+     34.0,
+     97.0
+    ],
+    "hook": [
+     30.0,
+     103.9
+    ],
+    "headBox": [
+     56,
+     16,
+     83,
+     49
+    ],
+    "chainHand": [
+     34.0,
+     97.0
+    ]
+   }
+  },
+  {
+   "frame": 56,
+   "anim": "cleave",
+   "i": 2,
+   "ms": 200,
+   "points": {
+    "gripN": [
+     44.0,
+     57.0
+    ],
+    "cleaverTip": [
+     3.8,
+     43.6
+    ],
+    "gripF": [
+     34.0,
+     97.0
+    ],
+    "hook": [
+     30.0,
+     103.9
+    ],
+    "headBox": [
+     56,
+     18,
+     84,
+     51
+    ],
+    "chainHand": [
+     34.0,
+     97.0
+    ]
+   }
+  },
+  {
+   "frame": 57,
+   "anim": "cleave",
+   "i": 3,
+   "ms": 60,
+   "points": {
+    "gripN": [
+     112.0,
+     74.0
+    ],
+    "cleaverTip": [
+     154.0,
+     80.0
+    ],
+    "gripF": [
+     40.0,
+     90.0
+    ],
+    "hook": [
+     44.0,
+     96.9
+    ],
+    "headBox": [
+     94,
+     22,
+     120,
+     56
+    ],
+    "chainHand": [
+     40.0,
+     90.0
+    ]
+   }
+  },
+  {
+   "frame": 58,
+   "anim": "cleave",
+   "i": 4,
+   "ms": 60,
+   "points": {
+    "gripN": [
+     120.0,
+     111.0
+    ],
+    "cleaverTip": [
+     133.4,
+     151.2
+    ],
+    "gripF": [
+     44.0,
+     97.0
+    ],
+    "hook": [
+     46.7,
+     104.5
+    ],
+    "headBox": [
+     108,
+     32,
+     135,
+     66
+    ],
+    "chainHand": [
+     44.0,
+     97.0
+    ]
+   }
+  },
+  {
+   "frame": 59,
+   "anim": "cleave",
+   "i": 5,
+   "ms": 120,
+   "points": {
+    "gripN": [
+     120.0,
+     113.0
+    ],
+    "cleaverTip": [
+     133.4,
+     153.2
+    ],
+    "gripF": [
+     46.0,
+     99.0
+    ],
+    "hook": [
+     47.4,
+     106.9
+    ],
+    "headBox": [
+     110,
+     36,
+     137,
+     71
+    ],
+    "chainHand": [
+     46.0,
+     99.0
+    ]
+   }
+  },
+  {
+   "frame": 60,
+   "anim": "cleave",
+   "i": 6,
+   "ms": 340,
+   "points": {
+    "gripN": [
+     120.0,
+     113.0
+    ],
+    "cleaverTip": [
+     133.4,
+     153.2
+    ],
+    "gripF": [
+     75.8,
+     112.7
+    ],
+    "hook": [
+     75.8,
+     120.7
+    ],
+    "headBox": [
+     111,
+     37,
+     139,
+     72
+    ],
+    "chainHand": [
+     75.8,
+     112.7
+    ]
+   }
+  },
+  {
+   "frame": 61,
+   "anim": "cleave",
+   "i": 7,
+   "ms": 340,
+   "points": {
+    "gripN": [
+     118.0,
+     113.0
+    ],
+    "cleaverTip": [
+     131.4,
+     153.2
+    ],
+    "gripF": [
+     64.8,
+     112.5
+    ],
+    "hook": [
+     64.8,
+     120.5
+    ],
+    "headBox": [
+     103,
+     34,
+     130,
+     68
+    ],
+    "chainHand": [
+     64.8,
+     112.5
+    ]
+   }
+  },
+  {
+   "frame": 62,
+   "anim": "chainhook_windup",
+   "i": 0,
+   "ms": 100,
+   "points": {
+    "gripN": [
+     102.3,
+     98.2
+    ],
+    "cleaverTip": [
+     137.1,
+     122.3
+    ],
+    "gripF": [
+     61.9,
+     21.3
+    ],
+    "hook": [
+     87.9,
+     23.3
+    ],
+    "headBox": [
+     70,
+     13,
+     97,
+     46
+    ],
+    "chainHand": [
+     61.9,
+     21.3
+    ]
+   }
+  },
+  {
+   "frame": 63,
+   "anim": "chainhook_windup",
+   "i": 1,
+   "ms": 100,
+   "points": {
+    "gripN": [
+     102.3,
+     98.2
+    ],
+    "cleaverTip": [
+     137.1,
+     122.3
+    ],
+    "gripF": [
+     61.9,
+     21.3
+    ],
+    "hook": [
+     61.9,
+     18.3
+    ],
+    "headBox": [
+     70,
+     13,
+     97,
+     46
+    ],
+    "chainHand": [
+     61.9,
+     21.3
+    ]
+   }
+  },
+  {
+   "frame": 64,
+   "anim": "chainhook_windup",
+   "i": 2,
+   "ms": 100,
+   "points": {
+    "gripN": [
+     102.3,
+     98.2
+    ],
+    "cleaverTip": [
+     137.1,
+     122.3
+    ],
+    "gripF": [
+     61.9,
+     21.3
+    ],
+    "hook": [
+     35.9,
+     23.3
+    ],
+    "headBox": [
+     70,
+     13,
+     97,
+     46
+    ],
+    "chainHand": [
+     61.9,
+     21.3
+    ]
+   }
+  },
+  {
+   "frame": 65,
+   "anim": "chainhook_windup",
+   "i": 3,
+   "ms": 100,
+   "points": {
+    "gripN": [
+     102.3,
+     98.2
+    ],
+    "cleaverTip": [
+     137.1,
+     122.3
+    ],
+    "gripF": [
+     61.9,
+     21.3
+    ],
+    "hook": [
+     61.9,
+     28.3
+    ],
+    "headBox": [
+     70,
+     13,
+     97,
+     46
+    ],
+    "chainHand": [
+     61.9,
+     21.3
+    ]
+   }
+  },
+  {
+   "frame": 66,
+   "anim": "chainhook",
+   "i": 0,
+   "ms": 60,
+   "points": {
+    "gripN": [
+     100.0,
+     105.0
+    ],
+    "cleaverTip": [
+     134.9,
+     129.1
+    ],
+    "gripF": [
+     115.7,
+     38.4
+    ],
+    "chainEnd": [
+     120.7,
+     37.6
+    ],
+    "headBox": [
+     89,
+     18,
+     115,
+     51
+    ],
+    "chainHand": [
+     115.7,
+     38.4
+    ]
+   }
+  },
+  {
+   "frame": 67,
+   "anim": "chainhook",
+   "i": 1,
+   "ms": 80,
+   "points": {
+    "gripN": [
+     104.0,
+     107.0
+    ],
+    "cleaverTip": [
+     138.9,
+     131.1
+    ],
+    "gripF": [
+     122.6,
+     66.4
+    ],
+    "chainEnd": [
+     127.6,
+     66.0
+    ],
+    "headBox": [
+     97,
+     22,
+     124,
+     56
+    ],
+    "chainHand": [
+     122.6,
+     66.4
+    ]
+   }
+  },
+  {
+   "frame": 68,
+   "anim": "chainhook",
+   "i": 2,
+   "ms": 160,
+   "points": {
+    "gripN": [
+     101.8,
+     103.7
+    ],
+    "cleaverTip": [
+     136.7,
+     127.8
+    ],
+    "gripF": [
+     108.8,
+     66.0
+    ],
+    "chainEnd": [
+     113.8,
+     65.8
+    ],
+    "headBox": [
+     80,
+     15,
+     106,
+     48
+    ],
+    "chainHand": [
+     108.8,
+     66.0
+    ]
+   }
+  },
+  {
+   "frame": 69,
+   "anim": "chainhook",
+   "i": 3,
+   "ms": 160,
+   "points": {
+    "gripN": [
+     102.0,
+     103.0
+    ],
+    "cleaverTip": [
+     136.9,
+     127.1
+    ],
+    "gripF": [
+     108.8,
+     66.0
+    ],
+    "chainEnd": [
+     113.8,
+     65.8
+    ],
+    "headBox": [
+     80,
+     15,
+     106,
+     48
+    ],
+    "chainHand": [
+     108.8,
+     66.0
+    ]
+   }
+  },
+  {
+   "frame": 70,
+   "anim": "chainhook",
+   "i": 4,
+   "ms": 100,
+   "points": {
+    "gripN": [
+     104.0,
+     104.0
+    ],
+    "cleaverTip": [
+     138.9,
+     128.1
+    ],
+    "gripF": [
+     112.1,
+     69.2
+    ],
+    "chainEnd": [
+     117.1,
+     69.0
+    ],
+    "headBox": [
+     85,
+     16,
+     111,
+     49
+    ],
+    "chainHand": [
+     112.1,
+     69.2
+    ]
+   }
+  },
+  {
+   "frame": 71,
+   "anim": "chainhook",
+   "i": 5,
+   "ms": 140,
+   "points": {
+    "gripN": [
+     93.6,
+     98.8
+    ],
+    "cleaverTip": [
+     128.5,
+     122.9
+    ],
+    "gripF": [
+     84.0,
+     71.0
+    ],
+    "chainEnd": [
+     89.0,
+     71.0
+    ],
+    "headBox": [
+     53,
+     13,
+     81,
+     47
+    ],
+    "chainHand": [
+     84.0,
+     71.0
+    ]
+   }
+  },
+  {
+   "frame": 72,
+   "anim": "chainhook",
+   "i": 6,
+   "ms": 100,
+   "points": {
+    "gripN": [
+     101.0,
+     102.6
+    ],
+    "cleaverTip": [
+     135.9,
+     126.7
+    ],
+    "gripF": [
+     96.0,
+     40.0
+    ],
+    "hook": [
+     103.7,
+     33.6
+    ],
+    "headBox": [
+     77,
+     14,
+     104,
+     47
+    ],
+    "chainHand": [
+     96.0,
+     40.0
+    ]
+   }
+  },
+  {
+   "frame": 73,
+   "anim": "chainhook",
+   "i": 7,
+   "ms": 200,
+   "points": {
+    "gripN": [
+     89.7,
+     106.7
+    ],
+    "cleaverTip": [
+     124.6,
+     130.9
+    ],
+    "gripF": [
+     30.2,
+     106.8
+    ],
+    "hook": [
+     28.8,
+     114.7
+    ],
+    "headBox": [
+     76,
+     15,
+     102,
+     48
+    ],
+    "chainHand": [
+     30.2,
+     106.8
+    ]
+   }
+  }
+ ]
+}

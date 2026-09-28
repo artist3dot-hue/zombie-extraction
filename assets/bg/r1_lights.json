@@ -1,0 +1,2376 @@
+{
+ "version": 1,
+ "pack": "v02-bg-emissive (art/production/v02-bg-emissive, rebuild: make_all.py)",
+ "howToUse": [
+  "Each bg_r1_<layer>_emissive image has the same size / frame grid / origin as its layer; draw it with the same frame and transform, or feed it to the lighting pass as the layer's emissive map.",
+  "Mask pixel colour = the colour that pixel should show when lit (route C emissive_to_light: light = target / base, divided by 2 for the /2 light maps).  Alpha 0 = not a light.",
+  "Every light is listed below per frame with its rect (frame-local px, top-left origin), kind, glow (suggested spill / halo colour), and optional flicker: buzz (short dips), broken (mostly off, rare stutters), tv (cold slow flicker), fire (L3 burning window), dead (drawn but never on).",
+  "To switch one light off, crop the emissive frame to its rect (setCrop) or keep one emissive sprite per light; rects never overlap within a frame.",
+  "Colours are palette colours only (rust-dusk-40 + route-A ext); none of the gameplay-reserved F/G/H/I colours - except #d09040 on L3/L4 windows that are already that colour in the base."
+ ],
+ "kinds": {
+  "lightbox": "sign box lit from inside (face and letters)",
+  "neon_letters": "channel letters only",
+  "neon": "neon outline",
+  "window_warm": "tungsten room light",
+  "window_cold": "TV / strip light",
+  "shop_window": "shop interior under tubes",
+  "streetlamp": "mercury street lamp head",
+  "floodlight": "flood lamp (aim given)",
+  "bulb": "bare bulb",
+  "bulkhead": "caged wall lamp",
+  "tube": "fluorescent tube",
+  "lane_signal": "toll lane signal",
+  "led": "LED digits",
+  "far_light": "light far down a lane",
+  "fire": "burning window"
+ },
+ "layers": {
+  "bg_r1_facade_shop_emissive": {
+   "layer": "bg_r1_facade_shop",
+   "file": "bg/r1_facade_shop_emissive.png",
+   "frameW": 320,
+   "frameH": 220,
+   "frameCount": 2,
+   "origin": [
+    0.5,
+    0.9955
+   ],
+   "originPx": [
+    160,
+    219
+   ],
+   "frames": [
+    [
+     {
+      "id": "sign_jiefang",
+      "kind": "lightbox",
+      "rect": [
+       61,
+       147,
+       127,
+       20
+      ],
+      "glow": "#607898",
+      "note": "街坊便利 blue light box; the 1px frame stays dark"
+     },
+     {
+      "id": "sign_jiefang_li",
+      "kind": "lightbox",
+      "rect": [
+       188,
+       147,
+       71,
+       20
+      ],
+      "glow": "#607898",
+      "flicker": "broken",
+      "note": "利: its tube section is dead - only the letter strokes glow (route C rule)"
+     },
+     {
+      "id": "box_yanjiu",
+      "kind": "lightbox",
+      "rect": [
+       271,
+       147,
+       12,
+       38
+      ],
+      "glow": "#c04020",
+      "note": "烟酒 red box, cracked plastic"
+     },
+     {
+      "id": "shop_glass",
+      "kind": "shop_window",
+      "rect": [
+       20,
+       176,
+       96,
+       30
+      ],
+      "glow": "#c3cfa8",
+      "note": "shelves under fluorescent tubes; freezer in front and the tape / QR card / glass reflections stay dark (they are on the glass)"
+     },
+     {
+      "id": "win2f_a",
+      "kind": "window_warm",
+      "rect": [
+       26,
+       104,
+       24,
+       22
+      ],
+      "glow": "#907060",
+      "note": "grille bars stay in front"
+     },
+     {
+      "id": "win2f_b",
+      "kind": "window_warm",
+      "rect": [
+       84,
+       104,
+       22,
+       22
+      ],
+      "glow": "#907060"
+     },
+     {
+      "id": "win2f_c",
+      "kind": "window_cold",
+      "rect": [
+       150,
+       104,
+       26,
+       22
+      ],
+      "glow": "#46607e",
+      "note": "TV glow",
+      "flicker": "tv"
+     }
+    ],
+    [
+     {
+      "id": "sign_jinmantang",
+      "kind": "lightbox",
+      "rect": [
+       57,
+       147,
+       206,
+       21
+      ],
+      "glow": "#c04020",
+      "flicker": "buzz",
+      "note": "金满堂 red box; the split in the face stays dark"
+     },
+     {
+      "id": "win2f_b",
+      "kind": "window_warm",
+      "rect": [
+       84,
+       104,
+       22,
+       22
+      ],
+      "glow": "#907060"
+     },
+     {
+      "id": "win2f_a",
+      "kind": "window_cold",
+      "rect": [
+       26,
+       104,
+       24,
+       22
+      ],
+      "glow": "#46607e",
+      "note": "behind the grille, towel in front"
+     }
+    ]
+   ]
+  },
+  "bg_r1_facade_village_emissive": {
+   "layer": "bg_r1_facade_village",
+   "file": "bg/r1_facade_village_emissive.png",
+   "frameW": 560,
+   "frameH": 240,
+   "frameCount": 1,
+   "origin": [
+    0.5,
+    0.9958
+   ],
+   "originPx": [
+    280,
+    239
+   ],
+   "frames": [
+    [
+     {
+      "id": "sign_hongzhong",
+      "kind": "lightbox",
+      "rect": [
+       19,
+       175,
+       160,
+       20
+      ],
+      "glow": "#c04020",
+      "note": "红中麻将 + the 中 tile"
+     },
+     {
+      "id": "box_qipai",
+      "kind": "lightbox",
+      "rect": [
+       185,
+       129,
+       7,
+       42
+      ],
+      "glow": "#c04020",
+      "flicker": "buzz",
+      "note": "棋牌室 vertical box (the junction box in front stays dark)"
+     },
+     {
+      "id": "sign_mingyan",
+      "kind": "neon_letters",
+      "rect": [
+       439,
+       167,
+       110,
+       22
+      ],
+      "glow": "#d8d0c0",
+      "note": "名烟名酒 channel letters on a dark board"
+     },
+     {
+      "id": "mahjong_room",
+      "kind": "shop_window",
+      "rect": [
+       104,
+       202,
+       60,
+       26
+      ],
+      "glow": "#907060",
+      "note": "the parlour's lamp over the table: table and chairs show as warm silhouettes"
+     },
+     {
+      "id": "tobacco_glass",
+      "kind": "shop_window",
+      "rect": [
+       442,
+       196,
+       104,
+       30
+      ],
+      "glow": "#c3cfa8",
+      "note": "cigarette / liquor shelves; door gap, dust and glass reflections stay dark"
+     },
+     {
+      "id": "win_L2_a",
+      "kind": "window_warm",
+      "rect": [
+       20,
+       88,
+       22,
+       22
+      ],
+      "glow": "#907060"
+     },
+     {
+      "id": "win_L2_b",
+      "kind": "window_cold",
+      "rect": [
+       70,
+       88,
+       22,
+       22
+      ],
+      "glow": "#46607e",
+      "flicker": "tv"
+     },
+     {
+      "id": "win_L1_b",
+      "kind": "window_warm",
+      "rect": [
+       90,
+       136,
+       22,
+       22
+      ],
+      "glow": "#907060"
+     },
+     {
+      "id": "win_M6_b",
+      "kind": "window_warm",
+      "rect": [
+       262,
+       36,
+       22,
+       20
+      ],
+      "glow": "#907060"
+     },
+     {
+      "id": "win_M6_d",
+      "kind": "window_cold",
+      "rect": [
+       366,
+       36,
+       22,
+       20
+      ],
+      "glow": "#46607e",
+      "flicker": "tv"
+     },
+     {
+      "id": "win_M5_a",
+      "kind": "window_warm",
+      "rect": [
+       214,
+       70,
+       22,
+       20
+      ],
+      "glow": "#907060"
+     },
+     {
+      "id": "win_M5_d",
+      "kind": "window_warm",
+      "rect": [
+       366,
+       70,
+       22,
+       20
+      ],
+      "glow": "#907060"
+     },
+     {
+      "id": "win_M4_b",
+      "kind": "window_cold",
+      "rect": [
+       290,
+       104,
+       22,
+       20
+      ],
+      "glow": "#46607e",
+      "flicker": "tv"
+     },
+     {
+      "id": "win_M3_a",
+      "kind": "window_warm",
+      "rect": [
+       214,
+       138,
+       22,
+       20
+      ],
+      "glow": "#907060"
+     },
+     {
+      "id": "win_M3_d",
+      "kind": "window_warm",
+      "rect": [
+       366,
+       138,
+       22,
+       20
+      ],
+      "glow": "#907060"
+     },
+     {
+      "id": "win_R2_b",
+      "kind": "window_warm",
+      "rect": [
+       510,
+       128,
+       26,
+       22
+      ],
+      "glow": "#907060"
+     },
+     {
+      "id": "alley_far",
+      "kind": "far_light",
+      "rect": [
+       418,
+       150,
+       3,
+       86
+      ],
+      "glow": "#607898",
+      "note": "street light at the far end of the lane: the lower part of the 3px slit"
+     }
+    ]
+   ]
+  },
+  "bg_r1_facade_gasstore_emissive": {
+   "layer": "bg_r1_facade_gasstore",
+   "file": "bg/r1_facade_gasstore_emissive.png",
+   "frameW": 192,
+   "frameH": 120,
+   "frameCount": 1,
+   "origin": [
+    0.5,
+    0.9917
+   ],
+   "originPx": [
+    96,
+    119
+   ],
+   "frames": [
+    [
+     {
+      "id": "fascia_yijia",
+      "kind": "lightbox",
+      "rect": [
+       5,
+       27,
+       141,
+       23
+      ],
+      "glow": "#b89880",
+      "flicker": "buzz",
+      "note": "易家便利 white fascia box: face -> bone, letters and stripe -> red"
+     },
+     {
+      "id": "fascia_yijia_end",
+      "kind": "lightbox",
+      "rect": [
+       146,
+       27,
+       41,
+       23
+      ],
+      "glow": "#c04020",
+      "flicker": "broken",
+      "note": "right end: its tube is dead, only the red stripe (separate tube) still glows"
+     },
+     {
+      "id": "store_glass_0",
+      "kind": "shop_window",
+      "rect": [
+       12,
+       60,
+       36,
+       48
+      ],
+      "glow": "#c3cfa8",
+      "note": "posters on the glass stay dark (in front)"
+     },
+     {
+      "id": "store_glass_1",
+      "kind": "shop_window",
+      "rect": [
+       82,
+       60,
+       42,
+       48
+      ],
+      "glow": "#c3cfa8",
+      "note": "posters on the glass stay dark (in front)"
+     },
+     {
+      "id": "side_window",
+      "kind": "window_cold",
+      "rect": [
+       132,
+       86,
+       24,
+       22
+      ],
+      "glow": "#46607e"
+     },
+     {
+      "id": "open_sign",
+      "kind": "lightbox",
+      "rect": [
+       161,
+       61,
+       20,
+       28
+      ],
+      "glow": "#b89880",
+      "flicker": "buzz",
+      "note": "营业 box"
+     }
+    ]
+   ]
+  },
+  "bg_r1_culvert_emissive": {
+   "layer": "bg_r1_culvert",
+   "file": "bg/r1_culvert_emissive.png",
+   "frameW": 320,
+   "frameH": 140,
+   "frameCount": 1,
+   "origin": [
+    0.5,
+    0.9929
+   ],
+   "originPx": [
+    160,
+    139
+   ],
+   "frames": [
+    [
+     {
+      "id": "tunnel_lamp",
+      "kind": "bulkhead",
+      "rect": [
+       71,
+       83,
+       7,
+       2
+      ],
+      "glow": "#c3cfa8",
+      "flicker": "broken",
+      "note": "caged bulkhead lamp inside the underpass"
+     }
+    ]
+   ]
+  },
+  "bg_r1_sh_front_emissive": {
+   "layer": "bg_r1_sh_front",
+   "file": "bg/r1_sh_front_emissive.png",
+   "frameW": 320,
+   "frameH": 220,
+   "frameCount": 2,
+   "origin": [
+    0.5,
+    0.9955
+   ],
+   "originPx": [
+    160,
+    219
+   ],
+   "frames": [
+    [
+     {
+      "id": "box_xiuche",
+      "kind": "lightbox",
+      "rect": [
+       98,
+       21,
+       16,
+       37
+      ],
+      "glow": "#c04020",
+      "note": "rooftop 修车 red box"
+     },
+     {
+      "id": "win2f_a",
+      "kind": "window_warm",
+      "rect": [
+       26,
+       78,
+       24,
+       22
+      ],
+      "glow": "#907060"
+     },
+     {
+      "id": "win2f_c",
+      "kind": "window_warm",
+      "rect": [
+       196,
+       78,
+       24,
+       22
+      ],
+      "glow": "#907060"
+     },
+     {
+      "id": "office",
+      "kind": "window_cold",
+      "rect": [
+       104,
+       158,
+       26,
+       24
+      ],
+      "glow": "#46607e",
+      "note": "office strip light behind the grille"
+     },
+     {
+      "id": "bulb_garage",
+      "kind": "bulb",
+      "rect": [
+       210,
+       160,
+       5,
+       2
+      ],
+      "glow": "#b89880",
+      "note": "bare bulb on a flex inside the shutter hole (seen only while spr_r1_sh_shutter is open)"
+     }
+    ],
+    [
+     {
+      "id": "sign_waihuan",
+      "kind": "neon_letters",
+      "rect": [
+       37,
+       29,
+       230,
+       28
+      ],
+      "glow": "#d8d0c0",
+      "note": "外环汽修厂: letter strokes only (channel letters); the fallen panel at x 268-285 is dark"
+     },
+     {
+      "id": "flood_0",
+      "kind": "floodlight",
+      "rect": [
+       80,
+       58,
+       4,
+       1
+      ],
+      "glow": "#d8d0c0",
+      "aim": "up",
+      "note": "aims up at the sign face"
+     },
+     {
+      "id": "flood_1",
+      "kind": "floodlight",
+      "rect": [
+       160,
+       58,
+       4,
+       1
+      ],
+      "glow": "#d8d0c0",
+      "aim": "up",
+      "note": "aims up at the sign face"
+     },
+     {
+      "id": "flood_2",
+      "kind": "floodlight",
+      "rect": [
+       240,
+       58,
+       4,
+       1
+      ],
+      "glow": "#d8d0c0",
+      "aim": "up",
+      "note": "aims up at the sign face"
+     },
+     {
+      "id": "garage_door_windows",
+      "kind": "window_cold",
+      "rect": [
+       22,
+       160,
+       116,
+       8
+      ],
+      "glow": "#46607e",
+      "note": "workshop light through the door's window strip"
+     },
+     {
+      "id": "clerestory_0",
+      "kind": "window_cold",
+      "rect": [
+       46,
+       104,
+       18,
+       8
+      ],
+      "glow": "#46607e",
+      "note": "bars stay dark"
+     },
+     {
+      "id": "clerestory_1",
+      "kind": "window_cold",
+      "rect": [
+       180,
+       104,
+       18,
+       8
+      ],
+      "glow": "#46607e",
+      "note": "bars stay dark"
+     },
+     {
+      "id": "clerestory_2",
+      "kind": "window_cold",
+      "rect": [
+       204,
+       104,
+       18,
+       8
+      ],
+      "glow": "#46607e",
+      "note": "bars stay dark"
+     },
+     {
+      "id": "office",
+      "kind": "window_warm",
+      "rect": [
+       268,
+       164,
+       30,
+       22
+      ],
+      "glow": "#907060"
+     },
+     {
+      "id": "bulb_garage",
+      "kind": "bulb",
+      "rect": [
+       188,
+       163,
+       5,
+       2
+      ],
+      "glow": "#b89880",
+      "note": "bare bulb inside the shutter hole"
+     }
+    ]
+   ]
+  },
+  "bg_r1_sh_interior_emissive": {
+   "layer": "bg_r1_sh_interior",
+   "file": "bg/r1_sh_interior_emissive.png",
+   "frameW": 320,
+   "frameH": 200,
+   "frameCount": 2,
+   "origin": [
+    0.5,
+    0.995
+   ],
+   "originPx": [
+    160,
+    199
+   ],
+   "frames": [
+    [
+     {
+      "id": "tube_0",
+      "kind": "tube",
+      "rect": [
+       71,
+       27,
+       34,
+       1
+      ],
+      "glow": "#d8d0c0",
+      "note": "fluorescent tube (the room's key light)"
+     },
+     {
+      "id": "tube_1",
+      "kind": "tube",
+      "rect": [
+       191,
+       27,
+       34,
+       1
+      ],
+      "glow": "#d8d0c0",
+      "note": "fluorescent tube (the room's key light)"
+     }
+    ],
+    [
+     {
+      "id": "tube_0",
+      "kind": "tube",
+      "rect": [
+       231,
+       27,
+       34,
+       1
+      ],
+      "glow": "#d8d0c0",
+      "note": "fluorescent tube (the room's key light)"
+     }
+    ]
+   ]
+  },
+  "bg_r1_sh_yard_emissive": {
+   "layer": "bg_r1_sh_yard",
+   "file": "bg/r1_sh_yard_emissive.png",
+   "frameW": 640,
+   "frameH": 120,
+   "frameCount": 1,
+   "origin": [
+    0.5,
+    0.9917
+   ],
+   "originPx": [
+    320,
+    119
+   ],
+   "frames": [
+    [
+     {
+      "id": "yard_flood",
+      "kind": "floodlight",
+      "rect": [
+       526,
+       15,
+       5,
+       1
+      ],
+      "glow": "#d8d0c0",
+      "aim": "down",
+      "note": "security floodlight on the yard pole, aimed down at the scrap"
+     }
+    ]
+   ]
+  },
+  "bg_r1_l4_streetlamp_emissive": {
+   "layer": "bg_r1_l4_streetlamp",
+   "file": "bg/r1_l4_streetlamp_emissive.png",
+   "frameW": 24,
+   "frameH": 120,
+   "frameCount": 1,
+   "origin": [
+    0.5,
+    0.9917
+   ],
+   "originPx": [
+    12,
+    119
+   ],
+   "frames": [
+    [
+     {
+      "id": "lamp_head",
+      "kind": "streetlamp",
+      "rect": [
+       14,
+       16,
+       8,
+       2
+      ],
+      "glow": "#c3cfa8",
+      "note": "mercury-vapour head: upper lens row bone, lower row cool mint; the chip at (18,16) stays dark"
+     }
+    ]
+   ]
+  },
+  "bg_r1_l4_billboard_emissive": {
+   "layer": "bg_r1_l4_billboard",
+   "file": "bg/r1_l4_billboard_emissive.png",
+   "frameW": 128,
+   "frameH": 100,
+   "frameCount": 2,
+   "origin": [
+    0.5,
+    0.99
+   ],
+   "originPx": [
+    64,
+    99
+   ],
+   "frames": [
+    [
+     {
+      "id": "flood_0",
+      "kind": "floodlight",
+      "rect": [
+       27,
+       53,
+       3,
+       1
+      ],
+      "glow": "#d8d0c0",
+      "aim": "up",
+      "flicker": null,
+      "note": "lights the board face from below"
+     },
+     {
+      "id": "flood_1",
+      "kind": "floodlight",
+      "rect": [
+       65,
+       53,
+       3,
+       1
+      ],
+      "glow": "#d8d0c0",
+      "aim": "up",
+      "flicker": null,
+      "note": "lights the board face from below"
+     },
+     {
+      "id": "flood_2",
+      "kind": "floodlight",
+      "rect": [
+       103,
+       53,
+       3,
+       1
+      ],
+      "glow": "#d8d0c0",
+      "aim": "up",
+      "flicker": null,
+      "note": "lights the board face from below"
+     }
+    ],
+    [
+     {
+      "id": "flood_0",
+      "kind": "floodlight",
+      "rect": [
+       27,
+       53,
+       3,
+       1
+      ],
+      "glow": "#d8d0c0",
+      "aim": "up",
+      "flicker": null,
+      "note": "lights the board face from below"
+     },
+     {
+      "id": "flood_1",
+      "kind": "floodlight",
+      "rect": [
+       65,
+       53,
+       3,
+       1
+      ],
+      "glow": "#d8d0c0",
+      "aim": "up",
+      "flicker": null,
+      "note": "lights the board face from below"
+     },
+     {
+      "id": "flood_2",
+      "kind": "floodlight",
+      "rect": [
+       103,
+       53,
+       3,
+       1
+      ],
+      "glow": "#d8d0c0",
+      "aim": "up",
+      "flicker": "broken",
+      "note": "lights the board face from below"
+     }
+    ]
+   ]
+  },
+  "bg_r1_l4_handshake_emissive": {
+   "layer": "bg_r1_l4_handshake",
+   "file": "bg/r1_l4_handshake_emissive.png",
+   "frameW": 192,
+   "frameH": 220,
+   "frameCount": 1,
+   "origin": [
+    0.5,
+    0.9955
+   ],
+   "originPx": [
+    96,
+    219
+   ],
+   "frames": [
+    [
+     {
+      "id": "win_0",
+      "kind": "window_warm",
+      "rect": [
+       15,
+       32,
+       28,
+       18
+      ],
+      "glow": "#907060"
+     },
+     {
+      "id": "win_2",
+      "kind": "window_warm",
+      "rect": [
+       133,
+       32,
+       30,
+       18
+      ],
+      "glow": "#907060"
+     },
+     {
+      "id": "win_3",
+      "kind": "window_cold",
+      "rect": [
+       19,
+       60,
+       26,
+       18
+      ],
+      "glow": "#46607e",
+      "flicker": "tv"
+     },
+     {
+      "id": "win_6",
+      "kind": "window_warm",
+      "rect": [
+       13,
+       88,
+       32,
+       16
+      ],
+      "glow": "#907060"
+     },
+     {
+      "id": "win_8",
+      "kind": "window_warm",
+      "rect": [
+       135,
+       86,
+       30,
+       18
+      ],
+      "glow": "#907060"
+     },
+     {
+      "id": "win_10",
+      "kind": "window_warm",
+      "rect": [
+       72,
+       120,
+       30,
+       16
+      ],
+      "glow": "#907060"
+     },
+     {
+      "id": "win_14",
+      "kind": "window_cold",
+      "rect": [
+       134,
+       146,
+       26,
+       18
+      ],
+      "glow": "#46607e",
+      "flicker": "tv"
+     },
+     {
+      "id": "win_16",
+      "kind": "window_warm",
+      "rect": [
+       74,
+       174,
+       30,
+       18
+      ],
+      "glow": "#907060"
+     }
+    ]
+   ]
+  },
+  "bg_r1_l4_toll_canopy_emissive": {
+   "layer": "bg_r1_l4_toll_canopy",
+   "file": "bg/r1_l4_toll_canopy_emissive.png",
+   "frameW": 480,
+   "frameH": 120,
+   "frameCount": 1,
+   "origin": [
+    0.5,
+    0.9917
+   ],
+   "originPx": [
+    240,
+    119
+   ],
+   "frames": [
+    [
+     {
+      "id": "tube_0",
+      "kind": "tube",
+      "rect": [
+       12,
+       34,
+       14,
+       2
+      ],
+      "glow": "#c3cfa8"
+     },
+     {
+      "id": "tube_1",
+      "kind": "tube",
+      "rect": [
+       36,
+       34,
+       14,
+       2
+      ],
+      "glow": "#c3cfa8"
+     },
+     {
+      "id": "tube_2",
+      "kind": "tube",
+      "rect": [
+       60,
+       34,
+       14,
+       2
+      ],
+      "glow": "#c3cfa8"
+     },
+     {
+      "id": "tube_3",
+      "kind": "tube",
+      "rect": [
+       84,
+       34,
+       14,
+       2
+      ],
+      "glow": "#c3cfa8"
+     },
+     {
+      "id": "tube_4",
+      "kind": "tube",
+      "rect": [
+       108,
+       34,
+       14,
+       2
+      ],
+      "glow": "#c3cfa8"
+     },
+     {
+      "id": "tube_5",
+      "kind": "tube",
+      "rect": [
+       132,
+       34,
+       14,
+       2
+      ],
+      "glow": "#c3cfa8",
+      "flicker": "dead"
+     },
+     {
+      "id": "tube_6",
+      "kind": "tube",
+      "rect": [
+       156,
+       34,
+       14,
+       2
+      ],
+      "glow": "#c3cfa8"
+     },
+     {
+      "id": "tube_7",
+      "kind": "tube",
+      "rect": [
+       180,
+       34,
+       14,
+       2
+      ],
+      "glow": "#c3cfa8"
+     },
+     {
+      "id": "tube_8",
+      "kind": "tube",
+      "rect": [
+       204,
+       34,
+       14,
+       2
+      ],
+      "glow": "#c3cfa8"
+     },
+     {
+      "id": "tube_9",
+      "kind": "tube",
+      "rect": [
+       228,
+       34,
+       14,
+       2
+      ],
+      "glow": "#c3cfa8"
+     },
+     {
+      "id": "tube_10",
+      "kind": "tube",
+      "rect": [
+       252,
+       34,
+       14,
+       2
+      ],
+      "glow": "#c3cfa8"
+     },
+     {
+      "id": "tube_11",
+      "kind": "tube",
+      "rect": [
+       276,
+       34,
+       14,
+       2
+      ],
+      "glow": "#c3cfa8",
+      "flicker": "dead"
+     },
+     {
+      "id": "tube_12",
+      "kind": "tube",
+      "rect": [
+       300,
+       34,
+       14,
+       2
+      ],
+      "glow": "#c3cfa8"
+     },
+     {
+      "id": "tube_13",
+      "kind": "tube",
+      "rect": [
+       324,
+       34,
+       14,
+       2
+      ],
+      "glow": "#c3cfa8"
+     },
+     {
+      "id": "tube_14",
+      "kind": "tube",
+      "rect": [
+       348,
+       34,
+       14,
+       2
+      ],
+      "glow": "#c3cfa8"
+     },
+     {
+      "id": "tube_15",
+      "kind": "tube",
+      "rect": [
+       372,
+       34,
+       14,
+       2
+      ],
+      "glow": "#c3cfa8"
+     },
+     {
+      "id": "tube_16",
+      "kind": "tube",
+      "rect": [
+       396,
+       34,
+       14,
+       2
+      ],
+      "glow": "#c3cfa8",
+      "flicker": "dead"
+     },
+     {
+      "id": "tube_17",
+      "kind": "tube",
+      "rect": [
+       420,
+       34,
+       14,
+       2
+      ],
+      "glow": "#c3cfa8"
+     },
+     {
+      "id": "tube_18",
+      "kind": "tube",
+      "rect": [
+       444,
+       34,
+       14,
+       2
+      ],
+      "glow": "#c3cfa8"
+     },
+     {
+      "id": "tube_19",
+      "kind": "tube",
+      "rect": [
+       468,
+       34,
+       11,
+       2
+      ],
+      "glow": "#c3cfa8"
+     },
+     {
+      "id": "lane_0",
+      "kind": "lane_signal",
+      "rect": [
+       33,
+       40,
+       14,
+       12
+      ],
+      "glow": "#c3cfa8",
+      "note": "green arrow"
+     },
+     {
+      "id": "lane_1",
+      "kind": "lane_signal",
+      "rect": [
+       133,
+       40,
+       14,
+       12
+      ],
+      "glow": "#c04020",
+      "note": "red X: lane closed"
+     },
+     {
+      "id": "lane_2",
+      "kind": "lane_signal",
+      "rect": [
+       233,
+       40,
+       14,
+       12
+      ],
+      "glow": "#c3cfa8",
+      "note": "green arrow"
+     },
+     {
+      "id": "lane_3",
+      "kind": "lane_signal",
+      "rect": [
+       333,
+       40,
+       14,
+       12
+      ],
+      "glow": "#c04020",
+      "note": "red X: lane closed"
+     },
+     {
+      "id": "lane_4",
+      "kind": "lane_signal",
+      "rect": [
+       433,
+       40,
+       14,
+       12
+      ],
+      "glow": "#c3cfa8",
+      "note": "green arrow"
+     },
+     {
+      "id": "etc_0",
+      "kind": "lightbox",
+      "rect": [
+       280,
+       42,
+       38,
+       11
+      ],
+      "glow": "#46607e",
+      "note": "ETC plate"
+     },
+     {
+      "id": "etc_1",
+      "kind": "lightbox",
+      "rect": [
+       380,
+       42,
+       38,
+       11
+      ],
+      "glow": "#46607e",
+      "note": "ETC plate"
+     },
+     {
+      "id": "station_name",
+      "kind": "neon_letters",
+      "rect": [
+       3,
+       5,
+       474,
+       22
+      ],
+      "glow": "#d8d0c0",
+      "note": "外环东收费站 channel letters"
+     }
+    ]
+   ]
+  },
+  "bg_r1_l4_price_board_emissive": {
+   "layer": "bg_r1_l4_price_board",
+   "file": "bg/r1_l4_price_board_emissive.png",
+   "frameW": 32,
+   "frameH": 64,
+   "frameCount": 1,
+   "origin": [
+    0.5,
+    0.9844
+   ],
+   "originPx": [
+    16,
+    63
+   ],
+   "frames": [
+    [
+     {
+      "id": "led_price",
+      "kind": "led",
+      "rect": [
+       3,
+       24,
+       26,
+       12
+      ],
+      "glow": "#c04020",
+      "note": "7.89 red LED digits"
+     },
+     {
+      "id": "led_grade",
+      "kind": "led",
+      "rect": [
+       3,
+       14,
+       26,
+       9
+      ],
+      "glow": "#c04020",
+      "note": "92#"
+     },
+     {
+      "id": "logo_box",
+      "kind": "lightbox",
+      "rect": [
+       3,
+       4,
+       26,
+       9
+      ],
+      "glow": "#607898",
+      "note": "fuel-drop box"
+     }
+    ]
+   ]
+  },
+  "bg_r1_l4_slaughter_gate_emissive": {
+   "layer": "bg_r1_l4_slaughter_gate",
+   "file": "bg/r1_l4_slaughter_gate_emissive.png",
+   "frameW": 256,
+   "frameH": 180,
+   "frameCount": 1,
+   "origin": [
+    0.5,
+    0.9944
+   ],
+   "originPx": [
+    128,
+    179
+   ],
+   "frames": [
+    [
+     {
+      "id": "star",
+      "kind": "neon",
+      "rect": [
+       124,
+       39,
+       9,
+       9
+      ],
+      "glow": "#c04020",
+      "flicker": "buzz",
+      "note": "the red star on the pediment is a neon outline"
+     },
+     {
+      "id": "booth_window",
+      "kind": "window_warm",
+      "rect": [
+       216,
+       137,
+       14,
+       11
+      ],
+      "glow": "#907060",
+      "flicker": "broken",
+      "note": "guard booth: someone left the light on"
+     },
+     {
+      "id": "booth_lamp",
+      "kind": "bulkhead",
+      "rect": [
+       236,
+       138,
+       5,
+       2
+      ],
+      "glow": "#c3cfa8"
+     }
+    ]
+   ]
+  },
+  "bg_r1_l3_village_emissive": {
+   "layer": "bg_r1_l3_village",
+   "file": "bg/r1_l3_village_emissive.png",
+   "frameW": 1280,
+   "frameH": 360,
+   "frameCount": 1,
+   "origin": [
+    0.0,
+    0.0
+   ],
+   "originPx": [
+    0,
+    0
+   ],
+   "frames": [
+    [
+     {
+      "id": "b0_f0_c0",
+      "kind": "window_warm",
+      "rect": [
+       4,
+       234,
+       6,
+       6
+      ],
+      "glow": "#907060"
+     },
+     {
+      "id": "b0_f3_c1",
+      "kind": "window_warm",
+      "rect": [
+       16,
+       270,
+       6,
+       6
+      ],
+      "glow": "#d09040"
+     },
+     {
+      "id": "b0_sign",
+      "kind": "lightbox",
+      "rect": [
+       2,
+       285,
+       18,
+       4
+      ],
+      "glow": "#c04020"
+     },
+     {
+      "id": "b1_f1_c2",
+      "kind": "window_cold",
+      "rect": [
+       68,
+       258,
+       5,
+       5
+      ],
+      "glow": "#46607e",
+      "flicker": "tv"
+     },
+     {
+      "id": "b1_f2_c0",
+      "kind": "window_cold",
+      "rect": [
+       47,
+       270,
+       7,
+       4
+      ],
+      "glow": "#46607e",
+      "flicker": "tv"
+     },
+     {
+      "id": "b1_f2_c2",
+      "kind": "window_warm",
+      "rect": [
+       68,
+       270,
+       5,
+       5
+      ],
+      "glow": "#907060"
+     },
+     {
+      "id": "b2_f0_c3",
+      "kind": "window_warm",
+      "rect": [
+       174,
+       234,
+       7,
+       5
+      ],
+      "glow": "#907060"
+     },
+     {
+      "id": "b2_f1_c1",
+      "kind": "window_warm",
+      "rect": [
+       148,
+       246,
+       9,
+       4
+      ],
+      "glow": "#907060"
+     },
+     {
+      "id": "b2_f2_c3",
+      "kind": "window_warm",
+      "rect": [
+       174,
+       258,
+       7,
+       5
+      ],
+      "glow": "#d09040"
+     },
+     {
+      "id": "b3_f0_c0",
+      "kind": "window_warm",
+      "rect": [
+       188,
+       234,
+       5,
+       6
+      ],
+      "glow": "#907060"
+     },
+     {
+      "id": "b4_f0_c1",
+      "kind": "fire",
+      "rect": [
+       239,
+       205,
+       6,
+       11
+      ],
+      "glow": "#d09040",
+      "flicker": "fire"
+     },
+     {
+      "id": "b5_f1_c1",
+      "kind": "window_warm",
+      "rect": [
+       346,
+       258,
+       8,
+       5
+      ],
+      "glow": "#907060"
+     },
+     {
+      "id": "b6_f0_c0",
+      "kind": "window_warm",
+      "rect": [
+       376,
+       234,
+       5,
+       7
+      ],
+      "glow": "#907060"
+     },
+     {
+      "id": "b6_f3_c1",
+      "kind": "window_warm",
+      "rect": [
+       387,
+       270,
+       5,
+       7
+      ],
+      "glow": "#d09040"
+     },
+     {
+      "id": "b6_f4_c1",
+      "kind": "window_warm",
+      "rect": [
+       387,
+       282,
+       5,
+       7
+      ],
+      "glow": "#907060"
+     },
+     {
+      "id": "b7_f2_c0",
+      "kind": "window_cold",
+      "rect": [
+       413,
+       258,
+       6,
+       5
+      ],
+      "glow": "#46607e",
+      "flicker": "tv"
+     },
+     {
+      "id": "b7_f2_c2",
+      "kind": "window_warm",
+      "rect": [
+       439,
+       258,
+       6,
+       5
+      ],
+      "glow": "#907060"
+     },
+     {
+      "id": "b8_f1_c1",
+      "kind": "window_warm",
+      "rect": [
+       557,
+       258,
+       6,
+       6
+      ],
+      "glow": "#907060"
+     },
+     {
+      "id": "b8_f3_c2",
+      "kind": "window_warm",
+      "rect": [
+       569,
+       282,
+       6,
+       6
+      ],
+      "glow": "#d09040"
+     },
+     {
+      "id": "b8_sign",
+      "kind": "lightbox",
+      "rect": [
+       541,
+       283,
+       16,
+       4
+      ],
+      "glow": "#c04020"
+     },
+     {
+      "id": "b9_f0_c0",
+      "kind": "window_warm",
+      "rect": [
+       585,
+       234,
+       7,
+       6
+      ],
+      "glow": "#907060"
+     },
+     {
+      "id": "b9_f3_c3",
+      "kind": "window_warm",
+      "rect": [
+       626,
+       270,
+       7,
+       6
+      ],
+      "glow": "#907060"
+     },
+     {
+      "id": "b9_f4_c1",
+      "kind": "window_warm",
+      "rect": [
+       599,
+       282,
+       7,
+       6
+      ],
+      "glow": "#907060"
+     },
+     {
+      "id": "b10_f0_c0",
+      "kind": "window_warm",
+      "rect": [
+       642,
+       198,
+       5,
+       5
+      ],
+      "glow": "#d09040"
+     },
+     {
+      "id": "b10_f0_c2",
+      "kind": "window_warm",
+      "rect": [
+       662,
+       198,
+       5,
+       5
+      ],
+      "glow": "#d09040"
+     },
+     {
+      "id": "b10_f1_c2",
+      "kind": "window_cold",
+      "rect": [
+       662,
+       210,
+       5,
+       5
+      ],
+      "glow": "#46607e",
+      "flicker": "tv"
+     },
+     {
+      "id": "b10_f2_c0",
+      "kind": "window_cold",
+      "rect": [
+       642,
+       222,
+       5,
+       5
+      ],
+      "glow": "#46607e",
+      "flicker": "tv"
+     },
+     {
+      "id": "b10_f6_c1",
+      "kind": "window_cold",
+      "rect": [
+       652,
+       270,
+       5,
+       5
+      ],
+      "glow": "#46607e",
+      "flicker": "tv"
+     },
+     {
+      "id": "b11_f0_c3",
+      "kind": "window_warm",
+      "rect": [
+       762,
+       234,
+       6,
+       5
+      ],
+      "glow": "#907060"
+     },
+     {
+      "id": "b11_f1_c1",
+      "kind": "window_warm",
+      "rect": [
+       738,
+       246,
+       6,
+       5
+      ],
+      "glow": "#907060"
+     },
+     {
+      "id": "b11_f3_c3",
+      "kind": "window_warm",
+      "rect": [
+       762,
+       270,
+       6,
+       5
+      ],
+      "glow": "#d09040"
+     },
+     {
+      "id": "b11_sign",
+      "kind": "lightbox",
+      "rect": [
+       725,
+       286,
+       20,
+       3
+      ],
+      "glow": "#c04020"
+     },
+     {
+      "id": "b12_f0_c0",
+      "kind": "window_warm",
+      "rect": [
+       776,
+       246,
+       5,
+       6
+      ],
+      "glow": "#907060"
+     },
+     {
+      "id": "b12_f3_c1",
+      "kind": "window_cold",
+      "rect": [
+       788,
+       282,
+       5,
+       6
+      ],
+      "glow": "#46607e",
+      "flicker": "tv"
+     },
+     {
+      "id": "b13_f1_c2",
+      "kind": "window_cold",
+      "rect": [
+       846,
+       246,
+       6,
+       6
+      ],
+      "glow": "#46607e",
+      "flicker": "tv"
+     },
+     {
+      "id": "b13_f2_c2",
+      "kind": "window_warm",
+      "rect": [
+       846,
+       258,
+       6,
+       6
+      ],
+      "glow": "#907060"
+     },
+     {
+      "id": "b13_f3_c0",
+      "kind": "window_warm",
+      "rect": [
+       819,
+       270,
+       6,
+       6
+      ],
+      "glow": "#907060"
+     },
+     {
+      "id": "b13_sign",
+      "kind": "lightbox",
+      "rect": [
+       846,
+       282,
+       28,
+       6
+      ],
+      "glow": "#c04020"
+     },
+     {
+      "id": "b14_f1_c1",
+      "kind": "window_warm",
+      "rect": [
+       946,
+       246,
+       6,
+       5
+      ],
+      "glow": "#d09040"
+     },
+     {
+      "id": "b14_f4_c2",
+      "kind": "window_cold",
+      "rect": [
+       960,
+       282,
+       6,
+       5
+      ],
+      "glow": "#46607e",
+      "flicker": "tv"
+     },
+     {
+      "id": "b15_f0_c0",
+      "kind": "window_warm",
+      "rect": [
+       978,
+       246,
+       5,
+       5
+      ],
+      "glow": "#907060"
+     },
+     {
+      "id": "b15_f3_c1",
+      "kind": "window_cold",
+      "rect": [
+       988,
+       282,
+       5,
+       5
+      ],
+      "glow": "#46607e",
+      "flicker": "tv"
+     },
+     {
+      "id": "b16_f1_c2",
+      "kind": "window_cold",
+      "rect": [
+       1103,
+       234,
+       6,
+       6
+      ],
+      "glow": "#46607e",
+      "flicker": "tv"
+     },
+     {
+      "id": "b16_f2_c0",
+      "kind": "window_warm",
+      "rect": [
+       1077,
+       246,
+       6,
+       6
+      ],
+      "glow": "#d09040"
+     },
+     {
+      "id": "b16_f2_c2",
+      "kind": "window_warm",
+      "rect": [
+       1103,
+       246,
+       6,
+       6
+      ],
+      "glow": "#907060"
+     },
+     {
+      "id": "b16_f3_c0",
+      "kind": "window_warm",
+      "rect": [
+       1077,
+       258,
+       6,
+       6
+      ],
+      "glow": "#907060"
+     },
+     {
+      "id": "b16_f5_c3",
+      "kind": "window_cold",
+      "rect": [
+       1116,
+       282,
+       6,
+       6
+      ],
+      "glow": "#46607e",
+      "flicker": "tv"
+     },
+     {
+      "id": "b17_f1_c1",
+      "kind": "window_warm",
+      "rect": [
+       1144,
+       246,
+       5,
+       6
+      ],
+      "glow": "#907060"
+     },
+     {
+      "id": "b17_f3_c2",
+      "kind": "window_warm",
+      "rect": [
+       1156,
+       270,
+       5,
+       6
+      ],
+      "glow": "#d09040"
+     },
+     {
+      "id": "b17_f4_c2",
+      "kind": "window_cold",
+      "rect": [
+       1155,
+       282,
+       7,
+       5
+      ],
+      "glow": "#46607e",
+      "flicker": "tv"
+     },
+     {
+      "id": "b18_f0_c0",
+      "kind": "window_warm",
+      "rect": [
+       1217,
+       234,
+       7,
+       5
+      ],
+      "glow": "#907060"
+     },
+     {
+      "id": "b18_f2_c3",
+      "kind": "window_cold",
+      "rect": [
+       1258,
+       258,
+       7,
+       5
+      ],
+      "glow": "#46607e",
+      "flicker": "tv"
+     },
+     {
+      "id": "b18_f3_c1",
+      "kind": "window_cold",
+      "rect": [
+       1230,
+       270,
+       7,
+       5
+      ],
+      "glow": "#46607e",
+      "flicker": "tv"
+     },
+     {
+      "id": "b18_f3_c3",
+      "kind": "window_warm",
+      "rect": [
+       1258,
+       270,
+       7,
+       5
+      ],
+      "glow": "#907060"
+     },
+     {
+      "id": "b18_f4_c1",
+      "kind": "window_warm",
+      "rect": [
+       1230,
+       282,
+       7,
+       5
+      ],
+      "glow": "#907060"
+     },
+     {
+      "id": "b18_sign",
+      "kind": "lightbox",
+      "rect": [
+       1258,
+       285,
+       20,
+       4
+      ],
+      "glow": "#c04020"
+     }
+    ]
+   ]
+  },
+  "bg_r1_l4_tile_emissive": {
+   "layer": "bg_r1_l4_tile",
+   "file": "bg/r1_l4_tile_emissive.png",
+   "frameW": 1280,
+   "frameH": 360,
+   "frameCount": 1,
+   "origin": [
+    0.0,
+    0.0
+   ],
+   "originPx": [
+    0,
+    0
+   ],
+   "frames": [
+    [
+     {
+      "id": "shack_window",
+      "kind": "window_warm",
+      "rect": [
+       884,
+       292,
+       10,
+       8
+      ],
+      "glow": "#d09040",
+      "note": "the survivor's lamp-lit window (already #d09040 in the base)"
+     }
+    ]
+   ]
+  },
+  "bg_r1_l2_mid_emissive": {
+   "layer": "bg_r1_l2_mid",
+   "file": "bg/r1_l2_mid_emissive.png",
+   "frameW": 960,
+   "frameH": 360,
+   "frameCount": 1,
+   "origin": [
+    0.0,
+    0.0
+   ],
+   "originPx": [
+    0,
+    0
+   ],
+   "frames": [
+    [
+     {
+      "id": "deck_lamp_0",
+      "kind": "streetlamp",
+      "rect": [
+       64,
+       214,
+       2,
+       1
+      ],
+      "glow": "#c3cfa8",
+      "note": "elevated-road lamp head (2px); cone straight down onto the deck at y 229"
+     },
+     {
+      "id": "deck_lamp_1",
+      "kind": "streetlamp",
+      "rect": [
+       194,
+       214,
+       2,
+       1
+      ],
+      "glow": "#c3cfa8",
+      "note": "elevated-road lamp head (2px); cone straight down onto the deck at y 229"
+     },
+     {
+      "id": "deck_lamp_2",
+      "kind": "streetlamp",
+      "rect": [
+       304,
+       214,
+       2,
+       1
+      ],
+      "glow": "#c3cfa8",
+      "note": "elevated-road lamp head (2px); cone straight down onto the deck at y 229"
+     },
+     {
+      "id": "deck_lamp_3",
+      "kind": "streetlamp",
+      "rect": [
+       454,
+       214,
+       2,
+       1
+      ],
+      "glow": "#c3cfa8",
+      "note": "elevated-road lamp head (2px); cone straight down onto the deck at y 229"
+     },
+     {
+      "id": "deck_lamp_4",
+      "kind": "streetlamp",
+      "rect": [
+       884,
+       214,
+       2,
+       1
+      ],
+      "glow": "#c3cfa8",
+      "note": "elevated-road lamp head (2px); cone straight down onto the deck at y 229"
+     },
+     {
+      "id": "tower_bal_1",
+      "kind": "window_warm",
+      "rect": [
+       221,
+       185,
+       5,
+       4
+      ],
+      "glow": "#907060"
+     },
+     {
+      "id": "tower_bal_4",
+      "kind": "window_warm",
+      "rect": [
+       221,
+       209,
+       5,
+       4
+      ],
+      "glow": "#907060"
+     },
+     {
+      "id": "tower_dot_12_7",
+      "kind": "window_warm",
+      "rect": [
+       258,
+       153,
+       3,
+       3
+      ],
+      "glow": "#907060"
+     },
+     {
+      "id": "tower_dot_22_39",
+      "kind": "window_cold",
+      "rect": [
+       268,
+       185,
+       3,
+       3
+      ],
+      "glow": "#46607e"
+     },
+     {
+      "id": "tower_dot_4_47",
+      "kind": "window_warm",
+      "rect": [
+       250,
+       193,
+       3,
+       3
+      ],
+      "glow": "#907060"
+     }
+    ]
+   ]
+  }
+ },
+ "streetlamp": {
+  "key": "bg_r1_l4_streetlamp",
+  "frame": [
+   24,
+   120
+  ],
+  "originPx": [
+   12,
+   119
+  ],
+  "head": {
+   "px": [
+    18.0,
+    17.0
+   ],
+   "fromOrigin": [
+    6.0,
+    -102.0
+   ],
+   "lensRect": [
+    14,
+    16,
+    8,
+    2
+   ],
+   "color": "#d8d0c0",
+   "rim": "#c3cfa8"
+  },
+  "cone": {
+   "apexPx": [
+    18.0,
+    18
+   ],
+   "apexFromOrigin": [
+    6.0,
+    -101
+   ],
+   "dirDeg": 90,
+   "halfAngleDeg": 26,
+   "lengthPx": 101,
+   "levels": [
+    0.22,
+    0.55,
+    1.0
+   ],
+   "color": "#c3cfa8",
+   "note": "straight down (dirDeg 90 = +y); the head overhangs the post by 6px, so the cone is centred 6px right of the post on an unflipped lamp; mirror x when the sprite is flipped"
+  },
+  "pool": {
+   "centerPx": [
+    18.0,
+    119
+   ],
+   "centerFromOrigin": [
+    6.0,
+    0
+   ],
+   "rx": 49.3,
+   "ry": 6,
+   "color": "#c3cfa8"
+  },
+  "space": "L4 (scroll 0.75): the pool lands on L4 ground; for light on the play layer (L5) project the cone from the lamp's screen position each frame"
+ }
+}

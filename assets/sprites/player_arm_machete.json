@@ -1,0 +1,302 @@
+[
+ {
+  "frame": 0,
+  "angleDeg": -90.0,
+  "muzzle": [
+   33,
+   -1
+  ],
+  "shellPort": [
+   32,
+   20
+  ]
+ },
+ {
+  "frame": 1,
+  "angleDeg": -82.5,
+  "muzzle": [
+   37,
+   0
+  ],
+  "shellPort": [
+   34,
+   20
+  ]
+ },
+ {
+  "frame": 2,
+  "angleDeg": -75.0,
+  "muzzle": [
+   41,
+   1
+  ],
+  "shellPort": [
+   35,
+   20
+  ]
+ },
+ {
+  "frame": 3,
+  "angleDeg": -67.5,
+  "muzzle": [
+   45,
+   2
+  ],
+  "shellPort": [
+   37,
+   21
+  ]
+ },
+ {
+  "frame": 4,
+  "angleDeg": -60.0,
+  "muzzle": [
+   49,
+   4
+  ],
+  "shellPort": [
+   38,
+   22
+  ]
+ },
+ {
+  "frame": 5,
+  "angleDeg": -52.5,
+  "muzzle": [
+   53,
+   6
+  ],
+  "shellPort": [
+   39,
+   22
+  ]
+ },
+ {
+  "frame": 6,
+  "angleDeg": -45.0,
+  "muzzle": [
+   56,
+   9
+  ],
+  "shellPort": [
+   40,
+   24
+  ]
+ },
+ {
+  "frame": 7,
+  "angleDeg": -37.5,
+  "muzzle": [
+   59,
+   13
+  ],
+  "shellPort": [
+   42,
+   25
+  ]
+ },
+ {
+  "frame": 8,
+  "angleDeg": -30.0,
+  "muzzle": [
+   61,
+   16
+  ],
+  "shellPort": [
+   42,
+   26
+  ]
+ },
+ {
+  "frame": 9,
+  "angleDeg": -22.5,
+  "muzzle": [
+   63,
+   20
+  ],
+  "shellPort": [
+   43,
+   27
+  ]
+ },
+ {
+  "frame": 10,
+  "angleDeg": -15.0,
+  "muzzle": [
+   64,
+   24
+  ],
+  "shellPort": [
+   44,
+   29
+  ]
+ },
+ {
+  "frame": 11,
+  "angleDeg": -7.5,
+  "muzzle": [
+   65,
+   28
+  ],
+  "shellPort": [
+   44,
+   30
+  ]
+ },
+ {
+  "frame": 12,
+  "angleDeg": 0.0,
+  "muzzle": [
+   66,
+   33
+  ],
+  "shellPort": [
+   44,
+   32
+  ]
+ },
+ {
+  "frame": 13,
+  "angleDeg": 7.5,
+  "muzzle": [
+   65,
+   37
+  ],
+  "shellPort": [
+   44,
+   34
+  ]
+ },
+ {
+  "frame": 14,
+  "angleDeg": 15.0,
+  "muzzle": [
+   64,
+   41
+  ],
+  "shellPort": [
+   44,
+   35
+  ]
+ },
+ {
+  "frame": 15,
+  "angleDeg": 22.5,
+  "muzzle": [
+   63,
+   45
+  ],
+  "shellPort": [
+   43,
+   37
+  ]
+ },
+ {
+  "frame": 16,
+  "angleDeg": 30.0,
+  "muzzle": [
+   61,
+   49
+  ],
+  "shellPort": [
+   42,
+   38
+  ]
+ },
+ {
+  "frame": 17,
+  "angleDeg": 37.5,
+  "muzzle": [
+   59,
+   53
+  ],
+  "shellPort": [
+   42,
+   39
+  ]
+ },
+ {
+  "frame": 18,
+  "angleDeg": 45.0,
+  "muzzle": [
+   56,
+   56
+  ],
+  "shellPort": [
+   40,
+   40
+  ]
+ },
+ {
+  "frame": 19,
+  "angleDeg": 52.5,
+  "muzzle": [
+   52,
+   59
+  ],
+  "shellPort": [
+   39,
+   42
+  ]
+ },
+ {
+  "frame": 20,
+  "angleDeg": 60.0,
+  "muzzle": [
+   49,
+   61
+  ],
+  "shellPort": [
+   38,
+   42
+  ]
+ },
+ {
+  "frame": 21,
+  "angleDeg": 67.5,
+  "muzzle": [
+   45,
+   63
+  ],
+  "shellPort": [
+   37,
+   43
+  ]
+ },
+ {
+  "frame": 22,
+  "angleDeg": 75.0,
+  "muzzle": [
+   41,
+   64
+  ],
+  "shellPort": [
+   35,
+   44
+  ]
+ },
+ {
+  "frame": 23,
+  "angleDeg": 82.5,
+  "muzzle": [
+   37,
+   65
+  ],
+  "shellPort": [
+   34,
+   44
+  ]
+ },
+ {
+  "frame": 24,
+  "angleDeg": 90.0,
+  "muzzle": [
+   32,
+   66
+  ],
+  "shellPort": [
+   32,
+   44
+  ]
+ }
+]

@@ -1,0 +1,14 @@
+{
+ "key": "fx_boss_chain",
+ "image": "fx_boss_chain.png",
+ "frameWidth": 10,
+ "frameHeight": 10,
+ "frames": {
+  "0": "horizontal tile, period 10 px (TileSprite height 10, tile in x)",
+  "1": "vertical tile, period 10 px (TileSprite width 10, tile in y) - hook rain chains",
+  "2-5": "face link stamp (5x3 + outline) at 0 / 45 / 90 / 135 deg",
+  "6-9": "edge link stamp (3x2 + outline) at 0 / 45 / 90 / 135 deg"
+ },
+ "any_angle": "stamp links along the line every 5 px alternating face (2-5) / edge (6-9), picking the stamp whose angle is nearest the chain direction (mod 180); no rotation of pixels needed. For -10..+35 deg throws frames 2/6 (0 deg) and 3/7 (45 deg) cover it.",
+ "normal": "fx_boss_chain_n.png (not in manifest)"
+}
