@@ -1,0 +1,133 @@
+{
+ "key": "spr_pc_sniper_x",
+ "image": "pc_sniper_x.png",
+ "frameWidth": 48,
+ "frameHeight": 56,
+ "originPx": [
+  24,
+  55
+ ],
+ "soleRow": 54,
+ "coords": "和 sprites/player.json 同一套帧坐标（帧左上角 = 0,0，原点 24,55）；armLayer=true 的帧在 points.shoulder 画武器手臂层（同 spr_player）",
+ "frames": [
+  {
+   "frame": 0,
+   "anim": "pc_sniper_steady",
+   "armLayer": true,
+   "ms": 400,
+   "points": {
+    "shoulder": [
+     29,
+     26
+    ],
+    "shoulderBack": [
+     27,
+     30
+    ]
+   }
+  },
+  {
+   "frame": 1,
+   "anim": "pc_sniper_steady",
+   "armLayer": true,
+   "ms": 400,
+   "points": {
+    "shoulder": [
+     29,
+     26
+    ],
+    "shoulderBack": [
+     27,
+     30
+    ]
+   }
+  },
+  {
+   "frame": 2,
+   "anim": "pc_sniper_mark",
+   "armLayer": true,
+   "ms": 60,
+   "points": {
+    "shoulder": [
+     29,
+     27
+    ],
+    "shoulderBack": [
+     27,
+     31
+    ]
+   }
+  },
+  {
+   "frame": 3,
+   "anim": "pc_sniper_mark",
+   "armLayer": true,
+   "ms": 100,
+   "points": {
+    "shoulder": [
+     27,
+     26
+    ],
+    "shoulderBack": [
+     25,
+     30
+    ]
+   }
+  },
+  {
+   "frame": 4,
+   "anim": "pc_sniper_mark",
+   "armLayer": true,
+   "ms": 120,
+   "points": {
+    "shoulder": [
+     28,
+     26
+    ],
+    "shoulderBack": [
+     26,
+     30
+    ]
+   }
+  }
+ ],
+ "anims": {
+  "pc_sniper_steady": {
+   "frames": [
+    0,
+    1
+   ],
+   "durationsMs": [
+    400,
+    400
+   ],
+   "armLayer": [
+    true,
+    true
+   ],
+   "totalMs": 800,
+   "loop": true,
+   "usage": "屏息：站定 0.7 秒后代替待机循环播放（2 帧 x 400ms，loop）。armLayer=true：能开枪，手臂层画在 points.shoulder。"
+  },
+  "pc_sniper_mark": {
+   "frames": [
+    2,
+    3,
+    4
+   ],
+   "durationsMs": [
+    60,
+    100,
+    120
+   ],
+   "armLayer": [
+    true,
+    true,
+    true
+   ],
+   "totalMs": 280,
+   "loop": false,
+   "usage": "按 G 标记射击：帧 1（击发）时从枪口打出标记弹。armLayer=true（枪一直在手上）。"
+  }
+ }
+}
