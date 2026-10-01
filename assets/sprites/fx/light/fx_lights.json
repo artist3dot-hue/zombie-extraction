@@ -39,14 +39,29 @@
    "fx_levelup",
    "fx_levelup_front",
    "fx_muzzle_crossbow",
+   "fx_muzzle_crossbow_b",
+   "fx_muzzle_crossbow_c",
    "fx_muzzle_flamer",
+   "fx_muzzle_flamer_b",
+   "fx_muzzle_flamer_c",
    "fx_muzzle_grenade",
+   "fx_muzzle_grenade_b",
+   "fx_muzzle_grenade_c",
    "fx_muzzle_pistol",
+   "fx_muzzle_pistol_b",
+   "fx_muzzle_pistol_c",
    "fx_muzzle_revolver",
+   "fx_muzzle_revolver_b",
+   "fx_muzzle_revolver_c",
    "fx_muzzle_rifle",
+   "fx_muzzle_rifle_b",
+   "fx_muzzle_rifle_c",
    "fx_muzzle_shotgun",
+   "fx_muzzle_shotgun_b",
+   "fx_muzzle_shotgun_c",
    "fx_muzzle_smg",
-   "fx_muzzle_smg_b"
+   "fx_muzzle_smg_b",
+   "fx_muzzle_smg_c"
   ],
   "litWithEmit": {
    "fx_hit_flesh": "fx_hit_flesh_emit",
@@ -963,6 +978,725 @@
     }
    ],
    "aliasOf": "fx_muzzle_flamer"
+  },
+  "fx_muzzle_pistol_b": {
+   "color": "#ffd86a",
+   "stamps": [
+    {
+     "cookie": "fx_light_wall_84",
+     "target": "set",
+     "alpha": [
+      1.0,
+      0.55,
+      0.0
+     ],
+     "cropAtGround": true,
+     "shadow": true
+    },
+    {
+     "cookie": "fx_light_ring_24",
+     "target": "set",
+     "alpha": [
+      0.35,
+      0.19,
+      0.0
+     ],
+     "cropAtGround": true
+    },
+    {
+     "cookie": "fx_light_ground_92",
+     "target": "set",
+     "at": "ground",
+     "alpha": [
+      1.0,
+      0.55,
+      0.0
+     ],
+     "groundRange": 56
+    },
+    {
+     "cookie": "fx_light_hot_92",
+     "target": "actor",
+     "alpha": [
+      1.0,
+      0.55,
+      0.0
+     ]
+    },
+    {
+     "cookie": "fx_light_lobe",
+     "target": "actor",
+     "rotate": "aim",
+     "scale": 1.0,
+     "alpha": [
+      0.8,
+      0.44,
+      0.0
+     ]
+    }
+   ]
+  },
+  "fx_muzzle_pistol_c": {
+   "color": "#ffd86a",
+   "stamps": [
+    {
+     "cookie": "fx_light_wall_84",
+     "target": "set",
+     "alpha": [
+      1.0,
+      0.55,
+      0.0
+     ],
+     "cropAtGround": true,
+     "shadow": true
+    },
+    {
+     "cookie": "fx_light_ring_24",
+     "target": "set",
+     "alpha": [
+      0.35,
+      0.19,
+      0.0
+     ],
+     "cropAtGround": true
+    },
+    {
+     "cookie": "fx_light_ground_92",
+     "target": "set",
+     "at": "ground",
+     "alpha": [
+      1.0,
+      0.55,
+      0.0
+     ],
+     "groundRange": 56
+    },
+    {
+     "cookie": "fx_light_hot_92",
+     "target": "actor",
+     "alpha": [
+      1.0,
+      0.55,
+      0.0
+     ]
+    },
+    {
+     "cookie": "fx_light_lobe",
+     "target": "actor",
+     "rotate": "aim",
+     "scale": 1.0,
+     "alpha": [
+      0.8,
+      0.44,
+      0.0
+     ]
+    }
+   ]
+  },
+  "fx_muzzle_smg_c": {
+   "color": "#ffd86a",
+   "stamps": [
+    {
+     "cookie": "fx_light_wall_64",
+     "target": "set",
+     "alpha": [
+      0.55,
+      0.22,
+      0.0
+     ],
+     "cropAtGround": true,
+     "shadow": true
+    },
+    {
+     "cookie": "fx_light_ring_24",
+     "target": "set",
+     "alpha": [
+      0.19,
+      0.08,
+      0.0
+     ],
+     "cropAtGround": true
+    },
+    {
+     "cookie": "fx_light_ground_64",
+     "target": "set",
+     "at": "ground",
+     "alpha": [
+      0.55,
+      0.22,
+      0.0
+     ],
+     "groundRange": 56
+    },
+    {
+     "cookie": "fx_light_hot_64",
+     "target": "actor",
+     "alpha": [
+      0.55,
+      0.22,
+      0.0
+     ]
+    },
+    {
+     "cookie": "fx_light_lobe",
+     "target": "actor",
+     "rotate": "aim",
+     "scale": 0.7,
+     "alpha": [
+      0.44,
+      0.18,
+      0.0
+     ]
+    }
+   ]
+  },
+  "fx_muzzle_revolver_b": {
+   "color": "#ffd86a",
+   "stamps": [
+    {
+     "cookie": "fx_light_wall_110",
+     "target": "set",
+     "alpha": [
+      1.0,
+      0.55,
+      0.0
+     ],
+     "cropAtGround": true,
+     "shadow": true
+    },
+    {
+     "cookie": "fx_light_ring_24",
+     "target": "set",
+     "alpha": [
+      0.35,
+      0.19,
+      0.0
+     ],
+     "cropAtGround": true
+    },
+    {
+     "cookie": "fx_light_ground_92",
+     "target": "set",
+     "at": "ground",
+     "alpha": [
+      1.0,
+      0.55,
+      0.0
+     ],
+     "groundRange": 56
+    },
+    {
+     "cookie": "fx_light_hot_92",
+     "target": "actor",
+     "alpha": [
+      1.0,
+      0.55,
+      0.0
+     ]
+    },
+    {
+     "cookie": "fx_light_lobe",
+     "target": "actor",
+     "rotate": "aim",
+     "scale": 1.0,
+     "alpha": [
+      0.8,
+      0.44,
+      0.0
+     ]
+    }
+   ]
+  },
+  "fx_muzzle_revolver_c": {
+   "color": "#ffd86a",
+   "stamps": [
+    {
+     "cookie": "fx_light_wall_110",
+     "target": "set",
+     "alpha": [
+      1.0,
+      0.55,
+      0.0
+     ],
+     "cropAtGround": true,
+     "shadow": true
+    },
+    {
+     "cookie": "fx_light_ring_24",
+     "target": "set",
+     "alpha": [
+      0.35,
+      0.19,
+      0.0
+     ],
+     "cropAtGround": true
+    },
+    {
+     "cookie": "fx_light_ground_92",
+     "target": "set",
+     "at": "ground",
+     "alpha": [
+      1.0,
+      0.55,
+      0.0
+     ],
+     "groundRange": 56
+    },
+    {
+     "cookie": "fx_light_hot_92",
+     "target": "actor",
+     "alpha": [
+      1.0,
+      0.55,
+      0.0
+     ]
+    },
+    {
+     "cookie": "fx_light_lobe",
+     "target": "actor",
+     "rotate": "aim",
+     "scale": 1.0,
+     "alpha": [
+      0.8,
+      0.44,
+      0.0
+     ]
+    }
+   ]
+  },
+  "fx_muzzle_shotgun_b": {
+   "color": "#ffd86a",
+   "stamps": [
+    {
+     "cookie": "fx_light_wall_110",
+     "target": "set",
+     "alpha": [
+      1.0,
+      0.55,
+      0.22
+     ],
+     "cropAtGround": true,
+     "shadow": true
+    },
+    {
+     "cookie": "fx_light_ring_24",
+     "target": "set",
+     "alpha": [
+      0.35,
+      0.19,
+      0.08
+     ],
+     "cropAtGround": true
+    },
+    {
+     "cookie": "fx_light_ground_92",
+     "target": "set",
+     "at": "ground",
+     "alpha": [
+      1.0,
+      0.55,
+      0.22
+     ],
+     "groundRange": 56
+    },
+    {
+     "cookie": "fx_light_hot_92",
+     "target": "actor",
+     "alpha": [
+      1.0,
+      0.55,
+      0.22
+     ]
+    },
+    {
+     "cookie": "fx_light_lobe",
+     "target": "actor",
+     "rotate": "aim",
+     "scale": 1.0,
+     "alpha": [
+      0.8,
+      0.44,
+      0.18
+     ]
+    }
+   ]
+  },
+  "fx_muzzle_shotgun_c": {
+   "color": "#ffd86a",
+   "stamps": [
+    {
+     "cookie": "fx_light_wall_110",
+     "target": "set",
+     "alpha": [
+      1.0,
+      0.55,
+      0.22
+     ],
+     "cropAtGround": true,
+     "shadow": true
+    },
+    {
+     "cookie": "fx_light_ring_24",
+     "target": "set",
+     "alpha": [
+      0.35,
+      0.19,
+      0.08
+     ],
+     "cropAtGround": true
+    },
+    {
+     "cookie": "fx_light_ground_92",
+     "target": "set",
+     "at": "ground",
+     "alpha": [
+      1.0,
+      0.55,
+      0.22
+     ],
+     "groundRange": 56
+    },
+    {
+     "cookie": "fx_light_hot_92",
+     "target": "actor",
+     "alpha": [
+      1.0,
+      0.55,
+      0.22
+     ]
+    },
+    {
+     "cookie": "fx_light_lobe",
+     "target": "actor",
+     "rotate": "aim",
+     "scale": 1.0,
+     "alpha": [
+      0.8,
+      0.44,
+      0.18
+     ]
+    }
+   ]
+  },
+  "fx_muzzle_rifle_b": {
+   "color": "#ffd86a",
+   "stamps": [
+    {
+     "cookie": "fx_light_wall_84",
+     "target": "set",
+     "alpha": [
+      1.0,
+      0.55,
+      0.0
+     ],
+     "cropAtGround": true,
+     "shadow": true
+    },
+    {
+     "cookie": "fx_light_ring_24",
+     "target": "set",
+     "alpha": [
+      0.35,
+      0.19,
+      0.0
+     ],
+     "cropAtGround": true
+    },
+    {
+     "cookie": "fx_light_ground_92",
+     "target": "set",
+     "at": "ground",
+     "alpha": [
+      1.0,
+      0.55,
+      0.0
+     ],
+     "groundRange": 56
+    },
+    {
+     "cookie": "fx_light_hot_92",
+     "target": "actor",
+     "alpha": [
+      1.0,
+      0.55,
+      0.0
+     ]
+    },
+    {
+     "cookie": "fx_light_lobe",
+     "target": "actor",
+     "rotate": "aim",
+     "scale": 1.0,
+     "alpha": [
+      0.8,
+      0.44,
+      0.0
+     ]
+    }
+   ]
+  },
+  "fx_muzzle_rifle_c": {
+   "color": "#ffd86a",
+   "stamps": [
+    {
+     "cookie": "fx_light_wall_84",
+     "target": "set",
+     "alpha": [
+      1.0,
+      0.55,
+      0.0
+     ],
+     "cropAtGround": true,
+     "shadow": true
+    },
+    {
+     "cookie": "fx_light_ring_24",
+     "target": "set",
+     "alpha": [
+      0.35,
+      0.19,
+      0.0
+     ],
+     "cropAtGround": true
+    },
+    {
+     "cookie": "fx_light_ground_92",
+     "target": "set",
+     "at": "ground",
+     "alpha": [
+      1.0,
+      0.55,
+      0.0
+     ],
+     "groundRange": 56
+    },
+    {
+     "cookie": "fx_light_hot_92",
+     "target": "actor",
+     "alpha": [
+      1.0,
+      0.55,
+      0.0
+     ]
+    },
+    {
+     "cookie": "fx_light_lobe",
+     "target": "actor",
+     "rotate": "aim",
+     "scale": 1.0,
+     "alpha": [
+      0.8,
+      0.44,
+      0.0
+     ]
+    }
+   ]
+  },
+  "fx_muzzle_grenade_b": {
+   "color": "#f59a2f",
+   "stamps": [
+    {
+     "cookie": "fx_light_wall_64",
+     "target": "set",
+     "alpha": [
+      0.55,
+      0.22,
+      0.0
+     ],
+     "cropAtGround": true,
+     "shadow": true
+    },
+    {
+     "cookie": "fx_light_ring_24",
+     "target": "set",
+     "alpha": [
+      0.19,
+      0.08,
+      0.0
+     ],
+     "cropAtGround": true
+    },
+    {
+     "cookie": "fx_light_ground_64",
+     "target": "set",
+     "at": "ground",
+     "alpha": [
+      0.55,
+      0.22,
+      0.0
+     ],
+     "groundRange": 56
+    },
+    {
+     "cookie": "fx_light_hot_48",
+     "target": "actor",
+     "alpha": [
+      0.55,
+      0.22,
+      0.0
+     ]
+    }
+   ]
+  },
+  "fx_muzzle_grenade_c": {
+   "color": "#f59a2f",
+   "stamps": [
+    {
+     "cookie": "fx_light_wall_64",
+     "target": "set",
+     "alpha": [
+      0.55,
+      0.22,
+      0.0
+     ],
+     "cropAtGround": true,
+     "shadow": true
+    },
+    {
+     "cookie": "fx_light_ring_24",
+     "target": "set",
+     "alpha": [
+      0.19,
+      0.08,
+      0.0
+     ],
+     "cropAtGround": true
+    },
+    {
+     "cookie": "fx_light_ground_64",
+     "target": "set",
+     "at": "ground",
+     "alpha": [
+      0.55,
+      0.22,
+      0.0
+     ],
+     "groundRange": 56
+    },
+    {
+     "cookie": "fx_light_hot_48",
+     "target": "actor",
+     "alpha": [
+      0.55,
+      0.22,
+      0.0
+     ]
+    }
+   ]
+  },
+  "fx_muzzle_flamer_b": {
+   "color": "#f59a2f",
+   "stamps": [
+    {
+     "cookie": "fx_light_wall_84",
+     "target": "set",
+     "alpha": [
+      0.55,
+      0.55,
+      0.55
+     ],
+     "cropAtGround": true,
+     "shadow": true
+    },
+    {
+     "cookie": "fx_light_ring_24",
+     "target": "set",
+     "alpha": [
+      0.19,
+      0.19,
+      0.19
+     ],
+     "cropAtGround": true
+    },
+    {
+     "cookie": "fx_light_ground_92",
+     "target": "set",
+     "at": "ground",
+     "alpha": [
+      0.55,
+      0.55,
+      0.55
+     ],
+     "groundRange": 56
+    },
+    {
+     "cookie": "fx_light_hot_64",
+     "target": "actor",
+     "alpha": [
+      0.55,
+      0.55,
+      0.55
+     ]
+    },
+    {
+     "cookie": "fx_light_lobe",
+     "target": "actor",
+     "rotate": "aim",
+     "scale": 0.7,
+     "alpha": [
+      0.44,
+      0.44,
+      0.44
+     ]
+    }
+   ]
+  },
+  "fx_muzzle_flamer_c": {
+   "color": "#f59a2f",
+   "stamps": [
+    {
+     "cookie": "fx_light_wall_84",
+     "target": "set",
+     "alpha": [
+      0.55,
+      0.55,
+      0.55
+     ],
+     "cropAtGround": true,
+     "shadow": true
+    },
+    {
+     "cookie": "fx_light_ring_24",
+     "target": "set",
+     "alpha": [
+      0.19,
+      0.19,
+      0.19
+     ],
+     "cropAtGround": true
+    },
+    {
+     "cookie": "fx_light_ground_92",
+     "target": "set",
+     "at": "ground",
+     "alpha": [
+      0.55,
+      0.55,
+      0.55
+     ],
+     "groundRange": 56
+    },
+    {
+     "cookie": "fx_light_hot_64",
+     "target": "actor",
+     "alpha": [
+      0.55,
+      0.55,
+      0.55
+     ]
+    },
+    {
+     "cookie": "fx_light_lobe",
+     "target": "actor",
+     "rotate": "aim",
+     "scale": 0.7,
+     "alpha": [
+      0.44,
+      0.44,
+      0.44
+     ]
+    }
+   ]
   },
   "fx_hitstar": {
    "color": "#fff6d8",
