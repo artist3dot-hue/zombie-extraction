@@ -151,5 +151,7 @@
  ],
  "brief": "乌鸦：黑羽 + 冷蓝油光，楔形尾；帧按区域 1 腐鸽同规格 32×32 中心原点（清单草案写的 24×20 放不下翻滚）。",
  "groundRow": 26,
- "groundNote": "peck 帧最低不透明行 = 26（脚底墨线），放在表面 surfaceY 上：sprite.y = surfaceY - (26 + 1 - 16)"
+ "groundNote": "peck 帧最低不透明行 = 26（脚底墨线），放在表面 surfaceY 上：sprite.y = surfaceY - (26 + 1 - 16)",
+ "deathGroundRow": 23,
+ "deathGroundNote": "脚底修正：death 最后一帧最低实心行 = 23（尸体躺在表面上：sprite.y = 表面 − (23 + 1 − 16)）"
 }

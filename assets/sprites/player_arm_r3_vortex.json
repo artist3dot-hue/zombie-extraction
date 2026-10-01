@@ -1,0 +1,1400 @@
+[
+ {
+  "frame": 0,
+  "angleDeg": -90.0,
+  "muzzle": [
+   28,
+   5
+  ],
+  "shellPort": [
+   23,
+   15
+  ],
+  "gunDeg": -90.0
+ },
+ {
+  "frame": 1,
+  "angleDeg": -82.5,
+  "muzzle": [
+   32,
+   5
+  ],
+  "shellPort": [
+   25,
+   14
+  ],
+  "gunDeg": -82.5
+ },
+ {
+  "frame": 2,
+  "angleDeg": -75.0,
+  "muzzle": [
+   35,
+   5
+  ],
+  "shellPort": [
+   28,
+   13
+  ],
+  "gunDeg": -75.0
+ },
+ {
+  "frame": 3,
+  "angleDeg": -67.5,
+  "muzzle": [
+   39,
+   6
+  ],
+  "shellPort": [
+   30,
+   13
+  ],
+  "gunDeg": -67.5
+ },
+ {
+  "frame": 4,
+  "angleDeg": -60.0,
+  "muzzle": [
+   42,
+   7
+  ],
+  "shellPort": [
+   33,
+   13
+  ],
+  "gunDeg": -60.0
+ },
+ {
+  "frame": 5,
+  "angleDeg": -52.5,
+  "muzzle": [
+   45,
+   8
+  ],
+  "shellPort": [
+   35,
+   13
+  ],
+  "gunDeg": -52.5
+ },
+ {
+  "frame": 6,
+  "angleDeg": -45.0,
+  "muzzle": [
+   48,
+   10
+  ],
+  "shellPort": [
+   38,
+   14
+  ],
+  "gunDeg": -45.0
+ },
+ {
+  "frame": 7,
+  "angleDeg": -37.5,
+  "muzzle": [
+   51,
+   12
+  ],
+  "shellPort": [
+   40,
+   15
+  ],
+  "gunDeg": -37.5
+ },
+ {
+  "frame": 8,
+  "angleDeg": -30.0,
+  "muzzle": [
+   53,
+   15
+  ],
+  "shellPort": [
+   42,
+   16
+  ],
+  "gunDeg": -30.0
+ },
+ {
+  "frame": 9,
+  "angleDeg": -22.5,
+  "muzzle": [
+   55,
+   18
+  ],
+  "shellPort": [
+   44,
+   17
+  ],
+  "gunDeg": -22.5
+ },
+ {
+  "frame": 10,
+  "angleDeg": -15.0,
+  "muzzle": [
+   57,
+   21
+  ],
+  "shellPort": [
+   46,
+   19
+  ],
+  "gunDeg": -15.0
+ },
+ {
+  "frame": 11,
+  "angleDeg": -7.5,
+  "muzzle": [
+   58,
+   25
+  ],
+  "shellPort": [
+   48,
+   21
+  ],
+  "gunDeg": -7.5
+ },
+ {
+  "frame": 12,
+  "angleDeg": 0.0,
+  "muzzle": [
+   59,
+   28
+  ],
+  "shellPort": [
+   49,
+   23
+  ],
+  "gunDeg": 0.0
+ },
+ {
+  "frame": 13,
+  "angleDeg": 7.5,
+  "muzzle": [
+   59,
+   32
+  ],
+  "shellPort": [
+   50,
+   25
+  ],
+  "gunDeg": 7.5
+ },
+ {
+  "frame": 14,
+  "angleDeg": 15.0,
+  "muzzle": [
+   59,
+   35
+  ],
+  "shellPort": [
+   51,
+   28
+  ],
+  "gunDeg": 15.0
+ },
+ {
+  "frame": 15,
+  "angleDeg": 22.5,
+  "muzzle": [
+   58,
+   39
+  ],
+  "shellPort": [
+   51,
+   30
+  ],
+  "gunDeg": 22.5
+ },
+ {
+  "frame": 16,
+  "angleDeg": 30.0,
+  "muzzle": [
+   57,
+   42
+  ],
+  "shellPort": [
+   51,
+   33
+  ],
+  "gunDeg": 30.0
+ },
+ {
+  "frame": 17,
+  "angleDeg": 37.5,
+  "muzzle": [
+   56,
+   45
+  ],
+  "shellPort": [
+   51,
+   35
+  ],
+  "gunDeg": 37.5
+ },
+ {
+  "frame": 18,
+  "angleDeg": 45.0,
+  "muzzle": [
+   54,
+   48
+  ],
+  "shellPort": [
+   50,
+   38
+  ],
+  "gunDeg": 45.0
+ },
+ {
+  "frame": 19,
+  "angleDeg": 52.5,
+  "muzzle": [
+   52,
+   51
+  ],
+  "shellPort": [
+   49,
+   40
+  ],
+  "gunDeg": 52.5
+ },
+ {
+  "frame": 20,
+  "angleDeg": 60.0,
+  "muzzle": [
+   49,
+   53
+  ],
+  "shellPort": [
+   48,
+   42
+  ],
+  "gunDeg": 60.0
+ },
+ {
+  "frame": 21,
+  "angleDeg": 67.5,
+  "muzzle": [
+   46,
+   55
+  ],
+  "shellPort": [
+   47,
+   44
+  ],
+  "gunDeg": 67.5
+ },
+ {
+  "frame": 22,
+  "angleDeg": 75.0,
+  "muzzle": [
+   43,
+   57
+  ],
+  "shellPort": [
+   45,
+   46
+  ],
+  "gunDeg": 75.0
+ },
+ {
+  "frame": 23,
+  "angleDeg": 82.5,
+  "muzzle": [
+   39,
+   58
+  ],
+  "shellPort": [
+   43,
+   48
+  ],
+  "gunDeg": 82.5
+ },
+ {
+  "frame": 24,
+  "angleDeg": 90.0,
+  "muzzle": [
+   36,
+   59
+  ],
+  "shellPort": [
+   41,
+   49
+  ],
+  "gunDeg": 90.0
+ },
+ {
+  "frame": 25,
+  "anim": "player_arm_r3_vortex_fire",
+  "phase": 0,
+  "aimFrame": 0,
+  "aimDeg": -90.0,
+  "durationMs": 50,
+  "muzzle": [
+   26,
+   8
+  ],
+  "shellPort": [
+   22,
+   19
+  ],
+  "gunDeg": -99.0
+ },
+ {
+  "frame": 26,
+  "anim": "player_arm_r3_vortex_fire",
+  "phase": 0,
+  "aimFrame": 1,
+  "aimDeg": -82.5,
+  "durationMs": 50,
+  "muzzle": [
+   29,
+   7
+  ],
+  "shellPort": [
+   24,
+   17
+  ],
+  "gunDeg": -91.5
+ },
+ {
+  "frame": 27,
+  "anim": "player_arm_r3_vortex_fire",
+  "phase": 0,
+  "aimFrame": 2,
+  "aimDeg": -75.0,
+  "durationMs": 50,
+  "muzzle": [
+   32,
+   8
+  ],
+  "shellPort": [
+   26,
+   17
+  ],
+  "gunDeg": -84.0
+ },
+ {
+  "frame": 28,
+  "anim": "player_arm_r3_vortex_fire",
+  "phase": 0,
+  "aimFrame": 3,
+  "aimDeg": -67.5,
+  "durationMs": 50,
+  "muzzle": [
+   35,
+   7
+  ],
+  "shellPort": [
+   28,
+   16
+  ],
+  "gunDeg": -76.5
+ },
+ {
+  "frame": 29,
+  "anim": "player_arm_r3_vortex_fire",
+  "phase": 0,
+  "aimFrame": 4,
+  "aimDeg": -60.0,
+  "durationMs": 50,
+  "muzzle": [
+   38,
+   8
+  ],
+  "shellPort": [
+   30,
+   16
+  ],
+  "gunDeg": -69.0
+ },
+ {
+  "frame": 30,
+  "anim": "player_arm_r3_vortex_fire",
+  "phase": 0,
+  "aimFrame": 5,
+  "aimDeg": -52.5,
+  "durationMs": 50,
+  "muzzle": [
+   41,
+   9
+  ],
+  "shellPort": [
+   32,
+   15
+  ],
+  "gunDeg": -61.5
+ },
+ {
+  "frame": 31,
+  "anim": "player_arm_r3_vortex_fire",
+  "phase": 0,
+  "aimFrame": 6,
+  "aimDeg": -45.0,
+  "durationMs": 50,
+  "muzzle": [
+   44,
+   10
+  ],
+  "shellPort": [
+   34,
+   15
+  ],
+  "gunDeg": -54.0
+ },
+ {
+  "frame": 32,
+  "anim": "player_arm_r3_vortex_fire",
+  "phase": 0,
+  "aimFrame": 7,
+  "aimDeg": -37.5,
+  "durationMs": 50,
+  "muzzle": [
+   46,
+   12
+  ],
+  "shellPort": [
+   36,
+   16
+  ],
+  "gunDeg": -46.5
+ },
+ {
+  "frame": 33,
+  "anim": "player_arm_r3_vortex_fire",
+  "phase": 0,
+  "aimFrame": 8,
+  "aimDeg": -30.0,
+  "durationMs": 50,
+  "muzzle": [
+   49,
+   14
+  ],
+  "shellPort": [
+   38,
+   16
+  ],
+  "gunDeg": -39.0
+ },
+ {
+  "frame": 34,
+  "anim": "player_arm_r3_vortex_fire",
+  "phase": 0,
+  "aimFrame": 9,
+  "aimDeg": -22.5,
+  "durationMs": 50,
+  "muzzle": [
+   51,
+   16
+  ],
+  "shellPort": [
+   40,
+   17
+  ],
+  "gunDeg": -31.5
+ },
+ {
+  "frame": 35,
+  "anim": "player_arm_r3_vortex_fire",
+  "phase": 0,
+  "aimFrame": 10,
+  "aimDeg": -15.0,
+  "durationMs": 50,
+  "muzzle": [
+   54,
+   19
+  ],
+  "shellPort": [
+   42,
+   18
+  ],
+  "gunDeg": -24.0
+ },
+ {
+  "frame": 36,
+  "anim": "player_arm_r3_vortex_fire",
+  "phase": 0,
+  "aimFrame": 11,
+  "aimDeg": -7.5,
+  "durationMs": 50,
+  "muzzle": [
+   55,
+   23
+  ],
+  "shellPort": [
+   44,
+   21
+  ],
+  "gunDeg": -16.5
+ },
+ {
+  "frame": 37,
+  "anim": "player_arm_r3_vortex_fire",
+  "phase": 0,
+  "aimFrame": 12,
+  "aimDeg": 0.0,
+  "durationMs": 50,
+  "muzzle": [
+   56,
+   26
+  ],
+  "shellPort": [
+   45,
+   22
+  ],
+  "gunDeg": -9.0
+ },
+ {
+  "frame": 38,
+  "anim": "player_arm_r3_vortex_fire",
+  "phase": 0,
+  "aimFrame": 13,
+  "aimDeg": 7.5,
+  "durationMs": 50,
+  "muzzle": [
+   57,
+   29
+  ],
+  "shellPort": [
+   47,
+   24
+  ],
+  "gunDeg": -1.5
+ },
+ {
+  "frame": 39,
+  "anim": "player_arm_r3_vortex_fire",
+  "phase": 0,
+  "aimFrame": 14,
+  "aimDeg": 15.0,
+  "durationMs": 50,
+  "muzzle": [
+   56,
+   32
+  ],
+  "shellPort": [
+   47,
+   26
+  ],
+  "gunDeg": 6.0
+ },
+ {
+  "frame": 40,
+  "anim": "player_arm_r3_vortex_fire",
+  "phase": 0,
+  "aimFrame": 15,
+  "aimDeg": 22.5,
+  "durationMs": 50,
+  "muzzle": [
+   57,
+   35
+  ],
+  "shellPort": [
+   48,
+   28
+  ],
+  "gunDeg": 13.5
+ },
+ {
+  "frame": 41,
+  "anim": "player_arm_r3_vortex_fire",
+  "phase": 0,
+  "aimFrame": 16,
+  "aimDeg": 30.0,
+  "durationMs": 50,
+  "muzzle": [
+   56,
+   38
+  ],
+  "shellPort": [
+   48,
+   30
+  ],
+  "gunDeg": 21.0
+ },
+ {
+  "frame": 42,
+  "anim": "player_arm_r3_vortex_fire",
+  "phase": 0,
+  "aimFrame": 17,
+  "aimDeg": 37.5,
+  "durationMs": 50,
+  "muzzle": [
+   55,
+   41
+  ],
+  "shellPort": [
+   49,
+   32
+  ],
+  "gunDeg": 28.5
+ },
+ {
+  "frame": 43,
+  "anim": "player_arm_r3_vortex_fire",
+  "phase": 0,
+  "aimFrame": 18,
+  "aimDeg": 45.0,
+  "durationMs": 50,
+  "muzzle": [
+   54,
+   44
+  ],
+  "shellPort": [
+   49,
+   34
+  ],
+  "gunDeg": 36.0
+ },
+ {
+  "frame": 44,
+  "anim": "player_arm_r3_vortex_fire",
+  "phase": 0,
+  "aimFrame": 19,
+  "aimDeg": 52.5,
+  "durationMs": 50,
+  "muzzle": [
+   52,
+   46
+  ],
+  "shellPort": [
+   48,
+   36
+  ],
+  "gunDeg": 43.5
+ },
+ {
+  "frame": 45,
+  "anim": "player_arm_r3_vortex_fire",
+  "phase": 0,
+  "aimFrame": 20,
+  "aimDeg": 60.0,
+  "durationMs": 50,
+  "muzzle": [
+   50,
+   49
+  ],
+  "shellPort": [
+   48,
+   38
+  ],
+  "gunDeg": 51.0
+ },
+ {
+  "frame": 46,
+  "anim": "player_arm_r3_vortex_fire",
+  "phase": 0,
+  "aimFrame": 21,
+  "aimDeg": 67.5,
+  "durationMs": 50,
+  "muzzle": [
+   48,
+   51
+  ],
+  "shellPort": [
+   47,
+   40
+  ],
+  "gunDeg": 58.5
+ },
+ {
+  "frame": 47,
+  "anim": "player_arm_r3_vortex_fire",
+  "phase": 0,
+  "aimFrame": 22,
+  "aimDeg": 75.0,
+  "durationMs": 50,
+  "muzzle": [
+   45,
+   54
+  ],
+  "shellPort": [
+   46,
+   42
+  ],
+  "gunDeg": 66.0
+ },
+ {
+  "frame": 48,
+  "anim": "player_arm_r3_vortex_fire",
+  "phase": 0,
+  "aimFrame": 23,
+  "aimDeg": 82.5,
+  "durationMs": 50,
+  "muzzle": [
+   41,
+   55
+  ],
+  "shellPort": [
+   43,
+   44
+  ],
+  "gunDeg": 73.5
+ },
+ {
+  "frame": 49,
+  "anim": "player_arm_r3_vortex_fire",
+  "phase": 0,
+  "aimFrame": 24,
+  "aimDeg": 90.0,
+  "durationMs": 50,
+  "muzzle": [
+   38,
+   56
+  ],
+  "shellPort": [
+   42,
+   45
+  ],
+  "gunDeg": 81.0
+ },
+ {
+  "frame": 50,
+  "anim": "player_arm_r3_vortex_fire",
+  "phase": 1,
+  "aimFrame": 0,
+  "aimDeg": -90.0,
+  "durationMs": 120,
+  "muzzle": [
+   27,
+   6
+  ],
+  "shellPort": [
+   23,
+   17
+  ],
+  "gunDeg": -94.0
+ },
+ {
+  "frame": 51,
+  "anim": "player_arm_r3_vortex_fire",
+  "phase": 1,
+  "aimFrame": 1,
+  "aimDeg": -82.5,
+  "durationMs": 120,
+  "muzzle": [
+   30,
+   6
+  ],
+  "shellPort": [
+   24,
+   15
+  ],
+  "gunDeg": -86.5
+ },
+ {
+  "frame": 52,
+  "anim": "player_arm_r3_vortex_fire",
+  "phase": 1,
+  "aimFrame": 2,
+  "aimDeg": -75.0,
+  "durationMs": 120,
+  "muzzle": [
+   33,
+   6
+  ],
+  "shellPort": [
+   26,
+   15
+  ],
+  "gunDeg": -79.0
+ },
+ {
+  "frame": 53,
+  "anim": "player_arm_r3_vortex_fire",
+  "phase": 1,
+  "aimFrame": 3,
+  "aimDeg": -67.5,
+  "durationMs": 120,
+  "muzzle": [
+   37,
+   6
+  ],
+  "shellPort": [
+   29,
+   14
+  ],
+  "gunDeg": -71.5
+ },
+ {
+  "frame": 54,
+  "anim": "player_arm_r3_vortex_fire",
+  "phase": 1,
+  "aimFrame": 4,
+  "aimDeg": -60.0,
+  "durationMs": 120,
+  "muzzle": [
+   41,
+   7
+  ],
+  "shellPort": [
+   32,
+   14
+  ],
+  "gunDeg": -64.0
+ },
+ {
+  "frame": 55,
+  "anim": "player_arm_r3_vortex_fire",
+  "phase": 1,
+  "aimFrame": 5,
+  "aimDeg": -52.5,
+  "durationMs": 120,
+  "muzzle": [
+   44,
+   9
+  ],
+  "shellPort": [
+   34,
+   14
+  ],
+  "gunDeg": -56.5
+ },
+ {
+  "frame": 56,
+  "anim": "player_arm_r3_vortex_fire",
+  "phase": 1,
+  "aimFrame": 6,
+  "aimDeg": -45.0,
+  "durationMs": 120,
+  "muzzle": [
+   47,
+   11
+  ],
+  "shellPort": [
+   36,
+   15
+  ],
+  "gunDeg": -49.0
+ },
+ {
+  "frame": 57,
+  "anim": "player_arm_r3_vortex_fire",
+  "phase": 1,
+  "aimFrame": 7,
+  "aimDeg": -37.5,
+  "durationMs": 120,
+  "muzzle": [
+   49,
+   13
+  ],
+  "shellPort": [
+   38,
+   16
+  ],
+  "gunDeg": -41.5
+ },
+ {
+  "frame": 58,
+  "anim": "player_arm_r3_vortex_fire",
+  "phase": 1,
+  "aimFrame": 8,
+  "aimDeg": -30.0,
+  "durationMs": 120,
+  "muzzle": [
+   51,
+   15
+  ],
+  "shellPort": [
+   40,
+   16
+  ],
+  "gunDeg": -34.0
+ },
+ {
+  "frame": 59,
+  "anim": "player_arm_r3_vortex_fire",
+  "phase": 1,
+  "aimFrame": 9,
+  "aimDeg": -22.5,
+  "durationMs": 120,
+  "muzzle": [
+   53,
+   17
+  ],
+  "shellPort": [
+   42,
+   17
+  ],
+  "gunDeg": -26.5
+ },
+ {
+  "frame": 60,
+  "anim": "player_arm_r3_vortex_fire",
+  "phase": 1,
+  "aimFrame": 10,
+  "aimDeg": -15.0,
+  "durationMs": 120,
+  "muzzle": [
+   56,
+   20
+  ],
+  "shellPort": [
+   44,
+   19
+  ],
+  "gunDeg": -19.0
+ },
+ {
+  "frame": 61,
+  "anim": "player_arm_r3_vortex_fire",
+  "phase": 1,
+  "aimFrame": 11,
+  "aimDeg": -7.5,
+  "durationMs": 120,
+  "muzzle": [
+   57,
+   24
+  ],
+  "shellPort": [
+   46,
+   21
+  ],
+  "gunDeg": -11.5
+ },
+ {
+  "frame": 62,
+  "anim": "player_arm_r3_vortex_fire",
+  "phase": 1,
+  "aimFrame": 12,
+  "aimDeg": 0.0,
+  "durationMs": 120,
+  "muzzle": [
+   58,
+   27
+  ],
+  "shellPort": [
+   47,
+   23
+  ],
+  "gunDeg": -4.0
+ },
+ {
+  "frame": 63,
+  "anim": "player_arm_r3_vortex_fire",
+  "phase": 1,
+  "aimFrame": 13,
+  "aimDeg": 7.5,
+  "durationMs": 120,
+  "muzzle": [
+   58,
+   30
+  ],
+  "shellPort": [
+   49,
+   24
+  ],
+  "gunDeg": 3.5
+ },
+ {
+  "frame": 64,
+  "anim": "player_arm_r3_vortex_fire",
+  "phase": 1,
+  "aimFrame": 14,
+  "aimDeg": 15.0,
+  "durationMs": 120,
+  "muzzle": [
+   58,
+   33
+  ],
+  "shellPort": [
+   49,
+   26
+  ],
+  "gunDeg": 11.0
+ },
+ {
+  "frame": 65,
+  "anim": "player_arm_r3_vortex_fire",
+  "phase": 1,
+  "aimFrame": 15,
+  "aimDeg": 22.5,
+  "durationMs": 120,
+  "muzzle": [
+   58,
+   37
+  ],
+  "shellPort": [
+   50,
+   29
+  ],
+  "gunDeg": 18.5
+ },
+ {
+  "frame": 66,
+  "anim": "player_arm_r3_vortex_fire",
+  "phase": 1,
+  "aimFrame": 16,
+  "aimDeg": 30.0,
+  "durationMs": 120,
+  "muzzle": [
+   57,
+   41
+  ],
+  "shellPort": [
+   50,
+   32
+  ],
+  "gunDeg": 26.0
+ },
+ {
+  "frame": 67,
+  "anim": "player_arm_r3_vortex_fire",
+  "phase": 1,
+  "aimFrame": 17,
+  "aimDeg": 37.5,
+  "durationMs": 120,
+  "muzzle": [
+   55,
+   44
+  ],
+  "shellPort": [
+   50,
+   34
+  ],
+  "gunDeg": 33.5
+ },
+ {
+  "frame": 68,
+  "anim": "player_arm_r3_vortex_fire",
+  "phase": 1,
+  "aimFrame": 18,
+  "aimDeg": 45.0,
+  "durationMs": 120,
+  "muzzle": [
+   53,
+   47
+  ],
+  "shellPort": [
+   49,
+   36
+  ],
+  "gunDeg": 41.0
+ },
+ {
+  "frame": 69,
+  "anim": "player_arm_r3_vortex_fire",
+  "phase": 1,
+  "aimFrame": 19,
+  "aimDeg": 52.5,
+  "durationMs": 120,
+  "muzzle": [
+   51,
+   49
+  ],
+  "shellPort": [
+   48,
+   38
+  ],
+  "gunDeg": 48.5
+ },
+ {
+  "frame": 70,
+  "anim": "player_arm_r3_vortex_fire",
+  "phase": 1,
+  "aimFrame": 20,
+  "aimDeg": 60.0,
+  "durationMs": 120,
+  "muzzle": [
+   49,
+   51
+  ],
+  "shellPort": [
+   48,
+   40
+  ],
+  "gunDeg": 56.0
+ },
+ {
+  "frame": 71,
+  "anim": "player_arm_r3_vortex_fire",
+  "phase": 1,
+  "aimFrame": 21,
+  "aimDeg": 67.5,
+  "durationMs": 120,
+  "muzzle": [
+   47,
+   53
+  ],
+  "shellPort": [
+   47,
+   42
+  ],
+  "gunDeg": 63.5
+ },
+ {
+  "frame": 72,
+  "anim": "player_arm_r3_vortex_fire",
+  "phase": 1,
+  "aimFrame": 22,
+  "aimDeg": 75.0,
+  "durationMs": 120,
+  "muzzle": [
+   44,
+   56
+  ],
+  "shellPort": [
+   45,
+   44
+  ],
+  "gunDeg": 71.0
+ },
+ {
+  "frame": 73,
+  "anim": "player_arm_r3_vortex_fire",
+  "phase": 1,
+  "aimFrame": 23,
+  "aimDeg": 82.5,
+  "durationMs": 120,
+  "muzzle": [
+   40,
+   57
+  ],
+  "shellPort": [
+   43,
+   46
+  ],
+  "gunDeg": 78.5
+ },
+ {
+  "frame": 74,
+  "anim": "player_arm_r3_vortex_fire",
+  "phase": 1,
+  "aimFrame": 24,
+  "aimDeg": 90.0,
+  "durationMs": 120,
+  "muzzle": [
+   37,
+   58
+  ],
+  "shellPort": [
+   41,
+   47
+  ],
+  "gunDeg": 86.0
+ },
+ {
+  "frame": 75,
+  "anim": "player_arm_r3_vortex_reload",
+  "step": 0,
+  "key": "thumb_hatch",
+  "durationMs": 280,
+  "muzzle": [
+   56,
+   23
+  ],
+  "shellPort": [
+   45,
+   21
+  ],
+  "gunDeg": -14
+ },
+ {
+  "frame": 76,
+  "anim": "player_arm_r3_vortex_reload",
+  "step": 1,
+  "key": "flip_open",
+  "durationMs": 240,
+  "muzzle": [
+   56,
+   23
+  ],
+  "shellPort": [
+   45,
+   21
+  ],
+  "gunDeg": -14
+ },
+ {
+  "frame": 77,
+  "anim": "player_arm_r3_vortex_reload",
+  "step": 2,
+  "key": "fetch",
+  "durationMs": 600,
+  "muzzle": [
+   56,
+   23
+  ],
+  "shellPort": [
+   45,
+   21
+  ],
+  "gunDeg": -14
+ },
+ {
+  "frame": 78,
+  "anim": "player_arm_r3_vortex_reload",
+  "step": 3,
+  "key": "drop_in",
+  "durationMs": 420,
+  "muzzle": [
+   56,
+   23
+  ],
+  "shellPort": [
+   45,
+   21
+  ],
+  "gunDeg": -14
+ },
+ {
+  "frame": 79,
+  "anim": "player_arm_r3_vortex_reload",
+  "step": 4,
+  "key": "close",
+  "durationMs": 140,
+  "muzzle": [
+   56,
+   24
+  ],
+  "shellPort": [
+   45,
+   22
+  ],
+  "gunDeg": -14
+ },
+ {
+  "frame": 80,
+  "anim": "player_arm_r3_vortex_reload",
+  "step": 5,
+  "key": "hum",
+  "durationMs": 380,
+  "muzzle": [
+   56,
+   23
+  ],
+  "shellPort": [
+   45,
+   21
+  ],
+  "gunDeg": -14
+ },
+ {
+  "frame": 81,
+  "anim": "player_arm_r3_vortex_reload",
+  "step": 6,
+  "key": "settle",
+  "durationMs": 540,
+  "muzzle": [
+   59,
+   27
+  ],
+  "shellPort": [
+   48,
+   23
+  ],
+  "gunDeg": -3
+ },
+ {
+  "anims": {
+   "player_arm_r3_vortex_aim": {
+    "frames": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     10,
+     11,
+     12,
+     13,
+     14,
+     15,
+     16,
+     17,
+     18,
+     19,
+     20,
+     21,
+     22,
+     23,
+     24
+    ],
+    "note": "pick by aim angle, not played"
+   },
+   "player_arm_r3_vortex_fire": {
+    "frames": [
+     37,
+     62
+    ],
+    "durationsMs": [
+     50,
+     120
+    ],
+    "loop": false,
+    "perAim": true,
+    "perAimRule": "frame = 25*(phase+1) + aimFrame; after the last phase return to aimFrame",
+    "framesAt0Deg": [
+     37,
+     62
+    ]
+   },
+   "player_arm_r3_vortex_reload": {
+    "frames": [
+     75,
+     76,
+     77,
+     78,
+     79,
+     80,
+     81
+    ],
+    "durationsMs": [
+     280,
+     240,
+     600,
+     420,
+     140,
+     380,
+     540
+    ],
+    "totalMs": 2600,
+    "keys": [
+     "thumb_hatch",
+     "flip_open",
+     "fetch",
+     "drop_in",
+     "close",
+     "hum",
+     "settle"
+    ],
+    "loop": false,
+    "perAim": false
+   }
+  },
+  "layout": {
+   "columns": 25,
+   "frameWidth": 64,
+   "frameHeight": 64,
+   "pivot": [
+    32,
+    32
+   ],
+   "rows": [
+    "aim 0..24 (-90..+90 step 7.5)",
+    "fire phase 0 (recoil peak) 25..49",
+    "fire phase 1 (recover) 50..74",
+    "fixed keys 75.. (reload)"
+   ]
+  },
+  "light": {
+   "normalMap": "player_arm_r3_vortex_n.png",
+   "normalConvention": "RGB = (n+1)/2, x right, y UP, z to viewer (OpenGL); flipX -> negate R",
+   "bakedLight": "same as v02-player-arms: one top-front world light applied after rotating each piece; glow parts (cyan / violet / amber / acid / hot) are fixed colours",
+   "emissive": null,
+   "rim": {
+    "file": "player_arm_r3_vortex_rim.png",
+    "layout": "3 blocks L / R / T, each the full sheet grid",
+    "frameIndex": "side * 100 + frame (side 0 = L, 1 = R, 2 = T); swap L/R when flipX",
+    "cells": 100
+   }
+  },
+  "reloadTiming": "durationsMs are nominal; scale the reload anim so totalMs == weapon reloadMs"
+ }
+]

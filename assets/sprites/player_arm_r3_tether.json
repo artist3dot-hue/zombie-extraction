@@ -1,0 +1,1438 @@
+[
+ {
+  "frame": 0,
+  "angleDeg": -90.0,
+  "muzzle": [
+   29,
+   3
+  ],
+  "shellPort": [
+   24,
+   19
+  ],
+  "gunDeg": -90.0
+ },
+ {
+  "frame": 1,
+  "angleDeg": -82.5,
+  "muzzle": [
+   33,
+   3
+  ],
+  "shellPort": [
+   26,
+   18
+  ],
+  "gunDeg": -82.5
+ },
+ {
+  "frame": 2,
+  "angleDeg": -75.0,
+  "muzzle": [
+   37,
+   3
+  ],
+  "shellPort": [
+   28,
+   17
+  ],
+  "gunDeg": -75.0
+ },
+ {
+  "frame": 3,
+  "angleDeg": -67.5,
+  "muzzle": [
+   40,
+   4
+  ],
+  "shellPort": [
+   30,
+   17
+  ],
+  "gunDeg": -67.5
+ },
+ {
+  "frame": 4,
+  "angleDeg": -60.0,
+  "muzzle": [
+   44,
+   5
+  ],
+  "shellPort": [
+   32,
+   17
+  ],
+  "gunDeg": -60.0
+ },
+ {
+  "frame": 5,
+  "angleDeg": -52.5,
+  "muzzle": [
+   47,
+   7
+  ],
+  "shellPort": [
+   34,
+   17
+  ],
+  "gunDeg": -52.5
+ },
+ {
+  "frame": 6,
+  "angleDeg": -45.0,
+  "muzzle": [
+   50,
+   9
+  ],
+  "shellPort": [
+   36,
+   17
+  ],
+  "gunDeg": -45.0
+ },
+ {
+  "frame": 7,
+  "angleDeg": -37.5,
+  "muzzle": [
+   53,
+   12
+  ],
+  "shellPort": [
+   37,
+   18
+  ],
+  "gunDeg": -37.5
+ },
+ {
+  "frame": 8,
+  "angleDeg": -30.0,
+  "muzzle": [
+   56,
+   15
+  ],
+  "shellPort": [
+   39,
+   19
+  ],
+  "gunDeg": -30.0
+ },
+ {
+  "frame": 9,
+  "angleDeg": -22.5,
+  "muzzle": [
+   58,
+   18
+  ],
+  "shellPort": [
+   41,
+   20
+  ],
+  "gunDeg": -22.5
+ },
+ {
+  "frame": 10,
+  "angleDeg": -15.0,
+  "muzzle": [
+   59,
+   22
+  ],
+  "shellPort": [
+   42,
+   21
+  ],
+  "gunDeg": -15.0
+ },
+ {
+  "frame": 11,
+  "angleDeg": -7.5,
+  "muzzle": [
+   60,
+   25
+  ],
+  "shellPort": [
+   44,
+   22
+  ],
+  "gunDeg": -7.5
+ },
+ {
+  "frame": 12,
+  "angleDeg": 0.0,
+  "muzzle": [
+   61,
+   29
+  ],
+  "shellPort": [
+   45,
+   24
+  ],
+  "gunDeg": 0.0
+ },
+ {
+  "frame": 13,
+  "angleDeg": 7.5,
+  "muzzle": [
+   61,
+   33
+  ],
+  "shellPort": [
+   46,
+   26
+  ],
+  "gunDeg": 7.5
+ },
+ {
+  "frame": 14,
+  "angleDeg": 15.0,
+  "muzzle": [
+   61,
+   37
+  ],
+  "shellPort": [
+   47,
+   28
+  ],
+  "gunDeg": 15.0
+ },
+ {
+  "frame": 15,
+  "angleDeg": 22.5,
+  "muzzle": [
+   60,
+   40
+  ],
+  "shellPort": [
+   47,
+   30
+  ],
+  "gunDeg": 22.5
+ },
+ {
+  "frame": 16,
+  "angleDeg": 30.0,
+  "muzzle": [
+   59,
+   44
+  ],
+  "shellPort": [
+   47,
+   32
+  ],
+  "gunDeg": 30.0
+ },
+ {
+  "frame": 17,
+  "angleDeg": 37.5,
+  "muzzle": [
+   57,
+   47
+  ],
+  "shellPort": [
+   47,
+   34
+  ],
+  "gunDeg": 37.5
+ },
+ {
+  "frame": 18,
+  "angleDeg": 45.0,
+  "muzzle": [
+   55,
+   50
+  ],
+  "shellPort": [
+   47,
+   36
+  ],
+  "gunDeg": 45.0
+ },
+ {
+  "frame": 19,
+  "angleDeg": 52.5,
+  "muzzle": [
+   52,
+   53
+  ],
+  "shellPort": [
+   46,
+   37
+  ],
+  "gunDeg": 52.5
+ },
+ {
+  "frame": 20,
+  "angleDeg": 60.0,
+  "muzzle": [
+   49,
+   56
+  ],
+  "shellPort": [
+   45,
+   39
+  ],
+  "gunDeg": 60.0
+ },
+ {
+  "frame": 21,
+  "angleDeg": 67.5,
+  "muzzle": [
+   46,
+   58
+  ],
+  "shellPort": [
+   44,
+   41
+  ],
+  "gunDeg": 67.5
+ },
+ {
+  "frame": 22,
+  "angleDeg": 75.0,
+  "muzzle": [
+   42,
+   59
+  ],
+  "shellPort": [
+   43,
+   42
+  ],
+  "gunDeg": 75.0
+ },
+ {
+  "frame": 23,
+  "angleDeg": 82.5,
+  "muzzle": [
+   39,
+   60
+  ],
+  "shellPort": [
+   42,
+   44
+  ],
+  "gunDeg": 82.5
+ },
+ {
+  "frame": 24,
+  "angleDeg": 90.0,
+  "muzzle": [
+   35,
+   61
+  ],
+  "shellPort": [
+   40,
+   45
+  ],
+  "gunDeg": 90.0
+ },
+ {
+  "frame": 25,
+  "anim": "player_arm_r3_tether_fire",
+  "phase": 0,
+  "aimFrame": 0,
+  "aimDeg": -90.0,
+  "durationMs": 45,
+  "muzzle": [
+   27,
+   5
+  ],
+  "shellPort": [
+   24,
+   21
+  ],
+  "gunDeg": -96.0
+ },
+ {
+  "frame": 26,
+  "anim": "player_arm_r3_tether_fire",
+  "phase": 0,
+  "aimFrame": 1,
+  "aimDeg": -82.5,
+  "durationMs": 45,
+  "muzzle": [
+   30,
+   4
+  ],
+  "shellPort": [
+   25,
+   20
+  ],
+  "gunDeg": -88.5
+ },
+ {
+  "frame": 27,
+  "anim": "player_arm_r3_tether_fire",
+  "phase": 0,
+  "aimFrame": 2,
+  "aimDeg": -75.0,
+  "durationMs": 45,
+  "muzzle": [
+   34,
+   5
+  ],
+  "shellPort": [
+   26,
+   20
+  ],
+  "gunDeg": -81.0
+ },
+ {
+  "frame": 28,
+  "anim": "player_arm_r3_tether_fire",
+  "phase": 0,
+  "aimFrame": 3,
+  "aimDeg": -67.5,
+  "durationMs": 45,
+  "muzzle": [
+   38,
+   5
+  ],
+  "shellPort": [
+   29,
+   19
+  ],
+  "gunDeg": -73.5
+ },
+ {
+  "frame": 29,
+  "anim": "player_arm_r3_tether_fire",
+  "phase": 0,
+  "aimFrame": 4,
+  "aimDeg": -60.0,
+  "durationMs": 45,
+  "muzzle": [
+   42,
+   6
+  ],
+  "shellPort": [
+   31,
+   19
+  ],
+  "gunDeg": -66.0
+ },
+ {
+  "frame": 30,
+  "anim": "player_arm_r3_tether_fire",
+  "phase": 0,
+  "aimFrame": 5,
+  "aimDeg": -52.5,
+  "durationMs": 45,
+  "muzzle": [
+   45,
+   8
+  ],
+  "shellPort": [
+   32,
+   19
+  ],
+  "gunDeg": -58.5
+ },
+ {
+  "frame": 31,
+  "anim": "player_arm_r3_tether_fire",
+  "phase": 0,
+  "aimFrame": 6,
+  "aimDeg": -45.0,
+  "durationMs": 45,
+  "muzzle": [
+   48,
+   9
+  ],
+  "shellPort": [
+   34,
+   19
+  ],
+  "gunDeg": -51.0
+ },
+ {
+  "frame": 32,
+  "anim": "player_arm_r3_tether_fire",
+  "phase": 0,
+  "aimFrame": 7,
+  "aimDeg": -37.5,
+  "durationMs": 45,
+  "muzzle": [
+   50,
+   12
+  ],
+  "shellPort": [
+   35,
+   19
+  ],
+  "gunDeg": -43.5
+ },
+ {
+  "frame": 33,
+  "anim": "player_arm_r3_tether_fire",
+  "phase": 0,
+  "aimFrame": 8,
+  "aimDeg": -30.0,
+  "durationMs": 45,
+  "muzzle": [
+   53,
+   14
+  ],
+  "shellPort": [
+   37,
+   20
+  ],
+  "gunDeg": -36.0
+ },
+ {
+  "frame": 34,
+  "anim": "player_arm_r3_tether_fire",
+  "phase": 0,
+  "aimFrame": 9,
+  "aimDeg": -22.5,
+  "durationMs": 45,
+  "muzzle": [
+   55,
+   17
+  ],
+  "shellPort": [
+   38,
+   20
+  ],
+  "gunDeg": -28.5
+ },
+ {
+  "frame": 35,
+  "anim": "player_arm_r3_tether_fire",
+  "phase": 0,
+  "aimFrame": 10,
+  "aimDeg": -15.0,
+  "durationMs": 45,
+  "muzzle": [
+   57,
+   20
+  ],
+  "shellPort": [
+   41,
+   21
+  ],
+  "gunDeg": -21.0
+ },
+ {
+  "frame": 36,
+  "anim": "player_arm_r3_tether_fire",
+  "phase": 0,
+  "aimFrame": 11,
+  "aimDeg": -7.5,
+  "durationMs": 45,
+  "muzzle": [
+   59,
+   24
+  ],
+  "shellPort": [
+   42,
+   23
+  ],
+  "gunDeg": -13.5
+ },
+ {
+  "frame": 37,
+  "anim": "player_arm_r3_tether_fire",
+  "phase": 0,
+  "aimFrame": 12,
+  "aimDeg": 0.0,
+  "durationMs": 45,
+  "muzzle": [
+   59,
+   27
+  ],
+  "shellPort": [
+   43,
+   24
+  ],
+  "gunDeg": -6.0
+ },
+ {
+  "frame": 38,
+  "anim": "player_arm_r3_tether_fire",
+  "phase": 0,
+  "aimFrame": 13,
+  "aimDeg": 7.5,
+  "durationMs": 45,
+  "muzzle": [
+   60,
+   30
+  ],
+  "shellPort": [
+   44,
+   25
+  ],
+  "gunDeg": 1.5
+ },
+ {
+  "frame": 39,
+  "anim": "player_arm_r3_tether_fire",
+  "phase": 0,
+  "aimFrame": 14,
+  "aimDeg": 15.0,
+  "durationMs": 45,
+  "muzzle": [
+   59,
+   34
+  ],
+  "shellPort": [
+   44,
+   26
+  ],
+  "gunDeg": 9.0
+ },
+ {
+  "frame": 40,
+  "anim": "player_arm_r3_tether_fire",
+  "phase": 0,
+  "aimFrame": 15,
+  "aimDeg": 22.5,
+  "durationMs": 45,
+  "muzzle": [
+   59,
+   38
+  ],
+  "shellPort": [
+   45,
+   29
+  ],
+  "gunDeg": 16.5
+ },
+ {
+  "frame": 41,
+  "anim": "player_arm_r3_tether_fire",
+  "phase": 0,
+  "aimFrame": 16,
+  "aimDeg": 30.0,
+  "durationMs": 45,
+  "muzzle": [
+   58,
+   42
+  ],
+  "shellPort": [
+   45,
+   31
+  ],
+  "gunDeg": 24.0
+ },
+ {
+  "frame": 42,
+  "anim": "player_arm_r3_tether_fire",
+  "phase": 0,
+  "aimFrame": 17,
+  "aimDeg": 37.5,
+  "durationMs": 45,
+  "muzzle": [
+   56,
+   45
+  ],
+  "shellPort": [
+   45,
+   32
+  ],
+  "gunDeg": 31.5
+ },
+ {
+  "frame": 43,
+  "anim": "player_arm_r3_tether_fire",
+  "phase": 0,
+  "aimFrame": 18,
+  "aimDeg": 45.0,
+  "durationMs": 45,
+  "muzzle": [
+   55,
+   48
+  ],
+  "shellPort": [
+   45,
+   34
+  ],
+  "gunDeg": 39.0
+ },
+ {
+  "frame": 44,
+  "anim": "player_arm_r3_tether_fire",
+  "phase": 0,
+  "aimFrame": 19,
+  "aimDeg": 52.5,
+  "durationMs": 45,
+  "muzzle": [
+   52,
+   50
+  ],
+  "shellPort": [
+   45,
+   35
+  ],
+  "gunDeg": 46.5
+ },
+ {
+  "frame": 45,
+  "anim": "player_arm_r3_tether_fire",
+  "phase": 0,
+  "aimFrame": 20,
+  "aimDeg": 60.0,
+  "durationMs": 45,
+  "muzzle": [
+   50,
+   53
+  ],
+  "shellPort": [
+   44,
+   37
+  ],
+  "gunDeg": 54.0
+ },
+ {
+  "frame": 46,
+  "anim": "player_arm_r3_tether_fire",
+  "phase": 0,
+  "aimFrame": 21,
+  "aimDeg": 67.5,
+  "durationMs": 45,
+  "muzzle": [
+   47,
+   55
+  ],
+  "shellPort": [
+   44,
+   38
+  ],
+  "gunDeg": 61.5
+ },
+ {
+  "frame": 47,
+  "anim": "player_arm_r3_tether_fire",
+  "phase": 0,
+  "aimFrame": 22,
+  "aimDeg": 75.0,
+  "durationMs": 45,
+  "muzzle": [
+   44,
+   57
+  ],
+  "shellPort": [
+   43,
+   41
+  ],
+  "gunDeg": 69.0
+ },
+ {
+  "frame": 48,
+  "anim": "player_arm_r3_tether_fire",
+  "phase": 0,
+  "aimFrame": 23,
+  "aimDeg": 82.5,
+  "durationMs": 45,
+  "muzzle": [
+   40,
+   59
+  ],
+  "shellPort": [
+   41,
+   42
+  ],
+  "gunDeg": 76.5
+ },
+ {
+  "frame": 49,
+  "anim": "player_arm_r3_tether_fire",
+  "phase": 0,
+  "aimFrame": 24,
+  "aimDeg": 90.0,
+  "durationMs": 45,
+  "muzzle": [
+   37,
+   59
+  ],
+  "shellPort": [
+   40,
+   43
+  ],
+  "gunDeg": 84.0
+ },
+ {
+  "frame": 50,
+  "anim": "player_arm_r3_tether_fire",
+  "phase": 1,
+  "aimFrame": 0,
+  "aimDeg": -90.0,
+  "durationMs": 110,
+  "muzzle": [
+   28,
+   4
+  ],
+  "shellPort": [
+   24,
+   20
+  ],
+  "gunDeg": -92.0
+ },
+ {
+  "frame": 51,
+  "anim": "player_arm_r3_tether_fire",
+  "phase": 1,
+  "aimFrame": 1,
+  "aimDeg": -82.5,
+  "durationMs": 110,
+  "muzzle": [
+   32,
+   4
+  ],
+  "shellPort": [
+   25,
+   19
+  ],
+  "gunDeg": -84.5
+ },
+ {
+  "frame": 52,
+  "anim": "player_arm_r3_tether_fire",
+  "phase": 1,
+  "aimFrame": 2,
+  "aimDeg": -75.0,
+  "durationMs": 110,
+  "muzzle": [
+   36,
+   5
+  ],
+  "shellPort": [
+   28,
+   19
+  ],
+  "gunDeg": -77.0
+ },
+ {
+  "frame": 53,
+  "anim": "player_arm_r3_tether_fire",
+  "phase": 1,
+  "aimFrame": 3,
+  "aimDeg": -67.5,
+  "durationMs": 110,
+  "muzzle": [
+   40,
+   5
+  ],
+  "shellPort": [
+   29,
+   18
+  ],
+  "gunDeg": -69.5
+ },
+ {
+  "frame": 54,
+  "anim": "player_arm_r3_tether_fire",
+  "phase": 1,
+  "aimFrame": 4,
+  "aimDeg": -60.0,
+  "durationMs": 110,
+  "muzzle": [
+   43,
+   6
+  ],
+  "shellPort": [
+   31,
+   18
+  ],
+  "gunDeg": -62.0
+ },
+ {
+  "frame": 55,
+  "anim": "player_arm_r3_tether_fire",
+  "phase": 1,
+  "aimFrame": 5,
+  "aimDeg": -52.5,
+  "durationMs": 110,
+  "muzzle": [
+   46,
+   8
+  ],
+  "shellPort": [
+   33,
+   18
+  ],
+  "gunDeg": -54.5
+ },
+ {
+  "frame": 56,
+  "anim": "player_arm_r3_tether_fire",
+  "phase": 1,
+  "aimFrame": 6,
+  "aimDeg": -45.0,
+  "durationMs": 110,
+  "muzzle": [
+   49,
+   10
+  ],
+  "shellPort": [
+   35,
+   18
+  ],
+  "gunDeg": -47.0
+ },
+ {
+  "frame": 57,
+  "anim": "player_arm_r3_tether_fire",
+  "phase": 1,
+  "aimFrame": 7,
+  "aimDeg": -37.5,
+  "durationMs": 110,
+  "muzzle": [
+   52,
+   12
+  ],
+  "shellPort": [
+   37,
+   19
+  ],
+  "gunDeg": -39.5
+ },
+ {
+  "frame": 58,
+  "anim": "player_arm_r3_tether_fire",
+  "phase": 1,
+  "aimFrame": 8,
+  "aimDeg": -30.0,
+  "durationMs": 110,
+  "muzzle": [
+   54,
+   15
+  ],
+  "shellPort": [
+   38,
+   19
+  ],
+  "gunDeg": -32.0
+ },
+ {
+  "frame": 59,
+  "anim": "player_arm_r3_tether_fire",
+  "phase": 1,
+  "aimFrame": 9,
+  "aimDeg": -22.5,
+  "durationMs": 110,
+  "muzzle": [
+   57,
+   18
+  ],
+  "shellPort": [
+   40,
+   20
+  ],
+  "gunDeg": -24.5
+ },
+ {
+  "frame": 60,
+  "anim": "player_arm_r3_tether_fire",
+  "phase": 1,
+  "aimFrame": 10,
+  "aimDeg": -15.0,
+  "durationMs": 110,
+  "muzzle": [
+   58,
+   21
+  ],
+  "shellPort": [
+   41,
+   21
+  ],
+  "gunDeg": -17.0
+ },
+ {
+  "frame": 61,
+  "anim": "player_arm_r3_tether_fire",
+  "phase": 1,
+  "aimFrame": 11,
+  "aimDeg": -7.5,
+  "durationMs": 110,
+  "muzzle": [
+   59,
+   25
+  ],
+  "shellPort": [
+   42,
+   23
+  ],
+  "gunDeg": -9.5
+ },
+ {
+  "frame": 62,
+  "anim": "player_arm_r3_tether_fire",
+  "phase": 1,
+  "aimFrame": 12,
+  "aimDeg": 0.0,
+  "durationMs": 110,
+  "muzzle": [
+   60,
+   28
+  ],
+  "shellPort": [
+   44,
+   24
+  ],
+  "gunDeg": -2.0
+ },
+ {
+  "frame": 63,
+  "anim": "player_arm_r3_tether_fire",
+  "phase": 1,
+  "aimFrame": 13,
+  "aimDeg": 7.5,
+  "durationMs": 110,
+  "muzzle": [
+   60,
+   32
+  ],
+  "shellPort": [
+   45,
+   25
+  ],
+  "gunDeg": 5.5
+ },
+ {
+  "frame": 64,
+  "anim": "player_arm_r3_tether_fire",
+  "phase": 1,
+  "aimFrame": 14,
+  "aimDeg": 15.0,
+  "durationMs": 110,
+  "muzzle": [
+   59,
+   36
+  ],
+  "shellPort": [
+   45,
+   28
+  ],
+  "gunDeg": 13.0
+ },
+ {
+  "frame": 65,
+  "anim": "player_arm_r3_tether_fire",
+  "phase": 1,
+  "aimFrame": 15,
+  "aimDeg": 22.5,
+  "durationMs": 110,
+  "muzzle": [
+   59,
+   40
+  ],
+  "shellPort": [
+   46,
+   29
+  ],
+  "gunDeg": 20.5
+ },
+ {
+  "frame": 66,
+  "anim": "player_arm_r3_tether_fire",
+  "phase": 1,
+  "aimFrame": 16,
+  "aimDeg": 30.0,
+  "durationMs": 110,
+  "muzzle": [
+   58,
+   43
+  ],
+  "shellPort": [
+   46,
+   31
+  ],
+  "gunDeg": 28.0
+ },
+ {
+  "frame": 67,
+  "anim": "player_arm_r3_tether_fire",
+  "phase": 1,
+  "aimFrame": 17,
+  "aimDeg": 37.5,
+  "durationMs": 110,
+  "muzzle": [
+   56,
+   46
+  ],
+  "shellPort": [
+   46,
+   33
+  ],
+  "gunDeg": 35.5
+ },
+ {
+  "frame": 68,
+  "anim": "player_arm_r3_tether_fire",
+  "phase": 1,
+  "aimFrame": 18,
+  "aimDeg": 45.0,
+  "durationMs": 110,
+  "muzzle": [
+   54,
+   49
+  ],
+  "shellPort": [
+   46,
+   35
+  ],
+  "gunDeg": 43.0
+ },
+ {
+  "frame": 69,
+  "anim": "player_arm_r3_tether_fire",
+  "phase": 1,
+  "aimFrame": 19,
+  "aimDeg": 52.5,
+  "durationMs": 110,
+  "muzzle": [
+   52,
+   52
+  ],
+  "shellPort": [
+   45,
+   37
+  ],
+  "gunDeg": 50.5
+ },
+ {
+  "frame": 70,
+  "anim": "player_arm_r3_tether_fire",
+  "phase": 1,
+  "aimFrame": 20,
+  "aimDeg": 60.0,
+  "durationMs": 110,
+  "muzzle": [
+   49,
+   54
+  ],
+  "shellPort": [
+   45,
+   38
+  ],
+  "gunDeg": 58.0
+ },
+ {
+  "frame": 71,
+  "anim": "player_arm_r3_tether_fire",
+  "phase": 1,
+  "aimFrame": 21,
+  "aimDeg": 67.5,
+  "durationMs": 110,
+  "muzzle": [
+   46,
+   57
+  ],
+  "shellPort": [
+   44,
+   40
+  ],
+  "gunDeg": 65.5
+ },
+ {
+  "frame": 72,
+  "anim": "player_arm_r3_tether_fire",
+  "phase": 1,
+  "aimFrame": 22,
+  "aimDeg": 75.0,
+  "durationMs": 110,
+  "muzzle": [
+   43,
+   58
+  ],
+  "shellPort": [
+   43,
+   41
+  ],
+  "gunDeg": 73.0
+ },
+ {
+  "frame": 73,
+  "anim": "player_arm_r3_tether_fire",
+  "phase": 1,
+  "aimFrame": 23,
+  "aimDeg": 82.5,
+  "durationMs": 110,
+  "muzzle": [
+   39,
+   59
+  ],
+  "shellPort": [
+   41,
+   42
+  ],
+  "gunDeg": 80.5
+ },
+ {
+  "frame": 74,
+  "anim": "player_arm_r3_tether_fire",
+  "phase": 1,
+  "aimFrame": 24,
+  "aimDeg": 90.0,
+  "durationMs": 110,
+  "muzzle": [
+   36,
+   60
+  ],
+  "shellPort": [
+   40,
+   44
+  ],
+  "gunDeg": 88.0
+ },
+ {
+  "frame": 75,
+  "anim": "player_arm_r3_tether_reload",
+  "step": 0,
+  "key": "grab",
+  "durationMs": 200,
+  "muzzle": [
+   58,
+   24
+  ],
+  "shellPort": [
+   42,
+   23
+  ],
+  "gunDeg": -14
+ },
+ {
+  "frame": 76,
+  "anim": "player_arm_r3_tether_reload",
+  "step": 1,
+  "key": "lift_off",
+  "durationMs": 160,
+  "muzzle": [
+   58,
+   24
+  ],
+  "shellPort": [
+   42,
+   23
+  ],
+  "gunDeg": -14
+ },
+ {
+  "frame": 77,
+  "anim": "player_arm_r3_tether_reload",
+  "step": 2,
+  "key": "toss",
+  "durationMs": 180,
+  "muzzle": [
+   58,
+   24
+  ],
+  "shellPort": [
+   42,
+   23
+  ],
+  "gunDeg": -14
+ },
+ {
+  "frame": 78,
+  "anim": "player_arm_r3_tether_reload",
+  "step": 3,
+  "key": "fetch",
+  "durationMs": 320,
+  "muzzle": [
+   58,
+   24
+  ],
+  "shellPort": [
+   42,
+   23
+  ],
+  "gunDeg": -14
+ },
+ {
+  "frame": 79,
+  "anim": "player_arm_r3_tether_reload",
+  "step": 4,
+  "key": "seat",
+  "durationMs": 220,
+  "muzzle": [
+   58,
+   24
+  ],
+  "shellPort": [
+   42,
+   23
+  ],
+  "gunDeg": -14
+ },
+ {
+  "frame": 80,
+  "anim": "player_arm_r3_tether_reload",
+  "step": 5,
+  "key": "press",
+  "durationMs": 80,
+  "muzzle": [
+   58,
+   25
+  ],
+  "shellPort": [
+   42,
+   24
+  ],
+  "gunDeg": -14
+ },
+ {
+  "frame": 81,
+  "anim": "player_arm_r3_tether_reload",
+  "step": 6,
+  "key": "crank",
+  "durationMs": 110,
+  "muzzle": [
+   58,
+   24
+  ],
+  "shellPort": [
+   42,
+   23
+  ],
+  "gunDeg": -14
+ },
+ {
+  "frame": 82,
+  "anim": "player_arm_r3_tether_reload",
+  "step": 7,
+  "key": "crank2",
+  "durationMs": 110,
+  "muzzle": [
+   58,
+   24
+  ],
+  "shellPort": [
+   42,
+   23
+  ],
+  "gunDeg": -14
+ },
+ {
+  "frame": 83,
+  "anim": "player_arm_r3_tether_reload",
+  "step": 8,
+  "key": "settle",
+  "durationMs": 300,
+  "muzzle": [
+   61,
+   28
+  ],
+  "shellPort": [
+   45,
+   24
+  ],
+  "gunDeg": -3
+ },
+ {
+  "anims": {
+   "player_arm_r3_tether_aim": {
+    "frames": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     10,
+     11,
+     12,
+     13,
+     14,
+     15,
+     16,
+     17,
+     18,
+     19,
+     20,
+     21,
+     22,
+     23,
+     24
+    ],
+    "note": "pick by aim angle, not played"
+   },
+   "player_arm_r3_tether_fire": {
+    "frames": [
+     37,
+     62
+    ],
+    "durationsMs": [
+     45,
+     110
+    ],
+    "loop": false,
+    "perAim": true,
+    "perAimRule": "frame = 25*(phase+1) + aimFrame; after the last phase return to aimFrame",
+    "framesAt0Deg": [
+     37,
+     62
+    ]
+   },
+   "player_arm_r3_tether_reload": {
+    "frames": [
+     75,
+     76,
+     77,
+     78,
+     79,
+     80,
+     81,
+     82,
+     83
+    ],
+    "durationsMs": [
+     200,
+     160,
+     180,
+     320,
+     220,
+     80,
+     110,
+     110,
+     300
+    ],
+    "totalMs": 1680,
+    "keys": [
+     "grab",
+     "lift_off",
+     "toss",
+     "fetch",
+     "seat",
+     "press",
+     "crank",
+     "crank2",
+     "settle"
+    ],
+    "loop": false,
+    "perAim": false
+   }
+  },
+  "layout": {
+   "columns": 25,
+   "frameWidth": 64,
+   "frameHeight": 64,
+   "pivot": [
+    32,
+    32
+   ],
+   "rows": [
+    "aim 0..24 (-90..+90 step 7.5)",
+    "fire phase 0 (recoil peak) 25..49",
+    "fire phase 1 (recover) 50..74",
+    "fixed keys 75.. (reload)"
+   ]
+  },
+  "light": {
+   "normalMap": "player_arm_r3_tether_n.png",
+   "normalConvention": "RGB = (n+1)/2, x right, y UP, z to viewer (OpenGL); flipX -> negate R",
+   "bakedLight": "same as v02-player-arms: one top-front world light applied after rotating each piece; glow parts (cyan / violet / amber / acid / hot) are fixed colours",
+   "emissive": null,
+   "rim": {
+    "file": "player_arm_r3_tether_rim.png",
+    "layout": "3 blocks L / R / T, each the full sheet grid",
+    "frameIndex": "side * 100 + frame (side 0 = L, 1 = R, 2 = T); swap L/R when flipX",
+    "cells": 100
+   }
+  },
+  "reloadTiming": "durationsMs are nominal; scale the reload anim so totalMs == weapon reloadMs"
+ }
+]
